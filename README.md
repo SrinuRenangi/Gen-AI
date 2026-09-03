@@ -13,7 +13,7 @@ Welcome to the comprehensive, publication-grade study curriculum for **Generativ
 
 | Day | Module Title | Core Topics Covered | Status | Notes Link |
 | :---: | :--- | :--- | :---: | :---: |
-| **Day 01** | **Foundations of Deep Learning to Generative AI** | **ANN**, **CNN**, **RNN/LSTM**, **Reinforcement Learning**, **GANs**, **What is GenAI**, **Modalities (Text, Voice, Image, Video, Multimodal)** | ✅ **Complete** | [📖 Read Day 01 Notes](Day%201/README.md) |
+| **Day 01** | **Foundations of Deep Learning to Generative AI** | **ANN**, **CNN**, **RNN/LSTM**, **Reinforcement Learning**, **GANs**, **What is GenAI**, **Modalities (Text, Voice, Image, Video, Multimodal)** | ✅ **Complete** | [📖 Read Day 01 Notes](Day%201/Day_01_Deep_Learning_to_GenAI.md) |
 | **Day 02** | **The Transformer Revolution** | Attention Is All You Need, Scaled Dot-Product Self-Attention ($Q, K, V$), Multi-Head Attention, Positional Encodings, Tokenization (BPE) | ⏳ Up Next | Coming Soon |
 | **Day 03** | **Pre-training, SFT & Parameter-Efficient Fine-Tuning** | Causal Language Modeling, Supervised Fine-Tuning (SFT), LoRA, QLoRA, Quantization (bitsandbytes) | ⏳ Planned | Coming Soon |
 | **Day 04** | **Model Alignment & Advanced Reasoning** | RLHF, Direct Preference Optimization (DPO), Chain-of-Thought (CoT), Tree of Thoughts, Reasoning Models | ⏳ Planned | Coming Soon |
@@ -27,16 +27,16 @@ Welcome to the comprehensive, publication-grade study curriculum for **Generativ
 
 ```
 GEN AI COURSE/
-├── README.md                           # Main Course Hub & Syllabus Roadmap
-└── Day 1/                              # Day 01 Master Module
-    ├── README.md                       # Comprehensive Single-File Daily Notes
-    └── assets/                         # High-Resolution Architectural Diagrams
-        ├── ann_architecture.png        # Artificial Neural Networks (MLP)
-        ├── cnn_architecture.png        # Convolutional Neural Networks
-        ├── rnn_architecture.png        # Recurrent Neural Networks & LSTMs
-        ├── rl_framework.png            # Reinforcement Learning & RLHF Loop
-        ├── gan_architecture.png        # Generative Adversarial Networks
-        └── genai_modalities.png        # GenAI Ecosystem & Modality Landscape
+├── README.md                                  # Main Course Hub & Syllabus Roadmap
+└── Day 1/                                     # Day 01 Master Module
+    ├── Day_01_Deep_Learning_to_GenAI.md       # Comprehensive Single-File Daily Notes
+    └── assets/                                # High-Resolution Architectural Diagrams
+        ├── ann_architecture.png               # Artificial Neural Networks (MLP)
+        ├── cnn_architecture.png               # Convolutional Neural Networks
+        ├── rnn_architecture.png               # Recurrent Neural Networks & LSTMs
+        ├── rl_framework.png                   # Reinforcement Learning & RLHF Loop
+        ├── gan_architecture.png               # Generative Adversarial Networks
+        └── genai_modalities.png               # GenAI Ecosystem & Modality Landscape
 ```
 
 ---
@@ -47,4 +47,4 @@ GEN AI COURSE/
 3. **Visual First**: Every major model includes a custom architectural blueprint and interactive Mermaid diagram.
 4. **GitHub Optimized**: Formatted for smooth readability on desktop or mobile via GitHub's markdown viewer.
 
-👉 **Start learning now:** [Jump to Day 01 Notes](Day%201/README.md)
+👉 **Start learning now:** [Jump to Day 01 Notes](Day%201/Day_01_Deep_Learning_to_GenAI.md)

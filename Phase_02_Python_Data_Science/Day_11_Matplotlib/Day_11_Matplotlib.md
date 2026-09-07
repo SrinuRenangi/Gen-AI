@@ -62,6 +62,15 @@ Imagine a doctor examining a patient with a broken leg:
 
 Never trust summary numbers alone. **Always look at the picture!**
 
+![Anatomy of a Matplotlib Plot](assets/matplotlib_anatomy_figure_axes.svg)
+
+> [!NOTE]
+> **Teacher's Mental Model: The Picture Frame vs. The Canvas Inside**
+> In Matplotlib, always remember the distinction between:
+> 1. **Figure (`fig`)**: The wooden picture frame hanging on your wall (the entire window/file).
+> 2. **Axes (`ax`)**: The canvas stretched inside the frame where you actually paint lines, bars, and titles!
+> When writing professional code, use `fig, ax = plt.subplots()` so you have direct control over both!
+
 ---
 
 # 2. The 4 Essential Charts in AI Engineering

@@ -67,20 +67,40 @@ Every software engineer knows Microsoft Excel:
 
 Pandas has only two main data structures you need to master:
 
-```
-           PANDAS SERIES (1D)                 PANDAS DATAFRAME (2D)
-           
-              Age (Column)                   Name      Age     Salary
-           ┌──────────────┐               ┌─────────┬───────┬──────────┐
-         0 │      25      │             0 │ Rahul   │   25  │  60,000  │
-         1 │      30      │             1 │ Sneha   │   30  │  85,000  │
-         2 │      28      │             2 │ Aman    │   28  │  72,000  │
-           └──────────────┘               └─────────┴───────┴──────────┘
-           A single column!               A table of multiple columns!
-```
+![Anatomy of a Pandas DataFrame & Series](assets/pandas_dataframe_anatomy.svg)
 
-1. **Series**: A single column of data with an index. Think of it as a 1D NumPy vector with labels!
-2. **DataFrame**: The entire 2D table. Think of it as a 2D NumPy matrix where every column has a name (`"Age"`, `"Salary"`) and every row has an index (`0, 1, 2`).
+1. **Series (1D)**: A single column of data with row labels (index). Think of it as a 1D NumPy vector with superpowers!
+2. **DataFrame (2D)**: The entire table. Think of it as a 2D NumPy matrix where every column has a name (`"Age"`, `"Salary"`) and every row has an index label.
+
+> [!NOTE]
+> **Teacher's Mental Model: Pandas is NumPy with a Passport**
+> Under the hood, every single column in a DataFrame is just a contiguous **NumPy array**!
+> Pandas simply wraps that array with human-readable labels:
+> - `df.values` extracts the raw underlying NumPy 2D array.
+> - `df.columns` gives you the column names.
+> - `df.index` gives you the row identifiers.
+
+---
+
+### Accessing Data: `.loc` vs `.iloc` (The Two Doors into Any Cell)
+
+Beginners often get confused about how to pick a specific cell or row in Pandas. There are two explicit ways:
+
+| Method | How it Works | Example | Mental Model |
+| :---: | :--- | :--- | :--- |
+| **`.loc`** | By **LABEL** (Column names and index names) | `df.loc[1, "Salary"]` | "Find row with label 1, and column named 'Salary'" |
+| **`.iloc`** | By **INTEGER POSITION** (0-based coordinates like NumPy) | `df.iloc[1, 2]` | "Row 1 (second row), Column 2 (third column)" |
+
+```python
+# Suppose df is our employee table:
+# Rahul (0), Sneha (1), Aman (2)...
+
+# 1. Using .loc (By name):
+sneha_salary = df.loc[1, "Salary"]  # 120000
+
+# 2. Using .iloc (By pure coordinates):
+sneha_salary_coord = df.iloc[1, 4]  # 120000 (Row 1, Column 4)
+```
 
 ---
 

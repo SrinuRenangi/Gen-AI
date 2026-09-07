@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="950" height="500" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="2"/>
+
+  <!-- Title Badge -->
+  <rect x="230" y="20" width="490" height="42" rx="21" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="475" y="47" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+    🐼 Anatomy of a Pandas DataFrame & Series
+  </text>
+
+  <!-- Subtitle -->
+  <text x="475" y="84" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" text-anchor="middle">
+    Index (Row Labels) + Columns (Headers) + 2D Values (NumPy Array under the hood)
+  </text>
+
+  <!-- Main DataFrame Grid (Left Side) -->
+  <g transform="translate(60, 110)">
+    <!-- Column Headers -->
+    <rect x="110" y="0" width="105" height="34" rx="6" fill="#047857" fill-opacity="0.25" stroke="#10b981" stroke-width="1.5"/>
+    <text x="162" y="22" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Age</text>
+
+    <rect x="225" y="0" width="105" height="34" rx="6" fill="#047857" fill-opacity="0.25" stroke="#10b981" stroke-width="1.5"/>
+    <text x="277" y="22" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Salary (₹)</text>
+
+    <rect x="340" y="0" width="105" height="34" rx="6" fill="#047857" fill-opacity="0.25" stroke="#10b981" stroke-width="1.5"/>
+    <text x="392" y="22" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" text-anchor="middle">City</text>
+
+    <text x="277" y="-10" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" text-anchor="middle">df.columns (Headers)</text>
+
+    <!-- Index Column (Leftmost) -->
+    <rect x="10" y="44" width="85" height="50" rx="6" fill="#1d4ed8" fill-opacity="0.25" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="52" y="74" fill="#60a5fa" font-family="monospace" font-size="14" font-weight="700" text-anchor="middle">0 (Alice)</text>
+
+    <rect x="10" y="104" width="85" height="50" rx="6" fill="#1d4ed8" fill-opacity="0.25" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="52" y="134" fill="#60a5fa" font-family="monospace" font-size="14" font-weight="700" text-anchor="middle">1 (Bob)</text>
+
+    <rect x="10" y="164" width="85" height="50" rx="6" fill="#1d4ed8" fill-opacity="0.25" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="52" y="194" fill="#60a5fa" font-family="monospace" font-size="14" font-weight="700" text-anchor="middle">2 (Charlie)</text>
+
+    <text x="52" y="235" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" text-anchor="middle">df.index (Labels)</text>
+
+    <!-- Table Body Cells -->
+    <!-- Row 0 -->
+    <rect x="110" y="44" width="105" height="50" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="162" y="74" fill="#f8fafc" font-family="monospace" font-size="15" text-anchor="middle">25</text>
+
+    <rect x="225" y="44" width="105" height="50" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="277" y="74" fill="#f8fafc" font-family="monospace" font-size="15" text-anchor="middle">75,000</text>
+
+    <rect x="340" y="44" width="105" height="50" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="392" y="74" fill="#f8fafc" font-family="monospace" font-size="15" text-anchor="middle">'Mumbai'</text>
+
+    <!-- Row 1 (Bob - Highlighted) -->
+    <rect x="110" y="104" width="105" height="50" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="162" y="134" fill="#f8fafc" font-family="monospace" font-size="15" text-anchor="middle">32</text>
+
+    <rect x="225" y="104" width="105" height="50" rx="6" fill="#b45309" fill-opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
+    <text x="277" y="134" fill="#fbbf24" font-family="monospace" font-size="16" font-weight="700" text-anchor="middle">120,000</text>
+
+    <rect x="340" y="104" width="105" height="50" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="392" y="134" fill="#f8fafc" font-family="monospace" font-size="15" text-anchor="middle">'Bengaluru'</text>
+
+    <!-- Row 2 -->
+    <rect x="110" y="164" width="105" height="50" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="162" y="194" fill="#f8fafc" font-family="monospace" font-size="15" text-anchor="middle">29</text>
+
+    <rect x="225" y="164" width="105" height="50" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="277" y="194" fill="#f8fafc" font-family="monospace" font-size="15" text-anchor="middle">92,000</text>
+
+    <rect x="340" y="164" width="105" height="50" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="392" y="194" fill="#f8fafc" font-family="monospace" font-size="15" text-anchor="middle">'Hyderabad'</text>
+  </g>
+
+  <!-- Right Side: Explanation Cards -->
+  <g transform="translate(530, 110)">
+    <!-- Card 1: Series vs DataFrame -->
+    <rect width="360" height="135" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="20" y="28" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">📦 Series vs. DataFrame</text>
+    <text x="20" y="55" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">• <tspan fill="#34d399" font-weight="600">Series (1D):</tspan> A single column (e.g. `df['Salary']`)</text>
+    <text x="20" y="75" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">• <tspan fill="#60a5fa" font-weight="600">DataFrame (2D):</tspan> Multiple Series sharing one Index</text>
+    <text x="20" y="98" fill="#fbbf24" font-family="monospace" font-size="11">df.values → Returns underlying NumPy matrix!</text>
+    <text x="20" y="120" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Pandas adds column names &amp; labels to NumPy speed!</text>
+
+    <!-- Card 2: loc vs iloc -->
+    <rect y="150" width="360" height="145" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="20" y="178" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">🎯 .loc vs .iloc (The Great Distinction)</text>
+    <text x="20" y="205" fill="#e2e8f0" font-family="monospace" font-size="12"><tspan fill="#38bdf8">.loc</tspan>['Bob', 'Salary'] # By LABEL</text>
+    <text x="20" y="228" fill="#e2e8f0" font-family="monospace" font-size="12"><tspan fill="#34d399">.iloc</tspan>[1, 1]            # By INTEGER position</text>
+    <text x="20" y="258" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Both target the highlighted cell (₹120,000)!</text>
+    <text x="20" y="278" fill="#f87171" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Rule: Use .loc for column names, .iloc for pure coordinates</text>
+  </g>
+
+  <!-- Bottom Tip Banner -->
+  <rect x="60" y="445" width="830" height="35" rx="6" fill="#0b1329" stroke="#334155" stroke-width="1"/>
+  <text x="475" y="468" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" text-anchor="middle">
+    💡 <tspan fill="#38bdf8" font-weight="600">In Machine Learning:</tspan> We use Pandas to load raw CSVs, handle missing values (`NaN`), and export clean `X, y` matrices for training!
+  </text>
+</svg>

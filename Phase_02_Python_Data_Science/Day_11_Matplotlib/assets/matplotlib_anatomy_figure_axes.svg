@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 520" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="950" height="520" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="2"/>
+
+  <!-- Title Badge -->
+  <rect x="230" y="20" width="490" height="42" rx="21" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="475" y="47" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+    🎨 Anatomy of a Matplotlib Plot: Figure vs. Axes
+  </text>
+
+  <!-- Subtitle -->
+  <text x="475" y="84" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" text-anchor="middle">
+    The Figure is the overall picture canvas; the Axes is the actual plot/chart box inside
+  </text>
+
+  <!-- The Figure Outer Canvas Boundary -->
+  <g transform="translate(60, 110)">
+    <rect width="520" height="340" rx="12" fill="#0b1329" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="25" y="30" fill="#60a5fa" font-family="monospace" font-size="14" font-weight="700">fig (The Figure Canvas)</text>
+
+    <!-- The Inner Axes Box -->
+    <rect x="70" y="55" width="410" height="230" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="85" y="80" fill="#34d399" font-family="monospace" font-size="13" font-weight="700">ax (The Axes Plot Area)</text>
+
+    <!-- Grid lines -->
+    <line x1="70" y1="130" x2="480" y2="130" stroke="#334155" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="70" y1="190" x2="480" y2="190" stroke="#334155" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="170" y1="55" x2="170" y2="285" stroke="#334155" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="290" y1="55" x2="290" y2="285" stroke="#334155" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="400" y1="55" x2="400" y2="285" stroke="#334155" stroke-width="1" stroke-dasharray="2 2"/>
+
+    <!-- Plot Title -->
+    <text x="275" y="80" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+      Model Training Loss (ax.set_title)
+    </text>
+
+    <!-- Plotted Curves (Loss Drop) -->
+    <path d="M 100 100 Q 180 230 440 260" fill="none" stroke="#ef4444" stroke-width="3"/>
+    <path d="M 100 130 Q 200 240 440 270" fill="none" stroke="#38bdf8" stroke-width="3"/>
+
+    <!-- Legend Box -->
+    <rect x="340" y="95" width="130" height="55" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+    <line x1="350" y1="112" x2="375" y2="112" stroke="#ef4444" stroke-width="2.5"/>
+    <text x="385" y="116" fill="#e2e8f0" font-family="monospace" font-size="10">Train Loss</text>
+    <line x1="350" y1="135" x2="375" y2="135" stroke="#38bdf8" stroke-width="2.5"/>
+    <text x="385" y="139" fill="#e2e8f0" font-family="monospace" font-size="10">Val Loss</text>
+
+    <!-- Y-Axis Label -->
+    <text x="25" y="170" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600" transform="rotate(-90 25 170)" text-anchor="middle">
+      ax.set_ylabel("Loss")
+    </text>
+
+    <!-- X-Axis Label -->
+    <text x="275" y="315" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600" text-anchor="middle">
+      ax.set_xlabel("Training Epochs")
+    </text>
+  </g>
+
+  <!-- Right Side: Explanation Hierarchy Cards -->
+  <g transform="translate(610, 110)">
+    <!-- Card 1: The Object-Oriented Hierarchy -->
+    <rect width="290" height="150" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="20" y="28" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">🏛️ The Two Core Objects</text>
+    <text x="20" y="55" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">• <tspan fill="#60a5fa" font-weight="600">Figure (`fig`):</tspan> The whole image window.</text>
+    <text x="20" y="75" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">• <tspan fill="#34d399" font-weight="600">Axes (`ax`):</tspan> The actual chart area with data.</text>
+    <text x="20" y="100" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">A single Figure can contain multiple Axes (e.g. subplots side-by-side)!</text>
+    <text x="20" y="130" fill="#fbbf24" font-family="monospace" font-size="11">fig, ax = plt.subplots()</text>
+
+    <!-- Card 2: Essential Methods Cheatsheet -->
+    <rect y="165" width="290" height="155" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="20" y="193" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">⚡ Best-Practice Methods</text>
+    <text x="20" y="220" fill="#e2e8f0" font-family="monospace" font-size="11">ax.plot(x, y, label="...")</text>
+    <text x="20" y="243" fill="#e2e8f0" font-family="monospace" font-size="11">ax.set_title("Title")</text>
+    <text x="20" y="266" fill="#e2e8f0" font-family="monospace" font-size="11">ax.set_xlabel("X Axis")</text>
+    <text x="20" y="289" fill="#e2e8f0" font-family="monospace" font-size="11">ax.legend()</text>
+    <text x="20" y="310" fill="#cbd5e1" font-family="monospace" font-size="11">plt.tight_layout()</text>
+  </g>
+
+  <!-- Bottom Tip Banner -->
+  <rect x="60" y="465" width="840" height="32" rx="6" fill="#0b1329" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="486" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" text-anchor="middle">
+    💡 <tspan fill="#38bdf8" font-weight="600">In Deep Learning:</tspan> We use Matplotlib to plot loss curves and accuracy metrics during model training to diagnose overfitting!
+  </text>
+</svg>

@@ -78,15 +78,11 @@ This is what **NumPy** does:
 
 To understand why NumPy is so fast, look at how data is stored in your computer's RAM:
 
+![Memory Layout: Python List vs NumPy Array](assets/python_list_vs_numpy_memory.svg)
+
 ### Pure Python List: `[10, 20, 30]`
 In Python, everything is a heavy object. A Python list does NOT store the numbers directly; it stores **pointers (memory addresses)** that point to numbers scattered randomly across your computer's RAM!
 
-```
-Python List in RAM:
-[ Pointer 1 ] ──────► (Full Integer Object: 28 bytes in RAM)
-[ Pointer 2 ] ──────────────► (Full Integer Object: 28 bytes in RAM)
-[ Pointer 3 ] ──► (Full Integer Object: 28 bytes in RAM)
-```
 Every time Python accesses an item in a list:
 1. It must jump to a new memory address (causing CPU cache misses).
 2. It must check what type of object it is (`int`, `str`, `float`?).
@@ -99,13 +95,12 @@ In NumPy, all elements must share the **exact same data type** (e.g. 64-bit inte
 
 Because of this, NumPy packs the raw numbers into a single, **unbroken, contiguous block of memory**:
 
-```
-NumPy Array in RAM:
-┌──────────┬──────────┬──────────┐
-│    10    │    20    │    30    │  <-- Packed side-by-side in raw binary!
-└──────────┴──────────┴──────────┘
-```
-The CPU can load the entire block into high-speed CPU cache in **one clock cycle** and process all of them together!
+The CPU can load the entire block into high-speed CPU cache in **one clock cycle** and process all of them together using hardware SIMD vector instructions!
+
+> [!NOTE]
+> **Teacher's Mental Model: Scattered Paper Receipts vs A Steel Ledger**
+> - A Python list is like having 1,000 grocery receipts scattered all over your bedroom floor. To sum them up, you have to walk to 1,000 different spots in the room.
+> - A NumPy array is like having all 1,000 numbers neatly etched side-by-side into a single steel ledger. You can scan your finger across it in a single fluid motion!
 
 ---
 
@@ -351,23 +346,28 @@ print("2x2 sub-grid:\n", grid[0:2, 1:3])
 
 # 8. Broadcasting: NumPy's Secret Superpower
 
-What happens if you try to add a **Matrix** of shape `(3, 3)` and a **Vector** of shape `(3,)`?
+What happens if you try to add a **Matrix** of shape `(3, 3)` and a **Vector** of shape `(1, 3)` or `(3,)`?
 
-In pure mathematics, you cannot add them because their shapes don't match.
+In pure high school mathematics, you cannot add them because their shapes don't match.
 In NumPy, it works effortlessly thanks to **Broadcasting**!
 
 > **Broadcasting automatically "stretches" the smaller array across the larger array so their shapes match, without making wasteful copies in memory!**
 
-```
-Matrix (3x3):            Vector (3,):                Result (3x3):
-┌───┬───┬───┐            ┌───┬───┬───┐              ┌───┬───┬───┐
-│ 1 │ 2 │ 3 │            │10 │20 │30 │              │11 │22 │33 │
-├───┼───┼───┤     +      └───┴───┴───┘       =      ├───┼───┼───┤
-│ 4 │ 5 │ 6 │         (NumPy automatically          │14 │25 │36 │
-├───┼───┼───┤          stretches this vector        ├───┼───┼───┤
-│ 7 │ 8 │ 9 │          to all 3 rows!)              │17 │28 │39 │
-└───┴───┴───┘                                       └───┴───┴───┘
-```
+![NumPy Broadcasting Rules](assets/numpy_broadcasting_rules.svg)
+
+### The 2 Rules of Broadcasting Compatibility:
+To determine if two arrays can broadcast together, compare their shapes **element-by-element starting from the RIGHT**:
+1. The dimensions are **equal**, OR
+2. One of the dimensions is **$1$**.
+
+If either condition is true for all trailing dimensions, they are compatible!
+
+| Shape A | Shape B | Compatible? | Resulting Shape |
+| :---: | :---: | :---: | :---: |
+| `(3, 3)` | `(1, 3)` | ✅ YES | `(3, 3)` (Stretched vertically) |
+| `(4, 1)` | `(1, 5)` | ✅ YES | `(4, 5)` (Both stretch!) |
+| `(64, 768)` | `(768,)` | ✅ YES | `(64, 768)` (Real neural network bias!) |
+| `(3, 3)` | `(2, 3)` | ❌ NO | Dimension mismatch: 3 != 2 and neither is 1 |
 
 ### Code Example:
 ```python

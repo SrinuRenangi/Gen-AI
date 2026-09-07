@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="rnn-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c026d3" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <marker id="fwd-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="h-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#c084fc" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    RECURRENT NEURAL NETWORKS (RNN): UNROLLING THROUGH TIME
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    How a Single Recurrent Cell Reuses Weights (W_xh, W_hh, W_hy) to Process Sequential Data
+  </text>
+
+  <!-- LEFT: FOLDED (COMPACT) REPRESENTATION -->
+  <g transform="translate(60, 110)" filter="url(#shadow)">
+    <rect width="220" height="360" rx="12" fill="#1e293b" stroke="#a855f7" stroke-width="1.5" />
+    <rect x="0" y="0" width="220" height="28" rx="12" fill="url(#rnn-grad)" />
+    <text x="110" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">FOLDED VIEW (THE RECURRENT LOOP)</text>
+
+    <!-- Output y -->
+    <circle cx="110" cy="80" r="18" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+    <text x="110" y="85" font-family="monospace" font-size="12" font-weight="800" fill="#34d399" text-anchor="middle">yₜ</text>
+
+    <line x1="110" y1="160" x2="110" y2="105" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arr)" />
+    <text x="135" y="135" font-family="monospace" font-size="10" fill="#38bdf8">W_hy</text>
+
+    <!-- The Recurrent Node -->
+    <rect x="65" y="160" width="90" height="70" rx="8" fill="#0f172a" stroke="#c084fc" stroke-width="2" />
+    <text x="110" y="190" font-family="monospace" font-size="16" font-weight="900" fill="#e9d5ff" text-anchor="middle">hₜ</text>
+    <text x="110" y="210" font-family="sans-serif" font-size="9" fill="#c084fc" text-anchor="middle">tanh cell</text>
+
+    <!-- Recurrent self-loop arrow -->
+    <path d="M 155 180 C 195 160, 195 230, 158 215" stroke="#c084fc" stroke-width="2.5" fill="none" marker-end="url(#h-arr)" />
+    <text x="200" y="200" font-family="monospace" font-size="11" font-weight="800" fill="#c084fc">W_hh</text>
+
+    <!-- Input x -->
+    <line x1="110" y1="280" x2="110" y2="235" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arr)" />
+    <text x="135" y="260" font-family="monospace" font-size="10" fill="#38bdf8">W_xh</text>
+
+    <circle cx="110" cy="300" r="18" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+    <text x="110" y="305" font-family="monospace" font-size="12" font-weight="800" fill="#38bdf8" text-anchor="middle">xₜ</text>
+
+    <rect x="15" y="330" width="190" height="20" rx="4" fill="#0f172a" />
+    <text x="105" y="344" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Persistent Memory State</text>
+  </g>
+
+  <!-- Big Unroll Arrow -->
+  <g transform="translate(295, 270)">
+    <text x="10" y="10" font-family="sans-serif" font-size="24" font-weight="900" fill="#cbd5e1" text-anchor="middle">&rarr;</text>
+    <text x="10" y="-12" font-family="sans-serif" font-size="9" font-weight="800" fill="#c084fc" text-anchor="middle">UNROLL</text>
+  </g>
+
+  <!-- RIGHT: UNROLLED VIEW ACROSS TIME STEPS (t=1, t=2, t=3) -->
+  <g transform="translate(330, 110)" filter="url(#shadow)">
+    <rect width="570" height="360" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <rect x="0" y="0" width="570" height="28" rx="12" fill="#334155" />
+    <text x="285" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+      UNROLLED VIEW: DATA FLOWS ACROSS TIME STEPS t=1, 2, 3
+    </text>
+
+    <!-- Initial Hidden State h0 -->
+    <rect x="15" y="175" width="40" height="40" rx="4" fill="#0f172a" stroke="#64748b" />
+    <text x="35" y="200" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">h₀=0</text>
+
+    <line x1="55" y1="195" x2="85" y2="195" stroke="#c084fc" stroke-width="2.5" marker-end="url(#h-arr)" />
+
+    <!-- TIME STEP 1 (e.g. word "The") -->
+    <g transform="translate(90, 45)">
+      <!-- Output y1 -->
+      <circle cx="45" cy="35" r="16" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+      <text x="45" y="40" font-family="monospace" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">y₁</text>
+
+      <line x1="45" y1="110" x2="45" y2="57" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+
+      <!-- Cell h1 -->
+      <rect x="5" y="115" width="80" height="70" rx="6" fill="#0f172a" stroke="#c084fc" stroke-width="2" />
+      <text x="45" y="145" font-family="monospace" font-size="14" font-weight="900" fill="#e9d5ff" text-anchor="middle">h₁</text>
+      <text x="45" y="165" font-family="sans-serif" font-size="8" fill="#c084fc" text-anchor="middle">tanh(W·x+W·h)</text>
+
+      <!-- Input x1 -->
+      <line x1="45" y1="230" x2="45" y2="190" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+      <circle cx="45" cy="245" r="16" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="45" y="250" font-family="monospace" font-size="11" font-weight="800" fill="#38bdf8" text-anchor="middle">x₁</text>
+      <text x="45" y="275" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8" text-anchor="middle">"The"</text>
+    </g>
+
+    <!-- Connector h1 -> h2 -->
+    <line x1="175" y1="195" x2="235" y2="195" stroke="#c084fc" stroke-width="3" marker-end="url(#h-arr)" />
+    <text x="205" y="185" font-family="monospace" font-size="9" fill="#c084fc" text-anchor="middle">W_hh</text>
+
+    <!-- TIME STEP 2 (e.g. word "cat") -->
+    <g transform="translate(240, 45)">
+      <!-- Output y2 -->
+      <circle cx="45" cy="35" r="16" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+      <text x="45" y="40" font-family="monospace" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">y₂</text>
+
+      <line x1="45" y1="110" x2="45" y2="57" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+
+      <!-- Cell h2 -->
+      <rect x="5" y="115" width="80" height="70" rx="6" fill="#0f172a" stroke="#c084fc" stroke-width="2" />
+      <text x="45" y="145" font-family="monospace" font-size="14" font-weight="900" fill="#e9d5ff" text-anchor="middle">h₂</text>
+      <text x="45" y="165" font-family="sans-serif" font-size="8" fill="#c084fc" text-anchor="middle">tanh(W·x+W·h)</text>
+
+      <!-- Input x2 -->
+      <line x1="45" y1="230" x2="45" y2="190" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+      <circle cx="45" cy="245" r="16" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="45" y="250" font-family="monospace" font-size="11" font-weight="800" fill="#38bdf8" text-anchor="middle">x₂</text>
+      <text x="45" y="275" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8" text-anchor="middle">"cat"</text>
+    </g>
+
+    <!-- Connector h2 -> h3 -->
+    <line x1="325" y1="195" x2="385" y2="195" stroke="#c084fc" stroke-width="3" marker-end="url(#h-arr)" />
+    <text x="355" y="185" font-family="monospace" font-size="9" fill="#c084fc" text-anchor="middle">W_hh</text>
+
+    <!-- TIME STEP 3 (e.g. word "sat") -->
+    <g transform="translate(390, 45)">
+      <!-- Output y3 -->
+      <circle cx="45" cy="35" r="16" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+      <text x="45" y="40" font-family="monospace" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">y₃</text>
+
+      <line x1="45" y1="110" x2="45" y2="57" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+
+      <!-- Cell h3 -->
+      <rect x="5" y="115" width="80" height="70" rx="6" fill="#0f172a" stroke="#c084fc" stroke-width="2" />
+      <text x="45" y="145" font-family="monospace" font-size="14" font-weight="900" fill="#e9d5ff" text-anchor="middle">h₃</text>
+      <text x="45" y="165" font-family="sans-serif" font-size="8" fill="#c084fc" text-anchor="middle">tanh(W·x+W·h)</text>
+
+      <!-- Input x3 -->
+      <line x1="45" y1="230" x2="45" y2="190" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+      <circle cx="45" cy="245" r="16" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="45" y="250" font-family="monospace" font-size="11" font-weight="800" fill="#38bdf8" text-anchor="middle">x₃</text>
+      <text x="45" y="275" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8" text-anchor="middle">"sat"</text>
+    </g>
+
+    <!-- Trailing ellipsis -->
+    <line x1="475" y1="195" x2="520" y2="195" stroke="#c084fc" stroke-width="2" stroke-dasharray="3,3" />
+    <text x="545" y="200" font-family="sans-serif" font-size="14" fill="#94a3b8">&bull;&bull;&bull;</text>
+
+    <!-- Bottom Equation Box -->
+    <rect x="25" y="325" width="520" height="26" rx="4" fill="#0f172a" />
+    <text x="285" y="342" font-family="monospace" font-size="10" font-weight="700" fill="#facc15" text-anchor="middle">
+      hₜ = tanh( W_xh &middot; xₜ + W_hh &middot; hₜ₋₁ + b_h ) &nbsp;|&nbsp; yₜ = Softmax( W_hy &middot; hₜ + b_y )
+    </text>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#c084fc" font-weight="700">The Power of Sequential Memory: </tspan> The hidden state <tspan fill="#f1f5f9" font-family="monospace">hₜ</tspan> is a cumulative summary of everything read from step 1 up to time step <tspan fill="#f1f5f9" font-family="monospace">t</tspan>.
+  </text>
+</svg>

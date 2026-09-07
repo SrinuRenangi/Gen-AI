@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="skip-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <marker id="fwd-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="skip-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399" />
+    </marker>
+    <marker id="bwd-arr" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 8 1 L 0 5 L 8 9 z" fill="#ef4444" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE RESNET RESIDUAL BLOCK &amp; GRADIENT HIGHWAY
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    How the Identity Skip Connection F(x) + x Conquered the Degradation Problem (and Powered Transformers!)
+  </text>
+
+  <!-- Main Block Diagram -->
+  <g transform="translate(60, 95)">
+
+    <!-- LEFT SIDE: RESIDUAL BLOCK ANATOMY -->
+    <g transform="translate(0, 0)" filter="url(#shadow)">
+      <rect width="450" height="385" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      
+      <!-- Input x Node -->
+      <g transform="translate(190, 20)">
+        <circle cx="25" cy="20" r="18" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+        <text x="25" y="25" font-family="monospace" font-size="14" font-weight="800" fill="#38bdf8" text-anchor="middle">x</text>
+        <text x="55" y="24" font-family="sans-serif" font-size="11" fill="#94a3b8">Input Activation</text>
+      </g>
+
+      <!-- Main Path Split Arrow -->
+      <line x1="215" y1="40" x2="215" y2="70" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arr)" />
+
+      <!-- Layer 1: Weight Layer + ReLU -->
+      <g transform="translate(135, 75)">
+        <rect width="160" height="50" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1.5" />
+        <text x="80" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#38bdf8" text-anchor="middle">Weight Layer (Conv)</text>
+        <text x="80" y="38" font-family="monospace" font-size="9" fill="#93c5fd" text-anchor="middle">+ BatchNorm &amp; ReLU</text>
+      </g>
+
+      <!-- Arrow between layers -->
+      <line x1="215" y1="128" x2="215" y2="155" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arr)" />
+
+      <!-- Layer 2: Weight Layer -->
+      <g transform="translate(135, 160)">
+        <rect width="160" height="50" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1.5" />
+        <text x="80" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#38bdf8" text-anchor="middle">Weight Layer (Conv)</text>
+        <text x="80" y="38" font-family="monospace" font-size="9" fill="#93c5fd" text-anchor="middle">+ BatchNorm</text>
+      </g>
+
+      <text x="280" y="225" font-family="monospace" font-size="11" font-weight="700" fill="#f59e0b">F(x)</text>
+      <line x1="215" y1="212" x2="215" y2="245" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arr)" />
+
+      <!-- IDENTITY SKIP CONNECTION (GREEN HIGHWAY) -->
+      <!-- Bypasses layers completely from (215, 30) down to (215, 260) -->
+      <path d="M 195 25 C 60 25, 60 260, 195 260" stroke="#10b981" stroke-width="3.5" fill="none" marker-end="url(#skip-arr)" />
+      <rect x="40" y="130" width="80" height="34" rx="4" fill="#064e3b" stroke="#10b981" />
+      <text x="80" y="145" font-family="sans-serif" font-size="9" font-weight="800" fill="#34d399" text-anchor="middle">IDENTITY</text>
+      <text x="80" y="157" font-family="monospace" font-size="9" fill="#a7f3d0" text-anchor="middle">Shortcut: +x</text>
+
+      <!-- SUMMATION NODE (+) -->
+      <circle cx="215" cy="260" r="18" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" />
+      <text x="215" y="266" font-family="sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle">&oplus;</text>
+
+      <!-- Arrow to final ReLU -->
+      <line x1="215" y1="280" x2="215" y2="305" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arr)" />
+
+      <!-- Final ReLU Block -->
+      <g transform="translate(160, 310)">
+        <rect width="110" height="32" rx="6" fill="#0f172a" stroke="#818cf8" />
+        <text x="55" y="20" font-family="sans-serif" font-size="11" font-weight="700" fill="#a5b4fc" text-anchor="middle">ReLU</text>
+      </g>
+
+      <!-- Output result text -->
+      <text x="215" y="365" font-family="monospace" font-size="13" font-weight="900" fill="#34d399" text-anchor="middle">H(x) = F(x) + x</text>
+    </g>
+
+    <!-- RIGHT SIDE: THE GRADIENT SUPERHIGHWAY & IMPACT -->
+    <g transform="translate(480, 0)">
+
+      <!-- Card 1: The Calculus Magic Behind the "+1" -->
+      <g transform="translate(0, 0)" filter="url(#shadow)">
+        <rect width="360" height="150" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+        <rect x="0" y="0" width="360" height="26" rx="10" fill="#065f46" />
+        <text x="180" y="17" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">THE CALCULUS PROOF: WHY IT NEVER VANISHES</text>
+        
+        <g transform="translate(20, 38)">
+          <text x="0" y="18" font-family="monospace" font-size="13" font-weight="800" fill="#f8fafc">&part;Loss/&part;x = (&part;Loss/&part;H) &middot; (&part;H/&part;x)</text>
+          <text x="0" y="44" font-family="monospace" font-size="13" font-weight="800" fill="#34d399">&part;Loss/&part;x = (&part;Loss/&part;H) &middot; (&part;F/&part;x + 1.0)</text>
+          <text x="0" y="70" font-family="monospace" font-size="12" font-weight="700" fill="#facc15">= (&part;Loss/&part;H)&middot;(&part;F/&part;x) &nbsp;+&nbsp; (&part;Loss/&part;H)&middot;1.0</text>
+          <text x="0" y="94" font-family="sans-serif" font-size="11" fill="#cbd5e1">
+            Even if all layer weights vanish (&part;F/&part;x &rarr; 0), the gradient still flows through the <tspan fill="#34d399" font-weight="700">+1.0 highway</tspan> completely undiminished!
+          </text>
+        </g>
+      </g>
+
+      <!-- Card 2: Impact & Beyond -->
+      <g transform="translate(0, 165)" filter="url(#shadow)">
+        <rect width="360" height="220" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+        <text x="20" y="26" font-family="sans-serif" font-size="12" font-weight="800" fill="#f8fafc">HISTORICAL &amp; ARCHITECTURAL IMPACT</text>
+
+        <rect x="15" y="40" width="330" height="60" rx="6" fill="#0f172a" stroke="#0ea5e9" stroke-width="1" />
+        <text x="25" y="58" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8">1. Enabled 100+ Layer Networks (2015):</text>
+        <text x="25" y="74" font-family="sans-serif" font-size="10" fill="#cbd5e1">Smashed ImageNet error to 3.57% (beating humans!).</text>
+        <text x="25" y="90" font-family="sans-serif" font-size="9" fill="#94a3b8">ResNet-50 and ResNet-101 became the industry bedrock.</text>
+
+        <rect x="15" y="110" width="330" height="65" rx="6" fill="#0f172a" stroke="#ec4899" stroke-width="1.5" />
+        <text x="25" y="128" font-family="sans-serif" font-size="10" font-weight="800" fill="#f472b6">2. Direct Ancestor of Modern Transformers:</text>
+        <text x="25" y="146" font-family="sans-serif" font-size="10" fill="#cbd5e1">Every single Transformer block in <tspan fill="#f472b6" font-weight="700">GPT-4 &amp; Claude</tspan></text>
+        <text x="25" y="162" font-family="monospace" font-size="10" fill="#cbd5e1">uses: x + Attention(x) &amp; x + MLP(x)!</text>
+
+        <text x="25" y="196" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">
+          Zero Extra Parameters, Infinite Gradient Stability!
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#34d399" font-weight="700">The Power of Residuals: </tspan> It is always easier for a layer to learn small residual tweaks <tspan fill="#f1f5f9" font-family="monospace">F(x) &approx; 0</tspan> than to learn the entire identity transformation from scratch.
+  </text>
+</svg>

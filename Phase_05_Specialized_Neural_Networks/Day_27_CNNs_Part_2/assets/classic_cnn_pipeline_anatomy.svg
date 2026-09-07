@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="c1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="c2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="dense-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <marker id="fwd-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE COMPLETE CNN ARCHITECTURE: FROM PIXELS TO PREDICTIONS
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Feature Extraction (Conv &rarr; ReLU &rarr; Pool) Followed by Feature Classification (Flatten &rarr; Dense &rarr; Softmax)
+  </text>
+
+  <!-- Pipeline Flow -->
+  <g transform="translate(30, 100)">
+
+    <!-- 1. Input Image -->
+    <g transform="translate(0, 40)" filter="url(#shadow)">
+      <rect width="100" height="180" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+      <rect x="0" y="0" width="100" height="24" rx="8" fill="#0284c7" />
+      <text x="50" y="16" font-family="sans-serif" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">INPUT IMAGE</text>
+      
+      <!-- Image box (RGB) -->
+      <rect x="15" y="45" width="70" height="70" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="50" y="85" font-family="sans-serif" font-size="24" text-anchor="middle">🐱</text>
+      
+      <text x="50" y="135" font-family="monospace" font-size="10" fill="#38bdf8" text-anchor="middle">3 &times; 32 &times; 32</text>
+      <text x="50" y="152" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">(C &times; H &times; W)</text>
+      <text x="50" y="168" font-family="sans-serif" font-size="8" fill="#cbd5e1" text-anchor="middle">RGB Channels</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="105" y1="130" x2="135" y2="130" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+    <text x="120" y="118" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Conv</text>
+
+    <!-- 2. Block 1: Conv + Pool -->
+    <g transform="translate(145, 25)" filter="url(#shadow)">
+      <rect width="140" height="210" rx="8" fill="#1e293b" stroke="#0ea5e9" stroke-width="1.5" />
+      <rect x="0" y="0" width="140" height="24" rx="8" fill="url(#c1-grad)" />
+      <text x="70" y="16" font-family="sans-serif" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">BLOCK 1: LOW LEVEL</text>
+      
+      <!-- 16 Feature slices -->
+      <g transform="translate(25, 40)">
+        <rect x="0" y="0" width="60" height="60" rx="4" fill="#0369a1" stroke="#38bdf8" opacity="0.6" />
+        <rect x="8" y="8" width="60" height="60" rx="4" fill="#0284c7" stroke="#38bdf8" opacity="0.8" />
+        <rect x="16" y="16" width="60" height="60" rx="4" fill="#0ea5e9" stroke="#ffffff" />
+        <text x="46" y="52" font-family="sans-serif" font-size="10" font-weight="800" fill="#0f172a" text-anchor="middle">Edges</text>
+      </g>
+
+      <rect x="10" y="130" width="120" height="68" rx="4" fill="#0f172a" />
+      <text x="70" y="148" font-family="monospace" font-size="9" fill="#38bdf8" text-anchor="middle">Conv2d(3, 16, K=3)</text>
+      <text x="70" y="164" font-family="monospace" font-size="9" fill="#34d399" text-anchor="middle">ReLU + MaxPool</text>
+      <text x="70" y="182" font-family="monospace" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">16 &times; 16 &times; 16</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="290" y1="130" x2="320" y2="130" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+    <text x="305" y="118" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Conv</text>
+
+    <!-- 3. Block 2: Conv + Pool -->
+    <g transform="translate(330, 15)" filter="url(#shadow)">
+      <rect width="140" height="230" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="1.5" />
+      <rect x="0" y="0" width="140" height="24" rx="8" fill="url(#c2-grad)" />
+      <text x="70" y="16" font-family="sans-serif" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">BLOCK 2: MID LEVEL</text>
+      
+      <!-- 32 Feature slices (smaller spatial, deeper) -->
+      <g transform="translate(30, 40)">
+        <rect x="0" y="0" width="45" height="45" rx="3" fill="#6b21a8" stroke="#c084fc" opacity="0.6" />
+        <rect x="8" y="8" width="45" height="45" rx="3" fill="#7c3aed" stroke="#c084fc" opacity="0.8" />
+        <rect x="16" y="16" width="45" height="45" rx="3" fill="#a855f7" stroke="#ffffff" />
+        <text x="38" y="44" font-family="sans-serif" font-size="9" font-weight="800" fill="#0f172a" text-anchor="middle">Shapes</text>
+      </g>
+
+      <rect x="10" y="130" width="120" height="85" rx="4" fill="#0f172a" />
+      <text x="70" y="148" font-family="monospace" font-size="9" fill="#c084fc" text-anchor="middle">Conv2d(16, 32)</text>
+      <text x="70" y="164" font-family="monospace" font-size="9" fill="#34d399" text-anchor="middle">ReLU + MaxPool</text>
+      <text x="70" y="182" font-family="monospace" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">32 &times; 8 &times; 8</text>
+      <text x="70" y="200" font-family="sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Depth &uarr; | Space &darr;</text>
+    </g>
+
+    <!-- Arrow 3 -->
+    <line x1="475" y1="130" x2="505" y2="130" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+    <text x="490" y="118" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Flatten</text>
+
+    <!-- 4. Flattening Stage -->
+    <g transform="translate(515, 50)" filter="url(#shadow)">
+      <rect width="75" height="160" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1.5" />
+      <text x="37" y="20" font-family="sans-serif" font-size="9" font-weight="800" fill="#94a3b8" text-anchor="middle">FLATTEN</text>
+      
+      <!-- Long 1D column vector -->
+      <rect x="25" y="35" width="25" height="90" rx="4" fill="#0f172a" stroke="#cbd5e1" stroke-dasharray="2,2" />
+      <text x="37" y="70" font-family="sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">&bull;&bull;&bull;</text>
+      <text x="37" y="90" font-family="sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">&bull;&bull;&bull;</text>
+
+      <text x="37" y="142" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">2,048</text>
+      <text x="37" y="153" font-family="sans-serif" font-size="7" fill="#64748b" text-anchor="middle">(32&times;8&times;8)</text>
+    </g>
+
+    <!-- Arrow 4 -->
+    <line x1="595" y1="130" x2="625" y2="130" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+
+    <!-- 5. Fully Connected Classifier -->
+    <g transform="translate(635, 30)" filter="url(#shadow)">
+      <rect width="125" height="200" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+      <rect x="0" y="0" width="125" height="24" rx="8" fill="url(#dense-grad)" />
+      <text x="62" y="16" font-family="sans-serif" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">DENSE LAYERS</text>
+
+      <!-- Neurons -->
+      <g transform="translate(20, 35)">
+        <circle cx="15" cy="20" r="10" fill="#064e3b" stroke="#34d399" stroke-width="1.5" />
+        <circle cx="15" cy="50" r="10" fill="#064e3b" stroke="#34d399" stroke-width="1.5" />
+        <circle cx="15" cy="80" r="10" fill="#064e3b" stroke="#34d399" stroke-width="1.5" />
+        <circle cx="15" cy="110" r="10" fill="#064e3b" stroke="#34d399" stroke-width="1.5" />
+
+        <circle cx="70" cy="40" r="10" fill="#047857" stroke="#10b981" stroke-width="1.5" />
+        <circle cx="70" cy="90" r="10" fill="#047857" stroke="#10b981" stroke-width="1.5" />
+
+        <line x1="25" y1="20" x2="60" y2="40" stroke="#10b981" opacity="0.4" />
+        <line x1="25" y1="50" x2="60" y2="40" stroke="#10b981" opacity="0.4" />
+        <line x1="25" y1="80" x2="60" y2="90" stroke="#10b981" opacity="0.4" />
+        <line x1="25" y1="110" x2="60" y2="90" stroke="#10b981" opacity="0.4" />
+      </g>
+
+      <rect x="10" y="165" width="105" height="26" rx="4" fill="#0f172a" />
+      <text x="62" y="182" font-family="monospace" font-size="9" fill="#34d399" text-anchor="middle">Linear + Dropout</text>
+    </g>
+
+    <!-- Arrow 5 -->
+    <line x1="765" y1="130" x2="795" y2="130" stroke="#38bdf8" stroke-width="2" marker-end="url(#fwd-arr)" />
+
+    <!-- 6. Softmax Class Output -->
+    <g transform="translate(805, 45)" filter="url(#shadow)">
+      <rect width="95" height="170" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <rect x="0" y="0" width="95" height="24" rx="8" fill="#0284c7" />
+      <text x="47" y="16" font-family="sans-serif" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">SOFTMAX</text>
+
+      <g transform="translate(10, 35)">
+        <text x="0" y="20" font-family="sans-serif" font-size="10" fill="#cbd5e1">Cat:</text>
+        <rect x="0" y="25" width="75" height="14" rx="2" fill="#0f172a" />
+        <rect x="0" y="25" width="68" height="14" rx="2" fill="#10b981" />
+        <text x="40" y="36" font-family="monospace" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">91.4%</text>
+
+        <text x="0" y="60" font-family="sans-serif" font-size="10" fill="#94a3b8">Dog:</text>
+        <rect x="0" y="65" width="75" height="14" rx="2" fill="#0f172a" />
+        <rect x="0" y="65" width="6" height="14" rx="2" fill="#ef4444" />
+        <text x="40" y="76" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">6.1%</text>
+
+        <text x="0" y="100" font-family="sans-serif" font-size="10" fill="#94a3b8">Bird:</text>
+        <rect x="0" y="105" width="75" height="14" rx="2" fill="#0f172a" />
+        <rect x="0" y="105" width="3" height="14" rx="2" fill="#ef4444" />
+        <text x="40" y="116" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">2.5%</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#38bdf8" font-weight="700">The Golden Ratio of CNNs: </tspan> As feature maps pass through layers, <tspan fill="#fbbf24" font-weight="700">spatial dimensions shrink</tspan> (32 &rarr; 16 &rarr; 8) while <tspan fill="#34d399" font-weight="700">channel depth expands</tspan> (3 &rarr; 16 &rarr; 32 &rarr; 64).
+  </text>
+</svg>

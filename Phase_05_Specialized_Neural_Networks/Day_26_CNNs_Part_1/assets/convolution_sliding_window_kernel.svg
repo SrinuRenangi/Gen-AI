@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="kernel-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="feat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <marker id="fwd-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    ANATOMY OF A 2D CONVOLUTION (SLIDING WINDOW)
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    How a 3&times;3 Kernel Scans Pixel Receptive Fields to Produce an Output Feature Map
+  </text>
+
+  <g transform="translate(40, 95)">
+
+    <!-- 1. INPUT IMAGE (5x5 Grid) -->
+    <g transform="translate(10, 0)" filter="url(#shadow)">
+      <rect width="250" height="375" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+      <rect x="0" y="0" width="250" height="28" rx="10" fill="#0284c7" />
+      <text x="125" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        INPUT IMAGE (5&times;5 Pixels)
+      </text>
+
+      <!-- 5x5 Grid Cells (35x35 each) starting at (37, 45) -->
+      <g transform="translate(37, 45)">
+        <!-- Highlighted Active Receptive Field (Top-Left 3x3) -->
+        <rect x="0" y="0" width="105" height="105" rx="4" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="2.5" />
+
+        <!-- Row 0 -->
+        <rect x="0" y="0" width="35" height="35" fill="none" stroke="#475569" /><text x="17" y="22" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+        <rect x="35" y="0" width="35" height="35" fill="none" stroke="#475569" /><text x="52" y="22" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+        <rect x="70" y="0" width="35" height="35" fill="none" stroke="#475569" /><text x="87" y="22" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+        <rect x="105" y="0" width="35" height="35" fill="none" stroke="#334155" /><text x="122" y="22" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+        <rect x="140" y="0" width="35" height="35" fill="none" stroke="#334155" /><text x="157" y="22" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+
+        <!-- Row 1 -->
+        <rect x="0" y="35" width="35" height="35" fill="none" stroke="#475569" /><text x="17" y="57" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">0</text>
+        <rect x="35" y="35" width="35" height="35" fill="none" stroke="#475569" /><text x="52" y="57" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+        <rect x="70" y="35" width="35" height="35" fill="none" stroke="#475569" /><text x="87" y="57" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+        <rect x="105" y="35" width="35" height="35" fill="none" stroke="#334155" /><text x="122" y="57" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">1</text>
+        <rect x="140" y="35" width="35" height="35" fill="none" stroke="#334155" /><text x="157" y="57" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+
+        <!-- Row 2 -->
+        <rect x="0" y="70" width="35" height="35" fill="none" stroke="#475569" /><text x="17" y="92" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">0</text>
+        <rect x="35" y="70" width="35" height="35" fill="none" stroke="#475569" /><text x="52" y="92" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">0</text>
+        <rect x="70" y="70" width="35" height="35" fill="none" stroke="#475569" /><text x="87" y="92" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+        <rect x="105" y="70" width="35" height="35" fill="none" stroke="#334155" /><text x="122" y="92" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">1</text>
+        <rect x="140" y="70" width="35" height="35" fill="none" stroke="#334155" /><text x="157" y="92" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">1</text>
+
+        <!-- Row 3 -->
+        <rect x="0" y="105" width="35" height="35" fill="none" stroke="#334155" /><text x="17" y="127" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+        <rect x="35" y="105" width="35" height="35" fill="none" stroke="#334155" /><text x="52" y="127" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+        <rect x="70" y="105" width="35" height="35" fill="none" stroke="#334155" /><text x="87" y="127" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">1</text>
+        <rect x="105" y="105" width="35" height="35" fill="none" stroke="#334155" /><text x="122" y="127" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">1</text>
+        <rect x="140" y="105" width="35" height="35" fill="none" stroke="#334155" /><text x="157" y="127" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+
+        <!-- Row 4 -->
+        <rect x="0" y="140" width="35" height="35" fill="none" stroke="#334155" /><text x="17" y="162" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+        <rect x="35" y="140" width="35" height="35" fill="none" stroke="#334155" /><text x="52" y="162" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">1</text>
+        <rect x="70" y="140" width="35" height="35" fill="none" stroke="#334155" /><text x="87" y="162" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">1</text>
+        <rect x="105" y="140" width="35" height="35" fill="none" stroke="#334155" /><text x="122" y="162" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+        <rect x="140" y="140" width="35" height="35" fill="none" stroke="#334155" /><text x="157" y="162" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+      </g>
+
+      <!-- Subtext -->
+      <rect x="15" y="240" width="220" height="60" rx="4" fill="#0f172a" stroke="#334155" />
+      <text x="125" y="260" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8" text-anchor="middle">Current Receptive Field:</text>
+      <text x="125" y="278" font-family="monospace" font-size="10" fill="#cbd5e1" text-anchor="middle">3&times;3 pixel patch</text>
+      <text x="125" y="294" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Slides across image by Stride</text>
+    </g>
+
+    <!-- 2. CONVOLUTION KERNEL (3x3 Grid) -->
+    <g transform="translate(290, 45)" filter="url(#shadow)">
+      <text x="25" y="70" font-family="sans-serif" font-size="28" font-weight="900" fill="#f59e0b" text-anchor="middle">&otimes;</text>
+      
+      <g transform="translate(50, 0)">
+        <rect width="180" height="240" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+        <rect x="0" y="0" width="180" height="28" rx="10" fill="url(#kernel-grad)" />
+        <text x="90" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+          3&times;3 KERNEL / FILTER
+        </text>
+
+        <!-- 3x3 Kernel Cells -->
+        <g transform="translate(37, 45)">
+          <rect x="0" y="0" width="35" height="35" fill="#0f172a" stroke="#f59e0b" /><text x="17" y="22" font-family="monospace" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="middle">1</text>
+          <rect x="35" y="0" width="35" height="35" fill="#0f172a" stroke="#f59e0b" /><text x="52" y="22" font-family="monospace" font-size="12" font-weight="700" fill="#64748b" text-anchor="middle">0</text>
+          <rect x="70" y="0" width="35" height="35" fill="#0f172a" stroke="#f59e0b" /><text x="87" y="22" font-family="monospace" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="middle">1</text>
+
+          <rect x="0" y="35" width="35" height="35" fill="#0f172a" stroke="#f59e0b" /><text x="17" y="57" font-family="monospace" font-size="12" font-weight="700" fill="#64748b" text-anchor="middle">0</text>
+          <rect x="35" y="35" width="35" height="35" fill="#0f172a" stroke="#f59e0b" /><text x="52" y="57" font-family="monospace" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="middle">1</text>
+          <rect x="70" y="35" width="35" height="35" fill="#0f172a" stroke="#f59e0b" /><text x="87" y="57" font-family="monospace" font-size="12" font-weight="700" fill="#64748b" text-anchor="middle">0</text>
+
+          <rect x="0" y="70" width="35" height="35" fill="#0f172a" stroke="#f59e0b" /><text x="17" y="92" font-family="monospace" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="middle">1</text>
+          <rect x="35" y="70" width="35" height="35" fill="#0f172a" stroke="#f59e0b" /><text x="52" y="92" font-family="monospace" font-size="12" font-weight="700" fill="#64748b" text-anchor="middle">0</text>
+          <rect x="70" y="70" width="35" height="35" fill="#0f172a" stroke="#f59e0b" /><text x="87" y="92" font-family="monospace" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="middle">1</text>
+        </g>
+
+        <rect x="10" y="165" width="160" height="60" rx="4" fill="#0f172a" stroke="#334155" />
+        <text x="90" y="185" font-family="sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">Feature Detector:</text>
+        <text x="90" y="202" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">Diagonal edge detector</text>
+        <text x="90" y="218" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">9 learnable parameters</text>
+      </g>
+    </g>
+
+    <!-- Arrow to Output -->
+    <g transform="translate(540, 150)">
+      <line x1="0" y1="0" x2="45" y2="0" stroke="#10b981" stroke-width="3" marker-end="url(#fwd-arr)" />
+      <text x="22" y="-12" font-family="sans-serif" font-size="18" font-weight="900" fill="#10b981" text-anchor="middle">=</text>
+    </g>
+
+    <!-- 3. OUTPUT FEATURE MAP (3x3 Grid) -->
+    <g transform="translate(605, 0)" filter="url(#shadow)">
+      <rect width="265" height="375" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2" />
+      <rect x="0" y="0" width="265" height="28" rx="10" fill="url(#feat-grad)" />
+      <text x="132" y="19" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">
+        FEATURE MAP (3&times;3 Output)
+      </text>
+
+      <!-- 3x3 Feature Map Cells -->
+      <g transform="translate(75, 45)">
+        <!-- Top Left Highlight Cell (Result of current 3x3 window) -->
+        <rect x="0" y="0" width="38" height="38" rx="4" fill="#047857" stroke="#34d399" stroke-width="2" />
+        <text x="19" y="24" font-family="monospace" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle">4</text>
+
+        <!-- Other cells -->
+        <rect x="38" y="0" width="38" height="38" fill="#0f172a" stroke="#334155" /><text x="57" y="24" font-family="monospace" font-size="13" fill="#cbd5e1" text-anchor="middle">3</text>
+        <rect x="76" y="0" width="38" height="38" fill="#0f172a" stroke="#334155" /><text x="95" y="24" font-family="monospace" font-size="13" fill="#cbd5e1" text-anchor="middle">4</text>
+
+        <rect x="0" y="38" width="38" height="38" fill="#0f172a" stroke="#334155" /><text x="19" y="62" font-family="monospace" font-size="13" fill="#cbd5e1" text-anchor="middle">2</text>
+        <rect x="38" y="38" width="38" height="38" fill="#0f172a" stroke="#334155" /><text x="57" y="62" font-family="monospace" font-size="13" fill="#cbd5e1" text-anchor="middle">4</text>
+        <rect x="76" y="38" width="38" height="38" fill="#0f172a" stroke="#334155" /><text x="95" y="62" font-family="monospace" font-size="13" fill="#cbd5e1" text-anchor="middle">3</text>
+
+        <rect x="0" y="76" width="38" height="38" fill="#0f172a" stroke="#334155" /><text x="19" y="100" font-family="monospace" font-size="13" fill="#cbd5e1" text-anchor="middle">2</text>
+        <rect x="38" y="76" width="38" height="38" fill="#0f172a" stroke="#334155" /><text x="57" y="100" font-family="monospace" font-size="13" fill="#cbd5e1" text-anchor="middle">3</text>
+        <rect x="76" y="76" width="38" height="38" fill="#0f172a" stroke="#334155" /><text x="95" y="100" font-family="monospace" font-size="13" fill="#cbd5e1" text-anchor="middle">4</text>
+      </g>
+
+      <!-- Math Calculation Breakdown Box -->
+      <rect x="15" y="175" width="235" height="185" rx="6" fill="#0f172a" stroke="#10b981" />
+      <text x="25" y="196" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">How "4" Was Hand-Calculated:</text>
+      <text x="25" y="216" font-family="monospace" font-size="9" fill="#f8fafc">  (1&middot;1) + (1&middot;0) + (1&middot;1)  = 2</text>
+      <text x="25" y="234" font-family="monospace" font-size="9" fill="#f8fafc">+ (0&middot;0) + (1&middot;1) + (1&middot;0)  = 1</text>
+      <text x="25" y="252" font-family="monospace" font-size="9" fill="#f8fafc">+ (0&middot;1) + (0&middot;0) + (1&middot;1)  = 1</text>
+      <line x1="25" y1="262" x2="230" y2="262" stroke="#334155" />
+      <text x="25" y="280" font-family="monospace" font-size="11" font-weight="900" fill="#34d399">Sum = 2 + 1 + 1 = 4.0</text>
+      <text x="25" y="305" font-family="sans-serif" font-size="9" fill="#94a3b8">Output Dimension Formula:</text>
+      <text x="25" y="322" font-family="monospace" font-size="10" font-weight="700" fill="#38bdf8">O = (W - K + 2P)/S + 1</text>
+      <text x="25" y="340" font-family="monospace" font-size="9" fill="#94a3b8">O = (5 - 3 + 0)/1 + 1 = 3</text>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#38bdf8" font-weight="700">Weight Sharing Superpower: </tspan> The exact same 9 weights scan the entire image. Instead of 25,000,000 weights in a flat MLP, a CNN uses <tspan fill="#10b981" font-weight="700">just 9 weights</tspan>!
+  </text>
+</svg>

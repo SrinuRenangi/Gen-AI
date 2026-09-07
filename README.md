@@ -69,10 +69,10 @@
 
 | Day | Topic | Status |
 | :---: | :--- | :---: |
-| Day 26 | CNNs Part 1 — How Computers See Images | 🔲 |
-| Day 27 | CNNs Part 2 — Pooling, Architecture & Famous Models | 🔲 |
-| Day 28 | RNNs — Giving Neural Networks Memory for Sequences | 🔲 |
-| Day 29 | LSTMs & GRUs — Solving the Forgetting Problem | 🔲 |
+| [Day 26](Phase_05_Specialized_Neural_Networks/Day_26_CNNs_Part_1/Day_26_CNNs_Part_1.md) | CNNs Part 1 — How Computers See Images | ✅ |
+| [Day 27](Phase_05_Specialized_Neural_Networks/Day_27_CNNs_Part_2/Day_27_CNNs_Part_2.md) | CNNs Part 2 — Pooling, Architecture & Famous Models | ✅ |
+| [Day 28](Phase_05_Specialized_Neural_Networks/Day_28_RNNs/Day_28_RNNs.md) | RNNs — Giving Neural Networks Memory for Sequences | ✅ |
+| [Day 29](Phase_05_Specialized_Neural_Networks/Day_29_LSTMs_and_GRUs/Day_29_LSTMs_and_GRUs.md) | LSTMs & GRUs — Solving the Forgetting Problem | ✅ |
 
 ### 🟠 Phase 6: NLP & Text Processing Foundations (Days 30–33)
 

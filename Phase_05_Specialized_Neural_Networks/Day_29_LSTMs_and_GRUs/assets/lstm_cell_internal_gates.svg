@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="cell-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="belt-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    ANATOMY OF AN LSTM CELL (LONG SHORT-TERM MEMORY)
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    The Cell State Conveyor Belt (C_t) Regulated by Forget, Input, and Output Gates
+  </text>
+
+  <!-- Outer Cell Container Box -->
+  <g transform="translate(60, 95)" filter="url(#shadow)">
+    <rect width="840" height="385" rx="14" fill="#1e293b" stroke="#334155" stroke-width="2" />
+    <rect x="0" y="0" width="840" height="28" rx="14" fill="url(#cell-grad)" />
+    <text x="420" y="19" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">
+      LSTM MEMORY ENCLOSURE (HOCHREITER &amp; SCHMIDHUBER, 1997)
+    </text>
+
+    <!-- 1. CELL STATE CONVEYOR BELT (TOP HORIZONTAL HIGHWAY) -->
+    <!-- Line from left to right -->
+    <line x1="20" y1="80" x2="800" y2="80" stroke="#10b981" stroke-width="4" marker-end="url(#belt-arrow)" />
+    <text x="25" y="68" font-family="monospace" font-size="13" font-weight="900" fill="#34d399">Cₜ₋₁</text>
+    <text x="815" y="85" font-family="monospace" font-size="14" font-weight="900" fill="#34d399">Cₜ</text>
+    <rect x="360" y="55" width="160" height="22" rx="4" fill="#064e3b" stroke="#10b981" />
+    <text x="440" y="70" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0" text-anchor="middle">
+      CELL STATE CONVEYOR BELT
+    </text>
+
+    <!-- Point A on Belt: Multiplication (Forget Gate) -->
+    <circle cx="210" cy="80" r="16" fill="#1e3a8a" stroke="#38bdf8" stroke-width="2" />
+    <text x="210" y="86" font-family="sans-serif" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">&otimes;</text>
+
+    <!-- Point B on Belt: Addition (New Content Added) -->
+    <circle cx="480" cy="80" r="16" fill="#1e3a8a" stroke="#38bdf8" stroke-width="2" />
+    <text x="480" y="86" font-family="sans-serif" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">&oplus;</text>
+
+    <!-- 2. INCOMING SIGNALS (BOTTOM LEFT) -->
+    <!-- Hidden state h_(t-1) and Input x_t -->
+    <g transform="translate(30, 290)">
+      <line x1="0" y1="20" x2="60" y2="20" stroke="#c084fc" stroke-width="3" marker-end="url(#arrow)" />
+      <text x="-5" y="15" font-family="monospace" font-size="12" font-weight="800" fill="#c084fc">hₜ₋₁</text>
+
+      <line x1="30" y1="60" x2="30" y2="20" stroke="#38bdf8" stroke-width="3" />
+      <text x="30" y="78" font-family="monospace" font-size="12" font-weight="800" fill="#38bdf8" text-anchor="middle">xₜ</text>
+
+      <circle cx="30" cy="20" r="4" fill="#ffffff" />
+      <text x="40" y="10" font-family="sans-serif" font-size="9" fill="#94a3b8">Concatenate</text>
+    </g>
+
+    <!-- Distribution bus across all 4 gates -->
+    <line x1="90" y1="310" x2="700" y2="310" stroke="#64748b" stroke-width="2.5" />
+
+    <!-- GATE 1: FORGET GATE (Yellow) -->
+    <g transform="translate(160, 170)">
+      <line x1="50" y1="140" x2="50" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+      
+      <rect x="20" y="35" width="60" height="50" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="2" />
+      <text x="50" y="65" font-family="monospace" font-size="14" font-weight="900" fill="#fbbf24" text-anchor="middle">&sigma;</text>
+      
+      <!-- Arrow to Belt Point A -->
+      <line x1="50" y1="35" x2="50" y2="-74" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow)" />
+      <text x="65" y="-15" font-family="monospace" font-size="11" font-weight="800" fill="#fbbf24">fₜ</text>
+
+      <text x="50" y="105" font-family="sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">1. FORGET</text>
+      <text x="50" y="120" font-family="sans-serif" font-size="8" fill="#cbd5e1" text-anchor="middle">Erase old facts</text>
+    </g>
+
+    <!-- GATE 2: INPUT / CANDIDATE GATE (Blue & Green) -->
+    <!-- Sub-gate 2a: Input Gate (sigma) -->
+    <g transform="translate(320, 170)">
+      <line x1="40" y1="140" x2="40" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+      <rect x="15" y="35" width="50" height="50" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <text x="40" y="65" font-family="monospace" font-size="14" font-weight="900" fill="#38bdf8" text-anchor="middle">&sigma;</text>
+      <text x="40" y="105" font-family="sans-serif" font-size="9" font-weight="700" fill="#38bdf8" text-anchor="middle">Input Scale</text>
+      <text x="40" y="120" font-family="monospace" font-size="9" fill="#93c5fd" text-anchor="middle">iₜ &isin; [0, 1]</text>
+    </g>
+
+    <!-- Sub-gate 2b: Candidate Memory (tanh) -->
+    <g transform="translate(420, 170)">
+      <line x1="40" y1="140" x2="40" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+      <rect x="15" y="35" width="50" height="50" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="2" />
+      <text x="40" y="65" font-family="sans-serif" font-size="12" font-weight="900" fill="#34d399" text-anchor="middle">tanh</text>
+      <text x="40" y="105" font-family="sans-serif" font-size="9" font-weight="700" fill="#34d399" text-anchor="middle">Candidate</text>
+      <text x="40" y="120" font-family="monospace" font-size="9" fill="#a7f3d0" text-anchor="middle">C&#771;ₜ &isin; [-1, 1]</text>
+    </g>
+
+    <!-- Multiply i_t and C_tilde -->
+    <circle cx="480" cy="140" r="14" fill="#1e3a8a" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="480" y="145" font-family="sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">&otimes;</text>
+    
+    <line x1="390" y1="140" x2="466" y2="140" stroke="#38bdf8" stroke-width="2" />
+    <line x1="460" y1="170" x2="475" y2="152" stroke="#10b981" stroke-width="2" />
+    <!-- Connector up to Belt Point B -->
+    <line x1="480" y1="126" x2="480" y2="96" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow)" />
+    <text x="500" y="115" font-family="monospace" font-size="9" fill="#f8fafc">iₜ &middot; C&#771;ₜ</text>
+
+    <!-- GATE 3: OUTPUT GATE (Purple) -->
+    <g transform="translate(610, 170)">
+      <line x1="40" y1="140" x2="40" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+      <rect x="15" y="35" width="50" height="50" rx="6" fill="#0f172a" stroke="#c084fc" stroke-width="2" />
+      <text x="40" y="65" font-family="monospace" font-size="14" font-weight="900" fill="#c084fc" text-anchor="middle">&sigma;</text>
+      <text x="40" y="105" font-family="sans-serif" font-size="10" font-weight="700" fill="#c084fc" text-anchor="middle">3. OUTPUT</text>
+      <text x="40" y="120" font-family="sans-serif" font-size="8" fill="#cbd5e1" text-anchor="middle">Filter state</text>
+    </g>
+
+    <!-- Extracting h_t from Belt -->
+    <path d="M 680 80 C 720 80, 720 180, 720 190" stroke="#10b981" stroke-width="2.5" fill="none" />
+    <rect x="695" y="190" width="50" height="32" rx="4" fill="#0f172a" stroke="#10b981" />
+    <text x="720" y="210" font-family="sans-serif" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">tanh</text>
+
+    <!-- Multiplication with Output Gate -->
+    <circle cx="720" cy="255" r="14" fill="#1e3a8a" stroke="#c084fc" stroke-width="1.5" />
+    <text x="720" y="260" font-family="sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">&otimes;</text>
+    <line x1="720" y1="222" x2="720" y2="241" stroke="#10b981" stroke-width="2" />
+    <line x1="675" y1="205" x2="710" y2="245" stroke="#c084fc" stroke-width="2" />
+
+    <!-- Final Output Arrow (h_t) -->
+    <line x1="734" y1="255" x2="800" y2="255" stroke="#c084fc" stroke-width="3" marker-end="url(#arrow)" />
+    <text x="815" y="260" font-family="monospace" font-size="14" font-weight="900" fill="#c084fc">hₜ</text>
+    <text x="770" y="245" font-family="sans-serif" font-size="8" fill="#94a3b8">Working Memory</text>
+
+    <!-- Bottom Equation Box -->
+    <rect x="25" y="340" width="790" height="32" rx="4" fill="#0f172a" />
+    <text x="420" y="360" font-family="monospace" font-size="11" font-weight="700" fill="#facc15" text-anchor="middle">
+      Cₜ = fₜ &odot; Cₜ₋₁ + iₜ &odot; C&#771;ₜ &nbsp;&nbsp;|&nbsp;&nbsp; hₜ = oₜ &odot; tanh(Cₜ)
+    </text>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#34d399" font-weight="700">Zero Decay Highway: </tspan> Because the cell state <tspan fill="#f1f5f9" font-family="monospace">Cₜ</tspan> is updated by simple addition (&oplus;), gradients travel through 100+ time steps with <tspan fill="#34d399" font-weight="700">zero multiplicative decay</tspan>!
+  </text>
+</svg>

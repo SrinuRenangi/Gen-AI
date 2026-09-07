@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="lstm-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="gru-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    ARCHITECTURAL DUEL: LSTM vs GRU
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Comparing 3-Gate Heavy Expressiveness against 2-Gate Streamlined Computational Efficiency
+  </text>
+
+  <!-- MAIN COMPARISON PANELS -->
+  <g transform="translate(50, 95)">
+
+    <!-- LEFT PANEL: LSTM (3 GATES) -->
+    <g transform="translate(0, 0)" filter="url(#shadow)">
+      <rect width="410" height="385" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+      <rect x="0" y="0" width="410" height="32" rx="12" fill="url(#lstm-grad)" />
+      <text x="205" y="21" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        LSTM (LONG SHORT-TERM MEMORY — 1997)
+      </text>
+
+      <!-- Architecture Stats -->
+      <g transform="translate(20, 48)">
+        <rect width="370" height="95" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#34d399">The 3 Regulating Gates:</text>
+        <text x="15" y="42" font-family="monospace" font-size="10" fill="#cbd5e1">1. Forget Gate (fₜ) : What to delete</text>
+        <text x="15" y="60" font-family="monospace" font-size="10" fill="#cbd5e1">2. Input Gate  (iₜ) : What to write</text>
+        <text x="15" y="78" font-family="monospace" font-size="10" fill="#cbd5e1">3. Output Gate (oₜ) : What to reveal</text>
+      </g>
+
+      <!-- Memory States -->
+      <g transform="translate(20, 155)">
+        <rect width="370" height="75" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#38bdf8">Dual Memory Tracks:</text>
+        <text x="15" y="42" font-family="monospace" font-size="10" fill="#34d399">• Cₜ (Cell State)   : Long-Term Conveyor Belt</text>
+        <text x="15" y="60" font-family="monospace" font-size="10" fill="#c084fc">• hₜ (Hidden State) : Short-Term Working Memory</text>
+      </g>
+
+      <!-- Parameters & Pros/Cons -->
+      <g transform="translate(20, 240)">
+        <rect width="370" height="130" rx="6" fill="#0f172a" stroke="#10b981" />
+        <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff">Parameters &amp; Best Use Cases:</text>
+        <text x="15" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#facc15">Weights = 4 &times; (d_h &middot; d_in + d_h² + d_h)</text>
+        <text x="15" y="68" font-family="sans-serif" font-size="10" fill="#cbd5e1">✅ Handles very long sequences (100+ steps).</text>
+        <text x="15" y="86" font-family="sans-serif" font-size="10" fill="#cbd5e1">✅ Proven historical gold standard in NLP.</text>
+        <text x="15" y="104" font-family="sans-serif" font-size="10" fill="#f87171">❌ Slower training, higher VRAM footprint.</text>
+      </g>
+    </g>
+
+    <!-- RIGHT PANEL: GRU (2 GATES) -->
+    <g transform="translate(450, 0)" filter="url(#shadow)">
+      <rect width="410" height="385" rx="12" fill="#1e293b" stroke="#a855f7" stroke-width="1.5" />
+      <rect x="0" y="0" width="410" height="32" rx="12" fill="url(#gru-grad)" />
+      <text x="205" y="21" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        GRU (GATED RECURRENT UNIT — 2014)
+      </text>
+
+      <!-- Architecture Stats -->
+      <g transform="translate(20, 48)">
+        <rect width="370" height="95" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#c084fc">The 2 Streamlined Gates:</text>
+        <text x="15" y="42" font-family="monospace" font-size="10" fill="#cbd5e1">1. Reset Gate  (rₜ) : How to blend past memory</text>
+        <text x="15" y="60" font-family="monospace" font-size="10" fill="#cbd5e1">2. Update Gate (zₜ) : Acts as BOTH forget &amp; input</text>
+        <text x="15" y="78" font-family="monospace" font-size="9" fill="#94a3b8">   hₜ = (1 - zₜ) &middot; hₜ₋₁ + zₜ &middot; h&#771;ₜ</text>
+      </g>
+
+      <!-- Memory States -->
+      <g transform="translate(20, 155)">
+        <rect width="370" height="75" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#38bdf8">Unified Single Track:</text>
+        <text x="15" y="42" font-family="monospace" font-size="10" fill="#c084fc">• hₜ (Hidden State) ONLY</text>
+        <text x="15" y="60" font-family="sans-serif" font-size="10" fill="#94a3b8">No separate cell state Cₜ! Merged together.</text>
+      </g>
+
+      <!-- Parameters & Pros/Cons -->
+      <g transform="translate(20, 240)">
+        <rect width="370" height="130" rx="6" fill="#0f172a" stroke="#a855f7" />
+        <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff">Parameters &amp; Best Use Cases:</text>
+        <text x="15" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#facc15">Weights = 3 &times; (d_h &middot; d_in + d_h² + d_h)</text>
+        <text x="15" y="68" font-family="sans-serif" font-size="10" fill="#34d399">✅ 25% fewer parameters than LSTM!</text>
+        <text x="15" y="86" font-family="sans-serif" font-size="10" fill="#34d399">✅ Faster forward and backward passes.</text>
+        <text x="15" y="104" font-family="sans-serif" font-size="10" fill="#cbd5e1">✅ Ideal for smaller datasets and edge devices.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#34d399" font-weight="700">The Decision Rule: </tspan> Try <tspan fill="#c084fc" font-weight="700">GRU</tspan> first for speed and small datasets. Switch to <tspan fill="#10b981" font-weight="700">LSTM</tspan> if your dataset has long, complex dependencies.
+  </text>
+</svg>

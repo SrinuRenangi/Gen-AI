@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="fade-grad" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="60%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <marker id="bwd-arr" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 8 1 L 0 5 L 8 9 z" fill="#ef4444" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    BACKPROPAGATION THROUGH TIME (BPTT) &amp; THE AMNESIA HORIZON
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Why Standard RNNs Suffer from Catastrophic Long-Term Forgetting Beyond 5–10 Time Steps
+  </text>
+
+  <!-- Main Visual Strip -->
+  <g transform="translate(50, 105)">
+
+    <!-- Top Sequence Sentence Example -->
+    <rect width="860" height="60" rx="8" fill="#1e293b" stroke="#334155" />
+    <text x="25" y="24" font-family="sans-serif" font-size="11" font-weight="700" fill="#cbd5e1">Long-Range Dependency Trap:</text>
+    <text x="25" y="46" font-family="monospace" font-size="13" fill="#94a3b8">
+      "The <tspan fill="#38bdf8" font-weight="800">clouds</tspan> [t=1] that floated over the vast open desert valley were <tspan fill="#f87171" font-weight="800">dark</tspan> [t=10]."
+    </text>
+
+    <!-- 5 Unrolled Recurrent Steps with Backward Gradient Fading -->
+    <!-- Time Step 1 (Distand Past) -->
+    <g transform="translate(20, 95)" filter="url(#shadow)">
+      <rect width="130" height="180" rx="8" fill="#0f172a" stroke="#475569" stroke-width="1.5" />
+      <text x="65" y="24" font-family="sans-serif" font-size="10" font-weight="700" fill="#64748b" text-anchor="middle">Time Step t=1</text>
+      <text x="65" y="42" font-family="monospace" font-size="12" font-weight="800" fill="#38bdf8" text-anchor="middle">"clouds"</text>
+      
+      <!-- Tiny faded gradient signal -->
+      <rect x="25" y="65" width="80" height="30" rx="4" fill="#1e293b" stroke="#475569" />
+      <text x="65" y="84" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">&Delta; &approx; 0.0001</text>
+
+      <rect x="15" y="115" width="100" height="48" rx="4" fill="#334155" opacity="0.3" />
+      <text x="65" y="135" font-family="sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">AMNESIA ZONE</text>
+      <text x="65" y="150" font-family="sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Zero signal received!</text>
+    </g>
+
+    <!-- Backward Arrow 2 -> 1 -->
+    <line x1="190" y1="185" x2="160" y2="185" stroke="#475569" stroke-width="2" marker-end="url(#bwd-arr)" />
+    <text x="175" y="175" font-family="monospace" font-size="8" fill="#64748b" text-anchor="middle">&times; W_hh</text>
+
+    <!-- Time Step 4 -->
+    <g transform="translate(200, 95)" filter="url(#shadow)">
+      <rect width="130" height="180" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" />
+      <text x="65" y="24" font-family="sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">Time Step t=4</text>
+      <text x="65" y="42" font-family="monospace" font-size="12" fill="#cbd5e1" text-anchor="middle">"desert"</text>
+
+      <rect x="25" y="65" width="80" height="30" rx="4" fill="#1e293b" stroke="#f59e0b" />
+      <text x="65" y="84" font-family="monospace" font-size="10" fill="#fde68a" text-anchor="middle">&Delta; = 0.041</text>
+
+      <rect x="15" y="115" width="100" height="48" rx="4" fill="#78350f" />
+      <text x="65" y="135" font-family="sans-serif" font-size="9" font-weight="700" fill="#fde68a" text-anchor="middle">Severe Fading</text>
+      <text x="65" y="150" font-family="sans-serif" font-size="8" fill="#cbd5e1" text-anchor="middle">Context 96% lost</text>
+    </g>
+
+    <!-- Backward Arrow 7 -> 4 -->
+    <line x1="370" y1="185" x2="340" y2="185" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#bwd-arr)" />
+    <text x="355" y="175" font-family="monospace" font-size="8" fill="#fbbf24" text-anchor="middle">&times; W_hh</text>
+
+    <!-- Time Step 7 -->
+    <g transform="translate(380, 95)" filter="url(#shadow)">
+      <rect width="130" height="180" rx="8" fill="#0f172a" stroke="#ea580c" stroke-width="1.5" />
+      <text x="65" y="24" font-family="sans-serif" font-size="10" font-weight="700" fill="#fb923c" text-anchor="middle">Time Step t=7</text>
+      <text x="65" y="42" font-family="monospace" font-size="12" fill="#cbd5e1" text-anchor="middle">"valley"</text>
+
+      <rect x="25" y="65" width="80" height="30" rx="4" fill="#1e293b" stroke="#ea580c" />
+      <text x="65" y="84" font-family="monospace" font-size="10" fill="#fed7aa" text-anchor="middle">&Delta; = 0.280</text>
+
+      <rect x="15" y="115" width="100" height="48" rx="4" fill="#7c2d12" />
+      <text x="65" y="135" font-family="sans-serif" font-size="9" font-weight="700" fill="#fdba74" text-anchor="middle">Moderate Signal</text>
+      <text x="65" y="150" font-family="sans-serif" font-size="8" fill="#cbd5e1" text-anchor="middle">Context intact</text>
+    </g>
+
+    <!-- Backward Arrow 10 -> 7 -->
+    <line x1="550" y1="185" x2="520" y2="185" stroke="#ef4444" stroke-width="3" marker-end="url(#bwd-arr)" />
+    <text x="535" y="175" font-family="monospace" font-size="8" fill="#f87171" text-anchor="middle">&times; W_hh</text>
+
+    <!-- Time Step 10 (Current Target) -->
+    <g transform="translate(560, 95)" filter="url(#shadow)">
+      <rect width="140" height="180" rx="8" fill="#0f172a" stroke="#ef4444" stroke-width="2" />
+      <text x="70" y="24" font-family="sans-serif" font-size="10" font-weight="800" fill="#f87171" text-anchor="middle">Time Step t=10 (Loss)</text>
+      <text x="70" y="42" font-family="monospace" font-size="13" font-weight="900" fill="#ffffff" text-anchor="middle">"dark" (Target)</text>
+
+      <rect x="20" y="65" width="100" height="30" rx="4" fill="#450a0a" stroke="#ef4444" />
+      <text x="70" y="84" font-family="monospace" font-size="11" font-weight="800" fill="#fca5a5" text-anchor="middle">&Delta; = 1.0000</text>
+
+      <rect x="15" y="115" width="110" height="48" rx="4" fill="#450a0a" />
+      <text x="70" y="135" font-family="sans-serif" font-size="9" font-weight="800" fill="#34d399" text-anchor="middle">FULL GRADIENT</text>
+      <text x="70" y="150" font-family="sans-serif" font-size="8" fill="#a7f3d0" text-anchor="middle">Error initiates here</text>
+    </g>
+
+    <!-- Right Side: The Math Box & Gradient Clipping -->
+    <g transform="translate(715, 95)" filter="url(#shadow)">
+      <rect width="145" height="180" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="72" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#f8fafc" text-anchor="middle">THE TWIN CURSES</text>
+
+      <rect x="10" y="35" width="125" height="60" rx="4" fill="#0f172a" stroke="#ef4444" />
+      <text x="72" y="52" font-family="sans-serif" font-size="9" font-weight="700" fill="#f87171" text-anchor="middle">1. Vanishing:</text>
+      <text x="72" y="68" font-family="monospace" font-size="8" fill="#cbd5e1" text-anchor="middle">&prod; W_hh &middot; tanh' &rarr; 0</text>
+      <text x="72" y="82" font-family="sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">&rarr; Cured by LSTM/GRU</text>
+
+      <rect x="10" y="105" width="125" height="65" rx="4" fill="#0f172a" stroke="#f59e0b" />
+      <text x="72" y="122" font-family="sans-serif" font-size="9" font-weight="700" fill="#fbbf24" text-anchor="middle">2. Exploding:</text>
+      <text x="72" y="138" font-family="monospace" font-size="8" fill="#cbd5e1" text-anchor="middle">Grads &rarr; &plusmn;&infin; (NaN)</text>
+      <text x="72" y="152" font-family="sans-serif" font-size="8" fill="#34d399" text-anchor="middle">&rarr; Gradient Clipping</text>
+      <text x="72" y="163" font-family="monospace" font-size="7" fill="#6ee7b7" text-anchor="middle">clip_grad_norm_()</text>
+    </g>
+
+    <!-- Bottom Chain Rule Formula Strip -->
+    <g transform="translate(0, 290)">
+      <rect width="860" height="75" rx="8" fill="#0f172a" stroke="#334155" />
+      <text x="25" y="24" font-family="sans-serif" font-size="11" font-weight="700" fill="#38bdf8">The Mathematical Cause of BPTT Vanishing Gradient:</text>
+      <text x="25" y="46" font-family="monospace" font-size="12" fill="#f8fafc">
+        &part;&Lscr;ₜ / &part;h₁ = (&part;&Lscr;ₜ / &part;hₜ) &middot; <tspan fill="#f87171" font-weight="800">&prod;ₖ₌₂ᵗ [ (W_hh)ᵀ &middot; diag(1 - hₖ²) ]</tspan>
+      </text>
+      <text x="25" y="65" font-family="sans-serif" font-size="10" fill="#94a3b8">
+        Multiplying a weight matrix 10 times with eigenvalues &lt; 1 causes gradients to shrink to exact zero!
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#fbbf24" font-weight="700">The Turning Point: </tspan> The vanishing gradient problem in standard RNNs motivated Hochreiter &amp; Schmidhuber to invent the <tspan fill="#34d399" font-weight="700">LSTM (Long Short-Term Memory)</tspan>!
+  </text>
+</svg>

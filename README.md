@@ -31,7 +31,7 @@
 | [Day 05](Phase_01_Math_Foundations/Day_05_Dot_Product_and_Similarity/Day_05_Dot_Product_and_Similarity.md) | The Dot Product — How AI Measures Similarity | ✅ |
 | [Day 06](Phase_01_Math_Foundations/Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md) | Probability & Statistics — Making Predictions Under Uncertainty | ✅ |
 | [Day 07](Phase_01_Math_Foundations/Day_07_Slopes_and_Derivatives/Day_07_Slopes_and_Derivatives.md) | Slopes & Derivatives — The Only Calculus You'll Ever Need | ✅ |
-| Day 08 | Gradients & Optimization — Finding the Best Settings | 🔲 |
+| [Day 08](Phase_01_Math_Foundations/Day_08_Gradients_and_Optimization/Day_08_Gradients_and_Optimization.md) | Gradients & Optimization — Finding the Best Settings | ✅ |
 
 ### 🟢 Phase 2: Python Data Science Toolkit (Days 09–11)
 

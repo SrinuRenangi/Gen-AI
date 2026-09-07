@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tot-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="tot-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="tot-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="tot-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#tot-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    TREE-OF-THOUGHTS (ToT): DELIBERATE PROBLEM SOLVING WITH BACKTRACKING
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">
+    Moving from Linear Chain-of-Thought to Tree Search with Heuristic State Evaluation and Pruning
+  </text>
+
+  <!-- Left: Linear CoT vs Right: Tree of Thoughts -->
+  <g transform="translate(40, 85)" filter="url(#tot-shadow)">
+
+    <!-- LEFT PANEL: Linear Chain of Thought -->
+    <g transform="translate(0, 0)">
+      <rect width="320" height="435" rx="12" fill="#1e293b" stroke="#64748b" stroke-width="1.5" />
+      <rect x="0" y="0" width="320" height="32" rx="12" fill="#334155" />
+      <text x="160" y="21" font-family="sans-serif" font-size="12" font-weight="800" fill="#f8fafc" text-anchor="middle">
+        LINEAR CHAIN-OF-THOUGHT (CoT)
+      </text>
+
+      <!-- Vertical Linear Nodes -->
+      <g transform="translate(40, 50)">
+        <!-- Node 1 -->
+        <rect x="30" y="0" width="180" height="40" rx="8" fill="#0f172a" stroke="#38bdf8" />
+        <text x="120" y="24" font-family="sans-serif" font-size="11" font-weight="700" fill="#93c5fd" text-anchor="middle">Input Problem (Root)</text>
+
+        <path d="M 120 40 L 120 70" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#tot-arr)" />
+
+        <!-- Node 2 -->
+        <rect x="30" y="75" width="180" height="40" rx="8" fill="#0f172a" stroke="#38bdf8" />
+        <text x="120" y="99" font-family="sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Thought Step 1</text>
+
+        <path d="M 120 115 L 120 145" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#tot-arr)" />
+
+        <!-- Node 3 (Error!) -->
+        <rect x="30" y="150" width="180" height="40" rx="8" fill="#450a0a" stroke="#ef4444" />
+        <text x="120" y="174" font-family="sans-serif" font-size="11" font-weight="700" fill="#fca5a5" text-anchor="middle">Flawed Deduction ✗</text>
+
+        <path d="M 120 190 L 120 220" stroke="#ef4444" stroke-width="2.5" marker-end="url(#tot-arr)" />
+
+        <!-- Node 4 (Compounded Error) -->
+        <rect x="30" y="225" width="180" height="40" rx="8" fill="#450a0a" stroke="#ef4444" />
+        <text x="120" y="249" font-family="sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">Hallucinated Step 3</text>
+
+        <path d="M 120 265 L 120 295" stroke="#ef4444" stroke-width="2.5" marker-end="url(#tot-arr)" />
+
+        <!-- Final Output -->
+        <rect x="30" y="300" width="180" height="42" rx="8" fill="#7f1d1d" stroke="#ef4444" />
+        <text x="120" y="325" font-family="sans-serif" font-size="11" font-weight="800" fill="#fee2e2" text-anchor="middle">WRONG FINAL ANSWER</text>
+      </g>
+
+      <text x="160" y="415" font-family="sans-serif" font-size="10" fill="#fca5a5" text-anchor="middle">
+        Fatal Flaw: Zero Backtracking or Self-Correction
+      </text>
+    </g>
+
+    <!-- RIGHT PANEL: Tree-of-Thoughts (ToT) -->
+    <g transform="translate(345, 0)">
+      <rect width="535" height="435" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.8" />
+      <rect x="0" y="0" width="535" height="32" rx="12" fill="#065f46" />
+      <text x="267" y="21" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">
+        TREE-OF-THOUGHTS (ToT): EXPLORATION &amp; PRUNING
+      </text>
+
+      <!-- Tree Graph -->
+      <g transform="translate(20, 45)">
+
+        <!-- Root Node -->
+        <rect x="180" y="0" width="175" height="36" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+        <text x="267" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">Input Task (Root s_0)</text>
+
+        <!-- Branch 1 Connectors -->
+        <path d="M 230 36 L 90 75" stroke="#64748b" stroke-width="1.5" />
+        <path d="M 267 36 L 267 75" stroke="#10b981" stroke-width="2.5" />
+        <path d="M 305 36 L 440 75" stroke="#64748b" stroke-width="1.5" />
+
+        <!-- Depth 1 Nodes -->
+        <!-- Thought 1.1 -->
+        <rect x="15" y="75" width="145" height="35" rx="6" fill="#0f172a" stroke="#64748b" />
+        <text x="87" y="96" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">Idea A (Explore)</text>
+
+        <!-- Thought 1.2 (Promising) -->
+        <rect x="195" y="75" width="145" height="35" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+        <text x="267" y="96" font-family="sans-serif" font-size="10" font-weight="800" fill="#6ee7b7" text-anchor="middle">Idea B: "Sure" (0.9)</text>
+
+        <!-- Thought 1.3 -->
+        <rect x="365" y="75" width="145" height="35" rx="6" fill="#450a0a" stroke="#ef4444" />
+        <text x="437" y="96" font-family="sans-serif" font-size="10" font-weight="700" fill="#fca5a5" text-anchor="middle">Idea C: Pruned ✗</text>
+
+        <!-- Branch 2 Connectors from 1.1 -->
+        <path d="M 87 110 L 40 145" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3 3" />
+        <path d="M 87 110 L 130 145" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3 3" />
+
+        <!-- Dead ends from Idea A -->
+        <rect x="5" y="145" width="80" height="30" rx="4" fill="#1e1b4b" stroke="#475569" />
+        <text x="45" y="164" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Dead End</text>
+
+        <rect x="95" y="145" width="80" height="30" rx="4" fill="#1e1b4b" stroke="#475569" />
+        <text x="135" y="164" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Dead End</text>
+
+        <!-- Branch 2 Connectors from 1.2 (Winning Line) -->
+        <path d="M 240 110 L 210 145" stroke="#ef4444" stroke-width="1.5" />
+        <path d="M 295 110 L 330 145" stroke="#10b981" stroke-width="2.5" />
+
+        <!-- Thought 2.1 (Pruned) -->
+        <rect x="165" y="145" width="95" height="32" rx="4" fill="#450a0a" stroke="#ef4444" />
+        <text x="212" y="165" font-family="sans-serif" font-size="9" fill="#fca5a5" text-anchor="middle">Sub-step 1 ✗</text>
+
+        <!-- Thought 2.2 (Optimal) -->
+        <rect x="280" y="145" width="105" height="32" rx="4" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+        <text x="332" y="165" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#a7f3d0" text-anchor="middle">Sub-step 2 ✓</text>
+
+        <!-- Final Path Down from 2.2 -->
+        <path d="M 332 177 L 332 215" stroke="#10b981" stroke-width="3" marker-end="url(#tot-green)" />
+
+        <!-- Final Winning Answer -->
+        <rect x="240" y="220" width="185" height="42" rx="8" fill="#022c22" stroke="#10b981" stroke-width="2" />
+        <text x="332" y="246" font-family="sans-serif" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">
+          ★ VERIFIED SOLUTION
+        </text>
+      </g>
+
+      <!-- ToT Mechanics Summary Box -->
+      <g transform="translate(20, 320)">
+        <rect width="495" height="95" rx="8" fill="#0f172a" stroke="#334155" />
+        <text x="15" y="22" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#6ee7b7">
+          THE 4 CORE STEPS OF TREE-OF-THOUGHTS (ToT):
+        </text>
+        <text x="15" y="42" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          1. Thought Generation: Propose 3&ndash;5 candidate next steps at each node.
+        </text>
+        <text x="15" y="58" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          2. State Evaluation: Self-evaluate each state: "Sure", "Likely", or "Impossible".
+        </text>
+        <text x="15" y="74" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          3. Search Algorithm: Use BFS or DFS to explore paths; backtrack on dead ends.
+        </text>
+        <text x="15" y="90" font-family="sans-serif" font-size="9.5" fill="#38bdf8">
+          Result: Solves Game of 24, Creative Writing, &amp; Mini-Crosswords with 74% vs 4% CoT accuracy!
+        </text>
+      </g>
+
+    </g>
+
+  </g>
+</svg>

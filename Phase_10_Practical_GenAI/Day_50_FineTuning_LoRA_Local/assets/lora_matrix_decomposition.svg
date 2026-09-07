@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="lora-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="lora-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arr-lora" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#lora-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    LOW-RANK ADAPTATION (LoRA): EFFICIENT PARAMETER ADAPTATION
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">
+    Freezing Base Weights W_0 and Factoring Weight Updates &Delta;W into Low-Rank Matrices B &times; A (r &Lt; d)
+  </text>
+
+  <!-- Main Architecture Layout -->
+  <g transform="translate(50, 85)" filter="url(#lora-shadow)">
+
+    <!-- Input Vector x (Bottom) -->
+    <g transform="translate(320, 395)">
+      <rect width="220" height="42" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <text x="110" y="26" font-family="monospace" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">
+        Input Vector x &in; &Ropf;^{k}
+      </text>
+    </g>
+
+    <!-- Branching Arrows from x -->
+    <path d="M 370 395 L 200 325" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr-lora)" />
+    <path d="M 490 395 L 660 355" stroke="#10b981" stroke-width="2.5" marker-end="url(#arr-green)" />
+
+    <!-- LEFT BRANCH: Frozen Pre-trained Weight Matrix W_0 -->
+    <g transform="translate(60, 80)">
+      <rect width="250" height="240" rx="12" fill="#1e293b" stroke="#64748b" stroke-width="2" />
+      <rect x="0" y="0" width="250" height="30" rx="12" fill="#334155" />
+      <text x="125" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#cbd5e1" text-anchor="middle">
+        FROZEN PRE-TRAINED MATRIX W_0
+      </text>
+
+      <g transform="translate(25, 45)">
+        <rect width="200" height="135" rx="6" fill="#0f172a" stroke="#475569" />
+        <text x="100" y="55" font-family="sans-serif" font-size="28" text-anchor="middle">❄️ 🔒</text>
+        <text x="100" y="85" font-family="monospace" font-size="13" font-weight="700" fill="#94a3b8" text-anchor="middle">
+          W_0 &in; &Ropf;^{d &times; k}
+        </text>
+        <text x="100" y="105" font-family="sans-serif" font-size="9.5" fill="#64748b" text-anchor="middle">
+          (e.g., 4096 &times; 4096 = 16.7M params)
+        </text>
+        <text x="100" y="125" font-family="sans-serif" font-size="10" font-weight="800" fill="#f87171" text-anchor="middle">
+          ZERO GRADIENTS (NO BACKPROP)
+        </text>
+      </g>
+
+      <text x="125" y="222" font-family="monospace" font-size="11" fill="#cbd5e1" text-anchor="middle">
+        h_base = W_0 &middot; x
+      </text>
+    </g>
+
+    <!-- RIGHT BRANCH: Trainable Low-Rank Adapters A and B -->
+    <g transform="translate(520, 80)">
+      <rect width="280" height="240" rx="12" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+      <rect x="0" y="0" width="280" height="30" rx="12" fill="#059669" />
+      <text x="140" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        TRAINABLE ADAPTERS (r &Lt; d)
+      </text>
+
+      <!-- Matrix B (Top: d x r) -->
+      <g transform="translate(50, 42)">
+        <rect width="180" height="50" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1.8" />
+        <text x="90" y="24" font-family="monospace" font-size="11" font-weight="800" fill="#6ee7b7" text-anchor="middle">
+          Matrix B &in; &Ropf;^{d &times; r}
+        </text>
+        <text x="90" y="40" font-family="sans-serif" font-size="8.5" fill="#a7f3d0" text-anchor="middle">
+          Initialized to 0 (so &Delta;W=0 at start)
+        </text>
+      </g>
+
+      <!-- Bottleneck r indicator -->
+      <path d="M 140 92 L 140 120" stroke="#10b981" stroke-width="2" marker-end="url(#arr-green)" />
+      <rect x="80" y="100" width="120" height="18" rx="4" fill="#065f46" />
+      <text x="140" y="113" font-family="sans-serif" font-size="8.5" font-weight="800" fill="#ffffff" text-anchor="middle">
+        Rank r = 8 or 16
+      </text>
+
+      <!-- Matrix A (Bottom: r x k) -->
+      <g transform="translate(50, 125)">
+        <rect width="180" height="50" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1.8" />
+        <text x="90" y="24" font-family="monospace" font-size="11" font-weight="800" fill="#6ee7b7" text-anchor="middle">
+          Matrix A &in; &Ropf;^{r &times; k}
+        </text>
+        <text x="90" y="40" font-family="sans-serif" font-size="8.5" fill="#a7f3d0" text-anchor="middle">
+          Gaussian N(0, &sigma;&sup2;) Init
+        </text>
+      </g>
+
+      <text x="140" y="200" font-family="monospace" font-size="10.5" font-weight="700" fill="#a7f3d0" text-anchor="middle">
+        &Delta;h = (&alpha; / r) &middot; (B &middot; A) &middot; x
+      </text>
+      <text x="140" y="222" font-family="sans-serif" font-size="9" fill="#d1fae5" text-anchor="middle">
+        Only 65,536 trainable params (0.39% of W_0!)
+      </text>
+    </g>
+
+    <!-- Summation Node (+) -->
+    <g transform="translate(390, 15)">
+      <circle cx="40" cy="40" r="26" fill="#1e1b4b" stroke="#38bdf8" stroke-width="2.5" />
+      <text x="40" y="48" font-family="sans-serif" font-size="26" font-weight="900" fill="#38bdf8" text-anchor="middle">+</text>
+    </g>
+
+    <!-- Connectors to Summation -->
+    <path d="M 185 80 L 185 55 L 390 55" stroke="#38bdf8" stroke-width="2.5" />
+    <path d="M 660 80 L 660 55 L 470 55" stroke="#10b981" stroke-width="2.5" />
+
+    <!-- Output Vector h -->
+    <path d="M 430 15 L 430 -10" stroke="#f59e0b" stroke-width="3" marker-end="url(#arr-lora)" />
+    <g transform="translate(320, -45)">
+      <rect width="220" height="36" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="2" />
+      <text x="110" y="22" font-family="monospace" font-size="11.5" font-weight="800" fill="#fcd34d" text-anchor="middle">
+        h = W_0 x + (&alpha;/r) B A x
+      </text>
+    </g>
+
+  </g>
+</svg>

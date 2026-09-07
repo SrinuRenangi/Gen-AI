@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="triad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="triad-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#triad-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE RAG EVALUATION TRIAD (RAGAS / TRULENS FRAMEWORK)
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">
+    Quantifying Context Relevance, Answer Faithfulness, and Answer Relevance to Diagnose Failure Points
+  </text>
+
+  <!-- Main Grid: Left Triad Triangle + Right Diagnostics Matrix -->
+  <g transform="translate(40, 85)" filter="url(#triad-shadow)">
+
+    <!-- LEFT: The RAG Triad Triangle -->
+    <g transform="translate(0, 0)">
+      <rect width="430" height="435" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="1.8" />
+      <rect x="0" y="0" width="430" height="32" rx="12" fill="#1d4ed8" />
+      <text x="215" y="21" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">
+        THE 3 PILLARS OF RAG EVALUATION
+      </text>
+
+      <!-- Geometry of Triangle -->
+      <g transform="translate(20, 50)">
+
+        <!-- Top Node: Query -->
+        <rect x="135" y="0" width="120" height="38" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+        <text x="195" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#38bdf8" text-anchor="middle">1. USER QUERY</text>
+
+        <!-- Bottom Left Node: Context -->
+        <rect x="10" y="210" width="145" height="42" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="2" />
+        <text x="82" y="228" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#fcd34d" text-anchor="middle">2. RETRIEVED</text>
+        <text x="82" y="242" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#fcd34d" text-anchor="middle">CONTEXT</text>
+
+        <!-- Bottom Right Node: Answer -->
+        <rect x="235" y="210" width="145" height="42" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="2" />
+        <text x="307" y="228" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#6ee7b7" text-anchor="middle">3. GENERATED</text>
+        <text x="307" y="242" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#6ee7b7" text-anchor="middle">ANSWER</text>
+
+        <!-- Edge 1: Query <-> Context (Context Relevance) -->
+        <line x1="150" y1="40" x2="85" y2="205" stroke="#f59e0b" stroke-width="3" stroke-dasharray="4 2" />
+        <rect x="40" y="110" width="110" height="28" rx="4" fill="#0f172a" stroke="#f59e0b" />
+        <text x="95" y="128" font-family="sans-serif" font-size="9" font-weight="800" fill="#fde68a" text-anchor="middle">CONTEXT RELEVANCE</text>
+
+        <!-- Edge 2: Context <-> Answer (Faithfulness / Groundedness) -->
+        <line x1="160" y1="231" x2="230" y2="231" stroke="#ec4899" stroke-width="3" stroke-dasharray="4 2" />
+        <rect x="145" y="218" width="100" height="26" rx="4" fill="#450a0a" stroke="#ec4899" />
+        <text x="195" y="235" font-family="sans-serif" font-size="8.5" font-weight="800" fill="#fbcfe8" text-anchor="middle">FAITHFULNESS</text>
+
+        <!-- Edge 3: Query <-> Answer (Answer Relevance) -->
+        <line x1="240" y1="40" x2="305" y2="205" stroke="#10b981" stroke-width="3" stroke-dasharray="4 2" />
+        <rect x="240" y="110" width="110" height="28" rx="4" fill="#0f172a" stroke="#10b981" />
+        <text x="295" y="128" font-family="sans-serif" font-size="9" font-weight="800" fill="#a7f3d0" text-anchor="middle">ANSWER RELEVANCE</text>
+      </g>
+
+      <!-- Bottom explanation -->
+      <g transform="translate(20, 320)">
+        <rect width="390" height="95" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="12" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#f8fafc">
+          THE GOLDEN TRIAD TARGET:
+        </text>
+        <text x="12" y="42" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          • Context Relevance &gt; 0.85 (No irrelevant noise fetched)
+        </text>
+        <text x="12" y="60" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          • Faithfulness = 1.00 (Zero ungrounded hallucinations)
+        </text>
+        <text x="12" y="78" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          • Answer Relevance &gt; 0.90 (Directly answers the query)
+        </text>
+      </g>
+    </g>
+
+    <!-- RIGHT: Failure Diagnostics Matrix -->
+    <g transform="translate(450, 0)">
+      <rect width="430" height="435" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.8" />
+      <rect x="0" y="0" width="430" height="32" rx="12" fill="#065f46" />
+      <text x="215" y="21" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">
+        RAG FAILURE MODE DIAGNOSTIC MATRIX
+      </text>
+
+      <g transform="translate(15, 45)">
+
+        <!-- Row 1: Low Context Precision -->
+        <rect width="400" height="110" rx="8" fill="#0f172a" stroke="#f59e0b" />
+        <text x="15" y="22" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#fcd34d">
+          SCENARIO A: RETRIEVER FAILURE (Garbage In, Garbage Out)
+        </text>
+        <text x="15" y="42" font-family="monospace" font-size="9" fill="#f87171">
+          Low Context Relevance + Low Faithfulness
+        </text>
+        <text x="15" y="62" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          • Root Cause: Vector search fetched chunks about a different topic.
+        </text>
+        <text x="15" y="78" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          • Consequence: LLM makes up an answer because context lacked facts.
+        </text>
+        <text x="15" y="96" font-family="sans-serif" font-size="9" font-weight="700" fill="#6ee7b7">
+          &rarr; Fix: Add Hybrid BM25 search + Cross-Encoder Re-Ranking!
+        </text>
+
+        <!-- Row 2: Hallucinating Generator -->
+        <g transform="translate(0, 125)">
+          <rect width="400" height="110" rx="8" fill="#0f172a" stroke="#ef4444" />
+          <text x="15" y="22" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#fca5a5">
+            SCENARIO B: HALLUCINATING GENERATOR (Ignoring Truth)
+          </text>
+          <text x="15" y="42" font-family="monospace" font-size="9" fill="#f87171">
+            High Context Relevance + Low Faithfulness
+          </text>
+          <text x="15" y="62" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+            • Root Cause: Gold context was in prompt, but LLM ignored it.
+          </text>
+          <text x="15" y="78" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+            • Consequence: Model relied on pre-trained parametric bias.
+          </text>
+          <text x="15" y="96" font-family="sans-serif" font-size="9" font-weight="700" fill="#6ee7b7">
+            &rarr; Fix: Tighten prompt rules: "Answer ONLY from context; cite page #."
+          </text>
+        </g>
+
+        <!-- Row 3: Over-Refusal -->
+        <g transform="translate(0, 250)">
+          <rect width="400" height="115" rx="8" fill="#0f172a" stroke="#38bdf8" />
+          <text x="15" y="22" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#93c5fd">
+            SCENARIO C: EVASION &amp; OVER-REFUSAL (Unhelpful)
+          </text>
+          <text x="15" y="42" font-family="monospace" font-size="9" fill="#fcd34d">
+            High Faithfulness + Low Answer Relevance
+          </text>
+          <text x="15" y="62" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+            • Root Cause: Model outputs "I do not have enough info" prematurely.
+          </text>
+          <text x="15" y="78" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+            • Consequence: Safe, but completely unhelpful to the end user.
+          </text>
+          <text x="15" y="96" font-family="sans-serif" font-size="9" font-weight="700" fill="#6ee7b7">
+            &rarr; Fix: Increase Top-K retrieval or loosen threshold constraints.
+          </text>
+        </g>
+
+      </g>
+    </g>
+
+  </g>
+</svg>

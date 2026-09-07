@@ -113,12 +113,12 @@
 
 | Day | Topic | Status |
 | :---: | :--- | :---: |
-| Day 45 | Prompt Engineering Masterclass | 🔲 |
-| Day 46 | Working with LLM APIs — OpenAI, Anthropic & Local Models | 🔲 |
-| Day 47 | RAG Part 1 — Embeddings, Vector Databases & Semantic Search | 🔲 |
-| Day 48 | RAG Part 2 — Building a Complete RAG System | 🔲 |
-| Day 49 | AI Agents & Function Calling — LLMs That Take Action | 🔲 |
-| Day 50 | Fine-Tuning, LoRA & Running Models Locally | 🔲 |
+| [Day 45](Phase_10_Practical_GenAI/Day_45_Prompt_Engineering/Day_45_Prompt_Engineering.md) | Prompt Engineering Masterclass | ✅ |
+| [Day 46](Phase_10_Practical_GenAI/Day_46_LLM_APIs/Day_46_LLM_APIs.md) | Working with LLM APIs — OpenAI, Anthropic & Local Models | ✅ |
+| [Day 47](Phase_10_Practical_GenAI/Day_47_RAG_Part_1/Day_47_RAG_Part_1.md) | RAG Part 1 — Embeddings, Vector Databases & Semantic Search | ✅ |
+| [Day 48](Phase_10_Practical_GenAI/Day_48_RAG_Part_2/Day_48_RAG_Part_2.md) | RAG Part 2 — Building a Complete RAG System | ✅ |
+| [Day 49](Phase_10_Practical_GenAI/Day_49_AI_Agents/Day_49_AI_Agents.md) | AI Agents & Function Calling — LLMs That Take Action | ✅ |
+| [Day 50](Phase_10_Practical_GenAI/Day_50_FineTuning_LoRA_Local/Day_50_FineTuning_LoRA_Local.md) | Fine-Tuning, LoRA & Running Models Locally | ✅ |
 
 ---
 

@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dec-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="dec-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arr-axis" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#dec-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE ARCHITECTURAL DECISION MATRIX: PROMPT VS. RAG VS. FINE-TUNING
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">
+    Navigating Knowledge Dynamism vs Specialized Format Adaptation to Choose the Right Strategy
+  </text>
+
+  <!-- 4-Quadrant Grid Layout -->
+  <g transform="translate(60, 85)" filter="url(#dec-shadow)">
+
+    <!-- Axis Lines -->
+    <!-- X Axis (Horizontal): Need for Dynamic External Knowledge -->
+    <line x1="420" y1="440" x2="420" y2="10" stroke="#475569" stroke-width="2" stroke-dasharray="4 4" />
+    <path d="M 10 435 L 830 435" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#arr-axis)" />
+    <text x="420" y="455" font-family="sans-serif" font-size="11" font-weight="800" fill="#cbd5e1" text-anchor="middle">
+      NEED FOR DYNAMIC / PRIVATE EXTERNAL KNOWLEDGE &rarr;
+    </text>
+
+    <!-- Y Axis (Vertical): Need for Custom Syntax / Tone / Domain Adaptation -->
+    <path d="M 15 440 L 15 15" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#arr-axis)" />
+    <text x="-215" y="0" font-family="sans-serif" font-size="11" font-weight="800" fill="#cbd5e1" text-anchor="middle" transform="rotate(-90)">
+      NEED FOR CUSTOM STYLE, TONE &amp; SPECIALIZED SYNTAX &rarr;
+    </text>
+
+    <!-- QUADRANT 1 (Bottom-Left): PROMPT ENGINEERING -->
+    <g transform="translate(30, 235)">
+      <rect width="375" height="185" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.8" />
+      <rect x="0" y="0" width="375" height="28" rx="10" fill="#1d4ed8" />
+      <text x="187" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        1. PROMPT ENGINEERING (START HERE)
+      </text>
+
+      <g transform="translate(15, 38)">
+        <text x="0" y="14" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#93c5fd">When to Use:</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">• General reasoning, creative drafting, summarizing</text>
+        <text x="0" y="48" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">• Zero training cost, zero infrastructure to maintain</text>
+        <text x="0" y="64" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">• Rapid iteration (iterate in 30 seconds)</text>
+
+        <rect x="0" y="80" width="345" height="50" rx="6" fill="#0f172a" stroke="#1e40af" />
+        <text x="12" y="100" font-family="monospace" font-size="9" fill="#38bdf8">Cost: $0 Training | Effort: Low | Time: Minutes</text>
+        <text x="12" y="118" font-family="sans-serif" font-size="8.5" fill="#94a3b8">Always start here to establish your baseline benchmark.</text>
+      </g>
+    </g>
+
+    <!-- QUADRANT 2 (Bottom-Right): RAG (RETRIEVAL-AUGMENTED GENERATION) -->
+    <g transform="translate(440, 235)">
+      <rect width="385" height="185" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.8" />
+      <rect x="0" y="0" width="385" height="28" rx="10" fill="#b45309" />
+      <text x="192" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        2. RAG (RETRIEVAL-AUGMENTED GENERATION)
+      </text>
+
+      <g transform="translate(15, 38)">
+        <text x="0" y="14" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#fde68a">When to Use:</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">• Private enterprise docs, real-time knowledge updates</text>
+        <text x="0" y="48" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">• Strict requirement for verifiable source citations</text>
+        <text x="0" y="64" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">• Eliminates hallucinations without retraining weights</text>
+
+        <rect x="0" y="80" width="355" height="50" rx="6" fill="#0f172a" stroke="#d97706" />
+        <text x="12" y="100" font-family="monospace" font-size="9" fill="#fcd34d">Cost: Low-Medium | Effort: Med | Time: Days</text>
+        <text x="12" y="118" font-family="sans-serif" font-size="8.5" fill="#94a3b8">Best for dynamic knowledge bases and internal wikis.</text>
+      </g>
+    </g>
+
+    <!-- QUADRANT 3 (Top-Left): FINE-TUNING / LoRA -->
+    <g transform="translate(30, 20)">
+      <rect width="375" height="195" rx="10" fill="#1e293b" stroke="#a855f7" stroke-width="1.8" />
+      <rect x="0" y="0" width="375" height="28" rx="10" fill="#7e22ce" />
+      <text x="187" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        3. FINE-TUNING / LoRA (TEACHING A STYLE/SKILL)
+      </text>
+
+      <g transform="translate(15, 38)">
+        <text x="0" y="14" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#d8b4fe">When to Use:</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">• Custom syntax (SQL dialect, proprietary JSON schema)</text>
+        <text x="0" y="48" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">• Tone/voice alignment (medical, legal jargon, brand persona)</text>
+        <text x="0" y="64" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">• Slashing prompt token overhead &amp; latency by 80%</text>
+
+        <rect x="0" y="82" width="345" height="60" rx="6" fill="#0f172a" stroke="#7e22ce" />
+        <text x="12" y="102" font-family="monospace" font-size="9" fill="#c084fc">Cost: Medium ($10-100 GPU) | Effort: Med-High</text>
+        <text x="12" y="120" font-family="sans-serif" font-size="8.5" fill="#94a3b8">Note: Fine-tuning teaches HOW to behave, NOT static facts!</text>
+      </g>
+    </g>
+
+    <!-- QUADRANT 4 (Top-Right): THE ENTERPRISE HOLY GRAIL (RAG + FINE-TUNING) -->
+    <g transform="translate(440, 20)">
+      <rect width="385" height="195" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+      <rect x="0" y="0" width="385" height="28" rx="10" fill="#059669" />
+      <text x="192" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        ★ THE HOLY GRAIL: RAG + FINE-TUNED MODEL
+      </text>
+
+      <g transform="translate(15, 38)">
+        <text x="0" y="14" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#a7f3d0">The Peak Production Architecture:</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="9.5" fill="#d1fae5">• Fine-tune a LoRA model to master your corporate schema</text>
+        <text x="0" y="48" font-family="sans-serif" font-size="9.5" fill="#d1fae5">• Combine with RAG to feed live up-to-the-minute facts</text>
+        <text x="0" y="64" font-family="sans-serif" font-size="9.5" fill="#d1fae5">• Maximum reliability, minimal token usage, zero drift</text>
+
+        <rect x="0" y="82" width="355" height="60" rx="6" fill="#022c22" stroke="#10b981" />
+        <text x="12" y="102" font-family="monospace" font-size="9" font-weight="700" fill="#6ee7b7">Max Accuracy | Minimal Prompt Overhead | Scalable</text>
+        <text x="12" y="120" font-family="sans-serif" font-size="8.5" fill="#a7f3d0">Powers production BloombergGPT, GitHub Copilot, and Harvey AI.</text>
+      </g>
+    </g>
+
+  </g>
+</svg>

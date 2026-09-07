@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rag-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="rag-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="rag-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#rag-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE RAG INGESTION PIPELINE: FROM RAW DOCUMENTS TO VECTORS
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">
+    Document Parsing &rarr; Overlapping Chunking &rarr; Dense Embedding &rarr; Vector Index Storage
+  </text>
+
+  <!-- Pipeline Steps (4 Horizontal Stages) -->
+  <g transform="translate(30, 85)" filter="url(#rag-shadow)">
+
+    <!-- STAGE 1: RAW DOCUMENTS -->
+    <g transform="translate(0, 0)">
+      <rect width="205" height="430" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.8" />
+      <rect x="0" y="0" width="205" height="32" rx="10" fill="#1d4ed8" />
+      <text x="102" y="21" font-family="sans-serif" font-size="11.5" font-weight="800" fill="#ffffff" text-anchor="middle">
+        1. RAW DOCUMENTS
+      </text>
+
+      <g transform="translate(15, 45)">
+        <rect width="175" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="87" y="45" font-family="sans-serif" font-size="32" text-anchor="middle">📄 📑 📊</text>
+        <text x="87" y="75" font-family="sans-serif" font-size="10.5" font-weight="700" fill="#cbd5e1" text-anchor="middle">Enterprise Data</text>
+        <text x="87" y="92" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">PDF, Docs, Notion, SQL</text>
+
+        <rect x="0" y="130" width="175" height="130" rx="6" fill="#0f172a" stroke="#1e40af" />
+        <text x="10" y="24" font-family="sans-serif" font-size="10" font-weight="800" fill="#93c5fd">Document Extraction:</text>
+        <text x="10" y="44" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Strips headers/footers</text>
+        <text x="10" y="60" font-family="sans-serif" font-size="9" fill="#cbd5e1">• OCR on scanned pages</text>
+        <text x="10" y="76" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Markdown table parsing</text>
+        <text x="10" y="92" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Cleans unicode static</text>
+        <text x="10" y="112" font-family="monospace" font-size="8.5" fill="#38bdf8">&gt; 10,000+ pages</text>
+
+        <rect x="0" y="275" width="175" height="75" rx="6" fill="#450a0a" />
+        <text x="8" y="20" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#fca5a5">THE PROBLEM:</text>
+        <text x="8" y="38" font-family="sans-serif" font-size="8.5" fill="#fee2e2">Cannot fit entire company</text>
+        <text x="8" y="52" font-family="sans-serif" font-size="8.5" fill="#fee2e2">archive into prompt context</text>
+        <text x="8" y="66" font-family="sans-serif" font-size="8.5" fill="#fee2e2">without massive latency/cost!</text>
+      </g>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <path d="M 207 140 L 227 140" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#rag-arr)" />
+
+    <!-- STAGE 2: CHUNKING WITH OVERLAP -->
+    <g transform="translate(230, 0)">
+      <rect width="210" height="430" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.8" />
+      <rect x="0" y="0" width="210" height="32" rx="10" fill="#065f46" />
+      <text x="105" y="21" font-family="sans-serif" font-size="11.5" font-weight="800" fill="#ffffff" text-anchor="middle">
+        2. CHUNKING &amp; OVERLAP
+      </text>
+
+      <g transform="translate(15, 45)">
+        <!-- Chunk 1 -->
+        <rect width="180" height="75" rx="6" fill="#0f172a" stroke="#10b981" />
+        <text x="10" y="18" font-family="monospace" font-size="9.5" font-weight="700" fill="#6ee7b7">Chunk 1 (500 tokens)</text>
+        <text x="10" y="34" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">"The company vacation policy</text>
+        <text x="10" y="48" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">grants 20 days per year.</text>
+        <!-- Overlap strip -->
+        <rect x="8" y="54" width="164" height="15" fill="#064e3b" rx="2" />
+        <text x="12" y="65" font-family="sans-serif" font-size="8" fill="#a7f3d0">[OVERLAP 50 TOKENS]</text>
+
+        <!-- Chunk 2 -->
+        <g transform="translate(0, 90)">
+          <rect width="180" height="75" rx="6" fill="#0f172a" stroke="#10b981" />
+          <text x="10" y="18" font-family="monospace" font-size="9.5" font-weight="700" fill="#6ee7b7">Chunk 2 (500 tokens)</text>
+          <!-- Overlap strip -->
+          <rect x="8" y="22" width="164" height="15" fill="#064e3b" rx="2" />
+          <text x="12" y="33" font-family="sans-serif" font-size="8" fill="#a7f3d0">[OVERLAP 50 TOKENS]</text>
+          <text x="10" y="52" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">Sick leave accrues monthly</text>
+          <text x="10" y="66" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">and rolls over annually."</text>
+        </g>
+
+        <!-- Why Overlap Box -->
+        <g transform="translate(0, 185)">
+          <rect width="180" height="165" rx="6" fill="#0f172a" stroke="#047857" />
+          <text x="10" y="20" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0">Why Overlap Matters:</text>
+          <text x="10" y="38" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">• Prevents slicing entities</text>
+          <text x="10" y="52" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">  in half (e.g. "iPhone 15 | Pro")</text>
+          <text x="10" y="68" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">• Preserves semantic context</text>
+          <text x="10" y="82" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">  across sentence boundaries</text>
+          <text x="10" y="98" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">• Standard recipe:</text>
+          <text x="10" y="112" font-family="monospace" font-size="9" fill="#38bdf8">  Size: 400-800 tokens</text>
+          <text x="10" y="126" font-family="monospace" font-size="9" fill="#38bdf8">  Overlap: 10-20%</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <path d="M 442 140 L 462 140" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#rag-arr)" />
+
+    <!-- STAGE 3: EMBEDDING MODEL -->
+    <g transform="translate(465, 0)">
+      <rect width="210" height="430" rx="10" fill="#1e293b" stroke="#a855f7" stroke-width="1.8" />
+      <rect x="0" y="0" width="210" height="32" rx="10" fill="#7e22ce" />
+      <text x="105" y="21" font-family="sans-serif" font-size="11.5" font-weight="800" fill="#ffffff" text-anchor="middle">
+        3. EMBEDDING ENGINE
+      </text>
+
+      <g transform="translate(15, 45)">
+        <rect width="180" height="100" rx="6" fill="#0f172a" stroke="#7e22ce" />
+        <text x="90" y="24" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#d8b4fe" text-anchor="middle">
+          text-embedding-3-small
+        </text>
+        <text x="90" y="44" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">or BGE-M3 / Voyage AI</text>
+        <text x="90" y="64" font-family="monospace" font-size="8.5" fill="#38bdf8" text-anchor="middle">Text &rarr; ℝ^{1536}</text>
+        <text x="90" y="84" font-family="sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Semantic dense coordinate</text>
+
+        <!-- High-dim Vector Strip -->
+        <rect x="0" y="115" width="180" height="90" rx="6" fill="#1e1b4b" stroke="#a855f7" />
+        <text x="10" y="20" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#f5d0fe">Vector Output:</text>
+        <text x="10" y="40" font-family="monospace" font-size="8.5" fill="#cbd5e1">[-0.0142, 0.0891,</text>
+        <text x="10" y="56" font-family="monospace" font-size="8.5" fill="#cbd5e1"> -0.0432, ..., 0.0118]</text>
+        <text x="10" y="76" font-family="sans-serif" font-size="8.5" fill="#34d399">✓ Unit Normalized (L2 = 1)</text>
+
+        <rect x="0" y="220" width="180" height="130" rx="6" fill="#0f172a" stroke="#6b21a8" />
+        <text x="10" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#d8b4fe">Geometry of Meaning:</text>
+        <text x="10" y="42" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">• Synonyms group tightly</text>
+        <text x="10" y="58" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">• Multilingual parity</text>
+        <text x="10" y="74" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">• Fast cosine dot products:</text>
+        <text x="10" y="92" font-family="monospace" font-size="9" fill="#fcd34d">  cos(θ) = A · B</text>
+      </g>
+    </g>
+
+    <!-- Arrow 3 -> 4 -->
+    <path d="M 677 140 L 697 140" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#rag-arr)" />
+
+    <!-- STAGE 4: VECTOR DATABASE (HNSW) -->
+    <g transform="translate(700, 0)">
+      <rect width="200" height="430" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.8" />
+      <rect x="0" y="0" width="200" height="32" rx="10" fill="#b45309" />
+      <text x="100" y="21" font-family="sans-serif" font-size="11.5" font-weight="800" fill="#ffffff" text-anchor="middle">
+        4. VECTOR DATABASE
+      </text>
+
+      <g transform="translate(12, 45)">
+        <rect width="176" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="88" y="40" font-family="sans-serif" font-size="28" text-anchor="middle">🗄️ ⚡</text>
+        <text x="88" y="68" font-family="sans-serif" font-size="10.5" font-weight="700" fill="#fcd34d" text-anchor="middle">
+          ANN Index (HNSW)
+        </text>
+        <text x="88" y="85" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">
+          Pinecone / Qdrant / Chroma
+        </text>
+
+        <rect x="0" y="130" width="176" height="220" rx="6" fill="#0f172a" stroke="#b45309" />
+        <text x="10" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#fde68a">Storage Entry:</text>
+        <text x="10" y="42" font-family="monospace" font-size="8.5" fill="#38bdf8">ID: "chunk_4821"</text>
+        <text x="10" y="58" font-family="monospace" font-size="8.5" fill="#6ee7b7">Vector: [1536 floats]</text>
+        <text x="10" y="74" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#fcd34d">Metadata Payload:</text>
+        <text x="10" y="90" font-family="monospace" font-size="8" fill="#cbd5e1">• doc: "hr_policy.pdf"</text>
+        <text x="10" y="104" font-family="monospace" font-size="8" fill="#cbd5e1">• page: 14</text>
+        <text x="10" y="118" font-family="monospace" font-size="8" fill="#cbd5e1">• dept: "Engineering"</text>
+        <text x="10" y="132" font-family="monospace" font-size="8" fill="#cbd5e1">• text: "Vacation..."</text>
+
+        <rect x="10" y="150" width="156" height="55" rx="4" fill="#064e3b" />
+        <text x="88" y="172" font-family="sans-serif" font-size="9" font-weight="800" fill="#a7f3d0" text-anchor="middle">
+          &lt; 5ms SEARCH LATENCY
+        </text>
+        <text x="88" y="190" font-family="sans-serif" font-size="8" fill="#d1fae5" text-anchor="middle">
+          across 10M+ embeddings!
+        </text>
+      </g>
+    </g>
+
+  </g>
+</svg>

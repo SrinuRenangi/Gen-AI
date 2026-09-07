@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fc-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="fc-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="fc-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="fc-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <marker id="fc-gold" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#fc-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    FUNCTION CALLING &amp; TOOL USE PROTOCOL (SEQUENCE FLOW)
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">
+    How LLMs Trigger Real-World Code Execution via JSON Schema Contracts &amp; Observation Payloads
+  </text>
+
+  <!-- 3 Swimlane Actors -->
+  <g transform="translate(50, 80)" filter="url(#fc-shadow)">
+
+    <!-- Actor 1: Client App -->
+    <g transform="translate(50, 0)">
+      <rect width="180" height="40" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.8" />
+      <text x="90" y="25" font-family="sans-serif" font-size="11.5" font-weight="800" fill="#93c5fd" text-anchor="middle">
+        1. CLIENT APP (PYTHON)
+      </text>
+      <!-- Lifeline -->
+      <line x1="90" y1="40" x2="90" y2="440" stroke="#334155" stroke-width="2" stroke-dasharray="6 4" />
+    </g>
+
+    <!-- Actor 2: LLM Engine -->
+    <g transform="translate(340, 0)">
+      <rect width="180" height="40" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="1.8" />
+      <text x="90" y="25" font-family="sans-serif" font-size="11.5" font-weight="800" fill="#d8b4fe" text-anchor="middle">
+        2. LLM (GPT-4o / CLAUDE)
+      </text>
+      <!-- Lifeline -->
+      <line x1="90" y1="40" x2="90" y2="440" stroke="#334155" stroke-width="2" stroke-dasharray="6 4" />
+    </g>
+
+    <!-- Actor 3: External Tool -->
+    <g transform="translate(630, 0)">
+      <rect width="180" height="40" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.8" />
+      <text x="90" y="25" font-family="sans-serif" font-size="11.5" font-weight="800" fill="#6ee7b7" text-anchor="middle">
+        3. REAL WORLD TOOL (API)
+      </text>
+      <!-- Lifeline -->
+      <line x1="90" y1="40" x2="90" y2="440" stroke="#334155" stroke-width="2" stroke-dasharray="6 4" />
+    </g>
+
+    <!-- SEQUENCE MESSAGE ARROWS -->
+
+    <!-- Msg 1: Client -> LLM -->
+    <g transform="translate(0, 65)">
+      <path d="M 140 20 L 420 20" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fc-arr)" />
+      <rect x="180" y="0" width="200" height="38" rx="4" fill="#0f172a" stroke="#1e40af" />
+      <text x="280" y="16" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#93c5fd" text-anchor="middle">
+        POST /v1/chat/completions
+      </text>
+      <text x="280" y="30" font-family="monospace" font-size="8.5" fill="#cbd5e1" text-anchor="middle">
+        Prompt + tools=[get_stock_price]
+      </text>
+    </g>
+
+    <!-- Msg 2: LLM -> Client (tool call) -->
+    <g transform="translate(0, 130)">
+      <path d="M 430 20 L 150 20" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#fc-gold)" />
+      <rect x="175" y="0" width="220" height="46" rx="4" fill="#0f172a" stroke="#b45309" />
+      <text x="285" y="16" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#fcd34d" text-anchor="middle">
+        finish_reason: "tool_calls"
+      </text>
+      <text x="285" y="30" font-family="monospace" font-size="8" fill="#cbd5e1" text-anchor="middle">
+        name: "get_stock_price"
+      </text>
+      <text x="285" y="42" font-family="monospace" font-size="8" fill="#6ee7b7" text-anchor="middle">
+        args: {"ticker": "NVDA"}
+      </text>
+    </g>
+
+    <!-- Msg 3: Client -> Tool API -->
+    <g transform="translate(0, 205)">
+      <path d="M 140 20 L 710 20" stroke="#10b981" stroke-width="2.5" marker-end="url(#fc-green)" />
+      <rect x="340" y="0" width="180" height="38" rx="4" fill="#0f172a" stroke="#059669" />
+      <text x="430" y="16" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#a7f3d0" text-anchor="middle">
+        Execute Local Function:
+      </text>
+      <text x="430" y="30" font-family="monospace" font-size="8.5" fill="#cbd5e1" text-anchor="middle">
+        get_stock_price(ticker="NVDA")
+      </text>
+    </g>
+
+    <!-- Msg 4: Tool API -> Client -->
+    <g transform="translate(0, 265)">
+      <path d="M 720 20 L 150 20" stroke="#10b981" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#fc-green)" />
+      <rect x="340" y="4" width="180" height="32" rx="4" fill="#064e3b" />
+      <text x="430" y="24" font-family="monospace" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">
+        Returns: {"price": 128.50}
+      </text>
+    </g>
+
+    <!-- Msg 5: Client -> LLM (Observation) -->
+    <g transform="translate(0, 320)">
+      <path d="M 140 20 L 420 20" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fc-arr)" />
+      <rect x="175" y="0" width="220" height="42" rx="4" fill="#0f172a" stroke="#1e40af" />
+      <text x="285" y="16" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#93c5fd" text-anchor="middle">
+        role: "tool", tool_call_id: "call_12"
+      </text>
+      <text x="285" y="32" font-family="monospace" font-size="8.5" fill="#a7f3d0" text-anchor="middle">
+        content: "{\"price\": 128.50}"
+      </text>
+    </g>
+
+    <!-- Msg 6: LLM -> Client (Final Grounded Answer) -->
+    <g transform="translate(0, 385)">
+      <path d="M 430 20 L 150 20" stroke="#34d399" stroke-width="2.5" marker-end="url(#fc-green)" />
+      <rect x="165" y="2" width="240" height="40" rx="6" fill="#064e3b" stroke="#10b981" />
+      <text x="285" y="18" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#ffffff" text-anchor="middle">
+        FINAL SYNTHESIZED RESPONSE:
+      </text>
+      <text x="285" y="33" font-family="sans-serif" font-size="9" fill="#d1fae5" text-anchor="middle">
+        &ldquo;NVIDIA (NVDA) is currently trading at $128.50.&rdquo;
+      </text>
+    </g>
+
+  </g>
+</svg>

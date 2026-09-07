@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="agent-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="ag-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arr-c" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <marker id="arr-a" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#agent-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE REACT AGENT LIFECYCLE: REASONING + ACTING
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">
+    Autonomous Problem Solving via Iterative Thought &rarr; Tool Action &rarr; Observation Feedback Loops
+  </text>
+
+  <!-- Main Architecture Container -->
+  <g transform="translate(45, 85)" filter="url(#ag-shadow)">
+
+    <!-- Upper User Goal Banner -->
+    <rect x="0" y="0" width="870" height="50" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8" />
+    <text x="20" y="31" font-family="sans-serif" font-size="11.5" font-weight="800" fill="#38bdf8">USER GOAL:</text>
+    <text x="120" y="31" font-family="sans-serif" font-size="11" fill="#cbd5e1">
+      &ldquo;Check our database for Q3 churn rate, compute the variance against Q2, and send a summary email to the CFO.&rdquo;
+    </text>
+
+    <!-- The 3 ReAct Steps in a Circle/Loop -->
+    <g transform="translate(0, 75)">
+
+      <!-- STEP 1: THOUGHT (LLM Reasoning) -->
+      <g transform="translate(0, 0)">
+        <rect width="265" height="235" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.8" />
+        <rect x="0" y="0" width="265" height="30" rx="10" fill="#1d4ed8" />
+        <text x="132" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+          1. THOUGHT (INTERNAL REASONING)
+        </text>
+
+        <g transform="translate(15, 45)">
+          <text x="0" y="14" font-family="sans-serif" font-size="10" font-weight="800" fill="#93c5fd">What the Agent Thinks:</text>
+          <rect x="0" y="22" width="235" height="95" rx="6" fill="#0f172a" stroke="#1e40af" />
+          <text x="10" y="42" font-family="monospace" font-size="8.5" fill="#93c5fd">&ldquo;I need Q3 churn data first.</text>
+          <text x="10" y="58" font-family="monospace" font-size="8.5" fill="#93c5fd">I don't have this in memory.</text>
+          <text x="10" y="74" font-family="monospace" font-size="8.5" fill="#93c5fd">I will execute a SQL query</text>
+          <text x="10" y="90" font-family="monospace" font-size="8.5" fill="#93c5fd">against the analytics DB.&rdquo;</text>
+
+          <text x="0" y="132" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#f8fafc">Key Capabilities:</text>
+          <text x="0" y="148" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Decomposes goal into sub-steps</text>
+          <text x="0" y="162" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Identifies missing data</text>
+          <text x="0" y="176" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Selects next appropriate tool</text>
+        </g>
+      </g>
+
+      <!-- Arrow 1 -> 2 -->
+      <path d="M 270 115 L 298 115" stroke="#38bdf8" stroke-width="3" marker-end="url(#arr-c)" />
+
+      <!-- STEP 2: ACTION (Tool Invocation) -->
+      <g transform="translate(305, 0)">
+        <rect width="265" height="235" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.8" />
+        <rect x="0" y="0" width="265" height="30" rx="10" fill="#b45309" />
+        <text x="132" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+          2. ACTION (TOOL EXECUTION)
+        </text>
+
+        <g transform="translate(15, 45)">
+          <text x="0" y="14" font-family="sans-serif" font-size="10" font-weight="800" fill="#fde68a">Structured Tool Call Packet:</text>
+          <rect x="0" y="22" width="235" height="95" rx="6" fill="#0f172a" stroke="#d97706" />
+          <text x="10" y="40" font-family="monospace" font-size="8" fill="#fcd34d">tool: "execute_sql"</text>
+          <text x="10" y="56" font-family="monospace" font-size="8" fill="#fcd34d">query: "SELECT churn_rate</text>
+          <text x="10" y="72" font-family="monospace" font-size="8" fill="#fcd34d">  FROM quarterly_metrics</text>
+          <text x="10" y="88" font-family="monospace" font-size="8" fill="#fcd34d">  WHERE quarter = 'Q3';"</text>
+
+          <text x="0" y="132" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#f8fafc">External Execution:</text>
+          <text x="0" y="148" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Runs outside the model sandbox</text>
+          <text x="0" y="162" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Python, Web Search, SQL, APIs</text>
+          <text x="0" y="176" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Strict parameter validation</text>
+        </g>
+      </g>
+
+      <!-- Arrow 2 -> 3 -->
+      <path d="M 575 115 L 600 115" stroke="#f59e0b" stroke-width="3" marker-end="url(#arr-a)" />
+
+      <!-- STEP 3: OBSERVATION (Environment Feedback) -->
+      <g transform="translate(605, 0)">
+        <rect width="265" height="235" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.8" />
+        <rect x="0" y="0" width="265" height="30" rx="10" fill="#065f46" />
+        <text x="132" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+          3. OBSERVATION (REAL WORLD DATA)
+        </text>
+
+        <g transform="translate(15, 45)">
+          <text x="0" y="14" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0">Raw Output from DB:</text>
+          <rect x="0" y="22" width="235" height="95" rx="6" fill="#0f172a" stroke="#059669" />
+          <text x="10" y="42" font-family="monospace" font-size="8" fill="#a7f3d0">[</text>
+          <text x="20" y="58" font-family="monospace" font-size="8" fill="#a7f3d0">{"quarter": "Q3",</text>
+          <text x="20" y="74" font-family="monospace" font-size="8" fill="#a7f3d0"> "churn_rate": 0.042}</text>
+          <text x="10" y="90" font-family="monospace" font-size="8" fill="#a7f3d0">]</text>
+
+          <text x="0" y="132" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#f8fafc">Loop Feedback:</text>
+          <text x="0" y="148" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Appends observation to context</text>
+          <text x="0" y="162" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Model evaluates if task is complete</text>
+          <text x="0" y="176" font-family="sans-serif" font-size="9" fill="#6ee7b7">&rarr; Continues loop or delivers final answer</text>
+        </g>
+      </g>
+
+    </g>
+
+    <!-- Cyclic Feedback Arrow from Step 3 back to Step 1 -->
+    <path d="M 737 315 L 737 340 L 132 340 L 132 315" stroke="#10b981" stroke-width="2.5" stroke-dasharray="6 3" fill="none" marker-end="url(#arr-g)" />
+    <text x="435" y="358" font-family="sans-serif" font-size="10" font-weight="700" fill="#a7f3d0" text-anchor="middle">
+      &larr; OBSERVATION RE-ENTERS CONTEXT AS NEW EVIDENCE FOR NEXT THOUGHT (UNTIL GOAL MET)
+    </text>
+
+    <!-- Guardrails & Exit Criteria Strip -->
+    <g transform="translate(0, 375)">
+      <rect width="870" height="60" rx="8" fill="#0f172a" stroke="#475569" />
+      <text x="20" y="24" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#fca5a5">PRODUCTION AGENT GUARDRAILS:</text>
+      <text x="20" y="44" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+        • <tspan font-weight="700" fill="#f8fafc">Max Iteration Cap (e.g. 10 loops)</tspan> to stop runaway loops |
+        • <tspan font-weight="700" fill="#f8fafc">Human-in-the-Loop</tspan> for destructive calls (sending emails, DB writes) |
+        • <tspan font-weight="700" fill="#f8fafc">Token Budget Ceiling</tspan>
+      </text>
+    </g>
+
+  </g>
+</svg>

@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="adv-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="adv-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="adv-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="adv-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#adv-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    ADVANCED RAG: HYBRID SEARCH &amp; CROSS-ENCODER RE-RANKING
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">
+    Pre-Retrieval HyDE &rarr; Dual Sparse/Dense Retrieval &rarr; Reciprocal Rank Fusion (RRF) &rarr; Cross-Encoder
+  </text>
+
+  <!-- Main Pipeline (5 Stages) -->
+  <g transform="translate(25, 85)" filter="url(#adv-shadow)">
+
+    <!-- STAGE 1: USER QUERY & HyDE -->
+    <g transform="translate(0, 0)">
+      <rect width="170" height="430" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.8" />
+      <rect x="0" y="0" width="170" height="30" rx="10" fill="#1d4ed8" />
+      <text x="85" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        1. QUERY &amp; HyDE
+      </text>
+
+      <g transform="translate(10, 42)">
+        <rect width="150" height="85" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="8" y="20" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#93c5fd">User Question:</text>
+        <text x="8" y="38" font-family="sans-serif" font-size="9" fill="#cbd5e1">"How does error code</text>
+        <text x="8" y="52" font-family="sans-serif" font-size="9" fill="#cbd5e1">ERR_881 impact</text>
+        <text x="8" y="66" font-family="sans-serif" font-size="9" fill="#cbd5e1">payment capture?"</text>
+
+        <path d="M 75 135 L 75 155" stroke="#38bdf8" stroke-width="2" marker-end="url(#adv-arr)" />
+
+        <rect x="0" y="160" width="150" height="135" rx="6" fill="#0f172a" stroke="#1e40af" />
+        <text x="8" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#93c5fd">HyDE Transformation:</text>
+        <text x="8" y="40" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">Generates hypothetical</text>
+        <text x="8" y="54" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">draft answer first:</text>
+        <text x="8" y="74" font-family="monospace" font-size="8" fill="#a7f3d0">"ERR_881 indicates a</text>
+        <text x="8" y="88" font-family="monospace" font-size="8" fill="#a7f3d0">gateway timeout on</text>
+        <text x="8" y="102" font-family="monospace" font-size="8" fill="#a7f3d0">settlement batches..."</text>
+        <text x="8" y="122" font-family="sans-serif" font-size="8" fill="#94a3b8">Bridges query-doc gap!</text>
+
+        <rect x="0" y="305" width="150" height="70" rx="6" fill="#064e3b" />
+        <text x="8" y="20" font-family="sans-serif" font-size="9" font-weight="800" fill="#6ee7b7">ADVANTAGE:</text>
+        <text x="8" y="38" font-family="sans-serif" font-size="8" fill="#d1fae5">Embedding a draft</text>
+        <text x="8" y="52" font-family="sans-serif" font-size="8" fill="#d1fae5">answer is closer to doc</text>
+        <text x="8" y="66" font-family="sans-serif" font-size="8" fill="#d1fae5">space than a question!</text>
+      </g>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <path d="M 172 160 L 188 160" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#adv-arr)" />
+
+    <!-- STAGE 2: DUAL HYBRID RETRIEVAL -->
+    <g transform="translate(190, 0)">
+      <rect width="175" height="430" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.8" />
+      <rect x="0" y="0" width="175" height="30" rx="10" fill="#b45309" />
+      <text x="87" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        2. HYBRID RETRIEVAL
+      </text>
+
+      <g transform="translate(10, 42)">
+        <!-- Branch A: Sparse BM25 -->
+        <rect width="155" height="95" rx="6" fill="#0f172a" stroke="#d97706" />
+        <text x="8" y="20" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#fde68a">SPARSE (BM25):</text>
+        <text x="8" y="38" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">Exact keyword hits:</text>
+        <text x="8" y="54" font-family="monospace" font-size="8" fill="#fcd34d">"ERR_881", "payment"</text>
+        <text x="8" y="74" font-family="sans-serif" font-size="8" fill="#94a3b8">Unbeatable for codes,</text>
+        <text x="8" y="88" font-family="sans-serif" font-size="8" fill="#94a3b8">SKUs, and IDs.</text>
+
+        <!-- Plus -->
+        <text x="77" y="155" font-family="sans-serif" font-size="18" font-weight="900" fill="#f59e0b" text-anchor="middle">+</text>
+
+        <!-- Branch B: Dense Vector -->
+        <rect x="0" y="170" width="155" height="95" rx="6" fill="#0f172a" stroke="#a855f7" />
+        <text x="8" y="20" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#d8b4fe">DENSE (EMBEDDINGS):</text>
+        <text x="8" y="38" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">Semantic concepts:</text>
+        <text x="8" y="54" font-family="monospace" font-size="8" fill="#c084fc">"settlement failures"</text>
+        <text x="8" y="74" font-family="sans-serif" font-size="8" fill="#94a3b8">Catches synonyms &amp;</text>
+        <text x="8" y="88" font-family="sans-serif" font-size="8" fill="#94a3b8">conceptual meaning.</text>
+
+        <rect x="0" y="280" width="155" height="95" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="8" y="20" font-family="sans-serif" font-size="9" font-weight="700" fill="#cbd5e1">Candidate Pool:</text>
+        <text x="8" y="40" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">• 25 BM25 matches</text>
+        <text x="8" y="58" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">• 25 Dense matches</text>
+        <text x="8" y="78" font-family="monospace" font-size="8.5" fill="#fcd34d">&rarr; 50 candidates</text>
+      </g>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <path d="M 367 160 L 383 160" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#adv-arr)" />
+
+    <!-- STAGE 3: RECIPROCAL RANK FUSION (RRF) -->
+    <g transform="translate(385, 0)">
+      <rect width="175" height="430" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.8" />
+      <rect x="0" y="0" width="175" height="30" rx="10" fill="#065f46" />
+      <text x="87" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        3. RRF FUSION
+      </text>
+
+      <g transform="translate(10, 42)">
+        <rect width="155" height="110" rx="6" fill="#0f172a" stroke="#059669" />
+        <text x="8" y="20" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#6ee7b7">RRF FORMULA:</text>
+        <rect x="5" y="28" width="145" height="28" rx="4" fill="#064e3b" />
+        <text x="77" y="47" font-family="monospace" font-size="9" font-weight="700" fill="#a7f3d0" text-anchor="middle">
+          RRF = ∑ 1 / (60 + r_m)
+        </text>
+        <text x="8" y="74" font-family="sans-serif" font-size="8" fill="#cbd5e1">• No score normalization</text>
+        <text x="8" y="88" font-family="sans-serif" font-size="8" fill="#cbd5e1">  calibration needed!</text>
+        <text x="8" y="102" font-family="sans-serif" font-size="8" fill="#cbd5e1">• Merges rank orders.</text>
+
+        <rect x="0" y="165" width="155" height="150" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="8" y="22" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#93c5fd">Merged Top List:</text>
+        <text x="8" y="42" font-family="monospace" font-size="8" fill="#cbd5e1">#1: Doc_42 (RRF 0.031)</text>
+        <text x="8" y="58" font-family="monospace" font-size="8" fill="#cbd5e1">#2: Doc_19 (RRF 0.028)</text>
+        <text x="8" y="74" font-family="monospace" font-size="8" fill="#cbd5e1">#3: Doc_88 (RRF 0.024)</text>
+        <text x="8" y="90" font-family="monospace" font-size="8" fill="#cbd5e1">#4: Doc_03 (RRF 0.019)</text>
+        <text x="8" y="106" font-family="monospace" font-size="8" fill="#cbd5e1">... (50 candidate docs)</text>
+        <text x="8" y="132" font-family="sans-serif" font-size="8.5" fill="#fca5a5">Still too many for prompt!</text>
+
+        <rect x="0" y="325" width="155" height="50" rx="6" fill="#064e3b" />
+        <text x="77" y="354" font-family="sans-serif" font-size="9" font-weight="800" fill="#a7f3d0" text-anchor="middle">
+          Pass Top 25 to Reranker
+        </text>
+      </g>
+    </g>
+
+    <!-- Arrow 3 -> 4 -->
+    <path d="M 562 160 L 578 160" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#adv-arr)" />
+
+    <!-- STAGE 4: CROSS-ENCODER RE-RANKING -->
+    <g transform="translate(580, 0)">
+      <rect width="175" height="430" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="1.8" />
+      <rect x="0" y="0" width="175" height="30" rx="10" fill="#9d174d" />
+      <text x="87" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        4. CROSS-ENCODER
+      </text>
+
+      <g transform="translate(10, 42)">
+        <rect width="155" height="110" rx="6" fill="#0f172a" stroke="#ec4899" />
+        <text x="8" y="20" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#f472b6">COHERE / BGE RERANK:</text>
+        <text x="8" y="38" font-family="monospace" font-size="8" fill="#fbcfe8">[CLS] Query [SEP] Doc</text>
+        <text x="8" y="58" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">Full cross-attention across</text>
+        <text x="8" y="72" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">every token pair!</text>
+        <text x="8" y="92" font-family="sans-serif" font-size="8.5" font-weight="700" fill="#6ee7b7">Deep Semantic Audit</text>
+
+        <rect x="0" y="165" width="155" height="150" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="8" y="22" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#f472b6">High-Precision Filter:</text>
+        <text x="8" y="42" font-family="monospace" font-size="8" fill="#34d399">★ Doc_19: Score 0.982</text>
+        <text x="8" y="58" font-family="monospace" font-size="8" fill="#34d399">★ Doc_42: Score 0.941</text>
+        <text x="8" y="74" font-family="monospace" font-size="8" fill="#34d399">★ Doc_03: Score 0.895</text>
+        <text x="8" y="98" font-family="monospace" font-size="8" fill="#f87171">✗ Doc_88: Score 0.120</text>
+        <text x="8" y="112" font-family="monospace" font-size="8" fill="#f87171">✗ 22 others discarded</text>
+        <text x="8" y="132" font-family="sans-serif" font-size="8" fill="#a7f3d0">Eliminates noise!</text>
+
+        <rect x="0" y="325" width="155" height="50" rx="6" fill="#831843" />
+        <text x="77" y="354" font-family="sans-serif" font-size="9" font-weight="800" fill="#fbcfe8" text-anchor="middle">
+          Pruned to Top 3 Chunks
+        </text>
+      </g>
+    </g>
+
+    <!-- Arrow 4 -> 5 -->
+    <path d="M 757 160 L 773 160" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#adv-arr)" />
+
+    <!-- STAGE 5: GROUNDED SYNTHESIS -->
+    <g transform="translate(775, 0)">
+      <rect width="135" height="430" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.8" />
+      <rect x="0" y="0" width="135" height="30" rx="10" fill="#065f46" />
+      <text x="67" y="20" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        5. SYNTHESIS
+      </text>
+
+      <g transform="translate(8, 42)">
+        <rect width="119" height="150" rx="6" fill="#0f172a" stroke="#10b981" />
+        <text x="8" y="20" font-family="sans-serif" font-size="9" font-weight="800" fill="#6ee7b7">Augmented Prompt:</text>
+        <text x="8" y="38" font-family="monospace" font-size="7.5" fill="#93c5fd">&lt;context&gt;</text>
+        <text x="8" y="52" font-family="monospace" font-size="7.5" fill="#cbd5e1">[Doc 19] ERR_881</text>
+        <text x="8" y="66" font-family="monospace" font-size="7.5" fill="#cbd5e1">leads to gateway</text>
+        <text x="8" y="80" font-family="monospace" font-size="7.5" fill="#cbd5e1">timeout on batch</text>
+        <text x="8" y="94" font-family="monospace" font-size="7.5" fill="#cbd5e1">settlement...</text>
+        <text x="8" y="108" font-family="monospace" font-size="7.5" fill="#93c5fd">&lt;/context&gt;</text>
+        <text x="8" y="128" font-family="sans-serif" font-size="8" fill="#a7f3d0">Zero fluff injected!</text>
+
+        <rect x="0" y="205" width="119" height="170" rx="6" fill="#064e3b" stroke="#059669" />
+        <text x="8" y="22" font-family="sans-serif" font-size="9.5" font-weight="800" fill="#ffffff">LLM Answer:</text>
+        <text x="8" y="44" font-family="sans-serif" font-size="8" fill="#d1fae5">"Error code ERR_881</text>
+        <text x="8" y="58" font-family="sans-serif" font-size="8" fill="#d1fae5">triggers a gateway</text>
+        <text x="8" y="72" font-family="sans-serif" font-size="8" fill="#d1fae5">timeout on batch</text>
+        <text x="8" y="86" font-family="sans-serif" font-size="8" fill="#d1fae5">settlement [1]. To</text>
+        <text x="8" y="100" font-family="sans-serif" font-size="8" fill="#d1fae5">resolve, retry with</text>
+        <text x="8" y="114" font-family="sans-serif" font-size="8" fill="#d1fae5">jitter [2]."</text>
+        <text x="8" y="140" font-family="monospace" font-size="8" font-weight="700" fill="#a7f3d0">100% Grounded!</text>
+      </g>
+    </g>
+
+  </g>
+</svg>

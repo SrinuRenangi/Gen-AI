@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hnsw-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="hnsw-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arr-gold" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+    <marker id="arr-step" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#ec4899" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#hnsw-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    HIERARCHICAL NAVIGABLE SMALL WORLD (HNSW) GRAPH SEARCH
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">
+    Sub-Linear O(log N) Approximate Nearest Neighbors via Multi-Layer Skip-List Graph Topology
+  </text>
+
+  <!-- HNSW Graph Structure -->
+  <g transform="translate(45, 85)" filter="url(#hnsw-shadow)">
+
+    <!-- LAYER 2: EXPRESS HIGHWAY (Top Layer) -->
+    <g transform="translate(0, 0)">
+      <rect width="870" height="105" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.8" />
+      <rect x="0" y="0" width="220" height="24" rx="10" fill="#b45309" />
+      <text x="110" y="17" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#ffffff" text-anchor="middle">
+        LAYER 2 (SPARSE EXPRESS HIGHWAY)
+      </text>
+
+      <!-- Highway Nodes & Long Edge -->
+      <!-- Entry Point -->
+      <circle cx="120" cy="65" r="9" fill="#f59e0b" />
+      <text x="120" y="48" font-family="monospace" font-size="10" font-weight="800" fill="#fde68a" text-anchor="middle">ENTRY POINT</text>
+
+      <!-- Skip Line -->
+      <line x1="129" y1="65" x2="680" y2="65" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 3" />
+
+      <!-- Destination Top Node -->
+      <circle cx="690" cy="65" r="9" fill="#f59e0b" />
+      <text x="690" y="48" font-family="sans-serif" font-size="10" fill="#fde68a" text-anchor="middle">Greedy Step &rarr;</text>
+    </g>
+
+    <!-- Downward Step from Layer 2 to Layer 1 -->
+    <path d="M 690 74 L 690 128" stroke="#ec4899" stroke-width="3" stroke-dasharray="4 2" marker-end="url(#arr-step)" />
+    <text x="735" y="112" font-family="sans-serif" font-size="9" font-weight="800" fill="#f472b6">STEP DOWN TO L1</text>
+
+    <!-- LAYER 1: INTERMEDIATE DENSITY (Middle Layer) -->
+    <g transform="translate(0, 120)">
+      <rect width="870" height="115" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.8" />
+      <rect x="0" y="0" width="220" height="24" rx="10" fill="#1d4ed8" />
+      <text x="110" y="17" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#ffffff" text-anchor="middle">
+        LAYER 1 (REGIONAL NETWORK)
+      </text>
+
+      <!-- Connected Nodes in Layer 1 -->
+      <circle cx="180" cy="65" r="7" fill="#38bdf8" />
+      <circle cx="380" cy="55" r="7" fill="#38bdf8" />
+      <circle cx="520" cy="80" r="7" fill="#38bdf8" />
+      <circle cx="690" cy="65" r="8" fill="#ec4899" stroke="#ffffff" stroke-width="2" />
+      <circle cx="790" cy="55" r="7" fill="#38bdf8" />
+
+      <!-- Edges -->
+      <line x1="187" y1="65" x2="373" y2="55" stroke="#334155" stroke-width="1.5" />
+      <line x1="387" y1="55" x2="513" y2="80" stroke="#334155" stroke-width="1.5" />
+      <line x1="527" y1="80" x2="682" y2="65" stroke="#334155" stroke-width="1.5" />
+      <line x1="698" y1="65" x2="782" y2="55" stroke="#38bdf8" stroke-width="2" />
+
+      <text x="690" y="95" font-family="sans-serif" font-size="9" fill="#f472b6" text-anchor="middle">Local Hop</text>
+    </g>
+
+    <!-- Downward Step from Layer 1 to Layer 0 -->
+    <path d="M 790 182 L 790 250" stroke="#ec4899" stroke-width="3" stroke-dasharray="4 2" marker-end="url(#arr-step)" />
+    <text x="835" y="230" font-family="sans-serif" font-size="9" font-weight="800" fill="#f472b6">STEP DOWN TO L0</text>
+
+    <!-- LAYER 0: DENSE GROUND TRUTH LAYER (All Vectors N) -->
+    <g transform="translate(0, 250)">
+      <rect width="870" height="185" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.8" />
+      <rect x="0" y="0" width="220" height="24" rx="10" fill="#065f46" />
+      <text x="110" y="17" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#ffffff" text-anchor="middle">
+        LAYER 0 (ALL DATA VECTORS N)
+      </text>
+
+      <!-- Dense Web of Nodes -->
+      <circle cx="80" cy="60" r="5" fill="#64748b"/><circle cx="140" cy="110" r="5" fill="#64748b"/>
+      <circle cx="210" cy="70" r="5" fill="#64748b"/><circle cx="280" cy="120" r="5" fill="#64748b"/>
+      <circle cx="350" cy="50" r="5" fill="#64748b"/><circle cx="430" cy="95" r="5" fill="#64748b"/>
+      <circle cx="510" cy="65" r="5" fill="#64748b"/><circle cx="590" cy="130" r="5" fill="#64748b"/>
+      <circle cx="670" cy="75" r="5" fill="#64748b"/><circle cx="730" cy="125" r="5" fill="#64748b"/>
+
+      <!-- Target Query Neighborhood -->
+      <circle cx="790" cy="70" r="7" fill="#ec4899" stroke="#ffffff" stroke-width="2" />
+      <circle cx="825" cy="115" r="9" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+      <text x="825" y="145" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#6ee7b7" text-anchor="middle">
+        ★ NEAREST NEIGHBOR!
+      </text>
+
+      <!-- Local search hops -->
+      <line x1="795" y1="75" x2="820" y2="108" stroke="#10b981" stroke-width="2.5" marker-end="url(#arr-gold)" />
+
+      <!-- Comparison metrics box on the left -->
+      <g transform="translate(20, 45)">
+        <rect width="360" height="120" rx="8" fill="#1e293b" stroke="#334155" />
+        <text x="15" y="24" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#38bdf8">
+          HNSW VS BRUTE FORCE COMPLEXITY:
+        </text>
+        <text x="15" y="48" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          • Brute Force Exact Search: <tspan font-family="monospace" fill="#f87171">O(N)</tspan> &mdash; compares against every vector
+        </text>
+        <text x="15" y="68" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          • HNSW Skip Graph Search: <tspan font-family="monospace" fill="#34d399">O(log N)</tspan> &mdash; logarithmic routing
+        </text>
+        <text x="15" y="92" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">
+          For 10,000,000 vectors: <tspan font-weight="700" fill="#fde68a">~24 distance calculations instead of 10M!</tspan>
+        </text>
+      </g>
+    </g>
+
+  </g>
+</svg>

@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="tp-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="tn-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="fp-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#991b1b" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+    <linearGradient id="fn-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c2d12" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    ANATOMY OF A CONFUSION MATRIX &amp; CLASSIFICATION METRICS
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Deconstructing True/False Positives &amp; Negatives, Precision, Recall, and the Accuracy Paradox
+  </text>
+
+  <!-- Outer Frame -->
+  <g transform="translate(180, 100)">
+    <!-- Column Headers: Actual / Ground Truth -->
+    <rect x="140" y="0" width="360" height="28" rx="6" fill="#334155" />
+    <text x="320" y="19" font-family="sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="middle">
+      ACTUAL REALITY (Ground Truth)
+    </text>
+
+    <!-- Subheaders -->
+    <rect x="140" y="32" width="175" height="26" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1" />
+    <text x="227" y="49" font-family="sans-serif" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">
+      ACTUAL POSITIVE (+1)
+    </text>
+
+    <rect x="325" y="32" width="175" height="26" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1" />
+    <text x="412" y="49" font-family="sans-serif" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">
+      ACTUAL NEGATIVE (0)
+    </text>
+
+    <!-- Row Headers: Model Prediction -->
+    <g transform="translate(0, 64)">
+      <!-- Vertical Sidebar for Prediction -->
+      <rect x="0" y="0" width="28" height="270" rx="6" fill="#334155" />
+      <text x="-135" y="19" font-family="sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="middle" transform="rotate(-90)">
+        MODEL PREDICTION
+      </text>
+
+      <!-- Row labels -->
+      <rect x="34" y="0" width="100" height="130" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="84" y="60" font-family="sans-serif" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">PREDICTED</text>
+      <text x="84" y="78" font-family="sans-serif" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">POSITIVE (+1)</text>
+
+      <rect x="34" y="140" width="100" height="130" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="84" y="200" font-family="sans-serif" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">PREDICTED</text>
+      <text x="84" y="218" font-family="sans-serif" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">NEGATIVE (0)</text>
+
+      <!-- 4 QUADRANTS -->
+
+      <!-- Quadrant 1: TRUE POSITIVE (TP) -->
+      <g transform="translate(140, 0)" filter="url(#shadow)">
+        <rect width="175" height="130" rx="8" fill="url(#tp-grad)" stroke="#10b981" stroke-width="2" />
+        <text x="87" y="28" font-family="sans-serif" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle">TRUE POSITIVE (TP)</text>
+        <text x="87" y="52" font-family="sans-serif" font-size="12" fill="#a7f3d0" text-anchor="middle">Sick &amp; Predicted Sick</text>
+        <rect x="25" y="66" width="125" height="24" rx="4" fill="rgba(0,0,0,0.25)" />
+        <text x="87" y="82" font-family="sans-serif" font-size="11" font-weight="600" fill="#d1fae5" text-anchor="middle">✅ Correct Hit</text>
+        <text x="87" y="112" font-family="sans-serif" font-size="10" fill="#6ee7b7" text-anchor="middle">Example: Detected Fraud</text>
+      </g>
+
+      <!-- Quadrant 2: FALSE POSITIVE (FP) - Type I Error -->
+      <g transform="translate(325, 0)" filter="url(#shadow)">
+        <rect width="175" height="130" rx="8" fill="url(#fp-grad)" stroke="#ef4444" stroke-width="2" />
+        <text x="87" y="28" font-family="sans-serif" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle">FALSE POSITIVE (FP)</text>
+        <text x="87" y="50" font-family="sans-serif" font-size="12" fill="#fecaca" text-anchor="middle">Healthy &amp; Called Sick</text>
+        <rect x="25" y="66" width="125" height="24" rx="4" fill="rgba(0,0,0,0.3)" />
+        <text x="87" y="82" font-family="sans-serif" font-size="11" font-weight="700" fill="#fca5a5" text-anchor="middle">⚠️ TYPE I ERROR</text>
+        <text x="87" y="112" font-family="sans-serif" font-size="10" fill="#fca5a5" text-anchor="middle">False Alarm / Spam Trap</text>
+      </g>
+
+      <!-- Quadrant 3: FALSE NEGATIVE (FN) - Type II Error -->
+      <g transform="translate(140, 140)" filter="url(#shadow)">
+        <rect width="175" height="130" rx="8" fill="url(#fn-grad)" stroke="#f97316" stroke-width="2" />
+        <text x="87" y="28" font-family="sans-serif" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle">FALSE NEGATIVE (FN)</text>
+        <text x="87" y="50" font-family="sans-serif" font-size="12" fill="#fed7aa" text-anchor="middle">Sick &amp; Called Healthy</text>
+        <rect x="25" y="66" width="125" height="24" rx="4" fill="rgba(0,0,0,0.3)" />
+        <text x="87" y="82" font-family="sans-serif" font-size="11" font-weight="700" fill="#fdba74" text-anchor="middle">🚨 TYPE II ERROR</text>
+        <text x="87" y="112" font-family="sans-serif" font-size="10" fill="#fdba74" text-anchor="middle">Dangerous Missed Case!</text>
+      </g>
+
+      <!-- Quadrant 4: TRUE NEGATIVE (TN) -->
+      <g transform="translate(325, 140)" filter="url(#shadow)">
+        <rect width="175" height="130" rx="8" fill="url(#tn-grad)" stroke="#3b82f6" stroke-width="2" />
+        <text x="87" y="28" font-family="sans-serif" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle">TRUE NEGATIVE (TN)</text>
+        <text x="87" y="52" font-family="sans-serif" font-size="12" fill="#bfdbfe" text-anchor="middle">Healthy &amp; Called Healthy</text>
+        <rect x="25" y="66" width="125" height="24" rx="4" fill="rgba(0,0,0,0.25)" />
+        <text x="87" y="82" font-family="sans-serif" font-size="11" font-weight="600" fill="#93c5fd" text-anchor="middle">✅ Correct Rejection</text>
+        <text x="87" y="112" font-family="sans-serif" font-size="10" fill="#93c5fd" text-anchor="middle">Legitimate Email Allowed</text>
+      </g>
+
+      <!-- PRECISION INDICATOR (ROW FOCUS) -->
+      <g transform="translate(515, 20)">
+        <path d="M 0,45 L 25,45" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)" />
+        <rect x="35" y="10" width="190" height="70" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+        <text x="130" y="32" font-family="sans-serif" font-size="13" font-weight="800" fill="#fbbf24" text-anchor="middle">PRECISION</text>
+        <text x="130" y="52" font-family="sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">TP / (TP + FP)</text>
+        <text x="130" y="68" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">"When I say YES, am I right?"</text>
+      </g>
+
+      <!-- RECALL INDICATOR (COLUMN FOCUS) -->
+      <g transform="translate(150, 280)">
+        <path d="M 75,0 L 75,25" stroke="#10b981" stroke-width="3" />
+        <rect x="-10" y="30" width="170" height="70" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+        <text x="75" y="52" font-family="sans-serif" font-size="13" font-weight="800" fill="#34d399" text-anchor="middle">RECALL (Sensitivity)</text>
+        <text x="75" y="72" font-family="sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">TP / (TP + FN)</text>
+        <text x="75" y="88" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">"Did I catch all actual sick cases?"</text>
+      </g>
+
+      <!-- F1 SCORE CARD -->
+      <g transform="translate(335, 280)">
+        <rect x="0" y="30" width="200" height="70" rx="6" fill="#1e293b" stroke="#818cf8" stroke-width="1.5" />
+        <text x="100" y="52" font-family="sans-serif" font-size="13" font-weight="800" fill="#a5b4fc" text-anchor="middle">F1-SCORE</text>
+        <text x="100" y="72" font-family="sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">2 &times; (Prec &times; Rec) / (Prec + Rec)</text>
+        <text x="100" y="88" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">Harmonic mean balance</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Key Takeaway Callout -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#f59e0b" font-weight="700">The Accuracy Paradox: </tspan> If 99% of people are healthy, a model predicting "Healthy" for everyone achieves 99% accuracy but has <tspan fill="#ef4444" font-weight="700">0% Recall</tspan>!
+  </text>
+</svg>

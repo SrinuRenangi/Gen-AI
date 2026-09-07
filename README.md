@@ -45,12 +45,12 @@
 
 | Day | Topic | Status |
 | :---: | :--- | :---: |
-| Day 12 | What is Machine Learning? — The Big Picture | 🔲 |
-| Day 13 | Linear Regression — Predicting Numbers | 🔲 |
-| Day 14 | Logistic Regression & Classification — Predicting Categories | 🔲 |
-| Day 15 | Decision Trees & Random Forests | 🔲 |
-| Day 16 | Model Evaluation — Is Your Model Actually Good? | 🔲 |
-| Day 17 | Scikit-Learn Hands-On — Building Complete ML Pipelines | 🔲 |
+| [Day 12](Phase_03_Classical_Machine_Learning/Day_12_What_is_Machine_Learning/Day_12_What_is_Machine_Learning.md) | What is Machine Learning? — The Big Picture | ✅ |
+| [Day 13](Phase_03_Classical_Machine_Learning/Day_13_Linear_Regression/Day_13_Linear_Regression.md) | Linear Regression — Predicting Numbers | ✅ |
+| [Day 14](Phase_03_Classical_Machine_Learning/Day_14_Logistic_Regression_and_Classification/Day_14_Logistic_Regression_and_Classification.md) | Logistic Regression & Classification — Predicting Categories | ✅ |
+| [Day 15](Phase_03_Classical_Machine_Learning/Day_15_Decision_Trees_and_Random_Forests/Day_15_Decision_Trees_and_Random_Forests.md) | Decision Trees & Random Forests | ✅ |
+| [Day 16](Phase_03_Classical_Machine_Learning/Day_16_Model_Evaluation/Day_16_Model_Evaluation.md) | Model Evaluation — Is Your Model Actually Good? | ✅ |
+| [Day 17](Phase_03_Classical_Machine_Learning/Day_17_Scikit_Learn_Pipelines/Day_17_Scikit_Learn_Pipelines.md) | Scikit-Learn Hands-On — Building Complete ML Pipelines | ✅ |
 
 ### 🟡 Phase 4: Deep Learning Foundations (Days 18–25)
 

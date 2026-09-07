@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="950" height="480" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="2"/>
+
+  <!-- Title Badge -->
+  <rect x="230" y="20" width="490" height="42" rx="21" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="475" y="47" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+    🔄 The Paradigm Shift: Software 1.0 vs. Software 2.0
+  </text>
+
+  <!-- Subtitle -->
+  <text x="475" y="84" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" text-anchor="middle">
+    Traditional Programming (You write the logic) vs. Machine Learning (The computer discovers the logic)
+  </text>
+
+  <!-- Left Container: Traditional Programming -->
+  <g transform="translate(60, 110)">
+    <rect width="390" height="310" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="15" y="15" width="360" height="32" rx="6" fill="#1d4ed8" fill-opacity="0.2"/>
+    <text x="195" y="36" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700" text-anchor="middle">
+      💻 Traditional Programming (Software 1.0)
+    </text>
+
+    <!-- Inputs -->
+    <rect x="30" y="70" width="120" height="42" rx="6" fill="#0b1329" stroke="#475569" stroke-width="1"/>
+    <text x="90" y="96" fill="#f8fafc" font-family="monospace" font-size="13" font-weight="600" text-anchor="middle">DATA (Input)</text>
+
+    <rect x="30" y="130" width="120" height="42" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="90" y="156" fill="#60a5fa" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">RULES (Code)</text>
+
+    <!-- Arrow to Computer -->
+    <line x1="150" y1="91" x2="200" y2="120" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="150" y1="151" x2="200" y2="120" stroke="#94a3b8" stroke-width="2"/>
+
+    <!-- Computer Box -->
+    <rect x="200" y="90" width="80" height="60" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+    <text x="240" y="125" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="18" text-anchor="middle">🖥️</text>
+
+    <!-- Arrow to Output -->
+    <line x1="280" y1="120" x2="310" y2="120" stroke="#10b981" stroke-width="2"/>
+    <polygon points="310,115 320,120 310,125" fill="#10b981"/>
+
+    <!-- Output -->
+    <rect x="320" y="99" width="55" height="42" rx="6" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+    <text x="347" y="125" fill="#6ee7b7" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">Output</text>
+
+    <!-- Commentary -->
+    <text x="25" y="210" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">• Human engineer writes thousands of `if/else` rules</text>
+    <text x="25" y="235" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">• If Spam: check if body contains "win cash"</text>
+    <text x="25" y="260" fill="#f87171" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">⚠️ Breaks immediately when spammer spells "w1n c@sh"!</text>
+    <text x="25" y="285" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Cannot handle complex patterns (faces, audio, language)</text>
+  </g>
+
+  <!-- Right Container: Machine Learning -->
+  <g transform="translate(500, 110)">
+    <rect width="390" height="310" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="15" y="15" width="360" height="32" rx="6" fill="#065f46" fill-opacity="0.2"/>
+    <text x="195" y="36" fill="#6ee7b7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700" text-anchor="middle">
+      🤖 Machine Learning (Software 2.0)
+    </text>
+
+    <!-- Inputs -->
+    <rect x="30" y="70" width="120" height="42" rx="6" fill="#0b1329" stroke="#475569" stroke-width="1"/>
+    <text x="90" y="96" fill="#f8fafc" font-family="monospace" font-size="13" font-weight="600" text-anchor="middle">DATA (Emails)</text>
+
+    <rect x="30" y="130" width="120" height="42" rx="6" fill="#0b1329" stroke="#10b981" stroke-width="1.5"/>
+    <text x="90" y="156" fill="#34d399" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">ANSWERS (Labels)</text>
+
+    <!-- Arrow to Learner -->
+    <line x1="150" y1="91" x2="200" y2="120" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="150" y1="151" x2="200" y2="120" stroke="#94a3b8" stroke-width="2"/>
+
+    <!-- Model Learner Box -->
+    <rect x="200" y="90" width="80" height="60" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="240" y="125" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="18" text-anchor="middle">🧠</text>
+
+    <!-- Arrow to Learned Rules -->
+    <line x1="280" y1="120" x2="310" y2="120" stroke="#f59e0b" stroke-width="2"/>
+    <polygon points="310,115 320,120 310,125" fill="#f59e0b"/>
+
+    <!-- Discovered Rules/Model -->
+    <rect x="320" y="99" width="55" height="42" rx="6" fill="#b45309" stroke="#f59e0b" stroke-width="1"/>
+    <text x="347" y="125" fill="#fde68a" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">MODEL</text>
+
+    <!-- Commentary -->
+    <text x="25" y="210" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">• We feed 100,000 emails AND whether they are spam</text>
+    <text x="25" y="235" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">• Algorithm automatically finds mathematical patterns</text>
+    <text x="25" y="260" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">✅ Produces a trained Model (learned weight parameters!)</text>
+    <text x="25" y="285" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Adapts and generalizes to new, unseen variations</text>
+  </g>
+
+  <!-- Bottom Tip Banner -->
+  <rect x="60" y="435" width="830" height="32" rx="6" fill="#0b1329" stroke="#334155" stroke-width="1"/>
+  <text x="475" y="456" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" text-anchor="middle">
+    💡 <tspan fill="#38bdf8" font-weight="600">The Golden Definition:</tspan> Machine Learning is programming computers to optimize a performance criterion using example data or past experience.
+  </text>
+</svg>

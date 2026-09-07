@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="950" height="500" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="2"/>
+
+  <!-- Title Badge -->
+  <rect x="230" y="20" width="490" height="42" rx="21" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="475" y="47" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+    🌐 The Hierarchy: AI ⊃ ML ⊃ Deep Learning ⊃ GenAI
+  </text>
+
+  <!-- Subtitle -->
+  <text x="475" y="84" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" text-anchor="middle">
+    Every Generative AI model is Deep Learning. Every Deep Learning model is Machine Learning.
+  </text>
+
+  <!-- Left Side: Concentric Circles (Center at 260, 280) -->
+  <g transform="translate(40, 10)">
+    <!-- Outer Circle: AI -->
+    <circle cx="250" cy="270" r="160" fill="#1e293b" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="250" y="135" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700" text-anchor="middle">
+      1. Artificial Intelligence (1950s)
+    </text>
+
+    <!-- Layer 2: Machine Learning -->
+    <circle cx="250" cy="285" r="120" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <text x="250" y="190" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+      2. Machine Learning (1980s)
+    </text>
+
+    <!-- Layer 3: Deep Learning -->
+    <circle cx="250" cy="300" r="85" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="250" y="245" fill="#a78bfa" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" text-anchor="middle">
+      3. Deep Learning (2010s)
+    </text>
+
+    <!-- Inner Core: Generative AI -->
+    <circle cx="250" cy="320" r="50" fill="#831843" stroke="#ec4899" stroke-width="2"/>
+    <text x="250" y="315" fill="#fbcfe8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="800" text-anchor="middle">
+      4. Gen AI
+    </text>
+    <text x="250" y="333" fill="#f472b6" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" text-anchor="middle">
+      (2020s)
+    </text>
+  </g>
+
+  <!-- Right Side: Breakdown Cards -->
+  <g transform="translate(480, 110)">
+    <!-- Card 1: AI -->
+    <rect width="420" height="70" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="15" y="25" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">1. Artificial Intelligence (Broadest Field)</text>
+    <text x="15" y="45" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Any technique making machines simulate human intelligence.</text>
+    <text x="15" y="60" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Includes rule-based engines, expert systems, chess algorithms (Minimax).</text>
+
+    <!-- Card 2: ML -->
+    <rect y="80" width="420" height="70" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="15" y="105" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">2. Machine Learning (Statistical Subfield)</text>
+    <text x="15" y="125" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Systems that learn patterns automatically from data without hardcoded logic.</text>
+    <text x="15" y="140" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Linear Regression, Logistic Regression, Decision Trees, Random Forests.</text>
+
+    <!-- Card 3: Deep Learning -->
+    <rect y="160" width="420" height="70" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="15" y="185" fill="#a78bfa" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">3. Deep Learning (Multi-Layer Neural Networks)</text>
+    <text x="15" y="205" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">ML using deep artificial neural networks with millions of parameters.</text>
+    <text x="15" y="220" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">CNNs (Computer Vision), RNNs/LSTMs, Transformers.</text>
+
+    <!-- Card 4: Generative AI -->
+    <rect y="240" width="420" height="75" rx="8" fill="#1e293b" stroke="#ec4899" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="15" y="265" fill="#f472b6" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">4. Generative AI (The Modern Frontier)</text>
+    <text x="15" y="285" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Deep Learning models that CREATE new content rather than just classifying.</text>
+    <text x="15" y="302" fill="#fbcfe8" font-family="monospace" font-size="10">ChatGPT, Claude, Midjourney, Stable Diffusion, Sora.</text>
+  </g>
+
+  <!-- Bottom Tip Banner -->
+  <rect x="60" y="445" width="830" height="35" rx="6" fill="#0b1329" stroke="#334155" stroke-width="1"/>
+  <text x="475" y="468" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" text-anchor="middle">
+    💡 <tspan fill="#38bdf8" font-weight="600">Why start with Classical ML?</tspan> The concepts of loss functions, train/test split, overfitting, and features are IDENTICAL in ChatGPT!
+  </text>
+</svg>

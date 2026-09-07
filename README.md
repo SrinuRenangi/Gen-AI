@@ -105,9 +105,9 @@
 
 | Day | Topic | Status |
 | :---: | :--- | :---: |
-| Day 42 | What is Generative AI? — The Paradigm Shift Defined | 🔲 |
-| Day 43 | Text-to-Image — How Machines Create Art (Diffusion Models) | 🔲 |
-| Day 44 | Text-to-Audio, Video & Multimodal Models | 🔲 |
+| [Day 42](Phase_09_The_Generative_AI_Landscape/Day_42_What_is_GenAI/Day_42_What_is_GenAI.md) | What is Generative AI? — The Paradigm Shift Defined | ✅ |
+| [Day 43](Phase_09_The_Generative_AI_Landscape/Day_43_Text_to_Image_Diffusion/Day_43_Text_to_Image_Diffusion.md) | Text-to-Image — How Machines Create Art (Diffusion Models) | ✅ |
+| [Day 44](Phase_09_The_Generative_AI_Landscape/Day_44_Audio_Video_Multimodal/Day_44_Audio_Video_Multimodal.md) | Text-to-Audio, Video & Multimodal Models | ✅ |
 
 ### 🟣 Phase 10: Practical GenAI Engineering (Days 45–50)
 

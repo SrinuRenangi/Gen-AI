@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="diff-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="box-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow-forward" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f43f5e" />
+    </marker>
+    <marker id="arrow-reverse" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#diff-bg)" />
+
+  <!-- Header -->
+  <text x="480" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    DIFFUSION PROCESS: FORWARD DESTRUCTION &amp; REVERSE CREATION
+  </text>
+  <text x="480" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    From Clean Data to Pure Gaussian Noise and Back via Learned Iterative Denoising (DDPM)
+  </text>
+
+  <!-- Visual Timestep Cards Container -->
+  <g transform="translate(45, 90)" filter="url(#box-shadow)">
+
+    <!-- Forward Direction Banner -->
+    <rect x="0" y="0" width="870" height="34" rx="8" fill="#450a0a" stroke="#b91c1c" />
+    <text x="435" y="22" font-family="sans-serif" font-size="12" font-weight="800" fill="#fecaca" text-anchor="middle">
+      FORWARD DIFFUSION PROCESS q(x_t | x_t-1) &mdash; FIXED MARKOV CHAIN (ADDING GAUSSIAN NOISE) &rarr;
+    </text>
+
+    <!-- 5 Timestep Nodes -->
+    <!-- Node 1: t=0 (Clean) -->
+    <g transform="translate(10, 48)">
+      <rect width="150" height="175" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <rect x="15" y="15" width="120" height="105" rx="6" fill="#0369a1" />
+      <text x="75" y="65" font-family="sans-serif" font-size="36" text-anchor="middle">🖼️ 🐱</text>
+      <text x="75" y="100" font-family="sans-serif" font-size="11" font-weight="800" fill="#e0f2fe" text-anchor="middle">Clean Image</text>
+      <text x="75" y="142" font-family="monospace" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">x_0 (t = 0)</text>
+      <text x="75" y="160" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Variance: 0% Noise</text>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <path d="M 168 135 L 182 135" stroke="#f43f5e" stroke-width="3" marker-end="url(#arrow-forward)" />
+
+    <!-- Node 2: t=250 -->
+    <g transform="translate(190, 48)">
+      <rect width="150" height="175" rx="8" fill="#1e293b" stroke="#64748b" />
+      <rect x="15" y="15" width="120" height="105" rx="6" fill="#1e3a5f" />
+      <text x="75" y="65" font-family="sans-serif" font-size="34" opacity="0.8" text-anchor="middle">🐱</text>
+      <!-- Noise dots -->
+      <circle cx="35" cy="35" r="2" fill="#94a3b8"/><circle cx="85" cy="40" r="1.5" fill="#cbd5e1"/><circle cx="115" cy="80" r="2" fill="#94a3b8"/>
+      <circle cx="50" cy="90" r="1.5" fill="#f8fafc"/><circle cx="70" cy="25" r="2" fill="#cbd5e1"/>
+      <text x="75" y="100" font-family="sans-serif" font-size="11" font-weight="700" fill="#93c5fd" text-anchor="middle">Slightly Noisy</text>
+      <text x="75" y="142" font-family="monospace" font-size="12" font-weight="700" fill="#cbd5e1" text-anchor="middle">x_250</text>
+      <text x="75" y="160" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">β_t ≈ 0.002</text>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <path d="M 348 135 L 362 135" stroke="#f43f5e" stroke-width="3" marker-end="url(#arrow-forward)" />
+
+    <!-- Node 3: t=500 -->
+    <g transform="translate(370, 48)">
+      <rect width="150" height="175" rx="8" fill="#1e293b" stroke="#64748b" />
+      <rect x="15" y="15" width="120" height="105" rx="6" fill="#1e293b" stroke="#475569" />
+      <text x="75" y="65" font-family="sans-serif" font-size="30" opacity="0.35" text-anchor="middle">🐱</text>
+      <!-- Heavy noise -->
+      <circle cx="35" cy="35" r="2.5" fill="#94a3b8"/><circle cx="85" cy="40" r="2" fill="#cbd5e1"/><circle cx="115" cy="80" r="2.5" fill="#94a3b8"/>
+      <circle cx="45" cy="85" r="2" fill="#f8fafc"/><circle cx="65" cy="30" r="2.5" fill="#cbd5e1"/><circle cx="95" cy="95" r="2" fill="#f8fafc"/>
+      <text x="75" y="100" font-family="sans-serif" font-size="11" font-weight="700" fill="#cbd5e1" text-anchor="middle">High Noise</text>
+      <text x="75" y="142" font-family="monospace" font-size="12" font-weight="700" fill="#cbd5e1" text-anchor="middle">x_500</text>
+      <text x="75" y="160" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">ᾱ_500 ≈ 0.45</text>
+    </g>
+
+    <!-- Arrow 3 -> 4 -->
+    <path d="M 528 135 L 542 135" stroke="#f43f5e" stroke-width="3" marker-end="url(#arrow-forward)" />
+
+    <!-- Node 4: t=750 -->
+    <g transform="translate(550, 48)">
+      <rect width="150" height="175" rx="8" fill="#1e293b" stroke="#64748b" />
+      <rect x="15" y="15" width="120" height="105" rx="6" fill="#0f172a" stroke="#334155" />
+      <!-- Extreme static -->
+      <circle cx="30" cy="30" r="2.5" fill="#94a3b8"/><circle cx="80" cy="35" r="2.5" fill="#cbd5e1"/><circle cx="110" cy="75" r="2.5" fill="#94a3b8"/>
+      <circle cx="40" cy="80" r="2.5" fill="#f8fafc"/><circle cx="60" cy="25" r="2.5" fill="#cbd5e1"/><circle cx="90" cy="90" r="2.5" fill="#f8fafc"/>
+      <circle cx="50" cy="50" r="2" fill="#94a3b8"/><circle cx="100" cy="55" r="2" fill="#cbd5e1"/><circle cx="70" cy="70" r="2" fill="#f8fafc"/>
+      <text x="75" y="100" font-family="sans-serif" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Faint Traces Only</text>
+      <text x="75" y="142" font-family="monospace" font-size="12" font-weight="700" fill="#cbd5e1" text-anchor="middle">x_750</text>
+      <text x="75" y="160" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">ᾱ_750 ≈ 0.12</text>
+    </g>
+
+    <!-- Arrow 4 -> 5 -->
+    <path d="M 708 135 L 722 135" stroke="#f43f5e" stroke-width="3" marker-end="url(#arrow-forward)" />
+
+    <!-- Node 5: t=1000 (Pure Noise) -->
+    <g transform="translate(730, 48)">
+      <rect width="130" height="175" rx="8" fill="#1e293b" stroke="#f43f5e" stroke-width="2" />
+      <rect x="10" y="15" width="110" height="105" rx="6" fill="#0f172a" stroke="#64748b" stroke-dasharray="2 2" />
+      <text x="65" y="65" font-family="sans-serif" font-size="28" text-anchor="middle">📺 ❄️</text>
+      <text x="65" y="100" font-family="sans-serif" font-size="10" font-weight="800" fill="#fca5a5" text-anchor="middle">Pure Static N(0, I)</text>
+      <text x="65" y="142" font-family="monospace" font-size="12" font-weight="700" fill="#fb7185" text-anchor="middle">x_T (t = 1000)</text>
+      <text x="65" y="160" font-family="sans-serif" font-size="9" fill="#fca5a5" text-anchor="middle">Zero Signal Left</text>
+    </g>
+
+    <!-- Reverse Direction Banner -->
+    <g transform="translate(0, 235)">
+      <rect width="870" height="34" rx="8" fill="#064e3b" stroke="#059669" />
+      <text x="435" y="22" font-family="sans-serif" font-size="12" font-weight="800" fill="#a7f3d0" text-anchor="middle">
+        &larr; REVERSE GENERATIVE PROCESS p_θ(x_t-1 | x_t) &mdash; LEARNED U-NET DENOISER (CREATING FROM NOISE)
+      </text>
+    </g>
+
+    <!-- Reverse Arrows underneath -->
+    <path d="M 722 245 L 708 245" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-reverse)" />
+    <path d="M 542 245 L 528 245" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-reverse)" />
+    <path d="M 362 245 L 348 245" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-reverse)" />
+    <path d="M 182 245 L 168 245" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-reverse)" />
+
+    <!-- Mathematical Formula Deep Dive Boxes -->
+    <g transform="translate(0, 285)">
+      <!-- Left: The Closed-Form Shortcut -->
+      <g transform="translate(0, 0)">
+        <rect width="420" height="150" rx="10" fill="#0f172a" stroke="#38bdf8" />
+        <rect x="0" y="0" width="420" height="28" rx="10" fill="#0369a1" />
+        <text x="210" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+          FORWARD SHORTCUT: JUMP DIRECTLY TO ANY STEP t
+        </text>
+        <text x="15" y="48" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">No need to iterate 500 times in training! Closed-form jump:</text>
+        <rect x="15" y="58" width="390" height="36" rx="4" fill="#1e293b" stroke="#0284c7" />
+        <text x="210" y="81" font-family="monospace" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">
+          x_t = √(ᾱ_t) · x_0 + √(1 - ᾱ_t) · ε,   ε ~ N(0, I)
+        </text>
+        <text x="15" y="112" font-family="sans-serif" font-size="9.5" fill="#94a3b8">• α_t = 1 - β_t,   ᾱ_t = ∏_(s=1)^t α_s (cumulative product)</text>
+        <text x="15" y="128" font-family="sans-serif" font-size="9.5" fill="#94a3b8">• Allows O(1) sampling of any timestep during training mini-batches</text>
+      </g>
+
+      <!-- Right: The Neural Denoising Objective -->
+      <g transform="translate(450, 0)">
+        <rect width="420" height="150" rx="10" fill="#0f172a" stroke="#10b981" />
+        <rect x="0" y="0" width="420" height="28" rx="10" fill="#065f46" />
+        <text x="210" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+          REVERSE TRAINING LOSS: NOISE PREDICTION
+        </text>
+        <text x="15" y="48" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">The neural network (U-Net) only needs to predict the noise ε:</text>
+        <rect x="15" y="58" width="390" height="36" rx="4" fill="#1e293b" stroke="#059669" />
+        <text x="210" y="81" font-family="monospace" font-size="12" font-weight="700" fill="#34d399" text-anchor="middle">
+          L_simple = E_(t, x_0, ε) [ || ε - ε_θ(x_t, t) ||^2 ]
+        </text>
+        <text x="15" y="112" font-family="sans-serif" font-size="9.5" fill="#94a3b8">• Standard MSE loss between injected noise ε and predicted noise ε_θ</text>
+        <text x="15" y="128" font-family="sans-serif" font-size="9.5" fill="#94a3b8">• Subtracting predicted noise yields clean reconstructed image x_0!</text>
+      </g>
+    </g>
+
+  </g>
+</svg>

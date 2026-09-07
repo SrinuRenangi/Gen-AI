@@ -62,29 +62,21 @@ Take a smooth ceramic salad bowl and place it on your kitchen table.
 
 Hold a glass marble at the rim of the bowl and let go:
 
-```
-                  THE MARBLE IN THE BOWL
-                  
-              ● (Release marble here)
-             ╱ ╲
-            ╱   ╲
-           ╱     ╲
-          │   ↓   │  Gravity pulls along the steepest slope!
-           ╲     ╱
-            ╲___╱
-              ● (Marble settles at the absolute lowest point!)
-```
+![The Marble in the Bowl](assets/gradient_descent_marble_bowl.svg)
 
 What happens?
 1. The marble doesn't hesitate or get confused.
 2. Gravity immediately pulls the marble **along the steepest downhill path**.
-3. It rolls downward, losing speed, and eventually comes to rest at the **exact lowest point in the bowl**.
+3. It rolls downward, losing speed, and eventually settles at the **exact lowest point in the bowl**.
 
-> **Gradient Descent is simply simulating that marble in computer code!**
-> - The bowl is the **Loss Landscape (Error)**.
-> - The position of the marble is your **Model's Weights**.
-> - The direction the marble rolls is the **Negative Gradient**.
-> - The lowest point of the bowl is where **Error = 0** (the optimal model!).
+> [!NOTE]
+> **Teacher's Mental Model: Why AI Training is Rolling Downhill**
+> - The bowl is the **Loss Landscape (Error)**. High on the rim = huge errors.
+> - The position of the marble is your **Model's Weights** ($W$).
+> - The direction the marble rolls is the **Negative Gradient ($-\nabla$)**.
+> - The lowest point of the bowl is where **Error = 0** (the optimal model weights!).
+> 
+> Gradient Descent is simply simulating that marble in computer code!
 
 ---
 
@@ -108,13 +100,11 @@ gradient = [slope_w1, slope_w2, slope_w3]
 - The **Gradient vector ($\nabla f$)** points in the direction of **STEEPEST UPHILL** (how to increase error fastest).
 - Therefore, the **Negative Gradient ($-\nabla f$)** points in the direction of **STEEPEST DOWNHILL** (how to reduce error fastest)!
 
-```
-                    ▲ +∇ (Steepest UPHILL - Error increases!)
-                    │
-                    ● Current Weights Position
-                    │
-                    ▼ -∇ (Steepest DOWNHILL - Error decreases! 🎯)
-```
+| Vector Direction | Name | Effect on Error | AI Action |
+| :---: | :--- | :--- | :--- |
+| **$+\nabla f$** | Positive Gradient | Climbs up the mountain | Avoid! This makes your AI dumber |
+| **$-\nabla f$** | Negative Gradient | Steps straight down the valley | **Follow this! This trains your AI!** |
+| **$\|\nabla f\| = 0$** | Zero Gradient | Ground is flat under your feet | Stop! You reached minimum error! |
 
 ---
 
@@ -124,14 +114,14 @@ Once you have computed the gradient vector, how do you update the model's weight
 
 $$\vec{W}_{\text{new}} = \vec{W}_{\text{old}} - \alpha \times \nabla \text{Loss}$$
 
-Let's translate every symbol into plain English and Python:
+Let's translate every single symbol into plain English and Python:
 
 | Symbol | Name | Meaning | Python Variable |
 | :---: | :--- | :--- | :--- |
 | $\vec{W}_{\text{old}}$ | Current Weights | Where the knobs are set right now | `weights` |
-| $-$ | Minus Sign | Move downhill (opposite to slope) | `-` |
-| $\alpha$ | **Learning Rate** | How big of a step to take (e.g. `0.01`) | `learning_rate` |
-| $\nabla \text{Loss}$ | Gradient | The vector of slopes | `gradient` |
+| $-$ | Minus Sign | Move downhill (opposite to uphill slope) | `-` |
+| $\alpha$ | **Learning Rate** | How big of a step to take (e.g. `0.1` or `0.01`) | `learning_rate` |
+| $\nabla \text{Loss}$ | Gradient | The vector of partial slopes | `gradient` |
 | $\vec{W}_{\text{new}}$ | Updated Weights | The improved knob settings! | `new_weights` |
 
 In Python:
@@ -144,35 +134,23 @@ new_weights = [w - (learning_rate * g) for w, g in zip(weights, gradient)]
 
 # 4. The Learning Rate: Goldilocks and the Steps
 
-The **Learning Rate** ($\alpha$, often called `lr`) is the single most important hyperparameter you will configure when training AI models.
+The **Learning Rate** ($\alpha$, often called `lr`) is the single most important knob you configure when training AI models.
 
 It controls **how big each downhill step is**.
 
-```
-    Case 1: LEARNING RATE TOO LARGE (e.g., α = 2.0)
-    
-       ╲       ╱       You take a GIANT LEAP!
-        ╲  ↗  ╱        You overshoot the bottom entirely!
-         ╲   ╱         Error bounces back and forth, explodes into infinity! 💥
-          \_/
-          
-    Case 2: LEARNING RATE TOO SMALL (e.g., α = 0.000001)
-    
-       ╲       ╱       You take microscopic baby steps.
-        ╲ ·   ╱        It takes 3 weeks and $50,000 in GPU cloud bills
-         ╲···╱         just to reach the halfway mark! 🐌
-          \_/
-          
-    Case 3: LEARNING RATE JUST RIGHT (e.g., α = 0.01)
-    
-       ╲       ╱       Smooth, confident steps.
-        ╲ ↘   ╱        Steadily converges to the minimum error in seconds! 🎯
-         ╲ ↘ ╱
-          \_●/
-```
+![Learning Rate Comparison](assets/learning_rate_comparison.svg)
 
-### Typical Learning Rates in Production AI:
-- Most neural networks and LLMs are trained with learning rates between **$0.0001$** and **$0.01$** (e.g., `3e-4` is the famous standard used for GPT-3!).
+### Comparison of the Three Regimes:
+
+| Learning Rate ($\alpha$) | Behavior | Outcome | Real-World Consequence |
+| :--- | :--- | :--- | :--- |
+| **Too Large** ($\alpha = 2.0$) | Takes giant leaps, overshoots the valley | Error explodes to $\infty$ or `NaN` | Model crashes, training fails 💥 |
+| **Too Small** ($\alpha = 10^{-6}$) | Takes microscopic baby steps | Barely moves after days of training | Burns $50,000 in GPU cloud compute with zero progress 🐌 |
+| **Just Right** ($\alpha = 0.01$) | Confident, measured downhill steps | Rapidly converges to the minimum error | Stable, fast, optimal AI model 🎯 |
+
+> [!TIP]
+> **Production Standard**:
+> Most state-of-the-art neural networks and Large Language Models (including GPT-4 and LLaMA) use an initial learning rate between **$10^{-4}$ ($0.0001$)** and **$10^{-3}$ ($0.001$)**, often paired with a "learning rate schedule" that gradually shrinks the step size as the model approaches the valley bottom!
 
 ---
 
@@ -189,6 +167,37 @@ $$\text{Loss}(w_1, w_2) = (w_1 - 5)^2 + (w_2 + 3)^2$$
 - We start at a random guess: $(w_1 = \mathbf{0.0}, w_2 = \mathbf{0.0})$ where $\text{Loss} = (0-5)^2 + (0+3)^2 = 25 + 9 = \mathbf{34.0}$.
 
 Let's watch Gradient Descent discover $(5.0, -3.0)$ automatically!
+
+# 5. Building Gradient Descent from Scratch in Python
+
+Let's put everything together. We will write a complete Gradient Descent optimizer that starts with terrible blind guesses and automatically discovers the optimal settings!
+
+### The Problem Setup:
+Suppose we have a loss function with two adjustable knobs: $w_1$ and $w_2$:
+
+$$\text{Loss}(w_1, w_2) = (w_1 - 5)^2 + (w_2 + 3)^2$$
+
+- The true optimal weights where error is **$0.0$** are:
+  - $w_1 = \mathbf{+5.0}$
+  - $w_2 = \mathbf{-3.0}$
+- We start blind at: $(w_1 = \mathbf{0.0}, w_2 = \mathbf{0.0})$, where $\text{Loss} = (0-5)^2 + (0+3)^2 = 25 + 9 = \mathbf{34.0}$.
+
+### Step-by-Step Hand-Calculated Arithmetic Trace:
+
+Let's trace the first 2 steps by hand using learning rate $\alpha = 0.1$ so you see every calculation before writing code:
+
+| Iteration | Current Weights $[w_1, w_2]$ | Current Error (Loss) | Gradient Vector $[\frac{\partial \text{Loss}}{\partial w_1}, \frac{\partial \text{Loss}}{\partial w_2}]$ | Step Update: $W - 0.1 \times \nabla$ | New Weights |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| **Start (0)** | `[0.0, 0.0]` | $(0-5)^2 + (0+3)^2 = \mathbf{34.00}$ | $[2(0-5), 2(0+3)] = \mathbf{[-10.0, +6.0]}$ | $w_1: 0 - 0.1(-10) = \mathbf{+1.0}$<br/>$w_2: 0 - 0.1(6) = \mathbf{-0.6}$ | `[1.0, -0.6]` |
+| **Step 1** | `[1.0, -0.6]` | $(1-5)^2 + (-0.6+3)^2 = \mathbf{21.76}$ | $[2(1-5), 2(-0.6+3)] = \mathbf{[-8.0, +4.8]}$ | $w_1: 1 - 0.1(-8) = \mathbf{+1.8}$<br/>$w_2: -0.6 - 0.1(4.8) = \mathbf{-1.08}$ | `[1.8, -1.08]` |
+| **Step 2** | `[1.8, -1.08]` | $(1.8-5)^2 + (-1.08+3)^2 = \mathbf{13.93}$ | $[2(1.8-5), 2(-1.08+3)] = \mathbf{[-6.4, +3.84]}$ | $w_1: 1.8 - 0.1(-6.4) = \mathbf{+2.44}$<br/>$w_2: -1.08 - 0.1(3.84) = \mathbf{-1.464}$ | `[2.44, -1.464]` |
+
+Notice how:
+1. The error plunges: $34.00 \to 21.76 \to 13.93$.
+2. $w_1$ moves steadily toward $5.0$ ($0 \to 1.0 \to 1.8 \to 2.44 \dots$).
+3. $w_2$ moves steadily toward $-3.0$ ($0 \to -0.6 \to -1.08 \to -1.464 \dots$).
+
+Now let's write the Python code to run all 40 iterations automatically!
 
 ```python
 # Step 1: Define the Loss Function (Error)
@@ -275,25 +284,20 @@ In our clean salad bowl example, there was only one valley bottom.
 
 In real-world deep neural networks with billions of weights, the landscape looks like a rugged mountain range with multiple dips, ridges, and valleys:
 
-```
-                          THE COMPLEX LOSS LANDSCAPE
-                          
-               ▲ Error
-               │        ▲               ▲
-               │       ╱ ╲             ╱ ╲
-               │      ╱   ╲   Local   ╱   ╲
-               │     ╱     ╲  Minima ╱     ╲
-               │    │   ●   │   ●   │       │
-               │     ╲_╱     ╲_╱     ╲     ╱
-               │                      ╲___╱
-               │                        ● GLOBAL MINIMUM (Best possible!)
-               ┼─────────────────────────────────────────────► Weights
-```
+![Local Minima vs Global Minimum](assets/local_vs_global_minima.svg)
 
-- **Local Minimum**: A dip in the mountain where the ground feels flat ($\nabla = 0$), but it's not the absolute lowest point on the mountain.
-- **Global Minimum**: The absolute lowest error possible across the entire landscape.
+### What Is the Difference?
+- **Local Minimum (The Trap)**: A pothole on the mountain where the ground immediately under your boots feels completely flat ($\nabla = 0$), but you are still high up the mountain! A naive optimizer gets stuck here because every direction looks uphill.
+- **Global Minimum (The Goal)**: The absolute deepest valley in the entire mountain range, representing the lowest possible error and the smartest AI model.
 
-On **Day 23 (Optimizers)**, you will learn how modern algorithms like **Adam** and **Momentum** use momentum (like rolling a heavy bowling ball) to blast right through small local dips and find the deep valleys!
+> [!NOTE]
+> **Modern AI Secret: Why Deep Networks Almost Never Get Stuck in Local Minima**
+> In older 2D math problems, local minima were a serious concern. But modern LLMs operate in **billions of dimensions**!
+> For a point to be a true local minimum trap in 100 billion dimensions, it would have to be uphill in **every single one of those 100 billion directions simultaneously**.
+> 
+> The probability of that is effectively zero!
+> Instead, points with zero slope in high dimensions are almost always **Saddle Points** (uphill in some directions, downhill in others).
+> By adding **Momentum** (which acts like a heavy rolling bowling ball) and using modern optimizers like **AdamW**, the optimizer rolls right past shallow potholes and slides into the deep valleys!
 
 ---
 

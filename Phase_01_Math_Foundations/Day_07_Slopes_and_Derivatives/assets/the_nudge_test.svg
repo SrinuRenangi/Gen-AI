@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="450" y="42" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    WHAT IS A DERIVATIVE? THE "NUDGE TEST"
+  </text>
+  <text x="450" y="68" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    If I nudge my input by a tiny amount h, how much does the output change?
+  </text>
+
+  <!-- Coordinate Axes -->
+  <line x1="120" y1="380" x2="680" y2="380" stroke="#475569" stroke-width="2"/>
+  <line x1="160" y1="400" x2="160" y2="100" stroke="#475569" stroke-width="2"/>
+  <text x="690" y="385" font-family="sans-serif" font-size="14" fill="#94a3b8">x (Input Knob)</text>
+  <text x="160" y="85" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">f(x) (Error)</text>
+
+  <!-- Curve f(x) -->
+  <path d="M 160 380 Q 350 370 580 120" stroke="#38bdf8" stroke-width="4" fill="none"/>
+
+  <!-- Point 1: (x, f(x)) -->
+  <circle cx="340" cy="310" r="7" fill="#f59e0b"/>
+  <line x1="340" y1="310" x2="340" y2="380" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="160" y1="310" x2="340" y2="310" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="340" y="405" font-family="monospace" font-size="13" font-weight="bold" fill="#fbbf24" text-anchor="middle">x</text>
+  <text x="145" y="315" font-family="monospace" font-size="13" font-weight="bold" fill="#fbbf24" text-anchor="end">f(x)</text>
+
+  <!-- Point 2: (x + h, f(x + h)) -->
+  <circle cx="480" cy="200" r="7" fill="#10b981"/>
+  <line x1="480" y1="200" x2="480" y2="380" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="160" y1="200" x2="480" y2="200" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="480" y="405" font-family="monospace" font-size="13" font-weight="bold" fill="#34d399" text-anchor="middle">x + h</text>
+  <text x="145" y="205" font-family="monospace" font-size="13" font-weight="bold" fill="#34d399" text-anchor="end">f(x + h)</text>
+
+  <!-- Slope Triangle -->
+  <line x1="340" y1="310" x2="480" y2="310" stroke="#ef4444" stroke-width="2.5"/>
+  <line x1="480" y1="310" x2="480" y2="200" stroke="#8b5cf6" stroke-width="2.5"/>
+
+  <!-- Run Label (h) -->
+  <text x="410" y="335" font-family="monospace" font-size="13" font-weight="bold" fill="#f87171" text-anchor="middle">Δx = h (Nudge)</text>
+
+  <!-- Rise Label (Change in output) -->
+  <text x="510" y="260" font-family="monospace" font-size="13" font-weight="bold" fill="#c084fc">Δy = f(x+h) - f(x)</text>
+
+  <!-- Tangent Line -->
+  <line x1="240" y1="388" x2="550" y2="145" stroke="#ffffff" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- Python Formula Box (Right Panel) -->
+  <g transform="translate(620, 110)">
+    <rect width="250" height="250" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <text x="125" y="35" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      CALCULUS IN PYTHON
+    </text>
+    
+    <rect x="15" y="55" width="220" height="90" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+    <text x="25" y="80" font-family="monospace" font-size="11" fill="#94a3b8">def slope(f, x, h=1e-5):</text>
+    <text x="40" y="105" font-family="monospace" font-size="11" fill="#38bdf8">return (</text>
+    <text x="55" y="125" font-family="monospace" font-size="11" fill="#34d399">(f(x+h) - f(x)) / h</text>
+    <text x="40" y="140" font-family="monospace" font-size="11" fill="#38bdf8">)</text>
+
+    <text x="125" y="180" font-family="sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">No manual algebra!</text>
+    <text x="125" y="200" font-family="sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">No limit proofs!</text>
+    <text x="125" y="225" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fde047" text-anchor="middle">Pure Software Logic 💻</text>
+  </g>
+</svg>

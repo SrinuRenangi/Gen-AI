@@ -109,29 +109,19 @@ The new information (the storm) completely shifts the probabilities.
 
 Every Large Language Model (LLM) is fundamentally a **conditional probability engine**.
 
-When you type:
-> *"The cat sat on the ___"*
+When you type a prompt into ChatGPT, the model doesn't "know" what it is going to say three paragraphs from now. It looks at the words that exist right now, computes a probability score for every single word in its vocabulary (~100,000 possible words), and samples the next one!
 
-ChatGPT asks itself:
-> *"What is $P(\text{next\_word} \mid \text{'The cat sat on the'})$?"*
+![Conditional Probability in LLMs](assets/llm_next_token_probability_tree.svg)
 
-```mermaid
-flowchart TD
-    Prompt["Input Context:<br/>'The cat sat on the'"]
-    
-    Prompt --> W1["'mat'   -> 75% chance (0.75)"]
-    Prompt --> W2["'rug'   -> 15% chance (0.15)"]
-    Prompt --> W3["'couch' ->  8% chance (0.08)"]
-    Prompt --> W4["'moon'  -> 0.0001% chance"]
-```
-
-Because *"mat"* has the highest conditional probability given the previous words, the model is most likely to select *"mat"*.
-
-Text generation is simply evaluating:
-
-$$P(w_t \mid w_1, w_2, \dots, w_{t-1})$$
-
-over and over again, one word at a time!
+> [!NOTE]
+> **Teacher's Mental Model**:
+> Think of an LLM as a supercharged version of your smartphone's keyboard predictive text.
+> When you type `"I'm on my..."`, your keyboard suggests `["way", "phone", "bed"]`.
+> 
+> The keyboard is literally asking:
+> *"What is the probability of the next word, GIVEN that the previous words were 'I'm on my'?"*
+> 
+> ChatGPT does the exact same calculation, but with 100 billion parameters and a memory context of 128,000 words!
 
 ---
 
@@ -205,20 +195,15 @@ In nature and human society, almost everything follows a **Bell Curve (Normal Di
 
 Most people/items cluster right in the middle around the average ($\mu$), with very few extreme cases on the far left or far right.
 
-```
-                  THE BELL CURVE (NORMAL DISTRIBUTION)
-                              
-                              ▲ Probability
-                              │
-                            ┌─┴─┐       68.2% of data
-                           ╱     ╲      falls within ±1σ
-                         ┌╯       ╰┐
-                       ┌─╯         ╰─┐  95.4% within ±2σ
-                    ┌──╯             ╰──┐
-               ─────┴───────────────────┴─────► Values
-                   -3σ    -2σ    -1σ    μ    +1σ   +2σ   +3σ
-                                     (Mean)
-```
+![The Normal Distribution (Bell Curve) in AI](assets/normal_distribution_bell_curve.svg)
+
+> [!TIP]
+> **Key Percentages to Remember (The Empirical Rule)**:
+> - **68.2%** of all data falls within $\pm 1\sigma$ of the mean.
+> - **95.4%** of all data falls within $\pm 2\sigma$ of the mean.
+> - **99.7%** of all data falls within $\pm 3\sigma$ of the mean.
+> 
+> When weights in a neural network are drawn from a normal distribution with `mean = 0.0, std = 0.02`, 99.7% of all weights will be between `-0.06` and `+0.06`!
 
 ### Why Does This Matter in AI?
 
@@ -276,26 +261,19 @@ We use the most famous function in Deep Learning: **The Softmax Function**.
 
 The **Softmax** function takes any list of real numbers (positive, negative, or zero) and converts them into a probability distribution:
 
-```mermaid
-flowchart LR
-    subgraph Step1["Step 1: Input"]
-        L["Raw Logits<br/>[2.5, 1.0, -0.5]"]
-    end
-    
-    subgraph Step2["Step 2: Exponentiate (e^z)"]
-        E["All numbers made positive!<br/>e^2.5 = 12.18<br/>e^1.0 = 2.72<br/>e^-0.5 = 0.61"]
-    end
-    
-    subgraph Step3["Step 3: Normalize"]
-        S["Divide by sum (15.51)<br/>12.18 / 15.51 = 0.785<br/> 2.72 / 15.51 = 0.175<br/> 0.61 / 15.51 = 0.039"]
-    end
-    
-    subgraph Step4["Step 4: Output"]
-        P["Valid Probabilities<br/>[78.5%, 17.5%, 3.9%]<br/>Sum = 100%!"]
-    end
-    
-    L --> E --> S --> P
-```
+![The Softmax Pipeline](assets/softmax_pipeline.svg)
+
+### The Step-by-Step Numerical Walkthrough
+
+Let's trace how the raw scores `[2.5, 1.0, -0.5]` transform into clean percentages step-by-step:
+
+| Step | Operation | Cat ($z_1 = 2.5$) | Dog ($z_2 = 1.0$) | Bird ($z_3 = -0.5$) | Notes |
+| :---: | :--- | :---: | :---: | :---: | :--- |
+| **1** | Raw Logit | `+2.5` | `+1.0` | `-0.5` | Unnormalized; contains negative! |
+| **2** | Exponentiate ($e^z$) | $e^{2.5} \approx \mathbf{12.182}$ | $e^{1.0} \approx \mathbf{2.718}$ | $e^{-0.5} \approx \mathbf{0.606}$ | All values now positive! |
+| **3** | Sum of Exponentials | \multicolumn{3}{c|}{$\sum e^z = 12.182 + 2.718 + 0.606 = \mathbf{15.506}$} | Common normalizer |
+| **4** | Divide by Sum | $12.182 / 15.506 = \mathbf{0.785}$ | $2.718 / 15.506 = \mathbf{0.175}$ | $0.606 / 15.506 = \mathbf{0.039}$ | Valid probabilities! |
+| **5** | Percentage | **78.5%** | **17.5%** | **3.9%** | **Total = 100.0%!** 🎉 |
 
 ### The Softmax Formula:
 

@@ -50,31 +50,29 @@ Imagine you are hiking in the mountains. Suddenly, a **thick fog** rolls in. You
 
 Your goal is to reach the **lowest point in the valley** (where the cabin and safety are).
 
-```
-                 THE HIKER IN THE FOG
-                 
-       ▲ Altitude (Error)
-       │
-     10│  🚶 (You are here on the hill)
-      8│   \
-      6│    \  Slope tilts down to the right!
-      4│     \
-      2│      \______ 🏠 (Cabin at the bottom of the valley!)
-      0┼──────────────────────────────► Location (Weight knob)
-```
+![The Hiker in the Fog](assets/hiker_fog_derivative.svg)
 
 You cannot see the cabin. How do you find your way down?
 
 **You use your feet to feel the slope under your boots:**
-- If the ground slopes **upward to your right**, you step to the **left** (downhill).
-- If the ground slopes **downward to your right**, you step to the **right** (downhill).
-- When the ground feels **completely flat** under your feet, you have reached the **bottom of the valley**!
+- If the ground slopes **upward to your right** (positive slope), you step to the **left** (downhill).
+- If the ground slopes **downward to your right** (negative slope), you step to the **right** (downhill).
+- When the ground feels **completely flat** under your feet (zero slope), you have reached the **bottom of the valley**!
 
-> **This is EXACTLY how AI models learn!**
-> - The altitude of the mountain is the **Error (Loss)**.
-> - Your location is the **Model's Weight**.
-> - Feeling the ground slope under your feet is calculating the **Derivative**.
-> - Stepping downhill to reduce error is called **Gradient Descent** (Day 08)!
+| Your Current Position | What Your Boots Feel | Slope Sign | Direction to Step | Result |
+| :--- | :--- | :---: | :---: | :--- |
+| **High on Left Hill** | Tilts downward to the right | **Negative ($-$)** | **Step Right ($+$)** | Altitude (Error) drops |
+| **High on Right Hill** | Tilts upward to the right | **Positive ($+$)** | **Step Left ($-$)** | Altitude (Error) drops |
+| **At the Cabin (Valley Floor)** | Perfectly horizontal / flat | **Zero ($0$)** | **Stop! Stay put!** | Lowest possible altitude reached! |
+
+> [!NOTE]
+> **Teacher's Mental Model: Why AI is Just an Optimization Problem**
+> - The altitude of the mountain is the **Error (Loss)**. High altitude = high error (bad predictions).
+> - Your coordinates on the mountain are the **Model's Weights** (knobs).
+> - Feeling the tilt under your feet is calculating the **Derivative (Slope)**.
+> - Taking downhill steps to reach minimum error is called **Gradient Descent** (Day 08)!
+> 
+> When people say "ChatGPT was trained for 3 months on 25,000 GPUs", it means the supercomputers spent 3 months feeling the slope under their feet and nudging trillions of knobs downhill!
 
 ---
 
@@ -86,67 +84,60 @@ $$y = 2x + 3$$
 
 On a straight line, the slope is **constant everywhere**. Every time $x$ increases by `1`, $y$ increases by `2`. The slope is always `2.0`.
 
-### But Real-World Error Functions Are CURVES!
+### But Real-World AI Error Functions Are CURVES!
 
-Consider a bowl-shaped curve:
+Consider a bowl-shaped error curve:
 
 $$f(x) = x^2$$
 
-Let's look at the points on this curve:
+Let's examine the points on this curve:
 
-```
-    f(x)
-     9│   ● (-3, 9)                           ● (3, 9)
-     8│
-     7│
-     6│
-     5│
-     4│       ● (-2, 4)                   ● (2, 4)
-     3│
-     2│
-     1│           ● (-1, 1)           ● (1, 1)
-     0┼──────────────────────●─────────────────────► x
-         -3      -2      -1  (0,0)    1       2       3
-```
+| Point $x$ | Altitude $f(x) = x^2$ | Steepness & Direction | Exact Slope (Derivative) | Meaning for AI |
+| :---: | :---: | :--- | :---: | :--- |
+| **$-3$** | $(-3)^2 = 9$ | Steeply declining to the right | **$-6.0$** | Step RIGHT fast to reduce error |
+| **$-1$** | $(-1)^2 = 1$ | Gently declining to the right | **$-2.0$** | Step RIGHT gently |
+| **$0$** | $(0)^2 = 0$ | Perfectly flat bottom | **$0.0$** | Perfect! Minimum error reached |
+| **$+1$** | $(1)^2 = 1$ | Gently climbing to the right | **$+2.0$** | Step LEFT gently |
+| **$+3$** | $(3)^2 = 9$ | Steeply climbing to the right | **$+6.0$** | Step LEFT fast to reduce error |
 
-Notice something critical:
-- At $x = 3$, the hill is **very steep and going up**.
-- At $x = 1$, the hill is **gently going up**.
-- At $x = 0$, the hill is **completely flat** (the bottom of the bowl!).
-- At $x = -2$, the hill is **going down to the right**.
-
-> **On a curve, the slope is DIFFERENT at every single point!**
-> A derivative simply calculates: *"What is the exact slope at THIS specific point?"*
+Notice two critical insights:
+1. **On a curve, the slope is DIFFERENT at every single point!** A derivative is not a single number for the whole curve; it is a calculation of *"What is the exact slope at THIS specific point right now?"*
+2. **The further you are from the bottom, the steeper the slope is.** This is brilliant for AI: when the model is making huge errors, the steep slope forces it to take big corrective steps; when it is close to perfection, the gentle slope makes it take tiny, careful adjustments!
 
 ---
 
 # 3. What Is a Derivative? The "Nudge Test"
 
-Forget complicated limit notation like $\lim_{h \to 0}$. Think of a derivative as the **"Nudge Test"**:
+Forget complicated limit notation like $\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}$. 
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        THE NUDGE TEST                                  │
-├────────────────────────────────────────────────────────────────────────┤
-│                                                                        │
-│  1. Pick your current input value:           x                         │
-│  2. Compute current output:                  f(x)                      │
-│  3. Give x a TINY nudge to the right (say):  h = 0.0001                │
-│  4. Compute new output:                      f(x + h)                  │
-│  5. Calculate: How much did output change compared to the nudge?       │
-│                                                                        │
-│                    Change in Output     f(x + h) - f(x)                │
-│          Slope  =  ────────────────  =  ───────────────                │
-│                    Change in Input             h                       │
-│                                                                        │
-└────────────────────────────────────────────────────────────────────────┘
-```
+Think of a derivative as the **"Nudge Test"**:
 
-If nudging $x$ by `0.0001` causes the output to change by `0.0006`, then the slope is:
+![The Nudge Test](assets/the_nudge_test.svg)
 
-$$\frac{0.0006}{0.0001} = \mathbf{6.0}$$
+### Step-by-Step Arithmetic Walkthrough
 
-That's all a derivative is: **The ratio of (Change in Output) / (Change in Input)** for an infinitesimally small nudge!
+Let's manually perform the Nudge Test on $f(x) = x^2$ at the point **$x = 3.0$**:
+
+| Step | Operation | Formula / Value | Result |
+| :---: | :--- | :--- | :---: |
+| **1** | Current Input ($x$) | $x = 3.0$ | `3.0` |
+| **2** | Current Output ($y$) | $f(3.0) = 3.0^2$ | `9.0` |
+| **3** | Tiny Nudge ($h$) | $h = 0.001$ | `0.001` |
+| **4** | Nudged Input ($x + h$) | $3.0 + 0.001$ | `3.001` |
+| **5** | Nudged Output | $f(3.001) = 3.001^2$ | `9.006001` |
+| **6** | Change in Output ($\Delta y$) | $9.006001 - 9.0$ | `0.006001` |
+| **7** | **Slope Ratio ($\frac{\Delta y}{\Delta x}$)** | $\frac{0.006001}{0.001}$ | **`6.001`** |
+
+Look what happens when we use an even tinier nudge $h = 0.00001$:
+
+$$\Delta \text{Output} = 3.00001^2 - 3^2 = 9.0000600001 - 9 = 0.0000600001$$
+
+$$\text{Slope} = \frac{0.0000600001}{0.00001} = \mathbf{6.00001} \approx \mathbf{6.0}$$
+
+As the nudge gets closer to zero, the slope becomes **exactly $6.0$**!
+
+> **That is all a derivative is:**
+> The exact sensitivity ratio: *"For every 1 unit I nudge this input, how many units will the output change?"*
 
 ---
 
@@ -217,32 +208,75 @@ Whenever you calculate the slope of an AI model's error function, you will get o
    Step LEFT (decrease x)        Stop! Lowest error!           Step RIGHT (increase x)
 ```
 
-| Slope Value | Meaning for Error | Action to Reduce Error |
-| :---: | :--- | :--- |
-| **Positive ($> 0$)** | Moving right increases error (going uphill) | **Decrease the weight** (step left) |
-| **Negative ($< 0$)** | Moving right decreases error (going downhill) | **Increase the weight** (step right) |
-| **Zero ($= 0$)** | Flat ground (at minimum error) | **Do nothing! You found the optimal setting!** |
+| Slope Value | Meaning for Error | Action to Reduce Error | Mathematical Update |
+| :---: | :--- | :--- | :---: |
+| **Positive ($> 0$)** | Moving right increases error (going uphill) | **Decrease the weight** (step left) | $w_{\text{new}} = w - \alpha(\text{slope})$ |
+| **Negative ($< 0$)** | Moving right decreases error (going downhill) | **Increase the weight** (step right) | $w_{\text{new}} = w - \alpha(\text{slope})$ |
+| **Zero ($= 0$)** | Flat ground (at minimum error) | **Do nothing! You found optimal setting!** | $w_{\text{new}} = w - 0 = w$ |
 
-> **Notice the Golden Rule**:
+> [!TIP]
+> **Notice the Golden Rule of AI Optimization**:
 > To go downhill, you ALWAYS step in the **OPPOSITE DIRECTION of the slope**!
-> - If slope is positive ($+$), subtract!
-> - If slope is negative ($-$), add!
+> Notice how the minus sign naturally handles both cases:
+> - If slope is $+4$, then $w - (0.1 \times 4) = w - 0.4$ (weight goes down!).
+> - If slope is $-4$, then $w - (0.1 \times -4) = w + 0.4$ (weight goes up!).
+> One simple formula automatically steers you in the right direction!
 
 ---
 
 # 6. Partial Derivatives: When You Have Multiple Knobs
 
-In real life, an AI model doesn't just have one variable $x$. It has **millions of weights** ($w_1, w_2, w_3, \dots, \text{bias}$).
+In real life, an AI model doesn't just have one variable $x$. It has **millions or billions of weights** ($w_1, w_2, w_3, \dots, \text{bias}$).
 
-How do you take a derivative when there are multiple knobs?
+How do you calculate slopes when there are multiple knobs?
 
-You use **Partial Derivatives**, written with a curly $\partial$:
+You use **Partial Derivatives**, written with a curly symbol $\partial$ ("del"):
 
 $$\frac{\partial \text{Error}}{\partial w_1}$$
 
-Don't let the symbol scare you. The definition is refreshingly simple:
+Don't let the symbol scare you. The concept is completely straightforward:
 
-> **A Partial Derivative simply means: Freeze all other knobs! Nudge ONLY ONE knob, and see how the error changes.**
+> **A Partial Derivative simply means:**
+> **"Freeze all other knobs in place! Nudge ONLY ONE knob, and measure how the error changes."**
+
+![Partial Derivatives Machine](assets/partial_derivatives_machine.svg)
+
+> [!NOTE]
+> **Teacher's Mental Model: The Music Studio Mixing Console**
+> Imagine an audio engineer sitting at a 32-channel mixing console.
+> - Knob 1 controls Bass.
+> - Knob 2 controls Vocals.
+> - Knob 3 controls Drums.
+> 
+> If the song sounds muddy, how does the engineer know which knob to tweak?
+> They don't turn all 32 knobs at random simultaneously!
+> They **freeze Vocals and Drums**, nudge **ONLY the Bass knob** up by 1 millimeter, and listen to whether the clarity gets better or worse.
+> That is a **partial derivative**!
+
+### Step-by-Step Arithmetic Walkthrough
+
+Suppose our error function depends on two weights $w_1$ and $w_2$:
+
+$$\text{Error}(w_1, w_2) = (w_1)^2 + 3(w_2)$$
+
+Let's compute both partial derivatives at $(w_1 = 3.0, w_2 = 5.0)$:
+
+1. **Current Error**:
+   $$\text{Error}(3.0, 5.0) = (3.0)^2 + 3(5.0) = 9 + 15 = \mathbf{24.0}$$
+
+2. **Partial Derivative with respect to $w_1$ (Freeze $w_2 = 5.0$!)**:
+   - Nudge $w_1$ by $h = 0.001 \implies w_1 = 3.001$
+   - Keep $w_2$ frozen at $5.0$
+   - $\text{Error}(3.001, 5.0) = (3.001)^2 + 3(5.0) = 9.006001 + 15 = \mathbf{24.006001}$
+   - $\frac{\partial \text{Error}}{\partial w_1} = \frac{24.006001 - 24.0}{0.001} = \mathbf{6.001} \approx \mathbf{6.0}$
+
+3. **Partial Derivative with respect to $w_2$ (Freeze $w_1 = 3.0$!)**:
+   - Nudge $w_2$ by $h = 0.001 \implies w_2 = 5.001$
+   - Keep $w_1$ frozen at $3.0$
+   - $\text{Error}(3.0, 5.001) = (3.0)^2 + 3(5.001) = 9 + 15.003 = \mathbf{24.003}$
+   - $\frac{\partial \text{Error}}{\partial w_2} = \frac{24.003 - 24.0}{0.001} = \mathbf{3.0}$
+
+### Python Implementation: Freeze & Nudge
 
 ```python
 # A function with two knobs: x and y

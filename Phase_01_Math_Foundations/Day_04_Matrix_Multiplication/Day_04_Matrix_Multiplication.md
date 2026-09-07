@@ -143,35 +143,30 @@ Suppose we multiply:
 
 $$A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}, \quad B = \begin{bmatrix} 7 & 8 \\ 9 & 10 \\ 11 & 12 \end{bmatrix}$$
 
-![Matrix Multiplication Row-by-Column Calculation](assets/matmul_row_by_column.png)
+![The Matrix Multiplication Mechanism](assets/matrix_multiplication_flow.svg)
 
-### Step 1: Calculate Cell (0, 0)
-Take **Row 0 of A** and **Column 0 of B**:
-$$\text{Row 0 of A} = [1, 2, 3]$$
-$$\text{Col 0 of B} = [7, 9, 11]$$
-$$\text{Result}[0][0] = (1 \times 7) + (2 \times 9) + (3 \times 11) = 7 + 18 + 33 = \mathbf{58}$$
+### Full Arithmetic Breakdown Table:
 
-### Step 2: Calculate Cell (0, 1)
-Take **Row 0 of A** and **Column 1 of B**:
-$$\text{Row 0 of A} = [1, 2, 3]$$
-$$\text{Col 1 of B} = [8, 10, 12]$$
-$$\text{Result}[0][1] = (1 \times 8) + (2 \times 10) + (3 \times 12) = 8 + 20 + 36 = \mathbf{64}$$
-
-### Step 3: Calculate Cell (1, 0)
-Take **Row 1 of A** and **Column 0 of B**:
-$$\text{Row 1 of A} = [4, 5, 6]$$
-$$\text{Col 0 of B} = [7, 9, 11]$$
-$$\text{Result}[1][0] = (4 \times 7) + (5 \times 9) + (6 \times 11) = 28 + 45 + 66 = \mathbf{139}$$
-
-### Step 4: Calculate Cell (1, 1)
-Take **Row 1 of A** and **Column 1 of B**:
-$$\text{Row 1 of A} = [4, 5, 6]$$
-$$\text{Col 1 of B} = [8, 10, 12]$$
-$$\text{Result}[1][1] = (4 \times 8) + (5 \times 10) + (6 \times 12) = 32 + 50 + 72 = \mathbf{154}$$
+| Target Cell in C | Row from Matrix A | Column from Matrix B | Step-by-Step Dot Product | Calculation | Final Value |
+| :---: | :---: | :---: | :--- | :--- | :---: |
+| **$C[0][0]$** | Row 0: `[1, 2, 3]` | Col 0: `[7, 9, 11]` | $(1 \times 7) + (2 \times 9) + (3 \times 11)$ | $7 + 18 + 33$ | **`58`** |
+| **$C[0][1]$** | Row 0: `[1, 2, 3]` | Col 1: `[8, 10, 12]` | $(1 \times 8) + (2 \times 10) + (3 \times 12)$ | $8 + 20 + 36$ | **`64`** |
+| **$C[1][0]$** | Row 1: `[4, 5, 6]` | Col 0: `[7, 9, 11]` | $(4 \times 7) + (5 \times 9) + (6 \times 11)$ | $28 + 45 + 66$ | **`139`** |
+| **$C[1][1]$** | Row 1: `[4, 5, 6]` | Col 1: `[8, 10, 12]` | $(4 \times 8) + (5 \times 10) + (6 \times 12)$ | $32 + 50 + 72$ | **`154`** |
 
 ### Final Result Matrix C:
 
 $$C = \begin{bmatrix} 58 & 64 \\ 139 & 154 \end{bmatrix}$$
+
+> [!WARNING]
+> **Critical Rule: Matrix Multiplication is NOT Commutative! ($A \times B \neq B \times A$)**
+> In normal arithmetic, $3 \times 5 = 5 \times 3 = 15$. The order doesn't matter.
+> 
+> In Matrix Multiplication, **ORDER MATTERS COMPLETELY**:
+> - $A(2 \times 3) \times B(3 \times 2)$ produces a **$2 \times 2$ matrix**!
+> - $B(3 \times 2) \times A(2 \times 3)$ produces a **$3 \times 3$ matrix**!
+> 
+> Swapping the order produces completely different numbers and even a completely different shape!
 
 ---
 

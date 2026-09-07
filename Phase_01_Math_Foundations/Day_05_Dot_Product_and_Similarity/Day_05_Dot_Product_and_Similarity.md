@@ -211,7 +211,7 @@ To fix the length bias, we divide the dot product by the lengths (magnitudes) of
 
 This gives us **Cosine Similarity**:
 
-![Cosine Similarity Formula & Visual Gauge](assets/cosine_similarity_formula_visual.png)
+![The Cosine Similarity Compass](assets/cosine_similarity_compass.svg)
 
 ### The Formula:
 
@@ -220,6 +220,22 @@ $$\text{Cosine Similarity}(A, B) = \frac{A \cdot B}{\|A\| \times \|B\|}$$
 Where:
 - $A \cdot B$ is the **Dot Product** (measuring alignment).
 - $\|A\|$ and $\|B\|$ are the **Magnitudes / Lengths** from [Day 02](../Day_02_Vectors/Day_02_Vectors.md) ($\sqrt{\sum x^2}$).
+
+### Step-by-Step Hand-Calculated Arithmetic Example
+
+Let's manually compute the Cosine Similarity between:
+- Vector $A = [3, 4]$
+- Vector $B = [6, 8]$  *(Notice $B$ is just $2 \times A$, pointing in the identical direction!)*
+
+| Step | Operation | Formula & Values | Result |
+| :---: | :--- | :--- | :---: |
+| **1** | Dot Product ($A \cdot B$) | $(3 \times 6) + (4 \times 8) = 18 + 32$ | **`50`** |
+| **2** | Magnitude of $A$ ($\|A\|$) | $\sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25}$ | **`5.0`** |
+| **3** | Magnitude of $B$ ($\|B\|$) | $\sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100}$ | **`10.0`** |
+| **4** | Product of Lengths | $\|A\| \times \|B\| = 5.0 \times 10.0$ | **`50.0`** |
+| **5** | **Cosine Similarity** | $\frac{A \cdot B}{\|A\| \times \|B\|} = \frac{50}{50.0}$ | **`1.000` 🎯 (100% Match!)** |
+
+Even though $B$ is twice as long as $A$, Cosine Similarity completely eliminates the length difference and recognizes they point in the **exact same direction**!
 
 ### The Magic Scale: Always Between -1.0 and +1.0!
 
@@ -231,6 +247,15 @@ No matter how large or tiny the numbers in your vectors are, Cosine Similarity *
 | **$+0.7 \dots +0.9$** | **Very Similar Meaning** | "doctor" vs "hospital" |
 | **$0.0$** | **Completely Unrelated** (Orthogonal) | "banana" vs "quantum physics" |
 | **$-1.0$** | **Diametrically Opposite** | "hot" vs "cold", "love" vs "hate" |
+
+> [!NOTE]
+> **Teacher's Mental Model: Flashlights in the Dark**
+> Imagine two people standing in the center of a dark field holding flashlights:
+> - One person has a small keychain flashlight (small vector magnitude).
+> - The other person has a giant 10,000-lumen stadium floodlight (huge vector magnitude).
+> 
+> If both people aim their flashlights at the exact same tree, **they are pointing in the exact same direction** ($\text{Cosine Sim} = +1.0$), even though one light is 100 times brighter than the other!
+> Cosine similarity cares about **where the beam is pointed**, NOT how bright the bulb is.
 
 ### Let's Code Cosine Similarity in Python
 

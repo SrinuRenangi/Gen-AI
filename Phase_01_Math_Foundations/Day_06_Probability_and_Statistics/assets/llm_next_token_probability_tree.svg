@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="promptGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="920" height="460" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="460" y="40" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    CONDITIONAL PROBABILITY IN LARGE LANGUAGE MODELS (LLMs)
+  </text>
+  <text x="460" y="65" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Text generation is just repeatedly sampling from P(Next Token | Previous Context)
+  </text>
+
+  <!-- Prompt Box -->
+  <g transform="translate(40, 160)">
+    <rect width="250" height="120" rx="12" fill="url(#promptGrad)" stroke="#818cf8" stroke-width="2"/>
+    <text x="125" y="32" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#e0e7ff" text-anchor="middle">PROMPT CONTEXT (Given B)</text>
+    <rect x="15" y="48" width="220" height="52" rx="6" fill="#1e1b4b"/>
+    <text x="125" y="78" font-family="monospace" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">"The programmer"</text>
+    <text x="125" y="94" font-family="monospace" font-size="13" font-weight="bold" fill="#38bdf8" text-anchor="middle">"opened the ___"</text>
+  </g>
+
+  <!-- Connecting Trunk -->
+  <line x1="290" y1="220" x2="410" y2="220" stroke="#818cf8" stroke-width="3"/>
+  <circle cx="410" cy="220" r="6" fill="#818cf8"/>
+
+  <!-- Branch Lines -->
+  <path d="M 410 220 C 470 220, 480 115, 540 115" stroke="#10b981" stroke-width="3" fill="none"/>
+  <path d="M 410 220 C 470 220, 480 185, 540 185" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
+  <path d="M 410 220 C 470 220, 480 255, 540 255" stroke="#f59e0b" stroke-width="2" fill="none"/>
+  <path d="M 410 220 C 470 220, 480 325, 540 325" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,4" fill="none"/>
+
+  <!-- Candidate Token 1 (Selected!) -->
+  <g transform="translate(540, 90)">
+    <rect width="340" height="50" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="30" font-family="monospace" font-size="16" font-weight="bold" fill="#34d399">"terminal"</text>
+    <rect x="150" y="15" width="100" height="20" rx="4" fill="#0f172a"/>
+    <rect x="150" y="15" width="68" height="20" rx="4" fill="#10b981"/>
+    <text x="290" y="31" font-family="monospace" font-size="14" font-weight="bold" fill="#a7f3d0">68.0%</text>
+    <circle cx="325" cy="25" r="7" fill="#10b981"/>
+    <text x="325" y="29" font-size="10" fill="#ffffff" text-anchor="middle">✓</text>
+  </g>
+
+  <!-- Candidate Token 2 -->
+  <g transform="translate(540, 160)">
+    <rect width="340" height="50" rx="8" fill="#172554" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="20" y="30" font-family="monospace" font-size="15" fill="#93c5fd">"laptop"</text>
+    <rect x="150" y="15" width="100" height="20" rx="4" fill="#0f172a"/>
+    <rect x="150" y="15" width="22" height="20" rx="4" fill="#3b82f6"/>
+    <text x="290" y="31" font-family="monospace" font-size="14" fill="#bfdbfe">22.0%</text>
+  </g>
+
+  <!-- Candidate Token 3 -->
+  <g transform="translate(540, 230)">
+    <rect width="340" height="50" rx="8" fill="#451a03" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="20" y="30" font-family="monospace" font-size="15" fill="#fcd34d">"browser"</text>
+    <rect x="150" y="15" width="100" height="20" rx="4" fill="#0f172a"/>
+    <rect x="150" y="15" width="9" height="20" rx="4" fill="#f59e0b"/>
+    <text x="290" y="31" font-family="monospace" font-size="14" fill="#fef08a">9.0%</text>
+  </g>
+
+  <!-- Candidate Token 4 -->
+  <g transform="translate(540, 300)">
+    <rect width="340" height="50" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+    <text x="20" y="30" font-family="monospace" font-size="14" fill="#94a3b8">"refrigerator"</text>
+    <rect x="150" y="15" width="100" height="20" rx="4" fill="#0f172a"/>
+    <rect x="150" y="15" width="1" height="20" rx="4" fill="#64748b"/>
+    <text x="290" y="31" font-family="monospace" font-size="13" fill="#94a3b8">0.01%</text>
+  </g>
+
+  <!-- Bottom Temperature Bar -->
+  <g transform="translate(60, 395)">
+    <rect width="800" height="42" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="30" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#38bdf8">TEMPERATURE CONTROL:</text>
+    <text x="230" y="26" font-family="monospace" font-size="11" fill="#94a3b8">T = 0.2 (Sharpens top pick: "terminal")</text>
+    <text x="560" y="26" font-family="monospace" font-size="11" fill="#cbd5e1">T = 1.5 (Flattens picks: enables "browser")</text>
+  </g>
+</svg>

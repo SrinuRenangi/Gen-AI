@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="440" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="480" y="40" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    THE LEARNING RATE (α): GOLDILOCKS AND THE STEP SIZE
+  </text>
+  <text x="480" y="65" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    How step size controls whether your AI model trains in seconds or explodes into numerical infinity
+  </text>
+
+  <!-- PANEL 1: TOO LARGE (EXPLODING / DIVERGING) -->
+  <g transform="translate(40, 95)">
+    <rect width="270" height="310" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="135" y="32" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f87171" text-anchor="middle">
+      1. TOO LARGE (α = 1.2)
+    </text>
+
+    <!-- Bowl curve -->
+    <path d="M 30 130 Q 135 270 240 130" stroke="#475569" stroke-width="3" fill="none"/>
+    <circle cx="135" cy="200" r="5" fill="#10b981"/>
+
+    <!-- Chaotic zig-zag jumps -->
+    <path d="M 50 145 L 220 140 L 40 135 L 230 110" stroke="#ef4444" stroke-width="2.5" fill="none" stroke-dasharray="4,3"/>
+    <circle cx="50" cy="145" r="6" fill="#f87171"/>
+    <circle cx="220" cy="140" r="6" fill="#f87171"/>
+    <circle cx="40" cy="135" r="6" fill="#f87171"/>
+    <circle cx="230" cy="110" r="6" fill="#ef4444"/>
+
+    <!-- Banner -->
+    <rect x="20" y="240" width="230" height="50" rx="6" fill="#450a0a" stroke="#ef4444" stroke-width="1"/>
+    <text x="135" y="260" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#fca5a5" text-anchor="middle">💥 DIVERGES / EXPLODES</text>
+    <text x="135" y="278" font-family="sans-serif" font-size="11" fill="#fecaca" text-anchor="middle">Overshoots the valley entirely!</text>
+  </g>
+
+  <!-- PANEL 2: TOO SMALL (TOO SLOW) -->
+  <g transform="translate(345, 95)">
+    <rect width="270" height="310" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="135" y="32" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="middle">
+      2. TOO SMALL (α = 0.0001)
+    </text>
+
+    <!-- Bowl curve -->
+    <path d="M 30 130 Q 135 270 240 130" stroke="#475569" stroke-width="3" fill="none"/>
+    <circle cx="135" cy="200" r="5" fill="#10b981"/>
+
+    <!-- Tiny steps -->
+    <circle cx="50" cy="145" r="5" fill="#f59e0b"/>
+    <circle cx="54" cy="148" r="4" fill="#f59e0b"/>
+    <circle cx="58" cy="151" r="4" fill="#f59e0b"/>
+    <circle cx="62" cy="154" r="4" fill="#f59e0b"/>
+    <circle cx="66" cy="157" r="4" fill="#f59e0b"/>
+    <text x="100" y="150" font-family="monospace" font-size="18" fill="#fbbf24">. . . .</text>
+
+    <!-- Banner -->
+    <rect x="20" y="240" width="230" height="50" rx="6" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+    <text x="135" y="260" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#fde68a" text-anchor="middle">🐌 PAINFULLY SLOW</text>
+    <text x="135" y="278" font-family="sans-serif" font-size="11" fill="#fef08a" text-anchor="middle">Millions of steps; high cloud bill!</text>
+  </g>
+
+  <!-- PANEL 3: JUST RIGHT (CONVERGES) -->
+  <g transform="translate(650, 95)">
+    <rect width="270" height="310" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="135" y="32" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#34d399" text-anchor="middle">
+      3. JUST RIGHT (α = 0.01)
+    </text>
+
+    <!-- Bowl curve -->
+    <path d="M 30 130 Q 135 270 240 130" stroke="#475569" stroke-width="3" fill="none"/>
+
+    <!-- Smooth downhill trajectory -->
+    <path d="M 50 145 Q 85 180 135 200" stroke="#10b981" stroke-width="3" fill="none"/>
+    <circle cx="50" cy="145" r="6" fill="#10b981"/>
+    <circle cx="80" cy="172" r="6" fill="#10b981"/>
+    <circle cx="110" cy="192" r="6" fill="#10b981"/>
+    <circle cx="135" cy="200" r="8" fill="#34d399" stroke="#ffffff" stroke-width="2"/>
+
+    <!-- Banner -->
+    <rect x="20" y="240" width="230" height="50" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+    <text x="135" y="260" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#a7f3d0" text-anchor="middle">🎯 SMOOTH CONVERGENCE</text>
+    <text x="135" y="278" font-family="sans-serif" font-size="11" fill="#d1fae5" text-anchor="middle">Reaches minimum in few steps!</text>
+  </g>
+</svg>

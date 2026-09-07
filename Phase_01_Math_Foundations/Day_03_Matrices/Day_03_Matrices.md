@@ -132,7 +132,7 @@ $$\text{Shape} = \text{Rows} \times \text{Columns} \quad (M \times N)$$
 > 
 > Memory trick: Think of **R**obert **C**ook, or a **R**acing **C**ar (**R**ows then **C**olumns).
 
-![Matrix Dimensions & Indexing in Python](assets/matrix_shape_and_indexing.png)
+![Anatomy of a Matrix](assets/matrix_2d_grid_anatomy.svg)
 
 ### Finding the Shape in Python
 
@@ -173,6 +173,16 @@ $$\text{matrix}[\text{row\_index}][\text{col\_index}]$$
 Remember that Python uses **0-based indexing**:
 - The first row is index `0`.
 - The first column is index `0`.
+
+> [!CAUTION]
+> **Common Beginner Trap: The Row-Column Flip!**
+> In high school math or Cartesian planes, you learned `(x, y)` where `x` is horizontal and `y` is vertical.
+> 
+> In computer science matrices, this is **REVERSED**:
+> - The first index `[r]` is the **Row** (vertical position, which line down).
+> - The second index `[c]` is the **Column** (horizontal position, which element across).
+> 
+> If you write `matrix[col][row]`, you will either access the wrong data or crash your code with an `IndexError: list index out of range`!
 
 ### Let's Explore with Code
 

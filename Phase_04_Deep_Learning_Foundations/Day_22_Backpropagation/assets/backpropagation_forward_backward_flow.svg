@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="fwd-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="bwd-grad" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+    <marker id="fwd-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="bwd-arrow" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 8 1 L 0 5 L 8 9 z" fill="#ef4444" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    BACKPROPAGATION: THE DUAL HIGHWAY OF NEURAL LEARNING
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Forward Pass (Inputs &rarr; Predictions &rarr; Loss) vs Backward Pass (Loss &rarr; Gradients &rarr; Weight Updates)
+  </text>
+
+  <!-- Central Diagram -->
+  <g transform="translate(60, 100)">
+
+    <!-- FORWARD HIGHWAY (TOP) -->
+    <g transform="translate(0, 0)">
+      <rect width="840" height="150" rx="10" fill="#1e293b" stroke="#0284c7" stroke-width="1.5" />
+      <rect x="0" y="0" width="840" height="26" rx="10" fill="url(#fwd-grad)" />
+      <text x="420" y="18" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">
+        FORWARD PASS: CALCULATING PREDICTIONS &amp; LOSS (&rarr; LEFT TO RIGHT)
+      </text>
+
+      <!-- Step 1: Input x -->
+      <circle cx="70" cy="85" r="22" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <text x="70" y="90" font-family="monospace" font-size="12" font-weight="800" fill="#38bdf8" text-anchor="middle">x</text>
+      <text x="70" y="125" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Input Data</text>
+
+      <!-- Arrow 1 -->
+      <line x1="95" y1="85" x2="195" y2="85" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arrow)" />
+      <text x="145" y="75" font-family="monospace" font-size="10" fill="#93c5fd" text-anchor="middle">&times; W^[1] + b^[1]</text>
+
+      <!-- Step 2: Hidden Unit (z1 -> a1) -->
+      <rect x="205" y="55" width="130" height="60" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="270" y="78" font-family="monospace" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle">z^[1] = Wx + b</text>
+      <text x="270" y="98" font-family="monospace" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">a^[1] = &sigma;(z^[1])</text>
+      <text x="270" y="130" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Hidden Activation</text>
+
+      <!-- Arrow 2 -->
+      <line x1="340" y1="85" x2="445" y2="85" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arrow)" />
+      <text x="392" y="75" font-family="monospace" font-size="10" fill="#93c5fd" text-anchor="middle">&times; W^[2] + b^[2]</text>
+
+      <!-- Step 3: Output Unit (z2 -> a2/y_hat) -->
+      <rect x="455" y="55" width="130" height="60" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="520" y="78" font-family="monospace" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle">z^[2] = W₂a₁ + b₂</text>
+      <text x="520" y="98" font-family="monospace" font-size="12" font-weight="800" fill="#38bdf8" text-anchor="middle">ŷ = &sigma;(z^[2])</text>
+      <text x="520" y="130" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Model Prediction</text>
+
+      <!-- Arrow 3 -->
+      <line x1="590" y1="85" x2="685" y2="85" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arrow)" />
+      <text x="637" y="75" font-family="monospace" font-size="10" fill="#93c5fd" text-anchor="middle">Compare with y</text>
+
+      <!-- Step 4: Loss Calculation -->
+      <circle cx="725" cy="85" r="28" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" />
+      <text x="725" y="83" font-family="sans-serif" font-size="10" font-weight="800" fill="#fca5a5" text-anchor="middle">LOSS</text>
+      <text x="725" y="98" font-family="monospace" font-size="14" font-weight="900" fill="#ffffff" text-anchor="middle">&Lscr;</text>
+      <text x="725" y="130" font-family="sans-serif" font-size="9" fill="#f87171" text-anchor="middle">Error Scalar</text>
+    </g>
+
+    <!-- BACKWARD HIGHWAY (BOTTOM) -->
+    <g transform="translate(0, 180)">
+      <rect width="840" height="195" rx="10" fill="#1e293b" stroke="#dc2626" stroke-width="1.5" />
+      <rect x="0" y="0" width="840" height="26" rx="10" fill="url(#bwd-grad)" />
+      <text x="420" y="18" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">
+        BACKWARD PASS: DISTRIBUTING BLAME VIA CHAIN RULE (&larr; RIGHT TO LEFT)
+      </text>
+
+      <!-- Step 1: Loss Derivative -->
+      <g transform="translate(680, 50)">
+        <rect width="120" height="85" rx="6" fill="#0f172a" stroke="#ef4444" stroke-width="1.5" />
+        <text x="60" y="24" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171" text-anchor="middle">Output Error</text>
+        <text x="60" y="46" font-family="monospace" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">&part;&Lscr; / &part;ŷ</text>
+        <text x="60" y="66" font-family="monospace" font-size="10" fill="#fca5a5" text-anchor="middle">&delta;^[2] = (ŷ - y)</text>
+      </g>
+
+      <!-- Arrow Backward 1 -->
+      <line x1="670" y1="92" x2="595" y2="92" stroke="#ef4444" stroke-width="3" marker-end="url(#bwd-arrow)" />
+
+      <!-- Step 2: Layer 2 Gradients -->
+      <g transform="translate(425, 45)">
+        <rect width="160" height="95" rx="6" fill="#0f172a" stroke="#f97316" stroke-width="1.5" />
+        <text x="80" y="22" font-family="sans-serif" font-size="10" font-weight="700" fill="#fb923c" text-anchor="middle">Layer 2 Gradients</text>
+        <text x="80" y="44" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">&part;&Lscr;/&part;W^[2] = &delta;^[2]&middot;(a^[1])ᵀ</text>
+        <text x="80" y="64" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">&part;&Lscr;/&part;b^[2] = &delta;^[2]</text>
+        <rect x="10" y="72" width="140" height="18" rx="3" fill="#431407" />
+        <text x="80" y="85" font-family="monospace" font-size="9" fill="#fdba74" text-anchor="middle">W₂ &larr; W₂ - &eta;&middot;&nabla;W₂</text>
+      </g>
+
+      <!-- Arrow Backward 2 (Backpropagating delta through weights) -->
+      <line x1="415" y1="92" x2="335" y2="92" stroke="#ef4444" stroke-width="3" marker-end="url(#bwd-arrow)" />
+      <text x="375" y="82" font-family="monospace" font-size="8" fill="#fca5a5" text-anchor="middle">(W^[2])ᵀ&middot;&delta;^[2]</text>
+
+      <!-- Step 3: Layer 1 Gradients -->
+      <g transform="translate(165, 45)">
+        <rect width="160" height="95" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" />
+        <text x="80" y="22" font-family="sans-serif" font-size="10" font-weight="700" fill="#facc15" text-anchor="middle">Layer 1 Gradients</text>
+        <text x="80" y="44" font-family="monospace" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">&delta;^[1] = (W₂ᵀ&delta;₂)&odot;&sigma;'(z₁)</text>
+        <text x="80" y="64" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">&part;&Lscr;/&part;W^[1] = &delta;^[1]&middot;xᵀ</text>
+        <rect x="10" y="72" width="140" height="18" rx="3" fill="#713f12" />
+        <text x="80" y="85" font-family="monospace" font-size="9" fill="#fde68a" text-anchor="middle">W₁ &larr; W₁ - &eta;&middot;&nabla;W₁</text>
+      </g>
+
+      <!-- Arrow to Input/Done -->
+      <line x1="155" y1="92" x2="85" y2="92" stroke="#ef4444" stroke-width="3" marker-end="url(#bwd-arrow)" />
+      <circle cx="60" cy="92" r="16" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+      <text x="60" y="96" font-family="sans-serif" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">&check;</text>
+      <text x="60" y="125" font-family="sans-serif" font-size="9" fill="#34d399" text-anchor="middle">Updated!</text>
+
+      <!-- Chain Rule Summary Banner Inside Card -->
+      <rect x="20" y="150" width="800" height="32" rx="4" fill="#0f172a" stroke="#334155" />
+      <text x="420" y="171" font-family="monospace" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">
+        THE MASTER CHAIN RULE: &part;&Lscr;/&part;W = (&part;&Lscr;/&part;ŷ) &middot; (&part;ŷ/&part;z) &middot; (&part;z/&part;W) = &delta; &middot; (activation_input)ᵀ
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#38bdf8" font-weight="700">Efficiency Marvel: </tspan> By caching activations <tspan fill="#f1f5f9" font-family="monospace">a^[l]</tspan> during the forward pass, backpropagation computes all 175 billion gradients in GPT-4 with zero redundant math!
+  </text>
+</svg>

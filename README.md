@@ -56,14 +56,14 @@
 
 | Day | Topic | Status |
 | :---: | :--- | :---: |
-| Day 18 | The Artificial Neuron — The Tiny Building Block | 🔲 |
-| Day 19 | Multi-Layer Neural Networks — Stacking Neurons | 🔲 |
-| Day 20 | Activation Functions — Why Straight Lines Aren't Enough | 🔲 |
-| Day 21 | Loss Functions — Measuring How Wrong the Model Is | 🔲 |
-| Day 22 | Backpropagation — How Neural Networks Actually Learn | 🔲 |
-| Day 23 | Optimizers — Smart Ways to Turn the Knobs | 🔲 |
-| Day 24 | Building a Complete Neural Network from Scratch | 🔲 |
-| Day 25 | Introduction to PyTorch — The Industry-Standard Framework | 🔲 |
+| [Day 18](Phase_04_Deep_Learning_Foundations/Day_18_The_Artificial_Neuron/Day_18_The_Artificial_Neuron.md) | The Artificial Neuron — The Tiny Building Block | ✅ |
+| [Day 19](Phase_04_Deep_Learning_Foundations/Day_19_Multi_Layer_Neural_Networks/Day_19_Multi_Layer_Neural_Networks.md) | Multi-Layer Neural Networks — Stacking Neurons | ✅ |
+| [Day 20](Phase_04_Deep_Learning_Foundations/Day_20_Activation_Functions/Day_20_Activation_Functions.md) | Activation Functions — Why Straight Lines Aren't Enough | ✅ |
+| [Day 21](Phase_04_Deep_Learning_Foundations/Day_21_Loss_Functions/Day_21_Loss_Functions.md) | Loss Functions — Measuring How Wrong the Model Is | ✅ |
+| [Day 22](Phase_04_Deep_Learning_Foundations/Day_22_Backpropagation/Day_22_Backpropagation.md) | Backpropagation — How Neural Networks Actually Learn | ✅ |
+| [Day 23](Phase_04_Deep_Learning_Foundations/Day_23_Optimizers/Day_23_Optimizers.md) | Optimizers — Smart Ways to Turn the Knobs | ✅ |
+| [Day 24](Phase_04_Deep_Learning_Foundations/Day_24_Building_Neural_Network_From_Scratch/Day_24_Building_Neural_Network_From_Scratch.md) | Building a Complete Neural Network from Scratch | ✅ |
+| [Day 25](Phase_04_Deep_Learning_Foundations/Day_25_Introduction_to_PyTorch/Day_25_Introduction_to_PyTorch.md) | Introduction to PyTorch — The Industry-Standard Framework | ✅ |
 
 ### 🟠 Phase 5: Specialized Neural Networks (Days 26–29)
 

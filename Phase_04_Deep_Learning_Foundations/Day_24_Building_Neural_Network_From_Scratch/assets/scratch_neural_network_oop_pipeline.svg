@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="dense-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="act-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <marker id="fwd-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="bwd-arr" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 8 1 L 0 5 L 8 9 z" fill="#ef4444" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    OBJECT-ORIENTED NEURAL NETWORK FROM SCRATCH
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    The PyTorch-Like Modular Architecture: Dense Layers, Activations, Losses, and Adam in Pure NumPy
+  </text>
+
+  <!-- Container Box -->
+  <g transform="translate(40, 95)">
+
+    <!-- LAYER 1: DENSE LAYER -->
+    <g transform="translate(0, 0)" filter="url(#shadow)">
+      <rect width="190" height="375" rx="10" fill="#1e293b" stroke="#0284c7" stroke-width="1.5" />
+      <rect x="0" y="0" width="190" height="28" rx="10" fill="url(#dense-grad)" />
+      <text x="95" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">CLASS: DenseLayer</text>
+      
+      <!-- Internal State -->
+      <rect x="10" y="40" width="170" height="95" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="18" y="58" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8">State Attributes:</text>
+      <text x="18" y="76" font-family="monospace" font-size="9" fill="#cbd5e1">• self.W ~ HeNormal</text>
+      <text x="18" y="92" font-family="monospace" font-size="9" fill="#cbd5e1">• self.b = zeros()</text>
+      <text x="18" y="108" font-family="monospace" font-size="9" fill="#94a3b8">• self.dW, self.db</text>
+      <text x="18" y="124" font-family="monospace" font-size="9" fill="#94a3b8">• self.inputs (cache)</text>
+
+      <!-- Forward Method -->
+      <rect x="10" y="145" width="170" height="100" rx="6" fill="#0f172a" stroke="#0284c7" />
+      <text x="18" y="165" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8">def forward(self, X):</text>
+      <text x="18" y="185" font-family="monospace" font-size="9" fill="#cbd5e1">  self.inputs = X</text>
+      <text x="18" y="202" font-family="monospace" font-size="9" fill="#38bdf8">  Z = X @ self.W + b</text>
+      <text x="18" y="222" font-family="monospace" font-size="9" fill="#cbd5e1">  return Z</text>
+      <rect x="15" y="230" width="160" height="12" rx="2" fill="#075985" />
+      <text x="95" y="240" font-family="sans-serif" font-size="8" fill="#e0f2fe" text-anchor="middle">&rarr; Caches inputs for backward</text>
+
+      <!-- Backward Method -->
+      <rect x="10" y="255" width="170" height="110" rx="6" fill="#0f172a" stroke="#ef4444" />
+      <text x="18" y="275" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">def backward(self, dZ):</text>
+      <text x="18" y="293" font-family="monospace" font-size="9" fill="#cbd5e1">  self.dW = inputs.T @ dZ</text>
+      <text x="18" y="310" font-family="monospace" font-size="9" fill="#cbd5e1">  self.db = sum(dZ, axis=0)</text>
+      <text x="18" y="327" font-family="monospace" font-size="9" fill="#f87171">  dX = dZ @ self.W.T</text>
+      <text x="18" y="347" font-family="monospace" font-size="9" fill="#cbd5e1">  return dX</text>
+    </g>
+
+    <!-- Connectors 1 to 2 -->
+    <path d="M 195 200 L 225 200" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arr)" />
+    <path d="M 225 310 L 195 310" stroke="#ef4444" stroke-width="2.5" marker-end="url(#bwd-arr)" />
+
+    <!-- LAYER 2: ACTIVATION LAYER (ReLU) -->
+    <g transform="translate(230, 0)" filter="url(#shadow)">
+      <rect width="190" height="375" rx="10" fill="#1e293b" stroke="#7c3aed" stroke-width="1.5" />
+      <rect x="0" y="0" width="190" height="28" rx="10" fill="url(#act-grad)" />
+      <text x="95" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">CLASS: ReLUActivation</text>
+      
+      <!-- Internal State -->
+      <rect x="10" y="40" width="170" height="95" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="18" y="58" font-family="sans-serif" font-size="10" font-weight="700" fill="#c084fc">State Attributes:</text>
+      <text x="18" y="78" font-family="monospace" font-size="9" fill="#cbd5e1">• self.Z (cache)</text>
+      <text x="18" y="98" font-family="sans-serif" font-size="9" fill="#94a3b8">Zero learnable weights</text>
+      <text x="18" y="116" font-family="sans-serif" font-size="9" fill="#94a3b8">Pure non-linear gating</text>
+
+      <!-- Forward Method -->
+      <rect x="10" y="145" width="170" height="100" rx="6" fill="#0f172a" stroke="#7c3aed" />
+      <text x="18" y="165" font-family="sans-serif" font-size="10" font-weight="700" fill="#c084fc">def forward(self, Z):</text>
+      <text x="18" y="185" font-family="monospace" font-size="9" fill="#cbd5e1">  self.Z = Z</text>
+      <text x="18" y="202" font-family="monospace" font-size="9" fill="#c084fc">  A = np.maximum(0, Z)</text>
+      <text x="18" y="222" font-family="monospace" font-size="9" fill="#cbd5e1">  return A</text>
+      <rect x="15" y="230" width="160" height="12" rx="2" fill="#581c87" />
+      <text x="95" y="240" font-family="sans-serif" font-size="8" fill="#f3e8ff" text-anchor="middle">&rarr; Passes activations to next</text>
+
+      <!-- Backward Method -->
+      <rect x="10" y="255" width="170" height="110" rx="6" fill="#0f172a" stroke="#ef4444" />
+      <text x="18" y="275" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">def backward(self, dA):</text>
+      <text x="18" y="295" font-family="monospace" font-size="9" fill="#cbd5e1">  dZ = dA.copy()</text>
+      <text x="18" y="315" font-family="monospace" font-size="9" fill="#f87171">  dZ[self.Z &le; 0] = 0.0</text>
+      <text x="18" y="340" font-family="monospace" font-size="9" fill="#cbd5e1">  return dZ</text>
+    </g>
+
+    <!-- Connectors 2 to 3 -->
+    <path d="M 425 200 L 455 200" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#fwd-arr)" />
+    <path d="M 455 310 L 425 310" stroke="#ef4444" stroke-width="2.5" marker-end="url(#bwd-arr)" />
+
+    <!-- LAYER 3: LOSS CLASS -->
+    <g transform="translate(460, 0)" filter="url(#shadow)">
+      <rect width="190" height="375" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" />
+      <rect x="0" y="0" width="190" height="28" rx="10" fill="#dc2626" />
+      <text x="95" y="19" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">CLASS: BinaryCrossEntropy</text>
+      
+      <!-- State -->
+      <rect x="10" y="40" width="170" height="95" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="18" y="58" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">Loss Target:</text>
+      <text x="18" y="78" font-family="monospace" font-size="9" fill="#cbd5e1">y_true &isin; {0, 1}</text>
+      <text x="18" y="98" font-family="sans-serif" font-size="9" fill="#94a3b8">Clips ŷ to [1e-15, 1-1e-15]</text>
+      <text x="18" y="116" font-family="sans-serif" font-size="9" fill="#94a3b8">Prevents log(0) NaN</text>
+
+      <!-- Forward Method -->
+      <rect x="10" y="145" width="170" height="100" rx="6" fill="#0f172a" stroke="#dc2626" />
+      <text x="18" y="165" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">def forward(y, ŷ):</text>
+      <text x="18" y="185" font-family="monospace" font-size="9" fill="#cbd5e1">  loss = -mean(</text>
+      <text x="18" y="202" font-family="monospace" font-size="9" fill="#cbd5e1">    y&middot;log(ŷ) + (1-y)&middot;log(1-ŷ)</text>
+      <text x="18" y="222" font-family="monospace" font-size="9" fill="#cbd5e1">  )</text>
+      <text x="18" y="240" font-family="monospace" font-size="9" fill="#f87171">  return scalar_loss</text>
+
+      <!-- Gradient Initiation -->
+      <rect x="10" y="255" width="170" height="110" rx="6" fill="#0f172a" stroke="#ef4444" />
+      <text x="18" y="275" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">def backward(y, ŷ):</text>
+      <text x="18" y="295" font-family="monospace" font-size="9" fill="#fca5a5">  # Starts backprop!</text>
+      <text x="18" y="315" font-family="monospace" font-size="9" fill="#f87171">  dŷ = -(y/ŷ - (1-y)/(1-ŷ))</text>
+      <text x="18" y="335" font-family="monospace" font-size="9" fill="#cbd5e1">  return dŷ / N</text>
+    </g>
+
+    <!-- Connectors 3 to 4 -->
+    <path d="M 655 310 L 685 310" stroke="#ef4444" stroke-width="2.5" marker-end="url(#fwd-arr)" />
+
+    <!-- LAYER 4: ADAM OPTIMIZER -->
+    <g transform="translate(690, 0)" filter="url(#shadow)">
+      <rect width="190" height="375" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2" />
+      <rect x="0" y="0" width="190" height="28" rx="10" fill="#059669" />
+      <text x="95" y="19" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">CLASS: AdamOptimizer</text>
+      
+      <!-- State -->
+      <rect x="10" y="40" width="170" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="18" y="58" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">Per-Layer Momentum State:</text>
+      <text x="18" y="78" font-family="monospace" font-size="9" fill="#cbd5e1">• self.m_W, self.m_b</text>
+      <text x="18" y="96" font-family="monospace" font-size="9" fill="#cbd5e1">• self.v_W, self.v_b</text>
+      <text x="18" y="114" font-family="monospace" font-size="9" fill="#94a3b8">• self.t = 0 (step count)</text>
+      <text x="18" y="132" font-family="monospace" font-size="9" fill="#94a3b8">• lr=1e-3, &beta;₁=0.9, &beta;₂=0.999</text>
+
+      <!-- Step Method -->
+      <rect x="10" y="160" width="170" height="205" rx="6" fill="#0f172a" stroke="#10b981" />
+      <text x="18" y="180" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">def step(self, layer):</text>
+      <text x="18" y="200" font-family="monospace" font-size="9" fill="#cbd5e1">  self.t += 1</text>
+      <text x="18" y="218" font-family="monospace" font-size="9" fill="#cbd5e1">  # 1st moment</text>
+      <text x="18" y="235" font-family="monospace" font-size="8" fill="#fde68a">  m = &beta;₁m + (1-&beta;₁)dW</text>
+      <text x="18" y="252" font-family="monospace" font-size="9" fill="#cbd5e1">  # 2nd moment</text>
+      <text x="18" y="269" font-family="monospace" font-size="8" fill="#e9d5ff">  v = &beta;₂v + (1-&beta;₂)dW²</text>
+      <text x="18" y="286" font-family="monospace" font-size="9" fill="#cbd5e1">  # Bias correct &amp; update</text>
+      <text x="18" y="303" font-family="monospace" font-size="8" fill="#34d399">  m_hat = m / (1 - &beta;₁ᵗ)</text>
+      <text x="18" y="320" font-family="monospace" font-size="8" fill="#34d399">  v_hat = v / (1 - &beta;₂ᵗ)</text>
+      <text x="18" y="342" font-family="monospace" font-size="9" font-weight="700" fill="#38bdf8">  W -= lr&middot;m_hat/(&radic;v_hat+&epsilon;)</text>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#34d399" font-weight="700">The Power of Clean OOP: </tspan> By giving every layer a <tspan fill="#f1f5f9" font-family="monospace">.forward()</tspan> and <tspan fill="#f1f5f9" font-family="monospace">.backward()</tspan> method, you can stack 2 layers or 200 layers without changing a single line of training logic!
+  </text>
+</svg>

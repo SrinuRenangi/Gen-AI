@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    OPTIMIZATION DYNAMICS: CONQUERING THE RAVINE
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    How Momentum, RMSprop, and Adam Overcome the Deadly Oscillations of Vanilla SGD
+  </text>
+
+  <!-- Left Side: Ravine Contour Map (2D Loss Surface) -->
+  <g transform="translate(60, 100)" filter="url(#shadow)">
+    <rect width="520" height="380" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+
+    <!-- Elliptical Ravine Contour Lines (Steep vertically, gentle horizontally) -->
+    <g fill="none" stroke-width="1.5" opacity="0.4">
+      <ellipse cx="400" cy="190" rx="420" ry="160" stroke="#475569" />
+      <ellipse cx="400" cy="190" rx="340" ry="120" stroke="#64748b" />
+      <ellipse cx="400" cy="190" rx="260" ry="85" stroke="#94a3b8" />
+      <ellipse cx="400" cy="190" rx="180" ry="55" stroke="#cbd5e1" />
+      <ellipse cx="400" cy="190" rx="100" ry="30" stroke="#38bdf8" stroke-dasharray="4,4" />
+      <ellipse cx="400" cy="190" rx="35" ry="12" stroke="#10b981" stroke-width="2" />
+    </g>
+
+    <!-- Global Minimum Star -->
+    <circle cx="400" cy="190" r="7" fill="#10b981" />
+    <text x="400" y="218" font-family="sans-serif" font-size="10" font-weight="800" fill="#34d399" text-anchor="middle">GLOBAL MINIMUM</text>
+
+    <!-- Start Position for All Optimizers -->
+    <circle cx="80" cy="60" r="7" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+    <text x="80" y="45" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">START POINT</text>
+
+    <!-- TRAJECTORY 1: VANILLA SGD (Red - Oscillates wildly between steep canyon walls) -->
+    <!-- Bounces between top and bottom wall, crawls forward -->
+    <path d="M 80 60 L 100 310 L 130 75 L 160 300 L 190 90 L 220 285 L 250 110 L 275 265 L 300 135" 
+          fill="none" stroke="#ef4444" stroke-width="2.5" />
+    <text x="315" y="145" font-family="sans-serif" font-size="10" font-weight="800" fill="#f87171">SGD (Trapped in Oscillations)</text>
+
+    <!-- TRAJECTORY 2: SGD + MOMENTUM (Orange - Heavy boulder, smooths out oscillations) -->
+    <path d="M 80 60 Q 110 240 160 210 Q 220 160 280 200 Q 330 180 375 190" 
+          fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5,3" />
+    <text x="310" y="225" font-family="sans-serif" font-size="10" font-weight="800" fill="#fbbf24">Momentum (Damped)</text>
+
+    <!-- TRAJECTORY 3: ADAM (Cyan / Green - Adaptive step size zooms straight to the minimum!) -->
+    <path d="M 80 60 C 130 140, 240 185, 395 190" 
+          fill="none" stroke="#38bdf8" stroke-width="4" />
+    <text x="210" y="150" font-family="sans-serif" font-size="12" font-weight="900" fill="#38bdf8">ADAM (Direct Highway!)</text>
+
+    <!-- Ravine Steepness Annotations -->
+    <g transform="translate(15, 330)">
+      <text x="10" y="18" font-family="sans-serif" font-size="10" fill="#94a3b8">Vertical Axis: <tspan fill="#f87171" font-weight="700">Steep Wall (&nabla; large)</tspan></text>
+      <text x="10" y="34" font-family="sans-serif" font-size="10" fill="#94a3b8">Horizontal Axis: <tspan fill="#34d399" font-weight="700">Gentle Valley Floor (&nabla; small)</tspan></text>
+    </g>
+  </g>
+
+  <!-- Right Side: Optimizer Cards -->
+  <g transform="translate(610, 100)">
+
+    <!-- Card 1: Vanilla SGD -->
+    <g transform="translate(0, 0)" filter="url(#shadow)">
+      <rect width="290" height="85" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" />
+      <text x="14" y="24" font-family="sans-serif" font-size="12" font-weight="800" fill="#f87171">1. Vanilla SGD</text>
+      <text x="14" y="44" font-family="monospace" font-size="11" fill="#fca5a5">W &larr; W - &alpha; &middot; &nabla;L</text>
+      <text x="14" y="66" font-family="sans-serif" font-size="10" fill="#94a3b8">Takes equal step in direction of gradient. Bounces violently off steep ravine walls.</text>
+    </g>
+
+    <!-- Card 2: Momentum -->
+    <g transform="translate(0, 95)" filter="url(#shadow)">
+      <rect width="290" height="85" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+      <text x="14" y="24" font-family="sans-serif" font-size="12" font-weight="800" fill="#fbbf24">2. SGD + Momentum (&beta;=0.9)</text>
+      <text x="14" y="44" font-family="monospace" font-size="11" fill="#fde68a">v &larr; &beta;v + (1-&beta;)g ; W &larr; W - &alpha;v</text>
+      <text x="14" y="66" font-family="sans-serif" font-size="10" fill="#94a3b8">Averages velocity. Vertical bounces cancel out; horizontal momentum accelerates!</text>
+    </g>
+
+    <!-- Card 3: RMSprop -->
+    <g transform="translate(0, 190)" filter="url(#shadow)">
+      <rect width="290" height="85" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5" />
+      <text x="14" y="24" font-family="sans-serif" font-size="12" font-weight="800" fill="#a5b4fc">3. RMSprop (Hinton 2012)</text>
+      <text x="14" y="44" font-family="monospace" font-size="11" fill="#c7d2fe">s &larr; &beta;₂s + (1-&beta;₂)g² ; W &larr; W - &alpha;g/&radic;s</text>
+      <text x="14" y="66" font-family="sans-serif" font-size="10" fill="#94a3b8">Divides by gradient magnitude. Slows down steep walls; speeds up gentle valleys.</text>
+    </g>
+
+    <!-- Card 4: Adam (King of AI) -->
+    <g transform="translate(0, 285)" filter="url(#shadow)">
+      <rect width="290" height="95" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <rect x="0" y="0" width="290" height="24" rx="8" fill="#0284c7" />
+      <text x="145" y="17" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">4. ADAM (MOMENTUM + RMSPROP)</text>
+      <text x="14" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#38bdf8">W &larr; W - &alpha; &middot; m&#770; / (&radic;v&#770; + &epsilon;)</text>
+      <text x="14" y="64" font-family="sans-serif" font-size="10" fill="#cbd5e1">• Direction from Momentum (1st moment)</text>
+      <text x="14" y="80" font-family="sans-serif" font-size="10" fill="#cbd5e1">• Adaptive scale from RMSprop (2nd moment)</text>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#38bdf8" font-weight="700">The Undisputed King of GenAI: </tspan> Virtually every Large Language Model (GPT-4, Claude, LLaMA) is trained using <tspan fill="#38bdf8" font-weight="700">AdamW</tspan> (Adam with decoupled weight decay).
+  </text>
+</svg>

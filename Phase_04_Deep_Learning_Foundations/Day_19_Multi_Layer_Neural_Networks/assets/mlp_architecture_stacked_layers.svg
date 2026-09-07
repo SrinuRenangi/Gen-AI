@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="in-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="h1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="h2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c026d3" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+    <linearGradient id="out-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    MULTI-LAYER PERCEPTRON (MLP) ARCHITECTURE
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Stacking Neurons into Hierarchical Feature Representations and Matrix Transformations
+  </text>
+
+  <!-- Central Diagram -->
+  <g transform="translate(40, 95)">
+
+    <!-- LAYER COLUMN BOUNDARIES / BACKGROUND PANELS -->
+    <rect x="30" y="0" width="130" height="380" rx="10" fill="#1e293b" stroke="#334155" />
+    <rect x="230" y="0" width="150" height="380" rx="10" fill="#1e293b" stroke="#334155" />
+    <rect x="470" y="0" width="150" height="380" rx="10" fill="#1e293b" stroke="#334155" />
+    <rect x="710" y="0" width="140" height="380" rx="10" fill="#1e293b" stroke="#334155" />
+
+    <!-- LAYER HEADER TAGS -->
+    <text x="95" y="26" font-family="sans-serif" font-size="12" font-weight="800" fill="#38bdf8" text-anchor="middle">INPUT LAYER</text>
+    <text x="95" y="42" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">X &isin; &reals;^(N&times;3)</text>
+
+    <text x="305" y="26" font-family="sans-serif" font-size="12" font-weight="800" fill="#c084fc" text-anchor="middle">HIDDEN LAYER 1</text>
+    <text x="305" y="42" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">A^[1] &isin; &reals;^(N&times;4)</text>
+
+    <text x="545" y="26" font-family="sans-serif" font-size="12" font-weight="800" fill="#f472b6" text-anchor="middle">HIDDEN LAYER 2</text>
+    <text x="545" y="42" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">A^[2] &isin; &reals;^(N&times;4)</text>
+
+    <text x="780" y="26" font-family="sans-serif" font-size="12" font-weight="800" fill="#34d399" text-anchor="middle">OUTPUT LAYER</text>
+    <text x="780" y="42" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">&Ycirc; &isin; &reals;^(N&times;2)</text>
+
+    <!-- SYNAPTIC WEIGHT LINES (DENSE FULL INTERCONNECTIONS) -->
+    <!-- From Layer 0 (X) to Layer 1 (H1) -->
+    <g stroke="#38bdf8" stroke-width="1" opacity="0.35">
+      <!-- x1 connections -->
+      <line x1="95" y1="110" x2="305" y2="90" />
+      <line x1="95" y1="110" x2="305" y2="160" />
+      <line x1="95" y1="110" x2="305" y2="230" />
+      <line x1="95" y1="110" x2="305" y2="300" />
+      <!-- x2 connections -->
+      <line x1="95" y1="195" x2="305" y2="90" />
+      <line x1="95" y1="195" x2="305" y2="160" />
+      <line x1="95" y1="195" x2="305" y2="230" />
+      <line x1="95" y1="195" x2="305" y2="300" />
+      <!-- x3 connections -->
+      <line x1="95" y1="280" x2="305" y2="90" />
+      <line x1="95" y1="280" x2="305" y2="160" />
+      <line x1="95" y1="280" x2="305" y2="230" />
+      <line x1="95" y1="280" x2="305" y2="300" />
+    </g>
+
+    <!-- Matrix Tag 1 -->
+    <rect x="155" y="180" width="80" height="24" rx="4" fill="#0f172a" stroke="#60a5fa" stroke-width="1" />
+    <text x="195" y="196" font-family="monospace" font-size="10" font-weight="700" fill="#93c5fd" text-anchor="middle">W^[1] (3&times;4)</text>
+
+    <!-- From Layer 1 (H1) to Layer 2 (H2) -->
+    <g stroke="#c084fc" stroke-width="1" opacity="0.35">
+      <line x1="305" y1="90" x2="545" y2="90" /><line x1="305" y1="90" x2="545" y2="160" /><line x1="305" y1="90" x2="545" y2="230" /><line x1="305" y1="90" x2="545" y2="300" />
+      <line x1="305" y1="160" x2="545" y2="90" /><line x1="305" y1="160" x2="545" y2="160" /><line x1="305" y1="160" x2="545" y2="230" /><line x1="305" y1="160" x2="545" y2="300" />
+      <line x1="305" y1="230" x2="545" y2="90" /><line x1="305" y1="230" x2="545" y2="160" /><line x1="305" y1="230" x2="545" y2="230" /><line x1="305" y1="230" x2="545" y2="300" />
+      <line x1="305" y1="300" x2="545" y2="90" /><line x1="305" y1="300" x2="545" y2="160" /><line x1="305" y1="300" x2="545" y2="230" /><line x1="305" y1="300" x2="545" y2="300" />
+    </g>
+
+    <!-- Matrix Tag 2 -->
+    <rect x="395" y="180" width="80" height="24" rx="4" fill="#0f172a" stroke="#c084fc" stroke-width="1" />
+    <text x="435" y="196" font-family="monospace" font-size="10" font-weight="700" fill="#e9d5ff" text-anchor="middle">W^[2] (4&times;4)</text>
+
+    <!-- From Layer 2 (H2) to Output Layer -->
+    <g stroke="#34d399" stroke-width="1" opacity="0.35">
+      <line x1="545" y1="90" x2="780" y2="145" /><line x1="545" y1="90" x2="780" y2="245" />
+      <line x1="545" y1="160" x2="780" y2="145" /><line x1="545" y1="160" x2="780" y2="245" />
+      <line x1="545" y1="230" x2="780" y2="145" /><line x1="545" y1="230" x2="780" y2="245" />
+      <line x1="545" y1="300" x2="780" y2="145" /><line x1="545" y1="300" x2="780" y2="245" />
+    </g>
+
+    <!-- Matrix Tag 3 -->
+    <rect x="635" y="180" width="80" height="24" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1" />
+    <text x="675" y="196" font-family="monospace" font-size="10" font-weight="700" fill="#a7f3d0" text-anchor="middle">W^[3] (4&times;2)</text>
+
+    <!-- NEURON NODES -->
+
+    <!-- Input Nodes (3) -->
+    <g filter="url(#shadow)">
+      <circle cx="95" cy="110" r="22" fill="url(#in-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="95" y="115" font-family="monospace" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">x₁</text>
+      <circle cx="95" cy="195" r="22" fill="url(#in-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="95" y="200" font-family="monospace" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">x₂</text>
+      <circle cx="95" cy="280" r="22" fill="url(#in-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="95" y="285" font-family="monospace" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">x₃</text>
+    </g>
+
+    <!-- Hidden Layer 1 Nodes (4) -->
+    <g filter="url(#shadow)">
+      <circle cx="305" cy="90" r="22" fill="url(#h1-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="305" y="95" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">h₁⁽¹⁾</text>
+      <circle cx="305" cy="160" r="22" fill="url(#h1-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="305" y="165" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">h₂⁽¹⁾</text>
+      <circle cx="305" cy="230" r="22" fill="url(#h1-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="305" y="235" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">h₃⁽¹⁾</text>
+      <circle cx="305" cy="300" r="22" fill="url(#h1-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="305" y="305" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">h₄⁽¹⁾</text>
+    </g>
+
+    <!-- Hidden Layer 2 Nodes (4) -->
+    <g filter="url(#shadow)">
+      <circle cx="545" cy="90" r="22" fill="url(#h2-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="545" y="95" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">h₁⁽²⁾</text>
+      <circle cx="545" cy="160" r="22" fill="url(#h2-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="545" y="165" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">h₂⁽²⁾</text>
+      <circle cx="545" cy="230" r="22" fill="url(#h2-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="545" y="235" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">h₃⁽²⁾</text>
+      <circle cx="545" cy="300" r="22" fill="url(#h2-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="545" y="305" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">h₄⁽²⁾</text>
+    </g>
+
+    <!-- Output Layer Nodes (2) -->
+    <g filter="url(#shadow)">
+      <circle cx="780" cy="145" r="24" fill="url(#out-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="780" y="151" font-family="monospace" font-size="13" font-weight="900" fill="#ffffff" text-anchor="middle">y₁</text>
+      <circle cx="780" cy="245" r="24" fill="url(#out-grad)" stroke="#ffffff" stroke-width="2" />
+      <text x="780" y="251" font-family="monospace" font-size="13" font-weight="900" fill="#ffffff" text-anchor="middle">y₂</text>
+    </g>
+
+    <!-- Layer Function Text at Bottom -->
+    <text x="95" y="355" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Raw Sensors / Pixels</text>
+    <text x="305" y="355" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Edges / Simple Lines</text>
+    <text x="545" y="355" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Textures / Shapes</text>
+    <text x="780" y="355" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Class Probabilities</text>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="495" width="880" height="48" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="516" font-family="sans-serif" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle">
+    THE MATRIX EQUATION OF A LAYER:
+  </text>
+  <text x="480" y="534" font-family="monospace" font-size="12" fill="#38bdf8" text-anchor="middle">
+    Z^[l] = A^[l-1] &middot; W^[l] + b^[l] &nbsp;&nbsp;&rArr;&nbsp;&nbsp; A^[l] = &sigma;(Z^[l])
+  </text>
+</svg>

@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="layer-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <marker id="map-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    HOW 2 NEURONS SOLVE XOR: THE SPACE-WARPING BREAKTHROUGH
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Hidden Layers Transform Non-Linear Space into Linearly Separable Representations
+  </text>
+
+  <!-- LEFT PANEL: ORIGINAL INPUT SPACE (x1, x2) -->
+  <g transform="translate(40, 95)" filter="url(#shadow)">
+    <rect width="280" height="385" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <rect x="0" y="0" width="280" height="32" rx="12" fill="#334155" />
+    <text x="140" y="21" font-family="sans-serif" font-size="12" font-weight="800" fill="#38bdf8" text-anchor="middle">
+      1. INPUT SPACE (x₁, x₂)
+    </text>
+
+    <!-- 2D Coordinate Grid -->
+    <g transform="translate(40, 30)">
+      <!-- Axes -->
+      <line x1="40" y1="180" x2="200" y2="180" stroke="#64748b" stroke-width="2" />
+      <line x1="40" y1="180" x2="40" y2="20" stroke="#64748b" stroke-width="2" />
+      <text x="205" y="184" font-family="sans-serif" font-size="11" fill="#94a3b8">x₁</text>
+      <text x="40" y="10" font-family="sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">x₂</text>
+
+      <!-- 2 Cut Lines from 2 Neurons -->
+      <!-- Line 1: h1 (OR boundary) -->
+      <line x1="30" y1="130" x2="150" y2="190" stroke="#38bdf8" stroke-width="2.5" />
+      <text x="145" y="150" font-family="sans-serif" font-size="9" font-weight="700" fill="#38bdf8">Line 1 (h₁ = OR)</text>
+
+      <!-- Line 2: h2 (NAND boundary) -->
+      <line x1="90" y1="20" x2="210" y2="80" stroke="#c084fc" stroke-width="2.5" />
+      <text x="100" y="45" font-family="sans-serif" font-size="9" font-weight="700" fill="#c084fc">Line 2 (h₂ = NAND)</text>
+
+      <!-- Data Points -->
+      <circle cx="40" cy="180" r="8" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="40" y="184" font-family="sans-serif" font-size="9" font-weight="800" fill="#f87171" text-anchor="middle">0</text>
+      <text x="25" y="196" font-family="monospace" font-size="8" fill="#64748b">(0,0)</text>
+
+      <circle cx="160" cy="60" r="8" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="160" y="64" font-family="sans-serif" font-size="9" font-weight="800" fill="#f87171" text-anchor="middle">0</text>
+      <text x="180" y="56" font-family="monospace" font-size="8" fill="#64748b">(1,1)</text>
+
+      <circle cx="40" cy="60" r="10" fill="#047857" stroke="#34d399" stroke-width="2" />
+      <text x="40" y="64" font-family="sans-serif" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+      <text x="22" y="52" font-family="monospace" font-size="8" fill="#34d399">(0,1)</text>
+
+      <circle cx="160" cy="180" r="10" fill="#047857" stroke="#34d399" stroke-width="2" />
+      <text x="160" y="184" font-family="sans-serif" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+      <text x="180" y="196" font-family="monospace" font-size="8" fill="#34d399">(1,0)</text>
+    </g>
+
+    <!-- Explanation -->
+    <rect x="15" y="260" width="250" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="25" y="282" font-family="sans-serif" font-size="11" font-weight="700" fill="#f8fafc">Input Geometry:</text>
+    <text x="25" y="302" font-family="sans-serif" font-size="10" fill="#cbd5e1">• Class 0: (0,0) and (1,1)</text>
+    <text x="25" y="320" font-family="sans-serif" font-size="10" fill="#cbd5e1">• Class 1: (0,1) and (1,0)</text>
+    <text x="25" y="342" font-family="sans-serif" font-size="10" font-weight="600" fill="#f87171">1 line cannot isolate 1s.</text>
+    <text x="25" y="358" font-family="sans-serif" font-size="10" font-weight="600" fill="#38bdf8">2 lines sandwich them!</text>
+  </g>
+
+  <!-- MIDDLE: THE 2-NEURON NETWORK -->
+  <g transform="translate(340, 140)" filter="url(#shadow)">
+    <rect width="280" height="300" rx="12" fill="#1e293b" stroke="#7c3aed" stroke-width="1.5" />
+    <rect x="0" y="0" width="280" height="32" rx="12" fill="url(#layer-grad)" />
+    <text x="140" y="21" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">
+      2. HIDDEN LAYER NETWORK
+    </text>
+
+    <!-- Inputs -->
+    <circle cx="40" cy="90" r="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+    <text x="40" y="94" font-family="monospace" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">x₁</text>
+
+    <circle cx="40" cy="190" r="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+    <text x="40" y="194" font-family="monospace" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">x₂</text>
+
+    <!-- Synapses to Hidden -->
+    <line x1="56" y1="90" x2="124" y2="80" stroke="#38bdf8" stroke-width="1.5" />
+    <line x1="56" y1="90" x2="124" y2="200" stroke="#c084fc" stroke-width="1.5" />
+    <line x1="56" y1="190" x2="124" y2="80" stroke="#38bdf8" stroke-width="1.5" />
+    <line x1="56" y1="190" x2="124" y2="200" stroke="#c084fc" stroke-width="1.5" />
+
+    <!-- Hidden Neurons -->
+    <circle cx="140" cy="80" r="20" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+    <text x="140" y="85" font-family="monospace" font-size="12" font-weight="800" fill="#38bdf8" text-anchor="middle">h₁</text>
+    <text x="140" y="112" font-family="sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle">(OR gate)</text>
+
+    <circle cx="140" cy="200" r="20" fill="#0f172a" stroke="#c084fc" stroke-width="2" />
+    <text x="140" y="205" font-family="monospace" font-size="12" font-weight="800" fill="#c084fc" text-anchor="middle">h₂</text>
+    <text x="140" y="232" font-family="sans-serif" font-size="9" fill="#e9d5ff" text-anchor="middle">(NAND gate)</text>
+
+    <!-- Synapses to Output -->
+    <line x1="160" y1="80" x2="225" y2="140" stroke="#10b981" stroke-width="2" />
+    <line x1="160" y1="200" x2="225" y2="140" stroke="#10b981" stroke-width="2" />
+
+    <!-- Output Neuron -->
+    <circle cx="240" cy="140" r="20" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+    <text x="240" y="145" font-family="monospace" font-size="12" font-weight="800" fill="#34d399" text-anchor="middle">y</text>
+    <text x="240" y="172" font-family="sans-serif" font-size="9" fill="#a7f3d0" text-anchor="middle">(AND gate)</text>
+
+    <!-- Summary Box -->
+    <rect x="15" y="250" width="250" height="38" rx="6" fill="#0f172a" />
+    <text x="140" y="274" font-family="monospace" font-size="10" font-weight="700" fill="#facc15" text-anchor="middle">
+      y = h₁ AND h₂ = (x₁ &or; x₂) &and; &not;(x₁ &and; x₂)
+    </text>
+  </g>
+
+  <!-- RIGHT PANEL: TRANSFORMED HIDDEN SPACE (h1, h2) -->
+  <g transform="translate(640, 95)" filter="url(#shadow)">
+    <rect width="280" height="385" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+    <rect x="0" y="0" width="280" height="32" rx="12" fill="#065f46" />
+    <text x="140" y="21" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">
+      3. TRANSFORMED SPACE (h₁, h₂)
+    </text>
+
+    <!-- 2D Coordinate Grid -->
+    <g transform="translate(40, 30)">
+      <!-- Axes -->
+      <line x1="40" y1="180" x2="200" y2="180" stroke="#64748b" stroke-width="2" />
+      <line x1="40" y1="180" x2="40" y2="20" stroke="#64748b" stroke-width="2" />
+      <text x="205" y="184" font-family="sans-serif" font-size="11" fill="#38bdf8">h₁</text>
+      <text x="40" y="10" font-family="sans-serif" font-size="11" fill="#c084fc" text-anchor="middle">h₂</text>
+
+      <!-- Single Decision Boundary Line in Hidden Space! -->
+      <line x1="120" y1="20" x2="190" y2="130" stroke="#10b981" stroke-width="3" />
+      <text x="180" y="70" font-family="sans-serif" font-size="10" font-weight="800" fill="#34d399">1 Clean Cut!</text>
+
+      <!-- Transformed Data Points -->
+      <!-- (0,0) mapped to (0, 1) = class 0 -->
+      <circle cx="40" cy="60" r="8" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="40" y="64" font-family="sans-serif" font-size="9" font-weight="800" fill="#f87171" text-anchor="middle">0</text>
+      <text x="20" y="64" font-family="monospace" font-size="8" fill="#64748b">(0,1)</text>
+
+      <!-- (1,1) mapped to (1, 0) = class 0 -->
+      <circle cx="160" cy="180" r="8" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="160" y="184" font-family="sans-serif" font-size="9" font-weight="800" fill="#f87171" text-anchor="middle">0</text>
+      <text x="180" y="194" font-family="monospace" font-size="8" fill="#64748b">(1,0)</text>
+
+      <!-- Both (0,1) and (1,0) collapsed to (1, 1) = class 1! -->
+      <circle cx="160" cy="60" r="12" fill="#047857" stroke="#34d399" stroke-width="2.5" />
+      <text x="160" y="65" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+      <text x="180" y="50" font-family="monospace" font-size="8" fill="#34d399">(1,1)</text>
+    </g>
+
+    <!-- Explanation -->
+    <rect x="15" y="260" width="250" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="25" y="282" font-family="sans-serif" font-size="11" font-weight="700" fill="#34d399">Space Warping Magic:</text>
+    <text x="25" y="302" font-family="sans-serif" font-size="10" fill="#cbd5e1">• Class 1 points collapsed into (1,1)!</text>
+    <text x="25" y="320" font-family="sans-serif" font-size="10" fill="#cbd5e1">• Class 0 points moved to (0,1) &amp; (1,0).</text>
+    <text x="25" y="344" font-family="sans-serif" font-size="10" font-weight="700" fill="#facc15">The problem is now LINEAR!</text>
+    <text x="25" y="358" font-family="sans-serif" font-size="9" fill="#94a3b8">The output neuron easily separates it.</text>
+  </g>
+
+  <!-- Mapping arrows connecting boxes -->
+  <path d="M 320 280 L 335 280" stroke="#38bdf8" stroke-width="3" marker-end="url(#map-arrow)" />
+  <path d="M 620 280 L 635 280" stroke="#10b981" stroke-width="3" marker-end="url(#map-arrow)" />
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="495" width="880" height="48" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="525" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#34d399" font-weight="700">The Secret of Deep Learning: </tspan> Every hidden layer in a neural network folds and stretches coordinate space so the final layer can draw a simple straight line.
+  </text>
+</svg>

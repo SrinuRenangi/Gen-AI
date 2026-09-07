@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="and-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="xor-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#991b1b" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    WHY A SINGLE PERCEPTRON FAILS: THE FAMOUS XOR PROBLEM
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Linear Separability (AND / OR) vs Non-Linearity (XOR) and the 1969 AI Winter
+  </text>
+
+  <!-- LEFT PANEL: AND GATE (SOLVABLE BY 1 NEURON) -->
+  <g transform="translate(50, 95)" filter="url(#shadow)">
+    <rect width="400" height="390" rx="12" fill="#1e293b" stroke="#059669" stroke-width="1.5" />
+    <rect x="0" y="0" width="400" height="32" rx="12" fill="url(#and-grad)" />
+    <text x="200" y="21" font-family="sans-serif" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">
+      ✅ AND GATE (Linearly Separable)
+    </text>
+
+    <!-- 2D Coordinate System -->
+    <!-- Origin at (90, 230), Top-right at (270, 70) -->
+    <g transform="translate(40, 10)">
+      <!-- Axes -->
+      <line x1="60" y1="220" x2="260" y2="220" stroke="#64748b" stroke-width="2" />
+      <line x1="60" y1="220" x2="60" y2="50" stroke="#64748b" stroke-width="2" />
+      <text x="265" y="224" font-family="sans-serif" font-size="11" fill="#94a3b8">x₁</text>
+      <text x="60" y="40" font-family="sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">x₂</text>
+
+      <!-- Tick marks -->
+      <text x="50" y="224" font-family="monospace" font-size="10" fill="#64748b" text-anchor="end">0</text>
+      <text x="50" y="94" font-family="monospace" font-size="10" fill="#64748b" text-anchor="end">1</text>
+      <text x="190" y="238" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">1</text>
+
+      <!-- Grid lines -->
+      <line x1="190" y1="220" x2="190" y2="90" stroke="#334155" stroke-dasharray="3,3" />
+      <line x1="60" y1="90" x2="190" y2="90" stroke="#334155" stroke-dasharray="3,3" />
+
+      <!-- Single Decision Boundary Line (Clean Separation!) -->
+      <line x1="120" y1="60" x2="230" y2="170" stroke="#10b981" stroke-width="3" />
+      <text x="235" y="145" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">1 Straight Line</text>
+      <text x="235" y="158" font-family="sans-serif" font-size="9" fill="#a7f3d0">Separates 0s &amp; 1s!</text>
+
+      <!-- 4 Data Points for AND Gate -->
+      <!-- Point (0,0) = 0 -->
+      <circle cx="60" cy="220" r="10" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="60" y="224" font-family="sans-serif" font-size="10" font-weight="800" fill="#f87171" text-anchor="middle">0</text>
+
+      <!-- Point (0,1) = 0 -->
+      <circle cx="60" cy="90" r="10" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="60" y="94" font-family="sans-serif" font-size="10" font-weight="800" fill="#f87171" text-anchor="middle">0</text>
+
+      <!-- Point (1,0) = 0 -->
+      <circle cx="190" cy="220" r="10" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="190" y="224" font-family="sans-serif" font-size="10" font-weight="800" fill="#f87171" text-anchor="middle">0</text>
+
+      <!-- Point (1,1) = 1 (Only true when both 1!) -->
+      <circle cx="190" cy="90" r="12" fill="#047857" stroke="#34d399" stroke-width="2.5" />
+      <text x="190" y="94" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+    </g>
+
+    <!-- Truth Table & Explanation Box -->
+    <rect x="20" y="275" width="360" height="95" rx="8" fill="#0f172a" stroke="#334155" />
+    <text x="35" y="298" font-family="sans-serif" font-size="11" font-weight="700" fill="#34d399">Perceptron Weights That Solve AND:</text>
+    <text x="35" y="318" font-family="monospace" font-size="11" fill="#cbd5e1">z = (1.0 &middot; x₁) + (1.0 &middot; x₂) - 1.5</text>
+    <text x="35" y="338" font-family="sans-serif" font-size="10" fill="#94a3b8">• If (0,0): z = -1.5 &rarr; y = 0 &nbsp;|&nbsp; If (1,0): z = -0.5 &rarr; y = 0</text>
+    <text x="35" y="354" font-family="sans-serif" font-size="10" fill="#94a3b8">• If (1,1): z = +0.5 &rarr; y = 1 (Solved perfectly!)</text>
+  </g>
+
+  <!-- RIGHT PANEL: XOR GATE (IMPOSSIBLE FOR 1 NEURON) -->
+  <g transform="translate(510, 95)" filter="url(#shadow)">
+    <rect width="400" height="390" rx="12" fill="#1e293b" stroke="#dc2626" stroke-width="1.5" />
+    <rect x="0" y="0" width="400" height="32" rx="12" fill="url(#xor-grad)" />
+    <text x="200" y="21" font-family="sans-serif" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">
+      ❌ XOR GATE (Non-Linearly Separable)
+    </text>
+
+    <!-- 2D Coordinate System -->
+    <g transform="translate(40, 10)">
+      <!-- Axes -->
+      <line x1="60" y1="220" x2="260" y2="220" stroke="#64748b" stroke-width="2" />
+      <line x1="60" y1="220" x2="60" y2="50" stroke="#64748b" stroke-width="2" />
+      <text x="265" y="224" font-family="sans-serif" font-size="11" fill="#94a3b8">x₁</text>
+      <text x="60" y="40" font-family="sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">x₂</text>
+
+      <!-- Tick marks -->
+      <text x="50" y="224" font-family="monospace" font-size="10" fill="#64748b" text-anchor="end">0</text>
+      <text x="50" y="94" font-family="monospace" font-size="10" fill="#64748b" text-anchor="end">1</text>
+      <text x="190" y="238" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">1</text>
+
+      <!-- Grid lines -->
+      <line x1="190" y1="220" x2="190" y2="90" stroke="#334155" stroke-dasharray="3,3" />
+      <line x1="60" y1="90" x2="190" y2="90" stroke="#334155" stroke-dasharray="3,3" />
+
+      <!-- Attempted Line 1 (Fails!) -->
+      <line x1="30" y1="180" x2="230" y2="180" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="5,5" />
+      
+      <!-- Attempted Line 2 (Fails!) -->
+      <line x1="120" y1="40" x2="120" y2="240" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="5,5" />
+
+      <text x="235" y="175" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">No single line</text>
+      <text x="235" y="190" font-family="sans-serif" font-size="9" fill="#fca5a5">can slice this!</text>
+
+      <!-- 4 Data Points for XOR Gate (DIAGONALS MATCH) -->
+      <!-- Point (0,0) = 0 -->
+      <circle cx="60" cy="220" r="10" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="60" y="224" font-family="sans-serif" font-size="10" font-weight="800" fill="#f87171" text-anchor="middle">0</text>
+
+      <!-- Point (1,1) = 0 -->
+      <circle cx="190" cy="90" r="10" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="190" y="94" font-family="sans-serif" font-size="10" font-weight="800" fill="#f87171" text-anchor="middle">0</text>
+
+      <!-- Point (0,1) = 1 -->
+      <circle cx="60" cy="90" r="12" fill="#047857" stroke="#34d399" stroke-width="2.5" />
+      <text x="60" y="94" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+
+      <!-- Point (1,0) = 1 -->
+      <circle cx="190" cy="220" r="12" fill="#047857" stroke="#34d399" stroke-width="2.5" />
+      <text x="190" y="224" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+    </g>
+
+    <!-- Historical Disaster & Solution Box -->
+    <rect x="20" y="275" width="360" height="95" rx="8" fill="#0f172a" stroke="#334155" />
+    <text x="35" y="296" font-family="sans-serif" font-size="11" font-weight="700" fill="#f87171">1969 AI Winter (Minsky &amp; Papert):</text>
+    <text x="35" y="314" font-family="sans-serif" font-size="10" fill="#cbd5e1">Proved mathematically that a single perceptron</text>
+    <text x="35" y="328" font-family="sans-serif" font-size="10" fill="#cbd5e1">can NEVER separate diagonal XOR classes.</text>
+    <text x="35" y="352" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8">💡 The Solution: Stack layers! (Tomorrow in Day 19)</text>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#f59e0b" font-weight="700">Fundamental Limitation of 1 Neuron: </tspan> A single neuron calculates <tspan fill="#f1f5f9" font-family="monospace">w₁x₁ + w₂x₂ + b = 0</tspan>, which is strictly a flat line (or hyperplane). It is powerless against non-linear geometry.
+  </text>
+</svg>

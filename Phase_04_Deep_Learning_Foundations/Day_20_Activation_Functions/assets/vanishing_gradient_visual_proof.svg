@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="fade-grad" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <marker id="back-arrow" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 8 1 L 0 5 L 8 9 z" fill="#ef4444" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE VANISHING GRADIENT PROBLEM (WHY SIGMOID DIED)
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    How Repeated Chain-Rule Multiplications by &le; 0.25 Extinguish Early Layer Learning
+  </text>
+
+  <!-- TOP PANEL: SIGMOID DERIVATIVE TRAP -->
+  <g transform="translate(60, 95)" filter="url(#shadow)">
+    <rect width="840" height="150" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    
+    <!-- Mini Plot: Sigmoid Derivative -->
+    <g transform="translate(30, 20)">
+      <rect width="200" height="110" rx="6" fill="#0f172a" stroke="#475569" />
+      <line x1="15" y1="95" x2="185" y2="95" stroke="#64748b" />
+      <line x1="100" y1="15" x2="100" y2="105" stroke="#64748b" />
+      <!-- Bell curve of sigmoid derivative -->
+      <path d="M 20 95 C 60 95, 75 35, 100 35 C 125 35, 140 95, 180 95" fill="none" stroke="#f43f5e" stroke-width="3" />
+      <circle cx="100" cy="35" r="4" fill="#fb7185" />
+      <text x="100" y="24" font-family="monospace" font-size="10" font-weight="800" fill="#fb7185" text-anchor="middle">Max = 0.25</text>
+      <text x="25" y="90" font-family="monospace" font-size="8" fill="#94a3b8">&sigma;'(z) &rarr; 0</text>
+      <text x="175" y="90" font-family="monospace" font-size="8" fill="#94a3b8">&sigma;'(z) &rarr; 0</text>
+    </g>
+
+    <!-- Math Explanation -->
+    <g transform="translate(260, 25)">
+      <text x="0" y="18" font-family="sans-serif" font-size="14" font-weight="800" fill="#f43f5e">The Mathematical Bottleneck of Sigmoid:</text>
+      <text x="0" y="42" font-family="monospace" font-size="12" fill="#f8fafc">Derivative: &sigma;'(z) = &sigma;(z) &middot; (1 - &sigma;(z))</text>
+      <text x="0" y="64" font-family="sans-serif" font-size="12" fill="#cbd5e1">
+        • Even at its absolute theoretical peak (when z = 0), the slope is only <tspan fill="#f43f5e" font-weight="700">0.25</tspan>!
+      </text>
+      <text x="0" y="84" font-family="sans-serif" font-size="12" fill="#cbd5e1">
+        • When |z| &gt; 3, the neuron saturates, and slope crashes to <tspan fill="#f43f5e" font-weight="700">&lt; 0.04</tspan>!
+      </text>
+      <text x="0" y="106" font-family="sans-serif" font-size="12" font-weight="700" fill="#fbbf24">
+        Every backward step multiplies the incoming gradient by a number &le; 0.25!
+      </text>
+    </g>
+  </g>
+
+  <!-- BOTTOM PANEL: BACKPROPAGATION CASCADE ACROSS 5 LAYERS -->
+  <g transform="translate(60, 270)" filter="url(#shadow)">
+    <rect width="840" height="205" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" />
+    <text x="420" y="24" font-family="sans-serif" font-size="12" font-weight="800" fill="#f8fafc" text-anchor="middle">
+      GRADIENT SHRINKAGE AS BACKPROP FLOWS BACKWARD (RIGHT TO LEFT)
+    </text>
+
+    <!-- 5 Layer Blocks -->
+    <!-- Layer 5 (Output) -->
+    <g transform="translate(670, 45)">
+      <rect width="130" height="85" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="2" />
+      <text x="65" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">Layer 5 (Output)</text>
+      <text x="65" y="44" font-family="monospace" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">&Delta; = 1.0000</text>
+      <rect x="15" y="55" width="100" height="18" rx="3" fill="#064e3b" />
+      <text x="65" y="68" font-family="sans-serif" font-size="9" fill="#a7f3d0" text-anchor="middle">Full Gradient</text>
+    </g>
+
+    <!-- Arrow 4-5 -->
+    <line x1="660" y1="88" x2="620" y2="88" stroke="#ef4444" stroke-width="3" marker-end="url(#back-arrow)" />
+    <text x="640" y="78" font-family="monospace" font-size="9" fill="#f87171" text-anchor="middle">&times; 0.25</text>
+
+    <!-- Layer 4 -->
+    <g transform="translate(480, 45)">
+      <rect width="130" height="85" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" />
+      <text x="65" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#fbbf24" text-anchor="middle">Layer 4</text>
+      <text x="65" y="44" font-family="monospace" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">&Delta; = 0.2500</text>
+      <rect x="15" y="55" width="100" height="18" rx="3" fill="#78350f" />
+      <text x="65" y="68" font-family="sans-serif" font-size="9" fill="#fde68a" text-anchor="middle">25% strength</text>
+    </g>
+
+    <!-- Arrow 3-4 -->
+    <line x1="470" y1="88" x2="430" y2="88" stroke="#ef4444" stroke-width="3" marker-end="url(#back-arrow)" />
+    <text x="450" y="78" font-family="monospace" font-size="9" fill="#f87171" text-anchor="middle">&times; 0.25</text>
+
+    <!-- Layer 3 -->
+    <g transform="translate(290, 45)">
+      <rect width="130" height="85" rx="8" fill="#0f172a" stroke="#ea580c" stroke-width="1.5" />
+      <text x="65" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#fb923c" text-anchor="middle">Layer 3</text>
+      <text x="65" y="44" font-family="monospace" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">&Delta; = 0.0625</text>
+      <rect x="15" y="55" width="100" height="18" rx="3" fill="#7c2d12" />
+      <text x="65" y="68" font-family="sans-serif" font-size="9" fill="#fed7aa" text-anchor="middle">6.2% strength</text>
+    </g>
+
+    <!-- Arrow 2-3 -->
+    <line x1="280" y1="88" x2="240" y2="88" stroke="#ef4444" stroke-width="3" marker-end="url(#back-arrow)" />
+    <text x="260" y="78" font-family="monospace" font-size="9" fill="#f87171" text-anchor="middle">&times; 0.25</text>
+
+    <!-- Layer 2 -->
+    <g transform="translate(100, 45)">
+      <rect width="130" height="85" rx="8" fill="#0f172a" stroke="#dc2626" stroke-width="1.5" />
+      <text x="65" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#f87171" text-anchor="middle">Layer 2</text>
+      <text x="65" y="44" font-family="monospace" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">&Delta; = 0.0156</text>
+      <rect x="15" y="55" width="100" height="18" rx="3" fill="#450a0a" />
+      <text x="65" y="68" font-family="sans-serif" font-size="9" fill="#fca5a5" text-anchor="middle">1.5% strength</text>
+    </g>
+
+    <!-- Final Result Callout at Layer 1 -->
+    <rect x="25" y="145" width="790" height="46" rx="6" fill="#0f172a" stroke="#ef4444" stroke-width="1" />
+    <text x="420" y="166" font-family="sans-serif" font-size="11" font-weight="800" fill="#f87171" text-anchor="middle">
+      🚨 By Layer 1 (Input), Gradient &approx; 0.0039! In a 10-layer network, 0.25¹⁰ &approx; 0.00000095!
+    </text>
+    <text x="420" y="182" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">
+      The weights at early layers never update. The network effectively cannot learn features from raw data!
+    </text>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#34d399" font-weight="700">The ReLU Revolution: </tspan> Because ReLU's derivative is <tspan fill="#34d399" font-weight="700">exactly 1.0</tspan> for all positive inputs, gradients pass through 100+ layers without shrinking! (1 &times; 1 &times; 1 = 1).
+  </text>
+</svg>

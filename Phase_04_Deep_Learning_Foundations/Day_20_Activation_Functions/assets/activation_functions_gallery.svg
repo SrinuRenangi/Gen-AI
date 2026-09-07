@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE GALLERY OF ACTIVATION FUNCTIONS
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    From Classic Sigmoid &amp; Tanh to Modern Deep Learning Workhorses: ReLU, Leaky ReLU, and GELU
+  </text>
+
+  <!-- 5 ACTIVATION FUNCTION CARDS -->
+  <g transform="translate(30, 95)">
+
+    <!-- CARD 1: SIGMOID -->
+    <g transform="translate(0, 0)" filter="url(#shadow)">
+      <rect width="170" height="385" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+      <rect x="0" y="0" width="170" height="28" rx="10" fill="#0284c7" />
+      <text x="85" y="19" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">1. SIGMOID</text>
+
+      <!-- Mini Chart -->
+      <g transform="translate(15, 45)">
+        <rect width="140" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+        <!-- Grid axes -->
+        <line x1="10" y1="55" x2="130" y2="55" stroke="#475569" stroke-dasharray="2,2" />
+        <line x1="70" y1="10" x2="70" y2="100" stroke="#475569" stroke-dasharray="2,2" />
+        <!-- Sigmoid Curve -->
+        <path d="M 15 100 C 45 100, 55 55, 70 55 C 85 55, 95 15, 125 15" fill="none" stroke="#38bdf8" stroke-width="2.5" />
+        <text x="15" y="24" font-family="monospace" font-size="9" fill="#94a3b8">1.0</text>
+        <text x="15" y="98" font-family="monospace" font-size="9" fill="#94a3b8">0.0</text>
+        <circle cx="70" cy="55" r="3" fill="#38bdf8" />
+        <text x="82" y="60" font-family="monospace" font-size="8" fill="#38bdf8">0.5</text>
+      </g>
+
+      <!-- Formula & Details -->
+      <text x="85" y="180" font-family="monospace" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">&sigma;(z) = 1 / (1 + e⁻ᶻ)</text>
+      <text x="85" y="200" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Range: <tspan fill="#f8fafc" font-weight="700">(0, 1)</tspan></text>
+      
+      <rect x="10" y="215" width="150" height="75" rx="4" fill="#0f172a" stroke="#334155" />
+      <text x="16" y="232" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">✅ Pros:</text>
+      <text x="16" y="248" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Clear probabilities</text>
+      <text x="16" y="265" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">❌ Cons:</text>
+      <text x="16" y="281" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Vanishing gradients</text>
+
+      <rect x="10" y="300" width="150" height="70" rx="4" fill="#0f172a" />
+      <text x="85" y="318" font-family="sans-serif" font-size="9" font-weight="700" fill="#fbbf24" text-anchor="middle">Best Used In:</text>
+      <text x="85" y="336" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">Binary output layer</text>
+      <text x="85" y="352" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">Never in deep hidden!</text>
+    </g>
+
+    <!-- CARD 2: TANH -->
+    <g transform="translate(182, 0)" filter="url(#shadow)">
+      <rect width="170" height="385" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="1.5" />
+      <rect x="0" y="0" width="170" height="28" rx="10" fill="#4f46e5" />
+      <text x="85" y="19" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">2. TANH</text>
+
+      <!-- Mini Chart -->
+      <g transform="translate(15, 45)">
+        <rect width="140" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+        <line x1="10" y1="55" x2="130" y2="55" stroke="#475569" stroke-dasharray="2,2" />
+        <line x1="70" y1="10" x2="70" y2="100" stroke="#475569" stroke-dasharray="2,2" />
+        <!-- Tanh Curve -->
+        <path d="M 15 95 C 40 95, 55 55, 70 55 C 85 55, 100 15, 125 15" fill="none" stroke="#818cf8" stroke-width="2.5" />
+        <text x="15" y="24" font-family="monospace" font-size="9" fill="#94a3b8">+1.0</text>
+        <text x="15" y="98" font-family="monospace" font-size="9" fill="#94a3b8">-1.0</text>
+        <circle cx="70" cy="55" r="3" fill="#818cf8" />
+        <text x="82" y="60" font-family="monospace" font-size="8" fill="#818cf8">0.0</text>
+      </g>
+
+      <text x="85" y="180" font-family="monospace" font-size="11" font-weight="700" fill="#a5b4fc" text-anchor="middle">tanh(z) = (eᶻ-e⁻ᶻ)/(eᶻ+e⁻ᶻ)</text>
+      <text x="85" y="200" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Range: <tspan fill="#f8fafc" font-weight="700">(-1, 1)</tspan></text>
+      
+      <rect x="10" y="215" width="150" height="75" rx="4" fill="#0f172a" stroke="#334155" />
+      <text x="16" y="232" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">✅ Pros:</text>
+      <text x="16" y="248" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Zero-centered output</text>
+      <text x="16" y="265" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">❌ Cons:</text>
+      <text x="16" y="281" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Still vanishes at tails</text>
+
+      <rect x="10" y="300" width="150" height="70" rx="4" fill="#0f172a" />
+      <text x="85" y="318" font-family="sans-serif" font-size="9" font-weight="700" fill="#fbbf24" text-anchor="middle">Best Used In:</text>
+      <text x="85" y="336" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">RNNs, LSTMs, and</text>
+      <text x="85" y="352" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">zero-centered gates</text>
+    </g>
+
+    <!-- CARD 3: RELU -->
+    <g transform="translate(364, 0)" filter="url(#shadow)">
+      <rect width="170" height="385" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+      <rect x="0" y="0" width="170" height="28" rx="10" fill="#059669" />
+      <text x="85" y="19" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">3. ReLU (2012 Workhorse)</text>
+
+      <!-- Mini Chart -->
+      <g transform="translate(15, 45)">
+        <rect width="140" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+        <line x1="10" y1="85" x2="130" y2="85" stroke="#475569" stroke-dasharray="2,2" />
+        <line x1="70" y1="10" x2="70" y2="100" stroke="#475569" stroke-dasharray="2,2" />
+        <!-- ReLU Curve -->
+        <path d="M 15 85 L 70 85 L 125 15" fill="none" stroke="#10b981" stroke-width="2.5" />
+        <circle cx="70" cy="85" r="3" fill="#10b981" />
+        <text x="105" y="70" font-family="monospace" font-size="9" fill="#34d399">Slope=1</text>
+        <text x="35" y="75" font-family="monospace" font-size="9" fill="#f87171">Flat=0</text>
+      </g>
+
+      <text x="85" y="180" font-family="monospace" font-size="11" font-weight="700" fill="#34d399" text-anchor="middle">ReLU(z) = max(0, z)</text>
+      <text x="85" y="200" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Range: <tspan fill="#f8fafc" font-weight="700">[0, &infin;)</tspan></text>
+      
+      <rect x="10" y="215" width="150" height="75" rx="4" fill="#0f172a" stroke="#334155" />
+      <text x="16" y="232" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">✅ Pros:</text>
+      <text x="16" y="248" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Blazing fast, no vanish</text>
+      <text x="16" y="265" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">❌ Cons:</text>
+      <text x="16" y="281" font-family="sans-serif" font-size="9" fill="#cbd5e1">• "Dying ReLU" issue</text>
+
+      <rect x="10" y="300" width="150" height="70" rx="4" fill="#0f172a" />
+      <text x="85" y="318" font-family="sans-serif" font-size="9" font-weight="700" fill="#fbbf24" text-anchor="middle">Best Used In:</text>
+      <text x="85" y="336" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">CNNs, Computer Vision,</text>
+      <text x="85" y="352" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">Standard Deep MLPs</text>
+    </g>
+
+    <!-- CARD 4: LEAKY RELU -->
+    <g transform="translate(546, 0)" filter="url(#shadow)">
+      <rect width="170" height="385" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+      <rect x="0" y="0" width="170" height="28" rx="10" fill="#d97706" />
+      <text x="85" y="19" font-family="sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">4. LEAKY RELU</text>
+
+      <!-- Mini Chart -->
+      <g transform="translate(15, 45)">
+        <rect width="140" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+        <line x1="10" y1="80" x2="130" y2="80" stroke="#475569" stroke-dasharray="2,2" />
+        <line x1="70" y1="10" x2="70" y2="100" stroke="#475569" stroke-dasharray="2,2" />
+        <!-- Leaky ReLU Curve -->
+        <path d="M 15 95 L 70 80 L 125 15" fill="none" stroke="#f59e0b" stroke-width="2.5" />
+        <circle cx="70" cy="80" r="3" fill="#f59e0b" />
+        <text x="20" y="70" font-family="monospace" font-size="8" fill="#fbbf24">&alpha;=0.01</text>
+      </g>
+
+      <text x="85" y="180" font-family="monospace" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">max(&alpha;z, z), &alpha;=0.01</text>
+      <text x="85" y="200" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Range: <tspan fill="#f8fafc" font-weight="700">(-&infin;, &infin;)</tspan></text>
+      
+      <rect x="10" y="215" width="150" height="75" rx="4" fill="#0f172a" stroke="#334155" />
+      <text x="16" y="232" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">✅ Pros:</text>
+      <text x="16" y="248" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Never dies! &Delta; &ne; 0</text>
+      <text x="16" y="265" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">❌ Cons:</text>
+      <text x="16" y="281" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Extra hyperparameter &alpha;</text>
+
+      <rect x="10" y="300" width="150" height="70" rx="4" fill="#0f172a" />
+      <text x="85" y="318" font-family="sans-serif" font-size="9" font-weight="700" fill="#fbbf24" text-anchor="middle">Best Used In:</text>
+      <text x="85" y="336" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">GANs, architectures</text>
+      <text x="85" y="352" font-family="sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">where ReLUs go dead</text>
+    </g>
+
+    <!-- CARD 5: GELU (THE GENAI KING) -->
+    <g transform="translate(728, 0)" filter="url(#shadow)">
+      <rect width="170" height="385" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2" />
+      <rect x="0" y="0" width="170" height="28" rx="10" fill="#be185d" />
+      <text x="85" y="19" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">5. GELU (LLM King)</text>
+
+      <!-- Mini Chart -->
+      <g transform="translate(15, 45)">
+        <rect width="140" height="110" rx="6" fill="#0f172a" stroke="#334155" />
+        <line x1="10" y1="80" x2="130" y2="80" stroke="#475569" stroke-dasharray="2,2" />
+        <line x1="70" y1="10" x2="70" y2="100" stroke="#475569" stroke-dasharray="2,2" />
+        <!-- Smooth GELU curve with subtle dip below 0 around z = -1 -->
+        <path d="M 15 80 L 40 80 Q 55 88 70 80 L 125 15" fill="none" stroke="#ec4899" stroke-width="2.5" />
+        <circle cx="55" cy="85" r="3" fill="#f472b6" />
+        <text x="25" y="100" font-family="monospace" font-size="8" fill="#f472b6">Smooth dip</text>
+      </g>
+
+      <text x="85" y="180" font-family="monospace" font-size="10" font-weight="700" fill="#f472b6" text-anchor="middle">z &middot; &Phi;(z) (Normal CDF)</text>
+      <text x="85" y="200" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Range: <tspan fill="#f8fafc" font-weight="700">[-0.17, &infin;)</tspan></text>
+      
+      <rect x="10" y="215" width="150" height="75" rx="4" fill="#0f172a" stroke="#334155" />
+      <text x="16" y="232" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">✅ Pros:</text>
+      <text x="16" y="248" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Smooth, probabilistic</text>
+      <text x="16" y="265" font-family="sans-serif" font-size="10" font-weight="700" fill="#f87171">❌ Cons:</text>
+      <text x="16" y="281" font-family="sans-serif" font-size="9" fill="#cbd5e1">• Higher compute cost</text>
+
+      <rect x="10" y="300" width="150" height="70" rx="4" fill="#0f172a" />
+      <text x="85" y="318" font-family="sans-serif" font-size="9" font-weight="800" fill="#f472b6" text-anchor="middle">Standard in:</text>
+      <text x="85" y="336" font-family="sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">GPT-3, GPT-4, BERT,</text>
+      <text x="85" y="352" font-family="sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">LLaMA, Transformers</text>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="30" y="495" width="900" height="48" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="525" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#f472b6" font-weight="700">GenAI Rule of Thumb: </tspan> Use <tspan fill="#10b981" font-weight="700">ReLU</tspan> for standard CNNs and fast baselines. Use <tspan fill="#ec4899" font-weight="700">GELU</tspan> for modern Transformers and LLMs. Use <tspan fill="#38bdf8" font-weight="700">Sigmoid/Softmax</tspan> strictly at the final output layer!
+  </text>
+</svg>

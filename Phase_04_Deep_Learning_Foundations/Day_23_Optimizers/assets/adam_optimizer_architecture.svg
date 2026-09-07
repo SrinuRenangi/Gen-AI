@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="m-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="v-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Title Banner -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE INNER MECHANICS OF THE ADAM OPTIMIZER
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Deconstructing First Moment (Momentum), Second Moment (RMSprop), and Bias Correction
+  </text>
+
+  <!-- Main Pipeline Flow -->
+  <g transform="translate(40, 95)">
+
+    <!-- 1. Incoming Gradient -->
+    <g transform="translate(10, 140)" filter="url(#shadow)">
+      <rect width="130" height="100" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="65" y="26" font-family="sans-serif" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">NEW GRADIENT</text>
+      <text x="65" y="58" font-family="monospace" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">gₜ = &nabla;L</text>
+      <text x="65" y="82" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">From Backprop</text>
+    </g>
+
+    <!-- Branching Arrows -->
+    <path d="M 140 170 C 170 170, 180 90, 210 90" stroke="#f59e0b" stroke-width="2.5" fill="none" marker-end="url(#arrow)" />
+    <path d="M 140 210 C 170 210, 180 290, 210 290" stroke="#a855f7" stroke-width="2.5" fill="none" marker-end="url(#arrow)" />
+
+    <!-- 2. Top Branch: First Moment (Momentum) -->
+    <g transform="translate(220, 40)" filter="url(#shadow)">
+      <rect width="260" height="105" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+      <rect x="0" y="0" width="260" height="24" rx="8" fill="url(#m-grad)" />
+      <text x="130" y="17" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">1st MOMENT (MOMENTUM / DIRECTION)</text>
+      <text x="130" y="48" font-family="monospace" font-size="12" font-weight="700" fill="#fde68a" text-anchor="middle">mₜ = &beta;₁ &middot; mₜ₋₁ + (1 - &beta;₁) &middot; gₜ</text>
+      <text x="130" y="70" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">Moving average of slopes (&beta;₁ &approx; 0.9)</text>
+      <text x="130" y="90" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Accumulates velocity along consistent path</text>
+    </g>
+
+    <!-- 3. Bottom Branch: Second Moment (RMSprop) -->
+    <g transform="translate(220, 240)" filter="url(#shadow)">
+      <rect width="260" height="105" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="1.5" />
+      <rect x="0" y="0" width="260" height="24" rx="8" fill="url(#v-grad)" />
+      <text x="130" y="17" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">2nd MOMENT (RMSPROP / SCALE)</text>
+      <text x="130" y="48" font-family="monospace" font-size="12" font-weight="700" fill="#e9d5ff" text-anchor="middle">vₜ = &beta;₂ &middot; vₜ₋₁ + (1 - &beta;₂) &middot; gₜ²</text>
+      <text x="130" y="70" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">Moving average of squared slopes (&beta;₂ &approx; 0.999)</text>
+      <text x="130" y="90" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Tracks volatility to scale steps</text>
+    </g>
+
+    <!-- Arrows to Bias Correction -->
+    <line x1="480" y1="92" x2="525" y2="92" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+    <line x1="480" y1="292" x2="525" y2="292" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- 4. Bias Correction Boxes -->
+    <g transform="translate(535, 50)" filter="url(#shadow)">
+      <rect width="140" height="85" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1" />
+      <text x="70" y="24" font-family="sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">Bias Correction</text>
+      <text x="70" y="52" font-family="monospace" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">m&#770;ₜ = mₜ / (1 - &beta;₁ᵗ)</text>
+      <text x="70" y="72" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Fixes early zero bias</text>
+    </g>
+
+    <g transform="translate(535, 250)" filter="url(#shadow)">
+      <rect width="140" height="85" rx="6" fill="#0f172a" stroke="#a855f7" stroke-width="1" />
+      <text x="70" y="24" font-family="sans-serif" font-size="10" font-weight="700" fill="#c084fc" text-anchor="middle">Bias Correction</text>
+      <text x="70" y="52" font-family="monospace" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">v&#770;ₜ = vₜ / (1 - &beta;₂ᵗ)</text>
+      <text x="70" y="72" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Fixes early zero bias</text>
+    </g>
+
+    <!-- Connectors into Master Update Engine -->
+    <path d="M 675 92 C 700 92, 705 160, 720 170" stroke="#38bdf8" stroke-width="2" fill="none" />
+    <path d="M 675 292 C 700 292, 705 220, 720 210" stroke="#38bdf8" stroke-width="2" fill="none" />
+    <line x1="720" y1="190" x2="735" y2="190" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow)" />
+
+    <!-- 5. FINAL UPDATE ENGINE -->
+    <g transform="translate(740, 115)" filter="url(#shadow)">
+      <rect width="135" height="150" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2" />
+      <rect x="0" y="0" width="135" height="26" rx="10" fill="#065f46" />
+      <text x="67" y="18" font-family="sans-serif" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">UPDATE ENGINE</text>
+      
+      <text x="67" y="52" font-family="monospace" font-size="12" font-weight="800" fill="#34d399" text-anchor="middle">&theta;ₜ₊₁ = &theta;ₜ - &Delta;&theta;</text>
+      
+      <rect x="10" y="65" width="115" height="42" rx="4" fill="#0f172a" stroke="#334155" />
+      <text x="67" y="82" font-family="monospace" font-size="9" font-weight="700" fill="#38bdf8" text-anchor="middle">&Delta;&theta; = &alpha; &middot; m&#770;ₜ</text>
+      <text x="67" y="98" font-family="monospace" font-size="9" font-weight="700" fill="#38bdf8" text-anchor="middle">/ (&radic;v&#770;ₜ + &epsilon;)</text>
+
+      <text x="67" y="130" font-family="sans-serif" font-size="9" fill="#a7f3d0" text-anchor="middle">Ideal Step Taken!</text>
+    </g>
+  </g>
+
+  <!-- Bottom Callout Footer -->
+  <rect x="40" y="500" width="880" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="526" font-family="sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#34d399" font-weight="700">Why Adam Dominates: </tspan> If a weight has volatile, chaotic gradients, <tspan fill="#f1f5f9" font-family="monospace">&radic;v&#770;</tspan> grows large and automatically shrinks the step. If a weight has consistent, gentle gradients, the step is boosted!
+  </text>
+</svg>

@@ -25,7 +25,7 @@
 | Day | Topic | Status |
 | :---: | :--- | :---: |
 | [Day 01](Phase_01_Math_Foundations/Day_01_Numbers_Variables_Functions/Day_01_Numbers_Variables_Functions.md) | Numbers, Variables & Functions — The Language Computers Speak | ✅ |
-| Day 02 | Vectors — Lists of Numbers (The Building Block of All AI) | 🔲 |
+| [Day 02](Phase_01_Math_Foundations/Day_02_Vectors/Day_02_Vectors.md) | Vectors — Lists of Numbers (The Building Block of All AI) | ✅ |
 | Day 03 | Matrices — Tables of Numbers (2D Lists) | 🔲 |
 | Day 04 | Matrix Multiplication — The Core Operation of All AI | 🔲 |
 | Day 05 | The Dot Product — How AI Measures Similarity | 🔲 |

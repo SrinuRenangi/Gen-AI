@@ -38,7 +38,7 @@
 | Day | Topic | Status |
 | :---: | :--- | :---: |
 | [Day 09](Phase_02_Python_Data_Science/Day_09_NumPy/Day_09_NumPy.md) | NumPy — The Engine Behind All AI Math | ✅ |
-| Day 10 | Pandas — Working with Real-World Tabular Data | 🔲 |
+| [Day 10](Phase_02_Python_Data_Science/Day_10_Pandas/Day_10_Pandas.md) | Pandas — Working with Real-World Tabular Data | ✅ |
 | Day 11 | Matplotlib & Data Visualization | 🔲 |
 
 ### 🟡 Phase 3: Classical Machine Learning (Days 12–17)

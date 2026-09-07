@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f43f5e" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    BASE MODEL VS INSTRUCTION-TUNED (SFT) MODEL
+  </text>
+  <text x="480" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Why Pre-Trained Base LLMs Hallucinate Web Continuations &amp; How SFT Creates an Assistant Persona
+  </text>
+
+  <!-- Prompt Banner (Top) -->
+  <g transform="translate(60, 85)" filter="url(#shadow)">
+    <rect width="840" height="45" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="30" y="28" font-family="sans-serif" font-size="12" font-weight="800" fill="#93c5fd">USER PROMPT:</text>
+    <text x="145" y="28" font-family="monospace" font-size="13" font-weight="800" fill="#ffffff">
+      "Write a Python function to reverse a string."
+    </text>
+  </g>
+
+  <!-- 2 Columns Comparison -->
+  <g transform="translate(60, 145)" filter="url(#shadow)">
+
+    <!-- Left: Base Model (Wild Document Continuator) -->
+    <g transform="translate(0, 0)">
+      <rect width="405" height="355" rx="12" fill="#1e293b" stroke="#f43f5e" stroke-width="2" />
+      <rect x="0" y="0" width="405" height="34" rx="12" fill="#9f1239" />
+      <text x="202" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        1. BASE PRE-TRAINED MODEL (e.g. LLaMA-3 Base) ❌
+      </text>
+
+      <g transform="translate(20, 50)">
+        <rect width="365" height="42" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="15" y="26" font-family="sans-serif" font-size="11" font-weight="800" fill="#fda4af">
+          Mindset: "I am completing an internet blog post!"
+        </text>
+      </g>
+
+      <!-- Simulated output -->
+      <g transform="translate(20, 105)">
+        <rect width="365" height="155" rx="6" fill="#450a0a" stroke="#f43f5e" />
+        <text x="15" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#fca5a5">Actual Raw Continuation:</text>
+        <text x="15" y="48" font-family="monospace" font-size="10.5" fill="#fecdd3">"...or write a function in JavaScript.</text>
+        <text x="15" y="68" font-family="monospace" font-size="10.5" fill="#fecdd3">Chapter 4: Basic Interview Questions.</text>
+        <text x="15" y="88" font-family="monospace" font-size="10.5" fill="#fecdd3">Author: John Doe. Comments (14):</text>
+        <text x="15" y="108" font-family="monospace" font-size="10.5" fill="#fecdd3">User123 says: Thanks for sharing!</text>
+        <text x="15" y="128" font-family="monospace" font-size="10.5" fill="#fecdd3">Click here to download PDF..."</text>
+      </g>
+
+      <g transform="translate(20, 275)">
+        <text x="0" y="18" font-family="sans-serif" font-size="11" font-weight="800" fill="#f43f5e">The Problem:</text>
+        <text x="0" y="38" font-family="sans-serif" font-size="10.5" fill="#fda4af">
+          The base model does NOT know it is an assistant. It treated
+        </text>
+        <text x="0" y="56" font-family="sans-serif" font-size="10.5" fill="#fda4af">
+          the prompt as a header on a computer science forum!
+        </text>
+      </g>
+    </g>
+
+    <!-- Right: SFT Model (Helpful Assistant) -->
+    <g transform="translate(435, 0)">
+      <rect width="405" height="355" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2.5" />
+      <rect x="0" y="0" width="405" height="34" rx="12" fill="#047857" />
+      <text x="202" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        2. INSTRUCTION-TUNED (SFT) MODEL ⭐
+      </text>
+
+      <g transform="translate(20, 50)">
+        <rect width="365" height="42" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="15" y="26" font-family="sans-serif" font-size="11" font-weight="800" fill="#6ee7b7">
+          Mindset: "I am a helpful AI assistant answering a query!"
+        </text>
+      </g>
+
+      <!-- Simulated output -->
+      <g transform="translate(20, 105)">
+        <rect width="365" height="155" rx="6" fill="#064e3b" stroke="#10b981" />
+        <text x="15" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#a7f3d0">Assistant Response:</text>
+        <text x="15" y="48" font-family="monospace" font-size="10.5" fill="#6ee7b7">"Here is the Python function:</text>
+        <text x="15" y="72" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff">def reverse_string(s: str) -&gt; str:</text>
+        <text x="15" y="92" font-family="monospace" font-size="11" font-weight="800" fill="#ffffff">    return s[::-1]</text>
+        <text x="15" y="116" font-family="monospace" font-size="10.5" fill="#6ee7b7"># Example: reverse_string('hello')</text>
+        <text x="15" y="136" font-family="monospace" font-size="10.5" fill="#a7f3d0"># Output: 'olleh'"</text>
+      </g>
+
+      <g transform="translate(20, 275)">
+        <text x="0" y="18" font-family="sans-serif" font-size="11" font-weight="800" fill="#10b981">The SFT Transformation:</text>
+        <text x="0" y="38" font-family="sans-serif" font-size="10.5" fill="#a7f3d0">
+          Supervised Fine-Tuning trains the model on curated
+        </text>
+        <text x="0" y="56" font-family="sans-serif" font-size="10.5" fill="#a7f3d0">
+          (Instruction, Response) pairs, instilling helpful obedience!
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

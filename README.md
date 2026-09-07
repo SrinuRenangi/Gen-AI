@@ -96,10 +96,10 @@
 
 | Day | Topic | Status |
 | :---: | :--- | :---: |
-| Day 38 | What are LLMs? — Supercharged Autocomplete | 🔲 |
-| Day 39 | How LLMs are Pre-Trained — Reading the Entire Internet | 🔲 |
-| Day 40 | Supervised Fine-Tuning (SFT) — Teaching Models to Be Helpful | 🔲 |
-| Day 41 | RLHF & Alignment — Making Models Safe and Honest | 🔲 |
+| [Day 38](Phase_08_Large_Language_Models/Day_38_What_are_LLMs/Day_38_What_are_LLMs.md) | What are LLMs? — Supercharged Autocomplete | ✅ |
+| [Day 39](Phase_08_Large_Language_Models/Day_39_How_LLMs_are_Pre_Trained/Day_39_How_LLMs_are_Pre_Trained.md) | How LLMs are Pre-Trained — Reading the Entire Internet | ✅ |
+| [Day 40](Phase_08_Large_Language_Models/Day_40_Supervised_Fine_Tuning/Day_40_Supervised_Fine_Tuning.md) | Supervised Fine-Tuning (SFT) — Teaching Models to Be Helpful | ✅ |
+| [Day 41](Phase_08_Large_Language_Models/Day_41_RLHF_and_Alignment/Day_41_RLHF_and_Alignment.md) | RLHF & Alignment — Making Models Safe and Honest | ✅ |
 
 ### 🟣 Phase 9: The Generative AI Landscape (Days 42–44)
 

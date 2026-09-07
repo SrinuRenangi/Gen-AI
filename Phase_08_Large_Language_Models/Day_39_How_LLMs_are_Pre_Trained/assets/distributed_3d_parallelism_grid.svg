@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    3D DISTRIBUTED PARALLELISM GRID (MEGATRON + FSDP)
+  </text>
+  <text x="480" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    How 10,000 GPUs Cooperate to Train a 70-Billion Parameter Model (TP &times; PP &times; DP)
+  </text>
+
+  <!-- 3 Parallelism Pillars Container -->
+  <g transform="translate(60, 90)" filter="url(#shadow)">
+
+    <!-- Pillar 1: Tensor Parallelism (TP) -->
+    <g transform="translate(0, 0)">
+      <rect width="265" height="320" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2" />
+      <rect x="0" y="0" width="265" height="34" rx="12" fill="#1d4ed8" />
+      <text x="132" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        1. TENSOR PARALLEL (TP)
+      </text>
+
+      <g transform="translate(15, 50)">
+        <rect width="235" height="60" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="12" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#93c5fd">WHERE IT RUNS:</text>
+        <text x="12" y="42" font-family="sans-serif" font-size="11" font-weight="900" fill="#38bdf8">Intra-Node (Across NVLink)</text>
+      </g>
+
+      <g transform="translate(15, 125)">
+        <text x="0" y="14" font-family="sans-serif" font-size="11" font-weight="800" fill="#f8fafc">How It Works:</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Slices individual matrix weights</text>
+        <text x="0" y="50" font-family="monospace" font-size="10" fill="#93c5fd">W_Q split into [W_Q1 | W_Q2]</text>
+        <text x="0" y="68" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• GPU 1 and GPU 2 multiply halves</text>
+        <text x="0" y="86" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Combines via fast All-Reduce</text>
+        <text x="0" y="104" font-family="sans-serif" font-size="10.5" fill="#94a3b8">• Requires 900 GB/s NVLink bandwidth</text>
+      </g>
+
+      <rect x="15" y="270" width="235" height="34" rx="6" fill="#172554" stroke="#3b82f6" />
+      <text x="132" y="291" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#bfdbfe" text-anchor="middle">
+        Megatron-LM Column/Row Split
+      </text>
+    </g>
+
+    <!-- Pillar 2: Pipeline Parallelism (PP) -->
+    <g transform="translate(287, 0)">
+      <rect width="265" height="320" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2" />
+      <rect x="0" y="0" width="265" height="34" rx="12" fill="#b45309" />
+      <text x="132" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        2. PIPELINE PARALLEL (PP)
+      </text>
+
+      <g transform="translate(15, 50)">
+        <rect width="235" height="60" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="12" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#fde68a">WHERE IT RUNS:</text>
+        <text x="12" y="42" font-family="sans-serif" font-size="11" font-weight="900" fill="#fbbf24">Inter-Node (InfiniBand 400G)</text>
+      </g>
+
+      <g transform="translate(15, 125)">
+        <text x="0" y="14" font-family="sans-serif" font-size="11" font-weight="800" fill="#f8fafc">How It Works:</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Slices layers vertically across nodes</text>
+        <text x="0" y="50" font-family="monospace" font-size="10" fill="#fde68a">Node 1: Layers 1&ndash;20</text>
+        <text x="0" y="68" font-family="monospace" font-size="10" fill="#fde68a">Node 2: Layers 21&ndash;40 ...</text>
+        <text x="0" y="86" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• 1F1B micro-batch scheduling</text>
+        <text x="0" y="104" font-family="sans-serif" font-size="10.5" fill="#94a3b8">• Minimizes the "pipeline bubble"</text>
+      </g>
+
+      <rect x="15" y="270" width="235" height="34" rx="6" fill="#451a03" stroke="#f59e0b" />
+      <text x="132" y="291" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#fde68a" text-anchor="middle">
+        Vertical Layer Partitioning
+      </text>
+    </g>
+
+    <!-- Pillar 3: Data Parallelism (FSDP / ZeRO-3) -->
+    <g transform="translate(575, 0)">
+      <rect width="265" height="320" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2" />
+      <rect x="0" y="0" width="265" height="34" rx="12" fill="#047857" />
+      <text x="132" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        3. DATA PARALLEL (FSDP / ZeRO)
+      </text>
+
+      <g transform="translate(15, 50)">
+        <rect width="235" height="60" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="12" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0">WHERE IT RUNS:</text>
+        <text x="12" y="42" font-family="sans-serif" font-size="11" font-weight="900" fill="#34d399">Across the Entire 10,000 GPU Cluster</text>
+      </g>
+
+      <g transform="translate(15, 125)">
+        <text x="0" y="14" font-family="sans-serif" font-size="11" font-weight="800" fill="#f8fafc">How It Works:</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Different GPUs see different data batches</text>
+        <text x="0" y="50" font-family="sans-serif" font-size="10.5" fill="#a7f3d0">ZeRO-3 shards Optimizer, Gradients,</text>
+        <text x="0" y="68" font-family="sans-serif" font-size="10.5" fill="#a7f3d0">&amp; Model Parameters equally!</text>
+        <text x="0" y="86" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Each GPU holds only 1/N of states</text>
+        <text x="0" y="104" font-family="sans-serif" font-size="10.5" fill="#94a3b8">• Eliminates redundant VRAM waste</text>
+      </g>
+
+      <rect x="15" y="270" width="235" height="34" rx="6" fill="#064e3b" stroke="#10b981" />
+      <text x="132" y="291" font-family="sans-serif" font-size="10.5" font-weight="800" fill="#a7f3d0" text-anchor="middle">
+        DeepSpeed / PyTorch FSDP
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom: AdamW VRAM Memory Math Breakdown -->
+  <g transform="translate(60, 425)" filter="url(#shadow)">
+    <rect width="840" height="95" rx="10" fill="#020617" stroke="#334155" stroke-width="1.5" />
+    <text x="25" y="26" font-family="sans-serif" font-size="11" font-weight="900" fill="#fbbf24">
+      ADAMW PRE-TRAINING VRAM MATH (16 BYTES PER PARAMETER IN BF16):
+    </text>
+    <text x="25" y="48" font-family="monospace" font-size="11" fill="#93c5fd">
+      Model Weights (BF16): 2 Bytes &bull; Gradients (BF16): 2 Bytes &bull; AdamW States (FP32 Master + 1st &amp; 2nd Momentum): 12 Bytes
+    </text>
+    <text x="25" y="72" font-family="sans-serif" font-size="11" font-weight="800" fill="#f43f5e">
+      A 70-Billion Parameter Model requires: 70B &times; 16 Bytes = 1,120 GIGABYTES (1.12 TB) of VRAM alone! (Needs 16&times; H100 80GB GPUs).
+    </text>
+  </g>
+</svg>

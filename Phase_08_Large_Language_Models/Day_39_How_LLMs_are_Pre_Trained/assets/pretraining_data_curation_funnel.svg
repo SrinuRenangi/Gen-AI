@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="funnel-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    INDUSTRIAL PRE-TRAINING DATA CURATION FUNNEL
+  </text>
+  <text x="480" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Transforming 100+ Petabytes of Dirty Internet Scrapes into 15 Trillion Gold-Standard Tokens
+  </text>
+
+  <!-- Funnel Graphic Container -->
+  <g transform="translate(60, 90)" filter="url(#shadow)">
+    <rect width="840" height="420" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+
+    <!-- Stage 1: Raw Web Scraping (Top) -->
+    <g transform="translate(40, 25)">
+      <rect width="760" height="55" rx="8" fill="#450a0a" stroke="#f43f5e" stroke-width="2" />
+      <text x="25" y="24" font-family="sans-serif" font-size="12" font-weight="900" fill="#fca5a5">
+        STAGE 1: RAW WEB ARCHIVES &mdash; ~100 PETABYTES (Common Crawl)
+      </text>
+      <text x="25" y="44" font-family="sans-serif" font-size="11" fill="#fecdd3">
+        Massive chaos: HTML boilerplate, casino spam, SEO link-farms, automated bots, porn, gibberish
+      </text>
+      <text x="735" y="35" font-family="monospace" font-size="12" font-weight="900" fill="#fca5a5" text-anchor="end">100% Volume</text>
+    </g>
+
+    <!-- Down Arrow 1 -->
+    <line x1="480" y1="83" x2="480" y2="98" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- Stage 2: Heuristic & Language Filtering -->
+    <g transform="translate(70, 103)">
+      <rect width="700" height="55" rx="8" fill="#431407" stroke="#ea580c" stroke-width="1.5" />
+      <text x="25" y="24" font-family="sans-serif" font-size="12" font-weight="900" fill="#fdba74">
+        STAGE 2: EXTRACTION &amp; HEURISTIC FILTERING
+      </text>
+      <text x="25" y="44" font-family="sans-serif" font-size="11" fill="#fed7aa">
+        HTML strip (Trafilatura), FastText language identification, discard repetitive n-grams &amp; symbol-bloat
+      </text>
+      <text x="675" y="35" font-family="monospace" font-size="12" font-weight="900" fill="#fdba74" text-anchor="end">&sim;40% Volume</text>
+    </g>
+
+    <!-- Down Arrow 2 -->
+    <line x1="480" y1="161" x2="480" y2="176" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- Stage 3: Deduplication -->
+    <g transform="translate(100, 181)">
+      <rect width="640" height="55" rx="8" fill="#422006" stroke="#eab308" stroke-width="1.5" />
+      <text x="25" y="24" font-family="sans-serif" font-size="12" font-weight="900" fill="#fde047">
+        STAGE 3: DEDUPLICATION (MinHash LSH &amp; Exact Substring)
+      </text>
+      <text x="25" y="44" font-family="sans-serif" font-size="11" fill="#fef08a">
+        Eliminate boilerplate ("Terms of Service"), license headers, mirror sites (prevents model memorization!)
+      </text>
+      <text x="615" y="35" font-family="monospace" font-size="12" font-weight="900" fill="#fde047" text-anchor="end">&sim;20% Volume</text>
+    </g>
+
+    <!-- Down Arrow 3 -->
+    <line x1="480" y1="239" x2="480" y2="254" stroke="#eab308" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- Stage 4: Quality & Synthetic Injection -->
+    <g transform="translate(130, 259)">
+      <rect width="580" height="55" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+      <text x="25" y="24" font-family="sans-serif" font-size="12" font-weight="900" fill="#6ee7b7">
+        STAGE 4: QUALITY CLASSIFIERS &amp; HIGH-DENSITY INJECTION
+      </text>
+      <text x="25" y="44" font-family="sans-serif" font-size="11" fill="#a7f3d0">
+        Filter via Wikipedia-trained classifiers; inject GitHub code, arXiv papers, textbooks, synthetic math
+      </text>
+      <text x="555" y="35" font-family="monospace" font-size="12" font-weight="900" fill="#6ee7b7" text-anchor="end">&sim;10% Volume</text>
+    </g>
+
+    <!-- Down Arrow 4 -->
+    <line x1="480" y1="317" x2="480" y2="332" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow)" />
+
+    <!-- Stage 5: Final Token Stream (Bottom) -->
+    <g transform="translate(160, 337)">
+      <rect width="520" height="65" rx="8" fill="#022c22" stroke="#34d399" stroke-width="2.5" />
+      <text x="260" y="26" font-family="sans-serif" font-size="13" font-weight="900" fill="#ffffff" text-anchor="middle">
+        FINAL CLEAN CORPUS &mdash; 15 TRILLION TOKENS (FineWeb / LLaMA-3)
+      </text>
+      <text x="260" y="48" font-family="monospace" font-size="11" fill="#a7f3d0" text-anchor="middle">
+        Tokenized with BPE &rarr; Distributed into 10,000 GPU Memory Shards
+      </text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE 3-STAGE CLASSICAL RLHF PIPELINE (INSTRUCTGPT)
+  </text>
+  <text x="480" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    From Raw Base Model to Aligned Assistant via SFT, Reward Modeling &amp; PPO Reinforcement Learning
+  </text>
+
+  <!-- 3 Stages Container -->
+  <g transform="translate(60, 90)" filter="url(#shadow)">
+
+    <!-- STAGE 1: SFT -->
+    <g transform="translate(0, 0)">
+      <rect width="265" height="430" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2" />
+      <rect x="0" y="0" width="265" height="34" rx="12" fill="#1d4ed8" />
+      <text x="132" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        STAGE 1: SFT
+      </text>
+
+      <g transform="translate(15, 50)">
+        <rect width="235" height="45" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="12" y="18" font-family="sans-serif" font-size="10" font-weight="800" fill="#93c5fd">INPUT ARTIFACT:</text>
+        <text x="12" y="34" font-family="monospace" font-size="11" fill="#38bdf8">Pre-Trained Base LLM</text>
+      </g>
+
+      <g transform="translate(15, 110)">
+        <text x="0" y="14" font-family="sans-serif" font-size="11" font-weight="800" fill="#f8fafc">Training Process:</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Curate 10k&ndash;50k high-quality</text>
+        <text x="0" y="48" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">  (Prompt, Response) pairs</text>
+        <text x="0" y="66" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Supervised learning with</text>
+        <text x="0" y="82" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">  prompt loss masking (-100)</text>
+      </g>
+
+      <g transform="translate(15, 210)">
+        <rect width="235" height="65" rx="6" fill="#0f172a" stroke="#3b82f6" />
+        <text x="12" y="20" font-family="sans-serif" font-size="10" font-weight="800" fill="#93c5fd">LIMITATION:</text>
+        <text x="12" y="36" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">Helpful, but still prone to</text>
+        <text x="12" y="52" font-family="sans-serif" font-size="9.5" fill="#fca5a5">hallucinations &amp; harmful prompts</text>
+      </g>
+
+      <rect x="15" y="375" width="235" height="35" rx="6" fill="#172554" stroke="#3b82f6" />
+      <text x="132" y="397" font-family="sans-serif" font-size="11" font-weight="900" fill="#bfdbfe" text-anchor="middle">
+        Yields: &pi;_SFT Model
+      </text>
+    </g>
+
+    <!-- STAGE 2: REWARD MODEL -->
+    <g transform="translate(287, 0)">
+      <rect width="265" height="430" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2" />
+      <rect x="0" y="0" width="265" height="34" rx="12" fill="#b45309" />
+      <text x="132" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        STAGE 2: REWARD MODEL
+      </text>
+
+      <g transform="translate(15, 50)">
+        <rect width="235" height="45" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="12" y="18" font-family="sans-serif" font-size="10" font-weight="800" fill="#fde68a">INPUT DATA:</text>
+        <text x="12" y="34" font-family="monospace" font-size="11" fill="#fbbf24">Human Preference (y_w &gt; y_l)</text>
+      </g>
+
+      <g transform="translate(15, 110)">
+        <text x="0" y="14" font-family="sans-serif" font-size="11" font-weight="800" fill="#f8fafc">Training Process:</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Model outputs 2 completions</text>
+        <text x="0" y="48" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Human picks Winner (y_w)</text>
+        <text x="0" y="64" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">  and Loser (y_l)</text>
+        <text x="0" y="82" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">• Bradley-Terry ranking loss:</text>
+        <text x="0" y="100" font-family="monospace" font-size="9.5" fill="#fbbf24">L = -log &sigma;(r(y_w) - r(y_l))</text>
+      </g>
+
+      <g transform="translate(15, 230)">
+        <rect width="235" height="60" rx="6" fill="#0f172a" stroke="#f59e0b" />
+        <text x="12" y="20" font-family="sans-serif" font-size="10" font-weight="800" fill="#fde68a">ROLE:</text>
+        <text x="12" y="36" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">Acts as an automated judge</text>
+        <text x="12" y="50" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">scoring any text with a scalar reward</text>
+      </g>
+
+      <rect x="15" y="375" width="235" height="35" rx="6" fill="#451a03" stroke="#f59e0b" />
+      <text x="132" y="397" font-family="sans-serif" font-size="11" font-weight="900" fill="#fde68a" text-anchor="middle">
+        Yields: Reward Model r_&psi;(x, y)
+      </text>
+    </g>
+
+    <!-- STAGE 3: PPO REINFORCEMENT LEARNING -->
+    <g transform="translate(575, 0)">
+      <rect width="265" height="430" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2.5" />
+      <rect x="0" y="0" width="265" height="34" rx="12" fill="#047857" />
+      <text x="132" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+        STAGE 3: PPO ALIGNMENT ⭐
+      </text>
+
+      <g transform="translate(15, 50)">
+        <rect width="235" height="45" rx="6" fill="#0f172a" stroke="#059669" />
+        <text x="12" y="18" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0">OPTIMIZATION ENGINE:</text>
+        <text x="12" y="34" font-family="monospace" font-size="11" fill="#34d399">Proximal Policy Optimization</text>
+      </g>
+
+      <g transform="translate(15, 110)">
+        <text x="0" y="14" font-family="sans-serif" font-size="11" font-weight="800" fill="#f8fafc">The Optimization Loop:</text>
+        <text x="0" y="30" font-family="sans-serif" font-size="10" fill="#cbd5e1">1. &pi;_&theta; generates response y</text>
+        <text x="0" y="46" font-family="sans-serif" font-size="10" fill="#cbd5e1">2. Reward model gives score r(x,y)</text>
+        <text x="0" y="62" font-family="sans-serif" font-size="10" fill="#fbbf24">3. KL penalty prevents drift:</text>
+        <text x="0" y="78" font-family="monospace" font-size="9.5" fill="#fbbf24">-&beta; D_KL(&pi;_&theta; || &pi;_SFT)</text>
+        <text x="0" y="96" font-family="sans-serif" font-size="10" fill="#cbd5e1">4. PPO updates policy weights</text>
+      </g>
+
+      <g transform="translate(15, 230)">
+        <rect width="235" height="60" rx="6" fill="#0f172a" stroke="#10b981" />
+        <text x="12" y="20" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0">THE TRINITY (HHH):</text>
+        <text x="12" y="36" font-family="sans-serif" font-size="9.5" fill="#6ee7b7">Helpful &bull; Honest &bull; Harmless</text>
+        <text x="12" y="50" font-family="sans-serif" font-size="9.5" fill="#cbd5e1">Politely refuses dangerous requests!</text>
+      </g>
+
+      <rect x="15" y="375" width="235" height="35" rx="6" fill="#064e3b" stroke="#10b981" />
+      <text x="132" y="397" font-family="sans-serif" font-size="11" font-weight="900" fill="#a7f3d0" text-anchor="middle">
+        Yields: Aligned ChatGPT Model
+      </text>
+    </g>
+  </g>
+</svg>

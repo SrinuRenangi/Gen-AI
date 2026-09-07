@@ -1,4 +1,9 @@
-# Day 17: Scikit-Learn Hands-On — Building Complete ML Pipelines
+﻿# Day 17: Scikit-Learn Hands-On — Building Complete ML Pipelines
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 16: Model Evaluation](../Day_16_Model_Evaluation/Day_16_Model_Evaluation.md) | [All 50 Days Overview](../../README.md) | [Day 18: The Artificial Neuron →](../../Phase_04_Deep_Learning_Foundations/Day_18_The_Artificial_Neuron/Day_18_The_Artificial_Neuron.md) |
 
 > **"Amateur data scientists write 500 lines of messy Pandas glue code. Senior ML engineers write a 10-line production pipeline that never leaks data and deploys in one command."**  
 > Welcome to Day 17 — the grand finale of **Phase 3: Classical Machine Learning**! Today, we bridge the gap between experimental notebook code and bulletproof production software.
@@ -306,6 +311,65 @@ When promoting ML code to production, audit your system against these 5 engineer
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Solidify your understanding of production pipelines and data leakage prevention with these practical questions!
+
+### 🏋️ Problem 1: Catching the Data Leakage Bug
+A junior engineer wrote the following pre-processing code for an insurance claim risk model:
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Step 1: Scale features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Step 2: Split into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+```
+
+**Your Tasks:**
+1. What critical machine learning violation occurred here?
+2. Why will the validation score on `X_test` look deceptively optimistic?
+3. How does wrapping preprocessing inside a `sklearn.pipeline.Pipeline` eliminate this bug permanently?
+
+---
+
+### 🏋️ Problem 2: Tracing ColumnTransformer Output Dimensions
+You are building an end-to-end ColumnTransformer for a customer churn dataset with the following features:
+- **Numerical Features (4 columns):** `['MonthlyCharges', 'TotalCharges', 'TenureMonths', 'SupportTickets']` &rarr; Preprocessed with `StandardScaler()`.
+- **Categorical Feature 1 (`'Contract'`):** 3 unique categories (`'Month-to-month'`, `'One-year'`, `'Two-year'`) &rarr; Preprocessed with `OneHotEncoder(drop='first')`.
+- **Categorical Feature 2 (`'PaymentMethod'`):** 4 unique categories (`'Electronic check'`, `'Mailed check'`, `'Bank transfer'`, `'Credit card'`) &rarr; Preprocessed with `OneHotEncoder(drop=None)`.
+
+**Your Tasks:**
+1. How many feature columns will the numerical transformer output?
+2. How many feature columns will `'Contract'` output with `drop='first'`?
+3. How many feature columns will `'PaymentMethod'` output with `drop=None`?
+4. What is the total feature dimension ($D$) fed into the classifier estimator?
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Data Leakage (Lookahead Bias):** Calling `scaler.fit_transform(X)` on the entire dataset calculates the global mean $\mu_{\text{all}}$ and variance $\sigma^2_{\text{all}}$ across all rows, including the test set. Information from the unseen test set leaked into the feature representation of the training data!
+2. **Deceptive Validation:** Because the scaler already "saw" the test distribution parameters, the model is tested on data it partially peeked at during scaling. When deployed to live production on genuinely new customers, the model's accuracy will plummet.
+3. **Pipeline Solution:** A `Pipeline` ensures that during cross-validation, `scaler.fit()` is executed **strictly on `X_train`**, and `scaler.transform()` is applied to `X_test` using the training mean and variance.
+
+---
+
+### Solution 2:
+1. **Numerical Transformer:** Outputs **4 columns** (each numerical column is centered and scaled independently).
+2. **Contract Feature (`drop='first'`):** 3 categories $- 1$ dropped baseline $= \mathbf{2\text{ columns}}$.
+3. **PaymentMethod Feature (`drop=None`):** All 4 categories retained $= \mathbf{4\text{ columns}}$.
+4. **Total Dimension $D$:**
+   $$D_{\text{total}} = 4 + 2 + 4 = \mathbf{10\text{ feature columns}}$$
+   The classifier receives an input matrix $X \in \mathbb{R}^{N \times 10}$.
+</details>
+
+---
+
 ## 7. Phase 3 Milestone Complete! 🏆
 
 Congratulations! You have completed **Phase 3: Classical Machine Learning (Days 12–17)**:
@@ -327,3 +391,12 @@ Tomorrow in **Day 18**, we enter **Deep Learning**:
 * **The Artificial Neuron (Perceptron):** How biology inspired mathematical computation.
 * Weights, biases, and the dot-product accumulator inside a single synthetic cell.
 * The historical spark that launched the modern AI revolution!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 16: Model Evaluation](../Day_16_Model_Evaluation/Day_16_Model_Evaluation.md) | [All 50 Days Overview](../../README.md) | [Day 18: The Artificial Neuron →](../../Phase_04_Deep_Learning_Foundations/Day_18_The_Artificial_Neuron/Day_18_The_Artificial_Neuron.md) |

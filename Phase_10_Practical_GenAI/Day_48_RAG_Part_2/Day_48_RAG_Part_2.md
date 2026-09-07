@@ -1,4 +1,9 @@
-# Day 48: RAG Part 2 — Advanced RAG, Re-Ranking & Evaluation
+﻿# Day 48: RAG Part 2 — Advanced RAG, Re-Ranking & Evaluation
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 47: RAG Part 1](../Day_47_RAG_Part_1/Day_47_RAG_Part_1.md) | [All 50 Days Overview](../../README.md) | [Day 49: AI Agents & Function Calling →](../Day_49_AI_Agents/Day_49_AI_Agents.md) |
 
 Welcome to **Day 48 of our 50-Day Generative AI Masterclass**! In [Day 47](../Day_47_RAG_Part_1/Day_47_RAG_Part_1.md), you mastered the foundational RAG pipeline: document parsing, chunking with sliding overlap, dense embeddings, and HNSW vector indexing.
 
@@ -451,3 +456,12 @@ Today, you mastered Advanced Enterprise RAG:
 - **The RAG Triad**: Quantifying Context Precision, Grounded Faithfulness, and Answer Relevance.
 
 Tomorrow in **Day 49: AI Agents & Function Calling — LLMs That Take Action**, we graduate from passive question-answering systems to **autonomous AI agents** that plan, invoke external tools, query SQL databases, and browse the web using the **ReAct loop**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 47: RAG Part 1](../Day_47_RAG_Part_1/Day_47_RAG_Part_1.md) | [All 50 Days Overview](../../README.md) | [Day 49: AI Agents & Function Calling →](../Day_49_AI_Agents/Day_49_AI_Agents.md) |

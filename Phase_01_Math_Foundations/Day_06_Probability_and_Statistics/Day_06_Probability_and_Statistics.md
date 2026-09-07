@@ -1,5 +1,10 @@
-# 🎲 Day 06: Probability & Statistics
+﻿# 🎲 Day 06: Probability & Statistics
 ## Making Predictions Under Uncertainty & The Magic of Softmax
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 05: The Dot Product](../Day_05_Dot_Product_and_Similarity/Day_05_Dot_Product_and_Similarity.md) | [All 50 Days Overview](../../README.md) | [Day 07: Slopes & Derivatives →](../Day_07_Slopes_and_Derivatives/Day_07_Slopes_and_Derivatives.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_01-Math_Foundations-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-06_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -575,3 +580,12 @@ Tomorrow on **Day 07**, we conquer the final mathematical peak before training r
 <p align="center">
   <b>🌟 End of Day 06 — You've mastered Probability and Softmax, the decision engine of AI! 🌟</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 05: The Dot Product](../Day_05_Dot_Product_and_Similarity/Day_05_Dot_Product_and_Similarity.md) | [All 50 Days Overview](../../README.md) | [Day 07: Slopes & Derivatives →](../Day_07_Slopes_and_Derivatives/Day_07_Slopes_and_Derivatives.md) |

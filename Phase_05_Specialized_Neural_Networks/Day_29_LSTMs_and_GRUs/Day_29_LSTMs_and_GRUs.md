@@ -1,4 +1,9 @@
-# Day 29: LSTMs & GRUs — Solving the Forgetting Problem
+﻿# Day 29: LSTMs & GRUs — Solving the Forgetting Problem
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 28: RNNs](../Day_28_RNNs/Day_28_RNNs.md) | [All 50 Days Overview](../../README.md) | [Day 30: Text Processing Basics (Cleaning, Tokenization, Stopwords) →](../../Phase_06_NLP_Foundations/Day_30_Text_Processing_Basics/Day_30_Text_Processing_Basics.md) |
 
 > "Vanilla RNNs gave neural networks a memory, but it was like short-term amnesia: after 10 words, earlier context evaporated into thin air. LSTMs and GRUs fixed this by engineering an express highway for long-term memory, governed by mathematically precise valves called gates."
 
@@ -525,3 +530,12 @@ Suppose you build a 2-layer LSTM with input dimension $D = 64$ and hidden dimens
 ## 🚀 Tomorrow's Mission: Entering Phase 6
 
 Now that we master how neural networks process sequences through recurrent gates, we enter **Phase 6: Natural Language Processing (NLP) Foundations**. Tomorrow on [Day 30: Text Processing Basics](../../Phase_06_NLP_Foundations/Day_30_Text_Processing_Basics/Day_30_Text_Processing_Basics.md), we explore how raw human sentences (strings) are cleaned, tokenized, normalized, and transformed into numeric indices ready for deep learning!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 28: RNNs](../Day_28_RNNs/Day_28_RNNs.md) | [All 50 Days Overview](../../README.md) | [Day 30: Text Processing Basics (Cleaning, Tokenization, Stopwords) →](../../Phase_06_NLP_Foundations/Day_30_Text_Processing_Basics/Day_30_Text_Processing_Basics.md) |

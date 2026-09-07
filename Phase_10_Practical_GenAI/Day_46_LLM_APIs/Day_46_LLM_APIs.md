@@ -1,4 +1,9 @@
-# Day 46: Working with LLM APIs — OpenAI, Anthropic & Local Models
+﻿# Day 46: Working with LLM APIs — OpenAI, Anthropic & Local Models
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 45: Prompt Engineering Masterclass](../Day_45_Prompt_Engineering/Day_45_Prompt_Engineering.md) | [All 50 Days Overview](../../README.md) | [Day 47: RAG Part 1 →](../Day_47_RAG_Part_1/Day_47_RAG_Part_1.md) |
 
 Welcome to **Day 46 of our 50-Day Generative AI Masterclass**! In [Day 45](../Day_45_Prompt_Engineering/Day_45_Prompt_Engineering.md), you mastered prompt engineering, few-shot conditioning, and self-healing JSON pipelines.
 
@@ -399,3 +404,12 @@ Today, you mastered production LLM API engineering:
 - **Enterprise Resiliency**: Implementing Exponential Backoff with Jitter and a Multi-Provider Failover Gateway.
 
 Tomorrow in **Day 47: RAG Part 1 — Embeddings, Vector Databases & Semantic Search**, we dive into the most sought-after architecture in enterprise AI: connecting LLMs to private corporate knowledge bases using **Vector Embeddings, HNSW graphs, and semantic search**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 45: Prompt Engineering Masterclass](../Day_45_Prompt_Engineering/Day_45_Prompt_Engineering.md) | [All 50 Days Overview](../../README.md) | [Day 47: RAG Part 1 →](../Day_47_RAG_Part_1/Day_47_RAG_Part_1.md) |

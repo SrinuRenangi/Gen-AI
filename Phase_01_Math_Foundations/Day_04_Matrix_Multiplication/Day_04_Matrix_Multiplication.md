@@ -1,5 +1,10 @@
-# ⚡ Day 04: Matrix Multiplication
+﻿# ⚡ Day 04: Matrix Multiplication
 ## The Single Most Important Operation in All of AI
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 03: Matrices](../Day_03_Matrices/Day_03_Matrices.md) | [All 50 Days Overview](../../README.md) | [Day 05: The Dot Product →](../Day_05_Dot_Product_and_Similarity/Day_05_Dot_Product_and_Similarity.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_01-Math_Foundations-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-04_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -477,3 +482,12 @@ Tomorrow on **Day 05**, we will zoom into the **Dot Product** itself:
 <p align="center">
   <b>🌟 End of Day 04 — You've conquered the engine of AI: Matrix Multiplication! 🌟</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 03: Matrices](../Day_03_Matrices/Day_03_Matrices.md) | [All 50 Days Overview](../../README.md) | [Day 05: The Dot Product →](../Day_05_Dot_Product_and_Similarity/Day_05_Dot_Product_and_Similarity.md) |

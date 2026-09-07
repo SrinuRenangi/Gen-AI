@@ -1,4 +1,9 @@
-# Day 28: RNNs — Giving Neural Networks Memory for Sequences
+﻿# Day 28: RNNs — Giving Neural Networks Memory for Sequences
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 27: CNNs Part 2](../Day_27_CNNs_Part_2/Day_27_CNNs_Part_2.md) | [All 50 Days Overview](../../README.md) | [Day 29: LSTMs & GRUs →](../Day_29_LSTMs_and_GRUs/Day_29_LSTMs_and_GRUs.md) |
 
 > **"A feedforward network reads every input with total amnesia. A Recurrent Neural Network carries a rolling mental tape of the past, allowing machines to read sentences, hear audio waves, and predict the future."**  
 > Welcome to Day 28! Up to this point, our models treated every sample as an isolated, independent event. Today, we conquer temporal dependencies using **Recurrent Neural Networks (RNNs)**.
@@ -202,6 +207,76 @@ print("=" * 65)
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Solidify your grasp of sequential hidden state recurrence and the vanishing gradient amnesia problem!
+
+### 🏋️ Problem 1: Hand-Calculating Recurrent State Transitions
+A simplified single-neuron scalar RNN processes a 2-step sequence:
+- Inputs: $x_1 = 1.0$, $x_2 = 0.5$
+- Initial hidden state: $h_0 = 0.0$
+- Input-to-hidden weight: $W_{xh} = 0.60$
+- Hidden-to-hidden recurrent weight: $W_{hh} = 0.80$
+- Bias: $b_h = 0.0$
+- Activation function: $\tanh(z)$ *(Use approximations: $\tanh(0.60) \approx 0.537$, $\tanh(0.730) \approx 0.623$)*
+
+Recurrence Equation:
+$$h_t = \tanh(W_{xh} x_t + W_{hh} h_{t-1} + b_h)$$
+
+**Your Tasks:**
+1. Compute the pre-activation and hidden state $h_1$ at step $t=1$.
+2. Compute the pre-activation and hidden state $h_2$ at step $t=2$.
+3. Notice how $h_2$ contains traces of both $x_2$ and $x_1$. Where did $x_1$ come from?
+
+---
+
+### 🏋️ Problem 2: The Mathematics of the 30-Step Amnesia Horizon
+In Backpropagation Through Time (BPTT), the gradient of loss at step $T$ with respect to the initial hidden state $h_0$ requires computing the matrix product across all intermediate steps:
+$$\frac{\partial h_T}{\partial h_0} = \prod_{t=1}^T \frac{\partial h_t}{\partial h_{t-1}} \approx (W_{hh})^T$$
+
+Suppose we process a sequence of length $T = 30$ tokens:
+- **Scenario A:** The largest singular value of $W_{hh}$ is $\lambda = 0.90$.
+- **Scenario B:** The largest singular value of $W_{hh}$ is $\lambda = 1.10$.
+
+*(Use approximations: $0.90^{30} \approx 0.0424$, $1.10^{30} \approx 17.45$)*
+
+**Your Tasks:**
+1. In Scenario A, what fraction of the error gradient reaches $h_0$? What does this do to long-term memory?
+2. In Scenario B, what happens to the gradient magnitude? What error does this cause during training?
+3. How did this mathematical dilemma motivate the invention of LSTMs (Day 29) and Transformers (Day 34)?
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Time Step $t=1$:**
+   $$z_1 = W_{xh} x_1 + W_{hh} h_0 + b_h = (0.60 \times 1.0) + (0.80 \times 0.0) + 0 = 0.60$$
+   $$h_1 = \tanh(0.60) \approx \mathbf{0.537}$$
+
+2. **Time Step $t=2$:**
+   $$z_2 = W_{xh} x_2 + W_{hh} h_1 + b_h = (0.60 \times 0.5) + (0.80 \times 0.537) + 0 = 0.30 + 0.4296 = 0.7296 \approx 0.730$$
+   $$h_2 = \tanh(0.730) \approx \mathbf{0.623}$$
+
+3. **Memory Tracing:**
+   $h_2$ blends the new sensory input ($x_2 = 0.5$) with the recurrent memory of the past ($h_1 = 0.537$). Because $h_1$ was calculated using $x_1$, $h_2$ successfully integrates information across multiple time steps!
+
+---
+
+### Solution 2:
+1. **Scenario A ($\lambda = 0.90$):**
+   $$0.90^{30} \approx \mathbf{0.0424 \implies 4.2\%}$$
+   Over $95\%$ of the gradient signal has evaporated into nothingness! The network cannot learn dependencies between words that are separated by more than 10–15 tokens (Vanishing Gradient Amnesia).
+
+2. **Scenario B ($\lambda = 1.10$):**
+   $$1.10^{30} \approx \mathbf{17.45}$$
+   If $T=100$, $1.10^{100} \approx 13,780$! The gradients explode exponentially, overwriting weights with massive numerical jumps that produce `NaN` (Exploding Gradients).
+
+3. **Historical Motivation:**
+   This strict mathematical instability meant vanilla RNNs could never scale to long paragraphs or books. Hochreiter & Schmidhuber invented **LSTMs** (Day 29) with linear error carousels, and Vaswani et al. invented **Transformers** (Day 34) with direct $O(1)$ path lengths between all tokens!
+</details>
+
+---
+
 ## 6. Summary Checklist for Day 28
 
 1. [x] **The Need for Memory:** Feedforward networks suffer from temporal amnesia. RNNs maintain an ongoing hidden state $\mathbf{h}_t$.
@@ -214,3 +289,12 @@ print("=" * 65)
 ---
 
 *Tomorrow in **Day 29**, we examine the legendary solution to the Amnesia Horizon: **LSTMs & GRUs — Solving the Forgetting Problem with Gated Memory Cells!***
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 27: CNNs Part 2](../Day_27_CNNs_Part_2/Day_27_CNNs_Part_2.md) | [All 50 Days Overview](../../README.md) | [Day 29: LSTMs & GRUs →](../Day_29_LSTMs_and_GRUs/Day_29_LSTMs_and_GRUs.md) |

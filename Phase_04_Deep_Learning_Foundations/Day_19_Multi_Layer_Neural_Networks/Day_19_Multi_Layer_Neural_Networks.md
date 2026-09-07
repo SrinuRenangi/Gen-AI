@@ -1,4 +1,9 @@
-# Day 19: Multi-Layer Neural Networks — Stacking Neurons
+﻿# Day 19: Multi-Layer Neural Networks — Stacking Neurons
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 18: The Artificial Neuron](../Day_18_The_Artificial_Neuron/Day_18_The_Artificial_Neuron.md) | [All 50 Days Overview](../../README.md) | [Day 20: Activation Functions →](../Day_20_Activation_Functions/Day_20_Activation_Functions.md) |
 
 > **"A single neuron can only draw a straight line. Stacking neurons folds, twists, and morphs coordinate space until any complex reality can be sliced in half."**  
 > Welcome to Day 19! Yesterday, we watched the single perceptron fail catastrophically on the XOR logic gate, plunging artificial intelligence into the 1969 AI Winter. Today, we resurrect neural networks by **stacking neurons into layers**.
@@ -217,6 +222,75 @@ print("🎉 100% Accuracy! The 2-neuron hidden layer conquered the XOR gate!")
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Solidify your grasp of deep feedforward networks, matrix dimensions, and parameter counting with these hand-calculated challenges!
+
+### 🏋️ Problem 1: Parameter Counting for an Image Classifier MLP
+You are designing an MLP to classify handwritten digits from the MNIST dataset:
+- Input image: $28 \times 28$ grayscale pixels (flattened into a 784-dimensional vector).
+- Batch size: $N = 64$.
+- Architecture:
+  - **Hidden Layer 1:** 256 neurons with ReLU.
+  - **Hidden Layer 2:** 128 neurons with ReLU.
+  - **Output Layer:** 10 neurons (classes 0 through 9).
+
+**Your Tasks:**
+1. State the exact matrix shape of $W^{[1]}, B^{[1]}, W^{[2]}, B^{[2]}, W^{[3]}, B^{[3]}$.
+2. Calculate the exact number of learnable parameters (weights + biases) in each layer.
+3. What is the grand total of trainable parameters in this network?
+
+---
+
+### 🏋️ Problem 2: Hand-Tracing Feedforward Matrix Arithmetic
+A tiny network has:
+- Input vector: $\mathbf{x} = \begin{bmatrix} 1.0 & 2.0 \end{bmatrix}$
+- Hidden Layer Weights & Bias:
+  $$W^{[1]} = \begin{bmatrix} 2.0 & -1.0 \\ 1.0 & 3.0 \end{bmatrix}, \quad \mathbf{b}^{[1]} = \begin{bmatrix} 0.5 & -2.0 \end{bmatrix}$$
+- Activation: $\text{ReLU}(z) = \max(0, z)$.
+- Output Layer Weights & Bias:
+  $$W^{[2]} = \begin{bmatrix} 1.5 \\ -2.0 \end{bmatrix}, \quad b^{[2]} = 1.0$$
+
+**Your Tasks:**
+1. Compute the pre-activation vector $\mathbf{z}^{[1]} = \mathbf{x} W^{[1]} + \mathbf{b}^{[1]}$.
+2. Compute the activated hidden representation $\mathbf{a}^{[1]} = \text{ReLU}(\mathbf{z}^{[1]})$.
+3. Compute the final scalar output $\hat{y} = \mathbf{a}^{[1]} W^{[2]} + b^{[2]}$.
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Matrix Dimensions:**
+   - $W^{[1]}: (784 \times 256)$, \quad $B^{[1]}: (1 \times 256)$
+   - $W^{[2]}: (256 \times 128)$, \quad $B^{[2]}: (1 \times 128)$
+   - $W^{[3]}: (128 \times 10)$, \quad $B^{[3]}: (1 \times 10)$
+
+2. **Parameter Calculations:**
+   - **Layer 1:** $(784 \times 256) + 256 = 200,704 + 256 = \mathbf{200,960}$
+   - **Layer 2:** $(256 \times 128) + 128 = 32,768 + 128 = \mathbf{32,896}$
+   - **Layer 3:** $(128 \times 10) + 10 = 1,280 + 10 = \mathbf{1,290}$
+
+3. **Grand Total:**
+   $$\text{Total Parameters} = 200,960 + 32,896 + 1,290 = \mathbf{235,146\text{ parameters}}$$
+   *(Notice that the first hidden layer accounts for over 85% of all parameters because of the 784 input dimension!)*
+
+---
+
+### Solution 2:
+1. **Hidden Pre-activation $\mathbf{z}^{[1]}$:**
+   $$\mathbf{x} W^{[1]} = \begin{bmatrix} 1.0 & 2.0 \end{bmatrix} \begin{bmatrix} 2.0 & -1.0 \\ 1.0 & 3.0 \end{bmatrix} = \begin{bmatrix} (1\times 2 + 2\times 1) & (1\times -1 + 2\times 3) \end{bmatrix} = \begin{bmatrix} 4.0 & 5.0 \end{bmatrix}$$
+   $$\mathbf{z}^{[1]} = \begin{bmatrix} 4.0 & 5.0 \end{bmatrix} + \begin{bmatrix} 0.5 & -2.0 \end{bmatrix} = \begin{bmatrix} \mathbf{4.5} & \mathbf{3.0} \end{bmatrix}$$
+
+2. **Hidden Activation $\mathbf{a}^{[1]}$:**
+   $$\mathbf{a}^{[1]} = \text{ReLU}\left(\begin{bmatrix} 4.5 & 3.0 \end{bmatrix}\right) = \begin{bmatrix} \mathbf{4.5} & \mathbf{3.0} \end{bmatrix}$$
+
+3. **Final Output $\hat{y}$:**
+   $$\mathbf{a}^{[1]} W^{[2]} = \begin{bmatrix} 4.5 & 3.0 \end{bmatrix} \begin{bmatrix} 1.5 \\ -2.0 \end{bmatrix} = (4.5 \times 1.5) + (3.0 \times -2.0) = 6.75 - 6.0 = 0.75$$
+   $$\hat{y} = 0.75 + 1.0 = \mathbf{1.75}$$
+</details>
+
+---
+
 ## 6. Summary Checklist for Day 19
 
 1. [x] **Hierarchy of Abstraction:** Input (raw clues) &rarr; Hidden (intermediate concepts) &rarr; Output (final decision).
@@ -228,3 +302,12 @@ print("🎉 100% Accuracy! The 2-neuron hidden layer conquered the XOR gate!")
 ---
 
 *Tomorrow in **Day 20**, we uncover the secret engine of neural networks: **Activation Functions** (Sigmoid, Tanh, ReLU, LeakyReLU, GELU) — and why without them, even a 1,000-layer neural network collapses into a single boring straight line!*
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 18: The Artificial Neuron](../Day_18_The_Artificial_Neuron/Day_18_The_Artificial_Neuron.md) | [All 50 Days Overview](../../README.md) | [Day 20: Activation Functions →](../Day_20_Activation_Functions/Day_20_Activation_Functions.md) |

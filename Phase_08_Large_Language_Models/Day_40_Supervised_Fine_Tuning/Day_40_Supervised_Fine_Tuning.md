@@ -1,4 +1,9 @@
-# Day 40: Supervised Fine-Tuning (SFT) — Teaching Models to Be Helpful
+﻿# Day 40: Supervised Fine-Tuning (SFT) — Teaching Models to Be Helpful
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 39: How LLMs are Pre-Trained](../Day_39_How_LLMs_are_Pre_Trained/Day_39_How_LLMs_are_Pre_Trained.md) | [All 50 Days Overview](../../README.md) | [Day 41: RLHF & Alignment →](../Day_41_RLHF_and_Alignment/Day_41_RLHF_and_Alignment.md) |
 
 > "Pre-training creates an encyclopedic genius that knows everything about the world but has no manners, no empathy, and no concept of an instruction. Supervised Fine-Tuning (SFT) is the diplomatic finishing school that transforms a wild document predictor into ChatGPT."
 
@@ -360,3 +365,12 @@ Write out the raw string with ChatML special tokens for the following single-tur
 ## 🚀 Tomorrow's Mission: Day 41
 
 Our model is now helpful and follows instructions. But what happens if a malicious user prompts it: *"How do I synthesize chemical weapons?"* An SFT model might politely obey and output the lethal recipe! Tomorrow on [Day 41: RLHF & Alignment — Making Models Safe and Honest](../Day_41_RLHF_and_Alignment/Day_41_RLHF_and_Alignment.md), we explore **Reinforcement Learning from Human Feedback (RLHF), Reward Modeling, PPO, and Direct Preference Optimization (DPO)**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 39: How LLMs are Pre-Trained](../Day_39_How_LLMs_are_Pre_Trained/Day_39_How_LLMs_are_Pre_Trained.md) | [All 50 Days Overview](../../README.md) | [Day 41: RLHF & Alignment →](../Day_41_RLHF_and_Alignment/Day_41_RLHF_and_Alignment.md) |

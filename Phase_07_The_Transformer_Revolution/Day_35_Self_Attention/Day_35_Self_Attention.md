@@ -1,4 +1,9 @@
-# Day 35: Self-Attention — The Spotlight Mechanism (Queries, Keys, Values)
+﻿# Day 35: Self-Attention — The Spotlight Mechanism (Queries, Keys, Values)
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 34: Why Transformers Replaced RNNs](../Day_34_Why_Transformers_Replaced_RNNs/Day_34_Why_Transformers_Replaced_RNNs.md) | [All 50 Days Overview](../../README.md) | [Day 36: Multi-Head Attention & The Full Transformer Block →](../Day_36_Multi_Head_Attention/Day_36_Multi_Head_Attention.md) |
 
 > "In classical machine learning, every word had one static vector. In Self-Attention, words are living conversationalists: they ask questions through Queries, advertise their traits through Keys, and share their semantic wisdom through Values."
 
@@ -398,3 +403,12 @@ If we apply a causal mask to prevent token 1 from looking at tokens 2 and 3 (set
 ## 🚀 Tomorrow's Mission: Day 36
 
 Single-head attention is powerful, but what if a word needs to track syntax (grammar) and semantics (topic) at the exact same time? Tomorrow on [Day 36: Multi-Head Attention & The Full Transformer Block](../Day_36_Multi_Head_Attention/Day_36_Multi_Head_Attention.md), we build **Multi-Head Attention, Layer Normalization, Residual Skip Connections, and the Feed-Forward Network**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 34: Why Transformers Replaced RNNs](../Day_34_Why_Transformers_Replaced_RNNs/Day_34_Why_Transformers_Replaced_RNNs.md) | [All 50 Days Overview](../../README.md) | [Day 36: Multi-Head Attention & The Full Transformer Block →](../Day_36_Multi_Head_Attention/Day_36_Multi_Head_Attention.md) |

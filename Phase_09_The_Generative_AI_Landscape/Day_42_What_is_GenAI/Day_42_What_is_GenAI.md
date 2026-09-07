@@ -1,4 +1,9 @@
-# Day 42: What is Generative AI? — The Paradigm Shift Defined
+﻿# Day 42: What is Generative AI? — The Paradigm Shift Defined
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 41: RLHF & Alignment](../../Phase_08_Large_Language_Models/Day_41_RLHF_and_Alignment/Day_41_RLHF_and_Alignment.md) | [All 50 Days Overview](../../README.md) | [Day 43: Text-to-Image →](../Day_43_Text_to_Image_Diffusion/Day_43_Text_to_Image_Diffusion.md) |
 
 Welcome to **Day 42 of our 50-Day Generative AI Masterclass**! Over the previous 41 days, you traversed the mathematical, architectural, and algorithmic foundations of artificial intelligence—culminating in the pre-training and alignment of Large Language Models in [Day 41](../../Phase_08_Large_Language_Models/Day_41_RLHF_and_Alignment/Day_41_RLHF_and_Alignment.md).
 
@@ -417,3 +422,12 @@ Today, you established the grand conceptual framework of Generative AI:
 - **The 4 Core Families**: Autoregressive (text/audio), GANs (fast image synthesis), VAEs (latent compression), and Diffusion (state-of-the-art photorealism).
 
 Tomorrow in **Day 43: Text-to-Image — How Machines Create Art**, we delve deep into the mathematics and architecture of **Diffusion Models (DDPM, Latent Diffusion, and Classifier-Free Guidance)** to understand how Stable Diffusion and Midjourney turn simple text prompts into breathtaking visual art.
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 41: RLHF & Alignment](../../Phase_08_Large_Language_Models/Day_41_RLHF_and_Alignment/Day_41_RLHF_and_Alignment.md) | [All 50 Days Overview](../../README.md) | [Day 43: Text-to-Image →](../Day_43_Text_to_Image_Diffusion/Day_43_Text_to_Image_Diffusion.md) |

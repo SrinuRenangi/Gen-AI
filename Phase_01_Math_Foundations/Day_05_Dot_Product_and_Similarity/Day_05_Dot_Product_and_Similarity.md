@@ -1,5 +1,10 @@
-# 🎯 Day 05: The Dot Product & Similarity
+﻿# 🎯 Day 05: The Dot Product & Similarity
 ## How AI Compares Words, Users, and Concepts
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 04: Matrix Multiplication](../Day_04_Matrix_Multiplication/Day_04_Matrix_Multiplication.md) | [All 50 Days Overview](../../README.md) | [Day 06: Probability & Statistics →](../Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_01-Math_Foundations-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-05_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -540,3 +545,12 @@ Tomorrow on **Day 06**, we enter the world of **Uncertainty & Probability**:
 <p align="center">
   <b>🌟 End of Day 05 — You've unlocked the Dot Product, the similarity engine of AI! 🌟</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 04: Matrix Multiplication](../Day_04_Matrix_Multiplication/Day_04_Matrix_Multiplication.md) | [All 50 Days Overview](../../README.md) | [Day 06: Probability & Statistics →](../Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md) |

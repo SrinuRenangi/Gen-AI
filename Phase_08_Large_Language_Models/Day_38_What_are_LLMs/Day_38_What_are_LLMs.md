@@ -1,4 +1,9 @@
-# Day 38: What are LLMs? — Supercharged Autocomplete
+﻿# Day 38: What are LLMs? — Supercharged Autocomplete
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 37: The Complete Transformer Architecture](../../Phase_07_The_Transformer_Revolution/Day_37_Complete_Transformer_Architecture/Day_37_Complete_Transformer_Architecture.md) | [All 50 Days Overview](../../README.md) | [Day 39: How LLMs are Pre-Trained →](../Day_39_How_LLMs_are_Pre_Trained/Day_39_How_LLMs_are_Pre_Trained.md) |
 
 > "At its computational core, ChatGPT is doing something remarkably humble: it is looking at a sequence of words and guessing what word comes next. But when an artificial neural network scales to hundreds of billions of parameters trained on trillions of tokens, that humble act of prediction turns into the illusion—and reality—of human intelligence."
 
@@ -407,3 +412,12 @@ If Top-$p = 0.80$, which tokens remain in the active candidate pool, and what ar
 ## 🚀 Tomorrow's Mission: Day 39
 
 We now understand how LLMs generate tokens and scale. But how do you train a 70-Billion parameter network across clusters of 10,000 GPUs on 15 Trillion words scraped from the internet? Tomorrow on [Day 39: How LLMs are Pre-Trained — Reading the Entire Internet](../Day_39_How_LLMs_are_Pre_Trained/Day_39_How_LLMs_are_Pre_Trained.md), we explore **Common Crawl data curation, 3D Distributed Parallelism (FSDP, Tensor & Pipeline Parallelism), and FP8 training**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 37: The Complete Transformer Architecture](../../Phase_07_The_Transformer_Revolution/Day_37_Complete_Transformer_Architecture/Day_37_Complete_Transformer_Architecture.md) | [All 50 Days Overview](../../README.md) | [Day 39: How LLMs are Pre-Trained →](../Day_39_How_LLMs_are_Pre_Trained/Day_39_How_LLMs_are_Pre_Trained.md) |

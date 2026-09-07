@@ -1,4 +1,9 @@
-# Day 32: Word Embeddings — Word GPS Coordinates (Word2Vec & Latent Spaces)
+﻿# Day 32: Word Embeddings — Word GPS Coordinates (Word2Vec & Latent Spaces)
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 31: Word Representations](../Day_31_Word_Representations/Day_31_Word_Representations.md) | [All 50 Days Overview](../../README.md) | [Day 33: Sequence-to-Sequence & The Birth of Attention →](../Day_33_Seq2Seq_and_Attention/Day_33_Seq2Seq_and_Attention.md) |
 
 > "In 2013, Tomas Mikolov and his team at Google discovered something magical: when neural networks are trained to predict surrounding words, the resulting vectors arrange themselves into a geometric universe where meaning is distance and analogies are simple vector additions: King - Man + Woman = Queen."
 
@@ -479,3 +484,12 @@ If you switch to Skip-Gram with Negative Sampling using $k = 5$ negative samples
 ## 🚀 Tomorrow's Mission: Day 33
 
 Now that we have dense word embeddings, how do we translate an entire sentence from English into French, or summarize a long article into three bullet points? Tomorrow on [Day 33: Sequence-to-Sequence & The Birth of Attention](../Day_33_Seq2Seq_and_Attention/Day_33_Seq2Seq_and_Attention.md), we explore the **Encoder-Decoder architecture, the Information Bottleneck, and Bahdanau's Attention mechanism** that changed AI history forever!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 31: Word Representations](../Day_31_Word_Representations/Day_31_Word_Representations.md) | [All 50 Days Overview](../../README.md) | [Day 33: Sequence-to-Sequence & The Birth of Attention →](../Day_33_Seq2Seq_and_Attention/Day_33_Seq2Seq_and_Attention.md) |

@@ -1,4 +1,9 @@
-# Day 45: Prompt Engineering Masterclass — From Zero-Shot to Tree-of-Thoughts
+﻿# Day 45: Prompt Engineering Masterclass — From Zero-Shot to Tree-of-Thoughts
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 44: Text-to-Audio, Video & Multimodal Models](../../Phase_09_The_Generative_AI_Landscape/Day_44_Audio_Video_Multimodal/Day_44_Audio_Video_Multimodal.md) | [All 50 Days Overview](../../README.md) | [Day 46: Working with LLM APIs →](../Day_46_LLM_APIs/Day_46_LLM_APIs.md) |
 
 Welcome to **Day 45 of our 50-Day Generative AI Masterclass**! Over the previous 44 days, you mastered the mathematical foundations, machine learning theory, transformer architectures, and generative modalities that make modern AI possible.
 
@@ -489,3 +494,12 @@ Today, you mastered the engineering discipline of Prompt Engineering:
 - **Self-Healing JSON Pipelines**: Pydantic-style validation, error extraction, and automated reflection loops.
 
 Tomorrow in **Day 46: Working with LLM APIs — OpenAI, Anthropic & Local Models**, we will write production Python software that integrates directly with **OpenAI, Anthropic Claude, and self-hosted local models (via Ollama / vLLM)**, complete with streaming, rate limiting, and exponential backoff!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 44: Text-to-Audio, Video & Multimodal Models](../../Phase_09_The_Generative_AI_Landscape/Day_44_Audio_Video_Multimodal/Day_44_Audio_Video_Multimodal.md) | [All 50 Days Overview](../../README.md) | [Day 46: Working with LLM APIs →](../Day_46_LLM_APIs/Day_46_LLM_APIs.md) |

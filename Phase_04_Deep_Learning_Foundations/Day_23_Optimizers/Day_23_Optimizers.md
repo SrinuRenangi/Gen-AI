@@ -1,4 +1,9 @@
-# Day 23: Optimizers — Smart Ways to Turn the Knobs
+﻿# Day 23: Optimizers — Smart Ways to Turn the Knobs
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 22: Backpropagation](../Day_22_Backpropagation/Day_22_Backpropagation.md) | [All 50 Days Overview](../../README.md) | [Day 24: Building a Complete Neural Network from Scratch →](../Day_24_Building_Neural_Network_From_Scratch/Day_24_Building_Neural_Network_From_Scratch.md) |
 
 > **"Gradient descent tells you which direction is downhill. The optimizer decides how fast to run, when to build momentum, and how to avoid bouncing off the canyon walls."**  
 > Welcome to Day 23! Yesterday, we derived backpropagation to calculate exact loss derivatives $\nabla_\theta \mathcal{L}$. Today, we master how **Optimizers** use those derivatives to update parameters intelligently — culminating in **Adam**, the optimizer that trained GPT-4, Claude, and Midjourney.
@@ -205,6 +210,74 @@ print("🎉 Adam reached the global minimum while Vanilla SGD was still trapped 
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Put your intuition on gradient momentum, adaptive step sizes, and AdamW to the test!
+
+### 🏋️ Problem 1: Hand-Calculating Momentum Velocity & Weight Updates
+A neural network weight $w$ is undergoing gradient descent with Momentum:
+- Momentum coefficient: $\beta = 0.90$
+- Learning rate: $\eta = 0.10$
+- Prior accumulated velocity: $v_{t-1} = 0.40$
+- Current iteration gradient: $g_t = +2.0$
+
+Update Equations:
+$$v_t = \beta \cdot v_{t-1} + \eta \cdot g_t$$
+$$w_t = w_{t-1} - v_t$$
+
+**Your Tasks:**
+1. Compute the inertia contribution from previous steps ($\beta \cdot v_{t-1}$).
+2. Compute the new gradient contribution ($\eta \cdot g_t$).
+3. Compute the total velocity $v_t$.
+4. How does $v_t$ compare to a vanilla SGD step ($\Delta w_{\text{vanilla}} = \eta \cdot g_t = 0.20$)? Why is it larger?
+
+---
+
+### 🏋️ Problem 2: Why AdamW is Mandatory for Large Language Models
+During the training of GPT-3 and LLaMA, engineers use **AdamW** rather than classical **Adam + L2 Regularization**.
+
+**Your Tasks:**
+1. In standard Adam with L2 regularization ($+ \lambda w$), what happens to the weight penalty term when a parameter receives very large historical gradients ($s_t$ is huge)?
+2. Does the regularization penalty become stronger or weaker for large-gradient weights?
+3. How does AdamW's **decoupled weight decay** solve this problem mathematically?
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Inertia Term:**
+   $$\beta \cdot v_{t-1} = 0.90 \times 0.40 = \mathbf{0.36}$$
+
+2. **New Gradient Term:**
+   $$\eta \cdot g_t = 0.10 \times 2.0 = \mathbf{0.20}$$
+
+3. **Total Updated Velocity:**
+   $$v_t = 0.36 + 0.20 = \mathbf{0.56}$$
+   $$w_t = w_{t-1} - 0.56$$
+
+4. **Comparison to Vanilla SGD:**
+   Vanilla SGD would only take a step of $0.20$. Momentum took a step of $0.56$ ($2.8\times$ larger!) because the rolling bowling ball carried forward momentum from prior steps in the same direction. It powers through plateaus and flat saddle points!
+
+---
+
+### Solution 2:
+1. **Flaw of L2 in Standard Adam:**
+   In standard Adam, the L2 weight penalty is added directly to the gradient before computing the second moment $s_t$:
+   $$g_t^{\text{reg}} = g_t + \lambda w$$
+   Then Adam divides by $\sqrt{s_t}$:
+   $$\Delta w = -\frac{\eta}{\sqrt{s_t} + \epsilon} (g_t + \lambda w)$$
+
+2. **Unintended Consequence:**
+   Weights with very large, frequent gradients accumulate a massive $s_t$. Because $\sqrt{s_t}$ is in the denominator, the actual weight decay penalty $\frac{\eta \lambda w}{\sqrt{s_t}}$ gets **massively suppressed**! Conversely, rarely updated weights receive an inappropriately large weight decay penalty!
+
+3. **AdamW Decoupled Solution:**
+   AdamW separates the weight decay entirely from the adaptive gradient scaling:
+   $$w_t = w_{t-1} - \eta \cdot \lambda \cdot w_{t-1} - \frac{\eta}{\sqrt{\hat{s}_t} + \epsilon} \hat{m}_t$$
+   Every single weight decays at the exact intended rate $\eta \lambda$, regardless of gradient magnitude. This stabilized Transformer attention layers and is now universal in modern GenAI.
+</details>
+
+---
+
 ## 7. Summary Checklist for Day 23
 
 1. [x] **The Ravine Problem:** Steep walls cause vanilla SGD to oscillate violently while making zero forward progress.
@@ -217,3 +290,12 @@ print("🎉 Adam reached the global minimum while Vanilla SGD was still trapped 
 ---
 
 *Tomorrow in **Day 24**, we assemble every single piece of Phase 4: **Building a Complete Neural Network from Scratch** in pure NumPy — forward pass, backpropagation, Adam optimizer, and training loop — to classify complex non-linear spirals!*
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 22: Backpropagation](../Day_22_Backpropagation/Day_22_Backpropagation.md) | [All 50 Days Overview](../../README.md) | [Day 24: Building a Complete Neural Network from Scratch →](../Day_24_Building_Neural_Network_From_Scratch/Day_24_Building_Neural_Network_From_Scratch.md) |

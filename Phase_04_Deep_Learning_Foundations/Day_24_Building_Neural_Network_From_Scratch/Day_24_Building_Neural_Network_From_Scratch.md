@@ -1,4 +1,9 @@
-# Day 24: Building a Complete Neural Network from Scratch
+﻿# Day 24: Building a Complete Neural Network from Scratch
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 23: Optimizers](../Day_23_Optimizers/Day_23_Optimizers.md) | [All 50 Days Overview](../../README.md) | [Day 25: Introduction to PyTorch →](../Day_25_Introduction_to_PyTorch/Day_25_Introduction_to_PyTorch.md) |
 
 > **"You do not truly understand deep learning until you have written a forward pass, backpropagation, and an Adam optimizer in raw NumPy with zero frameworks."**  
 > Welcome to Day 24 — the crowning milestone of **Phase 4: Deep Learning Foundations**! Today, we take every single mathematical piece forged across Days 18 through 23 and build a complete, object-oriented Deep Learning framework from scratch.
@@ -302,6 +307,67 @@ print("The NumPy Neural Network completely solved non-linear interlocking spiral
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Consolidate your mastery of scratch neural network engineering and matrix calculus!
+
+### 🏋️ Problem 1: Hand-Calculating Weight Initialization Scales
+You are initializing a dense layer with $d_{\text{in}} = 512$ inputs and $d_{\text{out}} = 256$ neurons.
+
+**Your Tasks:**
+1. Calculate the standard deviation $\sigma_{\text{He}}$ for **He (Kaiming) Normal Initialization**:
+   $$\sigma_{\text{He}} = \sqrt{\frac{2}{d_{\text{in}}}}$$
+2. Calculate the standard deviation $\sigma_{\text{Xavier}}$ for **Xavier (Glorot) Initialization**:
+   $$\sigma_{\text{Xavier}} = \sqrt{\frac{2}{d_{\text{in}} + d_{\text{out}}}}$$
+3. Why does He initialization scale by a factor of 2 compared to Xavier? *(Hint: What happens to half the activations when passing through ReLU?)*
+
+---
+
+### 🏋️ Problem 2: Verifying Backpropagation Matrix Dimensions
+During the backward pass of a batch training step:
+- Cached input activation matrix: $X \in \mathbb{R}^{64 \times 128}$ (Batch size $N=64$, Input features $d_{\text{in}}=128$)
+- Layer weight matrix: $W \in \mathbb{R}^{128 \times 32}$
+- Incoming upstream gradient: $dZ \in \mathbb{R}^{64 \times 32}$
+
+**Your Tasks:**
+1. Derive the matrix formula and verify the resulting shape for the weight gradient $dW$.
+2. Derive the formula and verify the resulting shape for the bias gradient $db$.
+3. Derive the matrix formula and verify the resulting shape for the backpropagated input gradient $dX$ sent to the preceding layer.
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **He (Kaiming) Standard Deviation:**
+   $$\sigma_{\text{He}} = \sqrt{\frac{2}{512}} = \sqrt{\frac{1}{256}} = \frac{1}{16} = \mathbf{0.0625}$$
+
+2. **Xavier (Glorot) Standard Deviation:**
+   $$\sigma_{\text{Xavier}} = \sqrt{\frac{2}{512 + 256}} = \sqrt{\frac{2}{768}} = \sqrt{\frac{1}{384}} \approx \mathbf{0.0510}$$
+
+3. **Why the Factor of 2?**
+   The ReLU activation function zeros out all negative inputs ($\approx 50\%$ of all values). This cuts the signal variance in half at every layer! The extra factor of 2 in He initialization doubles the starting variance so that signal strength remains perfectly constant across dozens of deep ReLU layers.
+
+---
+
+### Solution 2:
+1. **Weight Gradient $dW$:**
+   Formula: $dW = X^T \cdot dZ$
+   Dimension check: $(128 \times 64) \cdot (64 \times 32) = \mathbf{(128 \times 32)}$.
+   Matches $W \in \mathbb{R}^{128 \times 32}$ perfectly!
+
+2. **Bias Gradient $db$:**
+   Formula: $db = \sum_{i=1}^{64} dZ_{i, :}$ (summing over batch axis 0).
+   Dimension check: $\mathbf{(1 \times 32)}$.
+   Matches bias vector $b \in \mathbb{R}^{1 \times 32}$!
+
+3. **Input Gradient $dX$:**
+   Formula: $dX = dZ \cdot W^T$
+   Dimension check: $(64 \times 32) \cdot (32 \times 128) = \mathbf{(64 \times 128)}$.
+   Matches input shape $X \in \mathbb{R}^{64 \times 128}$ exactly, allowing the previous layer to seamlessly continue backpropagation!
+</details>
+
+---
+
 ## 4. Summary Checklist for Day 24
 
 1. [x] **Layer Abstraction:** Every building block inherits `.forward()` and `.backward()`.
@@ -313,3 +379,12 @@ print("The NumPy Neural Network completely solved non-linear interlocking spiral
 ---
 
 *Tomorrow in **Day 25**, we graduate to the industrial titan of modern AI: **Introduction to PyTorch** — tensors, dynamic autograd, `nn.Module`, and GPU acceleration!*
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 23: Optimizers](../Day_23_Optimizers/Day_23_Optimizers.md) | [All 50 Days Overview](../../README.md) | [Day 25: Introduction to PyTorch →](../Day_25_Introduction_to_PyTorch/Day_25_Introduction_to_PyTorch.md) |

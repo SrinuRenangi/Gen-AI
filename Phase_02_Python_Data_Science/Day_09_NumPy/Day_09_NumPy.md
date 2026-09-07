@@ -1,10 +1,15 @@
-# ⚡ Day 09: NumPy — The Engine Behind All AI Math
+﻿# ⚡ Day 09: NumPy — The Engine Behind All AI Math
 ## Hardware-Accelerated Vector & Matrix Computing in Python
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 08: Gradients & Optimization](../../Phase_01_Math_Foundations/Day_08_Gradients_and_Optimization/Day_08_Gradients_and_Optimization.md) | [All 50 Days Overview](../../README.md) | [Day 10: Pandas →](../Day_10_Pandas/Day_10_Pandas.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_02-Python_Data_Science-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-09_of_50-blue.svg?style=for-the-badge)](../../README.md)
 [![Difficulty](https://img.shields.io/badge/Difficulty-Beginner_Friendly-00cc00.svg?style=for-the-badge)](../../README.md)
-[![Prerequisites](https://img.shields.io/badge/Prerequisites-Phase_01_Math_Foundations-yellow.svg?style=for-the-badge)](../Phase_01_Math_Foundations/README.md)
+[![Prerequisites](https://img.shields.io/badge/Prerequisites-Phase_01_Math_Foundations-yellow.svg?style=for-the-badge)](../../README.md)
 
 ---
 
@@ -192,7 +197,7 @@ print("Evenly spaced:\n", grid)
 ```
 
 ### 3. Random Number Arrays (AI Weight Initialization!)
-Remember [Day 06](../Phase_01_Math_Foundations/Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md) where we learned that AI weights are initialized from a **Normal Distribution (Bell Curve)**?
+Remember [Day 06](../../Phase_01_Math_Foundations/Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md) where we learned that AI weights are initialized from a **Normal Distribution (Bell Curve)**?
 
 NumPy does this in one function call:
 
@@ -490,7 +495,7 @@ That's an entire deep learning prediction pipeline running on hardware-accelerat
 <summary><b>🏋️ Exercise 1: Cosine Similarity in NumPy (Compare to Day 05!)</b></summary>
 <br/>
 
-On [Day 05](../Phase_01_Math_Foundations/Day_05_Dot_Product_and_Similarity/Day_05_Dot_Product_and_Similarity.md), we wrote a `cosine_similarity` function using Python loops, `zip()`, and `math.sqrt()`.
+On [Day 05](../../Phase_01_Math_Foundations/Day_05_Dot_Product_and_Similarity/Day_05_Dot_Product_and_Similarity.md), we wrote a `cosine_similarity` function using Python loops, `zip()`, and `math.sqrt()`.
 
 Rewrite Cosine Similarity in **two lines of NumPy** using `np.dot()` and `np.linalg.norm()`:
 
@@ -616,3 +621,12 @@ Tomorrow on **Day 10**, we level up to **Pandas**:
 <p align="center">
   <b>🌟 End of Day 09 — You've mastered NumPy, the bedrock of AI computing! 🌟</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 08: Gradients & Optimization](../../Phase_01_Math_Foundations/Day_08_Gradients_and_Optimization/Day_08_Gradients_and_Optimization.md) | [All 50 Days Overview](../../README.md) | [Day 10: Pandas →](../Day_10_Pandas/Day_10_Pandas.md) |

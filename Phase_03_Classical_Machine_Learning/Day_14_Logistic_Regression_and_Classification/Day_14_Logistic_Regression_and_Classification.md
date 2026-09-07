@@ -1,5 +1,10 @@
-# 🎯 Day 14: Logistic Regression & Classification — Predicting Categories
+﻿# 🎯 Day 14: Logistic Regression & Classification — Predicting Categories
 ## Turning Straight Lines into Probabilities
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 13: Linear Regression](../Day_13_Linear_Regression/Day_13_Linear_Regression.md) | [All 50 Days Overview](../../README.md) | [Day 15: Decision Trees & Random Forests →](../Day_15_Decision_Trees_and_Random_Forests/Day_15_Decision_Trees_and_Random_Forests.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_03-Classical_Machine_Learning-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-14_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -271,7 +276,7 @@ Train 3 separate binary classifiers:
 Pick the class with the highest probability score!
 
 ### 2. Multinomial Softmax (The Deep Learning Standard)
-Instead of the binary Sigmoid function, pass all class logits through the **Softmax function** from [Day 06 (Probability & Statistics)](../Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md)!
+Instead of the binary Sigmoid function, pass all class logits through the **Softmax function** from [Day 06 (Probability & Statistics)](../../Phase_01_Math_Foundations/Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md)!
 
 ```python
 # In Scikit-Learn, this is automatic:
@@ -423,3 +428,12 @@ What if a bank wants to approve loans by asking human-like questions:
 - *"If YES, is Credit Score > 750?"*
 
 Tomorrow on **[Day 15: Decision Trees & Random Forests](../Day_15_Decision_Trees_and_Random_Forests/Day_15_Decision_Trees_and_Random_Forests.md)**, we will build tree-based algorithms and explore the **wisdom of crowds (Ensemble Learning)**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 13: Linear Regression](../Day_13_Linear_Regression/Day_13_Linear_Regression.md) | [All 50 Days Overview](../../README.md) | [Day 15: Decision Trees & Random Forests →](../Day_15_Decision_Trees_and_Random_Forests/Day_15_Decision_Trees_and_Random_Forests.md) |

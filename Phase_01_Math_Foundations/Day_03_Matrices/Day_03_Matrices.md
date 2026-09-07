@@ -1,5 +1,10 @@
-# 📊 Day 03: Matrices — Tables of Numbers
+﻿# 📊 Day 03: Matrices — Tables of Numbers
 ## 2D Lists: How AI Stores Datasets, Images, and Weights
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 02: Vectors](../Day_02_Vectors/Day_02_Vectors.md) | [All 50 Days Overview](../../README.md) | [Day 04: Matrix Multiplication →](../Day_04_Matrix_Multiplication/Day_04_Matrix_Multiplication.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_01-Math_Foundations-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-03_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -695,3 +700,12 @@ Tomorrow on **Day 04**, we will tackle:
 <p align="center">
   <b>🌟 End of Day 03 — You have mastered Matrices, the tables that power all of AI! 🌟</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 02: Vectors](../Day_02_Vectors/Day_02_Vectors.md) | [All 50 Days Overview](../../README.md) | [Day 04: Matrix Multiplication →](../Day_04_Matrix_Multiplication/Day_04_Matrix_Multiplication.md) |

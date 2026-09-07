@@ -1,4 +1,9 @@
-# Day 26: CNNs Part 1 — How Computers See Images
+﻿# Day 26: CNNs Part 1 — How Computers See Images
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 25: Introduction to PyTorch](../../Phase_04_Deep_Learning_Foundations/Day_25_Introduction_to_PyTorch/Day_25_Introduction_to_PyTorch.md) | [All 50 Days Overview](../../README.md) | [Day 27: CNNs Part 2 →](../Day_27_CNNs_Part_2/Day_27_CNNs_Part_2.md) |
 
 > **"If you flatten a 1-megapixel image into a traditional neural network, you destroy all spatial geometry and require 3 billion weights for a single layer. Convolutional Neural Networks solve vision using just 9 shared weights."**  
 > Welcome to Day 26! Today we kick off **Phase 5: Specialized Neural Networks**. We will master how machines process the visual world using **Convolutional Neural Networks (CNNs)**.
@@ -241,6 +246,76 @@ print("✅ 100% Exact Numerical Match! Scratch logic is identical to PyTorch's C
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Master the spatial geometry, parameter counting, and arithmetic of 2D convolutional layers!
+
+### 🏋️ Problem 1: Conv2D Feature Map Sizing & Parameter Math
+In the first layer of a famous vision model:
+- Input: An RGB photograph of size $224 \times 224 \times 3$ ($C_{\text{in}} = 3$).
+- Layer specification: 64 convolutional filters ($C_{\text{out}} = 64$).
+- Filter size: $K = 7 \times 7$.
+- Stride: $S = 2$.
+- Padding: $P = 3$.
+
+Formula:
+$$O = \left\lfloor \frac{W - K + 2P}{S} \right\rfloor + 1$$
+
+**Your Tasks:**
+1. Calculate the spatial dimensions ($H_{\text{out}} \times W_{\text{out}}$) of the resulting feature map.
+2. What is the full 4D shape of the output tensor for a batch of $N = 32$ images?
+3. Calculate the exact number of learnable parameters (weights + biases) in this Conv2D layer.
+4. Compare this to an MLP layer that connects the $224 \times 224 \times 3 = 150,528$ pixels to 64 neurons. How many parameters did weight sharing save?
+
+---
+
+### 🏋️ Problem 2: Step-by-Step 2D Convolution Hand Calculation
+Perform the Frobenius inner product between this $3 \times 3$ image patch and vertical edge detector filter:
+
+$$\text{Image Patch } X = \begin{bmatrix} 10 & 10 & 0 \\ 10 & 10 & 0 \\ 10 & 10 & 0 \end{bmatrix}, \quad \text{Kernel } K = \begin{bmatrix} -1 & 0 & +1 \\ -2 & 0 & +2 \\ -1 & 0 & +1 \end{bmatrix}, \quad \text{Bias } b = 0$$
+
+**Your Tasks:**
+1. Compute the element-wise products.
+2. Sum the products to find the output scalar $z$.
+3. What does the magnitude of $z$ indicate about the presence of a vertical edge in this patch?
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Spatial Dimension Calculation:**
+   $$O = \left\lfloor \frac{224 - 7 + 2(3)}{2} \right\rfloor + 1 = \left\lfloor \frac{224 - 7 + 6}{2} \right\rfloor + 1 = \left\lfloor \frac{223}{2} \right\rfloor + 1 = 111 + 1 = \mathbf{112}$$
+   The output feature map is **$112 \times 112$**!
+
+2. **Output Tensor Shape:**
+   $$(N, C_{\text{out}}, H_{\text{out}}, W_{\text{out}}) = \mathbf{(32, 64, 112, 112)}$$
+
+3. **Conv2D Parameter Count:**
+   - Weight parameters per filter: $K_h \times K_w \times C_{\text{in}} = 7 \times 7 \times 3 = 147$
+   - Total weights for 64 filters: $147 \times 64 = 9,408$
+   - Biases (1 per filter): $64$
+   $$\text{Total Parameters} = 9,408 + 64 = \mathbf{9,472\text{ parameters}}$$
+
+4. **MLP Comparison:**
+   An equivalent MLP layer would require:
+   $$\text{Parameters}_{\text{MLP}} = (150,528 \times 64) + 64 = \mathbf{9,633,856\text{ parameters!}}$$
+   Conv2D achieves the same task with **over 1,000x fewer parameters** ($9,472$ vs $9.63$ Million) due to weight sharing!
+
+---
+
+### Solution 2:
+1. **Element-wise Multiplication:**
+   $$\begin{bmatrix} (10 \times -1) & (10 \times 0) & (0 \times 1) \\ (10 \times -2) & (10 \times 0) & (0 \times 2) \\ (10 \times -1) & (10 \times 0) & (0 \times 1) \end{bmatrix} = \begin{bmatrix} -10 & 0 & 0 \\ -20 & 0 & 0 \\ -10 & 0 & 0 \end{bmatrix}$$
+
+2. **Sum:**
+   $$z = (-10) + (-20) + (-10) = \mathbf{-40}$$
+
+3. **Edge Detection Interpretation:**
+   A large absolute magnitude ($|-40| = 40$) signals a sharp, high-contrast vertical boundary (light on the left, dark on the right). If the patch had been flat uniform gray, the positive and negative sides would cancel out to $0.0$.
+</details>
+
+---
+
 ## 6. Summary Checklist for Day 26
 
 1. [x] **Why MLPs Fail on Vision:** Destroys 2D spatial locality, parameter explosion (billions of weights), lacks translation invariance.
@@ -254,3 +329,12 @@ print("✅ 100% Exact Numerical Match! Scratch logic is identical to PyTorch's C
 ---
 
 *Tomorrow in **Day 27**, we complete the vision revolution: **CNNs Part 2 — Pooling Layers, Full Architectural Pipelines, and Famous Models (LeNet, AlexNet, VGG, and ResNet Skip Connections)!***
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 25: Introduction to PyTorch](../../Phase_04_Deep_Learning_Foundations/Day_25_Introduction_to_PyTorch/Day_25_Introduction_to_PyTorch.md) | [All 50 Days Overview](../../README.md) | [Day 27: CNNs Part 2 →](../Day_27_CNNs_Part_2/Day_27_CNNs_Part_2.md) |

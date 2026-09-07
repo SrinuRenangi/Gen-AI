@@ -1,4 +1,9 @@
-# Day 36: Multi-Head Attention & The Full Transformer Block
+﻿# Day 36: Multi-Head Attention & The Full Transformer Block
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 35: Self-Attention](../Day_35_Self_Attention/Day_35_Self_Attention.md) | [All 50 Days Overview](../../README.md) | [Day 37: The Complete Transformer Architecture →](../Day_37_Complete_Transformer_Architecture/Day_37_Complete_Transformer_Architecture.md) |
 
 > "If single-head attention is a single flashlight beam, Multi-Head Attention is a stadium lighting rig with 8 or 16 multi-colored spotlights: one tracks grammar, one tracks pronouns, one tracks entities, and one tracks long-range theme—all operating simultaneously in parallel."
 
@@ -380,3 +385,12 @@ Why did early 2017 Transformer models with Post-LN fail to train when stacked be
 ## 🚀 Tomorrow's Mission: Day 37
 
 We now have the complete Transformer block! But how do we connect multiple blocks together into an end-to-end model? Tomorrow on [Day 37: The Complete Transformer Architecture — Putting It All Together](../Day_37_Complete_Transformer_Architecture/Day_37_Complete_Transformer_Architecture.md), we build the full **Encoder-Decoder, explore Causal Masking, and unpack the Transformer Trinity: BERT vs GPT vs T5**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 35: Self-Attention](../Day_35_Self_Attention/Day_35_Self_Attention.md) | [All 50 Days Overview](../../README.md) | [Day 37: The Complete Transformer Architecture →](../Day_37_Complete_Transformer_Architecture/Day_37_Complete_Transformer_Architecture.md) |

@@ -1,5 +1,10 @@
-# 🐼 Day 10: Pandas — Working with Real-World Data
+﻿# 🐼 Day 10: Pandas — Working with Real-World Data
 ## The Programmable Spreadsheet: Cleaning & Preparing Datasets for AI
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 09: NumPy](../Day_09_NumPy/Day_09_NumPy.md) | [All 50 Days Overview](../../README.md) | [Day 11: Matplotlib & Data Visualization →](../Day_11_Matplotlib/Day_11_Matplotlib.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_02-Python_Data_Science-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-10_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -269,6 +274,12 @@ print("After filling missing bedrooms with average (", avg_bedrooms, "):\n", hou
 
 ---
 
+## 🏗️ Visual Architecture: Split-Apply-Combine & Feature Pipelines
+
+![Pandas Split-Apply-Combine and ML Feature Engineering Pipeline](assets/pandas_groupby_and_feature_engineering.svg)
+
+---
+
 # 7. Aggregations & GroupBy: Instant Business Analytics
 
 Just like SQL `GROUP BY`, Pandas allows you to split a dataset by a category and calculate metrics:
@@ -294,7 +305,7 @@ Mumbai       45000.0  22.0
 
 # 8. One-Hot Encoding: Converting Words to Numbers
 
-Remember the fundamental rule from [Day 01](../Phase_01_Math_Foundations/Day_01_Numbers_Variables_Functions/Day_01_Numbers_Variables_Functions.md):
+Remember the fundamental rule from [Day 01](../../Phase_01_Math_Foundations/Day_01_Numbers_Variables_Functions/Day_01_Numbers_Variables_Functions.md):
 > **Computers and AI models can ONLY do math on NUMBERS.**
 
 Look at the `City` column in our DataFrame:
@@ -537,3 +548,12 @@ Tomorrow on **Day 11**, we complete Phase 2 with **Matplotlib**:
 <p align="center">
   <b>🌟 End of Day 10 — You've mastered Pandas, the dataset engine of AI! 🌟</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 09: NumPy](../Day_09_NumPy/Day_09_NumPy.md) | [All 50 Days Overview](../../README.md) | [Day 11: Matplotlib & Data Visualization →](../Day_11_Matplotlib/Day_11_Matplotlib.md) |

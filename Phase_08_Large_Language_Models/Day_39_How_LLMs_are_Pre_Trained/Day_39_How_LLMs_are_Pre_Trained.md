@@ -1,4 +1,9 @@
-# Day 39: How LLMs are Pre-Trained — Reading the Entire Internet
+﻿# Day 39: How LLMs are Pre-Trained — Reading the Entire Internet
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 38: What are LLMs?](../Day_38_What_are_LLMs/Day_38_What_are_LLMs.md) | [All 50 Days Overview](../../README.md) | [Day 40: Supervised Fine-Tuning (SFT) →](../Day_40_Supervised_Fine_Tuning/Day_40_Supervised_Fine_Tuning.md) |
 
 > "Pre-training a 70-Billion parameter foundation model is one of the most staggering industrial feats in human history: thousands of liquid-cooled GPUs consuming megawatts of electricity across months of continuous computation, crunching 15 Trillion words to compress the digital knowledge of civilization into a single set of neural weights."
 
@@ -377,3 +382,12 @@ In standard FP16, what is the largest representable number before overflowing to
 ## 🚀 Tomorrow's Mission: Day 40
 
 A pre-trained base model is an uncensored, chaotic text predictor. If you ask it: *"How do I bake a cake?"*, it might reply: *"...or how do I bake cookies? Leave a comment below!"* Tomorrow on [Day 40: Supervised Fine-Tuning (SFT) — Teaching Models to Be Helpful](../Day_40_Supervised_Fine_Tuning/Day_40_Supervised_Fine_Tuning.md), we transform wild base models into obedient conversational assistants using **Instruction Tuning and ChatML templates**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 38: What are LLMs?](../Day_38_What_are_LLMs/Day_38_What_are_LLMs.md) | [All 50 Days Overview](../../README.md) | [Day 40: Supervised Fine-Tuning (SFT) →](../Day_40_Supervised_Fine_Tuning/Day_40_Supervised_Fine_Tuning.md) |

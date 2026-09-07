@@ -1,4 +1,9 @@
-# Day 41: RLHF & Alignment — Making Models Safe, Honest, and Helpful
+﻿# Day 41: RLHF & Alignment — Making Models Safe, Honest, and Helpful
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 40: Supervised Fine-Tuning (SFT)](../Day_40_Supervised_Fine_Tuning/Day_40_Supervised_Fine_Tuning.md) | [All 50 Days Overview](../../README.md) | [Day 42: What is Generative AI? →](../../Phase_09_The_Generative_AI_Landscape/Day_42_What_is_GenAI/Day_42_What_is_GenAI.md) |
 
 Welcome to **Day 41 of our 50-Day Generative AI Masterclass**! In [Day 40](../Day_40_Supervised_Fine_Tuning/Day_40_Supervised_Fine_Tuning.md), you learned how Supervised Fine-Tuning (SFT) transforms an unruly text-continuation engine into a conversational assistant.
 
@@ -459,3 +464,12 @@ Congratulations! You have completed **Phase 8: Large Language Models (Days 38–
 You now possess a complete, rigorous understanding of how raw internet text is transformed into safe, production-grade conversational AI models like ChatGPT, Claude, and Llama 3.
 
 In **Phase 9: The Generative AI Landscape (Days 42–44)**, we expand beyond text to explore **how machines create images, audio, and video** using Diffusion Models, Latent Diffusion, and Multimodal Architectures. See you in Day 42!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 40: Supervised Fine-Tuning (SFT)](../Day_40_Supervised_Fine_Tuning/Day_40_Supervised_Fine_Tuning.md) | [All 50 Days Overview](../../README.md) | [Day 42: What is Generative AI? →](../../Phase_09_The_Generative_AI_Landscape/Day_42_What_is_GenAI/Day_42_What_is_GenAI.md) |

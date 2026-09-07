@@ -1,4 +1,9 @@
-# Day 31: Word Representations — From Text to Numbers (One-Hot, BoW & TF-IDF)
+﻿# Day 31: Word Representations — From Text to Numbers (One-Hot, BoW & TF-IDF)
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 30: Text Processing Basics (Cleaning, Tokenization, Stopwords)](../Day_30_Text_Processing_Basics/Day_30_Text_Processing_Basics.md) | [All 50 Days Overview](../../README.md) | [Day 32: Word Embeddings →](../Day_32_Word_Embeddings/Day_32_Word_Embeddings.md) |
 
 > "To a computer, the word 'cat' is merely three ASCII bytes: 99, 97, and 116. A GPU cannot perform gradient descent or matrix multiplication on ASCII letters. How we translate human words into numeric vectors determines whether an AI model sees meaning or just blind noise."
 
@@ -505,3 +510,12 @@ Explain mathematically what happens to the normalized vector $\vec{v}_{\text{nor
 ## 🚀 Tomorrow's Mission: Day 32
 
 We have pushed lexical frequency as far as it can go. But how do we teach an AI that *"king"* is to *"queen"* as *"man"* is to *"woman"*? Tomorrow on [Day 32: Word Embeddings — Word GPS Coordinates](../Day_32_Word_Embeddings/Day_32_Word_Embeddings.md), we explore **Word2Vec, dense latent semantic spaces, and vector arithmetic**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 30: Text Processing Basics (Cleaning, Tokenization, Stopwords)](../Day_30_Text_Processing_Basics/Day_30_Text_Processing_Basics.md) | [All 50 Days Overview](../../README.md) | [Day 32: Word Embeddings →](../Day_32_Word_Embeddings/Day_32_Word_Embeddings.md) |

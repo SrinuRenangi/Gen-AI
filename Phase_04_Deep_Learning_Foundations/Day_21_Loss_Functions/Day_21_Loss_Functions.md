@@ -1,4 +1,9 @@
-# Day 21: Loss Functions — Measuring How Wrong the Model Is
+﻿# Day 21: Loss Functions — Measuring How Wrong the Model Is
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 20: Activation Functions](../Day_20_Activation_Functions/Day_20_Activation_Functions.md) | [All 50 Days Overview](../../README.md) | [Day 22: Backpropagation →](../Day_22_Backpropagation/Day_22_Backpropagation.md) |
 
 > **"If a neural network is an archer, the loss function is the target. Without an exact mathematical score measuring how far your arrow missed the bullseye, you can never adjust your aim."**  
 > Welcome to Day 21! Today we examine the engine of learning: **Loss Functions** (also called Cost Functions or Objective Functions). We will master how neural networks quantify their mistakes in both regression and large-scale language modeling.
@@ -262,6 +267,73 @@ print(f"Confused LLM  -> Loss: {loss_confused:.4f} | Perplexity: {ppl_confused:.
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Solidify your mastery of loss functions, cross-entropy mathematics, and LLM perplexity with these hand-calculated challenges!
+
+### 🏋️ Problem 1: Hand-Calculating Binary Cross-Entropy (BCE)
+A medical diagnostic model is tested on two patients who both tested positive for a disease ($y = 1$):
+- Patient 1 prediction: $\hat{y}_1 = 0.95$ (Confident & Correct)
+- Patient 2 prediction: $\hat{y}_2 = 0.05$ (Confident & WRONG!)
+
+Formula:
+$$\mathcal{L}_{\text{BCE}} = -\left[ y \ln(\hat{y}) + (1-y)\ln(1-\hat{y}) \right]$$
+
+*(Use approximations: $\ln(0.95) \approx -0.0513$, $\ln(0.05) \approx -2.9957$)*
+
+**Your Tasks:**
+1. Compute the BCE loss for Patient 1.
+2. Compute the BCE loss for Patient 2.
+3. How many times higher is the penalty for Patient 2 than Patient 1? What does this demonstrate about Cross-Entropy?
+
+---
+
+### 🏋️ Problem 2: LLM Next-Token Loss & Perplexity
+An LLM with a vocabulary of $V = 32,000$ tokens is predicting the next word after `"The capital of France is "`:
+- Target token: `"Paris"`
+
+**Your Tasks:**
+1. **Scenario A (Trained Model):** The model assigns $P(\text{"Paris"}) = 0.50$.
+   - Calculate Cross-Entropy Loss: $\mathcal{L} = -\ln(0.50)$. *(Note: $\ln(0.5) \approx -0.693$)*
+   - Calculate Perplexity: $\text{PPL} = e^{\mathcal{L}}$.
+2. **Scenario B (Untrained Model):** The model is completely uniform random ($P = \frac{1}{32000}$).
+   - Calculate Cross-Entropy Loss: $\mathcal{L} = -\ln\left(\frac{1}{32000}\right) = \ln(32000)$. *(Note: $\ln(32000) \approx 10.373$)*
+   - Calculate Perplexity: $\text{PPL} = e^{\mathcal{L}}$.
+3. In plain English, what does a perplexity of 2 vs 32,000 tell you about the model's certainty?
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Patient 1 ($y=1, \hat{y}=0.95$):**
+   $$\mathcal{L}_1 = -[1 \cdot \ln(0.95) + 0 \cdot \ln(0.05)] = -(-0.0513) = \mathbf{0.0513}$$
+
+2. **Patient 2 ($y=1, \hat{y}=0.05$):**
+   $$\mathcal{L}_2 = -[1 \cdot \ln(0.05) + 0 \cdot \ln(0.95)] = -(-2.9957) = \mathbf{2.9957}$$
+
+3. **Penalty Ratio:**
+   $$\frac{\mathcal{L}_2}{\mathcal{L}_1} = \frac{2.9957}{0.0513} \approx \mathbf{58.4\times\text{ higher!}}$$
+   Cross-entropy exponentially penalizes confidently incorrect predictions! If $\hat{y} \to 0$, the loss shoots to $+\infty$.
+
+---
+
+### Solution 2:
+1. **Scenario A (Trained Model):**
+   - Loss: $\mathcal{L} = -\ln(0.50) = \mathbf{0.693}$
+   - Perplexity: $\text{PPL} = e^{0.693} = \frac{1}{0.50} = \mathbf{2.00}$
+   *(The model acts like it is choosing between only 2 equally likely words!)*
+
+2. **Scenario B (Untrained Model):**
+   - Loss: $\mathcal{L} = \ln(32000) \approx \mathbf{10.373}$
+   - Perplexity: $\text{PPL} = e^{10.373} = \mathbf{32,000}$
+   *(The model is as clueless as rolling a 32,000-sided die!)*
+
+3. **Plain English Meaning:**
+   Perplexity is the **effective branching factor**. A perplexity of 2 means the model is razor-sharp and hesitating between just 2 plausible tokens. A perplexity of 32,000 means total confusion across the entire vocabulary.
+</details>
+
+---
+
 ## 7. Summary Checklist for Day 21
 
 1. [x] **The Role of Loss:** Converts multi-dimensional prediction mistakes into a single scalar score $\mathcal{L}$ that gradients can optimize.
@@ -276,3 +348,12 @@ print(f"Confused LLM  -> Loss: {loss_confused:.4f} | Perplexity: {ppl_confused:.
 ---
 
 *Tomorrow in **Day 22**, we unlock the most important mathematical algorithm in the history of artificial intelligence: **Backpropagation — How Neural Networks Actually Learn** using the Calculus Chain Rule!*
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 20: Activation Functions](../Day_20_Activation_Functions/Day_20_Activation_Functions.md) | [All 50 Days Overview](../../README.md) | [Day 22: Backpropagation →](../Day_22_Backpropagation/Day_22_Backpropagation.md) |

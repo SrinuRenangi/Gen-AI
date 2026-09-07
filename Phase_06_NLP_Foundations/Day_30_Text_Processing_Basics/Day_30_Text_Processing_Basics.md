@@ -1,4 +1,9 @@
-# Day 30: Text Processing Basics — Cleaning, Tokenization & Normalization
+﻿# Day 30: Text Processing Basics — Cleaning, Tokenization & Normalization
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 29: LSTMs & GRUs](../../Phase_05_Specialized_Neural_Networks/Day_29_LSTMs_and_GRUs/Day_29_LSTMs_and_GRUs.md) | [All 50 Days Overview](../../README.md) | [Day 31: Word Representations →](../Day_31_Word_Representations/Day_31_Word_Representations.md) |
 
 > "A neural network is fundamentally a giant matrix calculator. It cannot eat the English language. Before a single word can be processed by an AI model, raw human text must undergo surgical cleaning, normalization, and tokenization."
 
@@ -533,3 +538,12 @@ Write a Python one-liner to verify whether two strings `"resume\u0301"` and `"re
 ## 🚀 Tomorrow's Mission: Day 31
 
 Now that we understand how raw text is broken into clean tokens, how do we transform those discrete strings into actual mathematical vectors that a neural network can multiply? Tomorrow on [Day 31: Word Representations — From Text to Numbers](../Day_31_Word_Representations/Day_31_Word_Representations.md), we build **One-Hot Encodings, Bag-of-Words (BoW), and TF-IDF** from scratch!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 29: LSTMs & GRUs](../../Phase_05_Specialized_Neural_Networks/Day_29_LSTMs_and_GRUs/Day_29_LSTMs_and_GRUs.md) | [All 50 Days Overview](../../README.md) | [Day 31: Word Representations →](../Day_31_Word_Representations/Day_31_Word_Representations.md) |

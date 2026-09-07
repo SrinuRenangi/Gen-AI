@@ -1,4 +1,9 @@
-# Day 20: Activation Functions — Why Straight Lines Aren't Enough
+﻿# Day 20: Activation Functions — Why Straight Lines Aren't Enough
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 19: Multi-Layer Neural Networks](../Day_19_Multi_Layer_Neural_Networks/Day_19_Multi_Layer_Neural_Networks.md) | [All 50 Days Overview](../../README.md) | [Day 21: Loss Functions →](../Day_21_Loss_Functions/Day_21_Loss_Functions.md) |
 
 > **"Without activation functions, a 1,000-layer deep neural network with 100 billion parameters collapses into a single boring linear equation: $y = Wx + b$."**  
 > Welcome to Day 20! Today we uncover the mathematical secret that gives neural networks the power to bend, fold, and twist coordinate space: **Non-Linear Activation Functions**.
@@ -254,6 +259,72 @@ print("✅ Output is EXACTLY identical! Stacking linear layers without activatio
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Test your grasp of non-linear activations, vanishing gradients, and Softmax normalization!
+
+### 🏋️ Problem 1: Step-by-Step Softmax Hand Calculation
+A multi-class classifier outputs the following raw unnormalized logits for 3 classes:
+$$\mathbf{z} = [z_1, z_2, z_3] = [2.0, 1.0, 0.1]$$
+
+**Your Tasks:**
+1. Compute the exponential values $e^{z_i}$ for each logit (use approximations: $e^2 \approx 7.389$, $e^1 \approx 2.718$, $e^{0.1} \approx 1.105$).
+2. Compute the normalization denominator $\sum_{j=1}^3 e^{z_j}$.
+3. Calculate the Softmax probability vector $\mathbf{p} = [p_1, p_2, p_3]$.
+4. Verify that $\sum p_i = 1.0$.
+
+---
+
+### 🏋️ Problem 2: Diagnosing Dying ReLU vs Leaky ReLU
+A neuron in Hidden Layer 3 has inputs that produce a negative pre-activation value:
+$$z = -4.0$$
+
+**Your Tasks:**
+1. What is the activation output $a$ using standard $\text{ReLU}(z)$?
+2. What is the local gradient $\frac{\partial a}{\partial z}$ passing backward through this neuron during backpropagation?
+3. What is the disastrous consequence if all training samples cause $z < 0$ for this neuron?
+4. Calculate the output $a$ and local gradient $\frac{\partial a}{\partial z}$ if the architect switches to **Leaky ReLU** ($\alpha = 0.01$).
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Exponentials:**
+   - $e^{z_1} = e^{2.0} \approx 7.389$
+   - $e^{z_2} = e^{1.0} \approx 2.718$
+   - $e^{z_3} = e^{0.1} \approx 1.105$
+
+2. **Sum of Exponentials:**
+   $$\sum_{j=1}^3 e^{z_j} = 7.389 + 2.718 + 1.105 = \mathbf{11.212}$$
+
+3. **Softmax Probabilities:**
+   - $p_1 = \frac{7.389}{11.212} \approx \mathbf{0.6590 \implies 65.9\%}$
+   - $p_2 = \frac{2.718}{11.212} \approx \mathbf{0.2424 \implies 24.2\%}$
+   - $p_3 = \frac{1.105}{11.212} \approx \mathbf{0.0986 \implies 9.9\%}$
+
+4. **Sanity Check:**
+   $$0.659 + 0.2424 + 0.0986 = 1.0000 \quad \checkmark$$
+
+---
+
+### Solution 2:
+1. **Standard ReLU Output:**
+   $$a = \max(0, -4.0) = \mathbf{0}$$
+
+2. **Standard ReLU Gradient:**
+   $$\frac{\partial a}{\partial z} = 0.0$$
+
+3. **The "Dying ReLU" Problem:**
+   Since the local gradient is strictly $0.0$, the incoming gradient from upstream is multiplied by $0.0$ via the chain rule ($\delta = \delta_{\text{upstream}} \times 0 = 0$). No weight updates ever reach this neuron's incoming connections. The neuron is permanently "dead" and will never learn again.
+
+4. **Leaky ReLU ($\alpha = 0.01$):**
+   - Output: $a = 0.01 \times (-4.0) = \mathbf{-0.04}$
+   - Local Gradient: $\frac{\partial a}{\partial z} = \alpha = \mathbf{0.01}$
+   Because the gradient is non-zero ($0.01$), upstream error gradients can still flow backward through the neuron, allowing gradient descent to adjust the weights and potentially revive the neuron!
+</details>
+
+---
+
 ## 7. Summary Checklist for Day 20
 
 1. [x] **Linear Collapse Proof:** Multiple linear layers mathematically collapse into $W_{\text{combined}}x + b_{\text{combined}}$. Non-linear activations are mandatory.
@@ -266,3 +337,12 @@ print("✅ Output is EXACTLY identical! Stacking linear layers without activatio
 ---
 
 *Tomorrow in **Day 21**, we ask the most important question in training: **Loss Functions — Measuring How Wrong the Model Is** (MSE, Binary Cross-Entropy, Categorical Cross-Entropy) and how they guide the learning process!*
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 19: Multi-Layer Neural Networks](../Day_19_Multi_Layer_Neural_Networks/Day_19_Multi_Layer_Neural_Networks.md) | [All 50 Days Overview](../../README.md) | [Day 21: Loss Functions →](../Day_21_Loss_Functions/Day_21_Loss_Functions.md) |

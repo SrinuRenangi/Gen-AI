@@ -1,5 +1,10 @@
-# 📏 Day 13: Linear Regression — Predicting Numbers
+﻿# 📏 Day 13: Linear Regression — Predicting Numbers
 ## The Foundation of All Predictive Modeling
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 12: What is Machine Learning?](../Day_12_What_is_Machine_Learning/Day_12_What_is_Machine_Learning.md) | [All 50 Days Overview](../../README.md) | [Day 14: Logistic Regression & Classification →](../Day_14_Logistic_Regression_and_Classification/Day_14_Logistic_Regression_and_Classification.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_03-Classical_Machine_Learning-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-13_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -234,7 +239,7 @@ This is called **Multiple Linear Regression**:
 
 $$\hat{y} = w_1 x_1 + w_2 x_2 + w_3 x_3 + b$$
 
-Notice that this is literally the **Dot Product** from [Day 05](../Day_05_Dot_Product_and_Similarity/Day_05_Dot_Product_and_Similarity.md) and the **Matrix Multiplication** from [Day 04](../Day_04_Matrix_Multiplication/Day_04_Matrix_Multiplication.md):
+Notice that this is literally the **Dot Product** from [Day 05](../../Phase_01_Math_Foundations/Day_05_Dot_Product_and_Similarity/Day_05_Dot_Product_and_Similarity.md) and the **Matrix Multiplication** from [Day 04](../../Phase_01_Math_Foundations/Day_04_Matrix_Multiplication/Day_04_Matrix_Multiplication.md):
 
 $$\hat{y} = \vec{x} \cdot \vec{w} + b = X @ W + b$$
 
@@ -444,3 +449,12 @@ What happens when the target is NOT a continuous number, but a **Category** like
 - `Malignant Tumor` vs. `Benign`
 
 Tomorrow on **[Day 14: Logistic Regression & Classification — Predicting Categories](../Day_14_Logistic_Regression_and_Classification/Day_14_Logistic_Regression_and_Classification.md)**, we will discover how squashing a straight line through the **Sigmoid S-curve** turns regression into a probability classifier!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 12: What is Machine Learning?](../Day_12_What_is_Machine_Learning/Day_12_What_is_Machine_Learning.md) | [All 50 Days Overview](../../README.md) | [Day 14: Logistic Regression & Classification →](../Day_14_Logistic_Regression_and_Classification/Day_14_Logistic_Regression_and_Classification.md) |

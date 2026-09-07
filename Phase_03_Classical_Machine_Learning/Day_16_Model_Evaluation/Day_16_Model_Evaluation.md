@@ -1,4 +1,9 @@
-# Day 16: Model Evaluation — Is Your Model Actually Good?
+﻿# Day 16: Model Evaluation — Is Your Model Actually Good?
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 15: Decision Trees & Random Forests](../Day_15_Decision_Trees_and_Random_Forests/Day_15_Decision_Trees_and_Random_Forests.md) | [All 50 Days Overview](../../README.md) | [Day 17: Scikit-Learn Hands-On →](../Day_17_Scikit_Learn_Pipelines/Day_17_Scikit_Learn_Pipelines.md) |
 
 > **"A model that is 99% accurate can be completely useless — and dangerously lethal."**  
 > Welcome to Day 16. In the previous days, we built models that output predictions (prices, binary flags, tree classifications). But how do you objectively prove whether your model is genuinely discovering signal, or just gaming a dumb metric?
@@ -204,9 +209,9 @@ When predicting house prices, temperatures, or latency times (continuous numbers
 
 | Metric | Formula | Plain English Meaning | Sensitivity to Extreme Outliers |
 | :--- | :---: | :--- | :---: |
-| **MAE** (Mean Absolute Error) | $\frac{1}{n} \sum \|y - \hat{y}\|$ | On average, off by $\$X$ dollars. | **Low** (linear penalty) |
+| **MAE** (Mean Absolute Error) | $\frac{1}{n} \sum \|y - \hat{y}\|$ | On average, off by $X dollars. | **Low** (linear penalty) |
 | **MSE** (Mean Squared Error) | $\frac{1}{n} \sum (y - \hat{y})^2$ | Penalizes huge mistakes quadratically. | **High** (error squared) |
-| **RMSE** (Root Mean Squared Error) | $\sqrt{\text{MSE}}$ | In original units ($\$$), but heavily penalizes large blunders. | **High** |
+| **RMSE** (Root Mean Squared Error) | $\sqrt{\text{MSE}}$ | In original units (e.g., dollars, meters), but heavily penalizes large blunders. | **High** |
 | **$R^2$ Score** (Coefficient of Determination) | $1 - \frac{\sum (y - \hat{y})^2}{\sum (y - \bar{y})^2}$ | Percentage of variance explained (1.0 = perfect, 0.0 = baseline mean). | Relative benchmark |
 
 ---
@@ -298,6 +303,88 @@ print("=" * 60)
 
 ---
 
+---
+
+## ✍️ Self-Check Exercises & Practice Problems
+
+Put your evaluation skills into practice with these real-world scenarios. Try calculating the numbers by hand before revealing the answers!
+
+### 🏋️ Problem 1: The Airport Security Scanner (Confusion Matrix Arithmetic)
+An airport uses an automated computer-vision explosive scanner on luggage. Out of **1,000 bags scanned**:
+- 20 bags actually contain hazardous items.
+- The scanner flags 50 bags total as suspicious.
+- Of the 50 flagged bags, 18 actually contained hazardous items.
+
+**Your Tasks:**
+1. Construct the 2x2 confusion matrix (find $TP, FP, FN, TN$).
+2. Calculate the **Raw Accuracy**.
+3. Calculate the **Precision** and **Recall**.
+4. Calculate the **F1-Score**.
+5. Which is more dangerous in an airport: a False Positive or a False Negative?
+
+---
+
+### 🏋️ Problem 2: Hand-Calculating MAE vs MSE Outlier Penalty
+A property pricing model makes predictions for 3 houses:
+- House A: Actual = \$300k, Predicted = \$310k (Error = +\$10k)
+- House B: Actual = \$500k, Predicted = \$490k (Error = -\$10k)
+- House C: Actual = \$700k, Predicted = \$760k (Error = +\$60k)
+
+**Your Tasks:**
+1. Calculate the **Mean Absolute Error (MAE)**.
+2. Calculate the **Mean Squared Error (MSE)**.
+3. Calculate the **Root Mean Squared Error (RMSE)**.
+4. Explain why RMSE is noticeably larger than MAE in this scenario.
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Confusion Matrix Values:**
+   - Hazardous bags (Actual Positives) = 20
+   - Clean bags (Actual Negatives) = $1000 - 20 = 980$
+   - Correctly flagged hazards: $\mathbf{TP = 18}$
+   - Missed hazards: $FN = 20 - 18 = \mathbf{2}$
+   - False alarms (flagged clean bags): $FP = 50 - 18 = \mathbf{32}$
+   - Correctly passed clean bags: $TN = 980 - 32 = \mathbf{948}$
+
+2. **Raw Accuracy:**
+   $$\text{Accuracy} = \frac{TP + TN}{\text{Total}} = \frac{18 + 948}{1000} = \frac{966}{1000} = \mathbf{96.6\%}$$
+
+3. **Precision & Recall:**
+   $$\text{Precision} = \frac{TP}{TP + FP} = \frac{18}{18 + 32} = \frac{18}{50} = \mathbf{36.0\%}$$
+   $$\text{Recall} = \frac{TP}{TP + FN} = \frac{18}{18 + 2} = \frac{18}{20} = \mathbf{90.0\%}$$
+
+4. **F1-Score:**
+   $$F_1 = 2 \times \frac{0.36 \times 0.90}{0.36 + 0.90} = 2 \times \frac{0.324}{1.26} = \mathbf{0.5143 \implies 51.4\%}$$
+
+5. **Risk Analysis:**
+   A **False Negative** ($FN = 2$) means an explosive was loaded onto a commercial airliner — catastrophic loss of life! A **False Positive** ($FP = 32$) merely requires an officer to open the suitcase and perform a 60-second swab test. The airport must deliberately lower the decision threshold to drive Recall to 100%, even if Precision drops.
+
+---
+
+### Solution 2:
+1. **Absolute Errors:**
+   - $|300 - 310| = 10$
+   - $|500 - 490| = 10$
+   - $|700 - 760| = 60$
+   $$\text{MAE} = \frac{10 + 10 + 60}{3} = \frac{80}{3} \approx \mathbf{\$26.67\text{k}}$$
+
+2. **Squared Errors:**
+   - $10^2 = 100$
+   - $10^2 = 100$
+   - $60^2 = 3600$
+   $$\text{MSE} = \frac{100 + 100 + 3600}{3} = \frac{3800}{3} \approx \mathbf{1266.67}$$
+
+3. **RMSE:**
+   $$\text{RMSE} = \sqrt{1266.67} \approx \mathbf{\$35.59\text{k}}$$
+
+4. **Outlier Impact:**
+   RMSE (\$35.59k) is significantly higher than MAE (\$26.67k) because House C's \$60k blunder was squared ($60^2 = 3,600$). MSE and RMSE disproportionately punish large errors. If extreme blunders are dangerous in production, use RMSE as your optimization loss!
+</details>
+
+---
+
 ## 8. Summary Checklist for Day 16
 
 1. [x] **Never trust raw accuracy** on imbalanced datasets — always verify class distribution first.
@@ -312,3 +399,12 @@ print("=" * 60)
 ---
 
 *Tomorrow in **Day 17**, we bring everything together: building automated, production-grade **Scikit-Learn Pipelines** with automated column transformations, cross-validation, and model persistence!*
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 15: Decision Trees & Random Forests](../Day_15_Decision_Trees_and_Random_Forests/Day_15_Decision_Trees_and_Random_Forests.md) | [All 50 Days Overview](../../README.md) | [Day 17: Scikit-Learn Hands-On →](../Day_17_Scikit_Learn_Pipelines/Day_17_Scikit_Learn_Pipelines.md) |

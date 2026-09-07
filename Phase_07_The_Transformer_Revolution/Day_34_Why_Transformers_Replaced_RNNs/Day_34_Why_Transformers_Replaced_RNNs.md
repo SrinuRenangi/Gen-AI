@@ -1,4 +1,9 @@
-# Day 34: Why Transformers Replaced RNNs — The Parallelism Breakthrough
+﻿# Day 34: Why Transformers Replaced RNNs — The Parallelism Breakthrough
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 33: Sequence-to-Sequence & The Birth of Attention](../../Phase_06_NLP_Foundations/Day_33_Seq2Seq_and_Attention/Day_33_Seq2Seq_and_Attention.md) | [All 50 Days Overview](../../README.md) | [Day 35: Self-Attention →](../Day_35_Self_Attention/Day_35_Self_Attention.md) |
 
 > "For thirty years, AI believed memory required recurrence: reading token 1, then token 2, then token 3. In June 2017, eight researchers at Google shattered that dogma with eight words: 'Attention Is All You Need.' By eliminating recurrence entirely, they unlocked massive GPU parallelism, ushering in the trillion-parameter era of modern Generative AI."
 
@@ -360,3 +365,12 @@ If a sequence has $N = 4$ tokens, and embedding dimension $d = 4$:
 ## 🚀 Tomorrow's Mission: Day 35
 
 We now understand *why* Transformers discarded recurrence for parallelism. But how does parallel Attention actually calculate relationships between words without losing context? Tomorrow on [Day 35: Self-Attention — The Spotlight Mechanism](../Day_35_Self_Attention/Day_35_Self_Attention.md), we dismantle the mathematical engine of modern AI: **Queries, Keys, Values, and the Scaled Dot-Product formula**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 33: Sequence-to-Sequence & The Birth of Attention](../../Phase_06_NLP_Foundations/Day_33_Seq2Seq_and_Attention/Day_33_Seq2Seq_and_Attention.md) | [All 50 Days Overview](../../README.md) | [Day 35: Self-Attention →](../Day_35_Self_Attention/Day_35_Self_Attention.md) |

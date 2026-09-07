@@ -1,4 +1,9 @@
-# Day 49: AI Agents & Function Calling — LLMs That Take Action
+﻿# Day 49: AI Agents & Function Calling — LLMs That Take Action
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 48: RAG Part 2](../Day_48_RAG_Part_2/Day_48_RAG_Part_2.md) | [All 50 Days Overview](../../README.md) | [Day 50: Fine-Tuning, LoRA & Running Models Locally →](../Day_50_FineTuning_LoRA_Local/Day_50_FineTuning_LoRA_Local.md) |
 
 Welcome to **Day 49 of our 50-Day Generative AI Masterclass**! In [Day 47](../Day_47_RAG_Part_1/Day_47_RAG_Part_1.md) and [Day 48](../Day_48_RAG_Part_2/Day_48_RAG_Part_2.md), you mastered Retrieval-Augmented Generation, giving LLMs the ability to consult enterprise documents before answering.
 
@@ -179,7 +184,7 @@ Autonomous agents are immensely powerful, but giving models the authority to exe
 |                                                                                   |
 |  1. THE INFINITE LOOP TRAP:                                                       |
 |     • Symptom: The agent calls a tool, encounters an error, tweaks an irrelevant  |
-|       argument, calls the same tool again, and repeats forever ($$$!).            |
+|       argument, calls the same tool again, and repeats forever (burning API credits!). |
 |     • Guardrail: Hard Iteration Cap (`max_iterations = 10`) and Cycle Detection.  |
 |                                                                                   |
 |  2. TOOL ARGUMENT HALLUCINATION:                                                  |
@@ -407,3 +412,12 @@ Today, you crossed the bridge from passive LLMs to autonomous AI agents:
 - **Production Guardrails**: Iteration limits, Pydantic argument validation, and Human-in-the-Loop safety gates.
 
 Tomorrow, we reach the grand summit of our 50-day journey: **Day 50: Fine-Tuning, LoRA & Running Models Locally**! We will explore **PEFT, QLoRA, 4-bit Quantization, and running open-weights models on your own machine**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 48: RAG Part 2](../Day_48_RAG_Part_2/Day_48_RAG_Part_2.md) | [All 50 Days Overview](../../README.md) | [Day 50: Fine-Tuning, LoRA & Running Models Locally →](../Day_50_FineTuning_LoRA_Local/Day_50_FineTuning_LoRA_Local.md) |

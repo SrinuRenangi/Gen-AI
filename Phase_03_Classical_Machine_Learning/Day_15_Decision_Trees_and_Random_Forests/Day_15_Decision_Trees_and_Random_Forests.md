@@ -1,5 +1,10 @@
-# 🌲 Day 15: Decision Trees & Random Forests
+﻿# 🌲 Day 15: Decision Trees & Random Forests
 ## The Power of Asking Questions & The Wisdom of Crowds
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 14: Logistic Regression & Classification](../Day_14_Logistic_Regression_and_Classification/Day_14_Logistic_Regression_and_Classification.md) | [All 50 Days Overview](../../README.md) | [Day 16: Model Evaluation →](../Day_16_Model_Evaluation/Day_16_Model_Evaluation.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_03-Classical_Machine_Learning-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-15_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -411,3 +416,12 @@ You deploy it to production... and it causes a catastrophic business disaster.
 Why? Because in credit card fraud, 99.8% of transactions are legitimate! A useless model that guesses *"No Fraud"* every single time gets 99.8% accuracy while missing **every single thief**!
 
 Tomorrow on **[Day 16: Model Evaluation — Is Your Model Actually Good?](../Day_16_Model_Evaluation/Day_16_Model_Evaluation.md)**, we master the **Confusion Matrix**, **Precision**, **Recall**, **F1-Score**, and **ROC-AUC**!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 14: Logistic Regression & Classification](../Day_14_Logistic_Regression_and_Classification/Day_14_Logistic_Regression_and_Classification.md) | [All 50 Days Overview](../../README.md) | [Day 16: Model Evaluation →](../Day_16_Model_Evaluation/Day_16_Model_Evaluation.md) |

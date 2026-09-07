@@ -136,25 +136,25 @@ GEN AI COURSE/
 ├── Phase_02_Python_Data_Science/
 │   └── ... (Days 09–11)
 │
-├── Phase_03_Classical_ML/
+├── Phase_03_Classical_Machine_Learning/
 │   └── ... (Days 12–17)
 │
-├── Phase_04_Deep_Learning/
+├── Phase_04_Deep_Learning_Foundations/
 │   └── ... (Days 18–25)
 │
-├── Phase_05_Specialized_Networks/
+├── Phase_05_Specialized_Neural_Networks/
 │   └── ... (Days 26–29)
 │
 ├── Phase_06_NLP_Foundations/
 │   └── ... (Days 30–33)
 │
-├── Phase_07_Transformers/
+├── Phase_07_The_Transformer_Revolution/
 │   └── ... (Days 34–37)
 │
 ├── Phase_08_Large_Language_Models/
 │   └── ... (Days 38–41)
 │
-├── Phase_09_GenAI_Landscape/
+├── Phase_09_The_Generative_AI_Landscape/
 │   └── ... (Days 42–44)
 │
 └── Phase_10_Practical_GenAI/

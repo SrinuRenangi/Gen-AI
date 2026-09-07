@@ -1,5 +1,10 @@
-# 🏹 Day 02: Vectors — Lists of Numbers
+﻿# 🏹 Day 02: Vectors — Lists of Numbers
 ## The Universal Building Block of All AI
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 01: Numbers, Variables & Functions](../Day_01_Numbers_Variables_Functions/Day_01_Numbers_Variables_Functions.md) | [All 50 Days Overview](../../README.md) | [Day 03: Matrices →](../Day_03_Matrices/Day_03_Matrices.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_01-Math_Foundations-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-02_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -681,3 +686,12 @@ Tomorrow on **Day 03**, you'll learn:
 <p align="center">
   <b>🌟 End of Day 02 — You've mastered Vectors, the universal currency of AI! 🌟</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 01: Numbers, Variables & Functions](../Day_01_Numbers_Variables_Functions/Day_01_Numbers_Variables_Functions.md) | [All 50 Days Overview](../../README.md) | [Day 03: Matrices →](../Day_03_Matrices/Day_03_Matrices.md) |

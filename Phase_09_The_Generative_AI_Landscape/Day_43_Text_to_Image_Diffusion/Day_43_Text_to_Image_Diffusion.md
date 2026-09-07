@@ -1,4 +1,9 @@
-# Day 43: Text-to-Image — How Machines Create Art (Diffusion Models)
+﻿# Day 43: Text-to-Image — How Machines Create Art (Diffusion Models)
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 42: What is Generative AI?](../Day_42_What_is_GenAI/Day_42_What_is_GenAI.md) | [All 50 Days Overview](../../README.md) | [Day 44: Text-to-Audio, Video & Multimodal Models →](../Day_44_Audio_Video_Multimodal/Day_44_Audio_Video_Multimodal.md) |
 
 Welcome to **Day 43 of our 50-Day Generative AI Masterclass**! In [Day 42](../Day_42_What_is_GenAI/Day_42_What_is_GenAI.md), you discovered the generative paradigm shift: instead of drawing a decision boundary $P(Y \mid X)$, generative models learn to navigate the high-dimensional probability density $P(X)$.
 
@@ -415,3 +420,12 @@ Today, you mastered the mathematical machinery that powers modern AI image synth
 - **Classifier-Free Guidance (CFG)**: Extrapolates along the text vector to force strict prompt adherence.
 
 Tomorrow in **Day 44: Text-to-Audio, Video & Multimodal Models**, we conclude Phase 9 by adding the **temporal dimension** (video diffusion, Sora) and exploring **Vision-Language Models (CLIP, LLaVA)** that bridge the gap between sight and language!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 42: What is Generative AI?](../Day_42_What_is_GenAI/Day_42_What_is_GenAI.md) | [All 50 Days Overview](../../README.md) | [Day 44: Text-to-Audio, Video & Multimodal Models →](../Day_44_Audio_Video_Multimodal/Day_44_Audio_Video_Multimodal.md) |

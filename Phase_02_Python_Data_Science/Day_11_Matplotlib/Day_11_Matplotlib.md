@@ -1,5 +1,10 @@
-# 📊 Day 11: Matplotlib & Data Visualization
+﻿# 📊 Day 11: Matplotlib & Data Visualization
 ## The X-Ray of AI: Plotting Loss Curves, Distributions, and Attention Heatmaps
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 10: Pandas](../Day_10_Pandas/Day_10_Pandas.md) | [All 50 Days Overview](../../README.md) | [Day 12: What is Machine Learning? →](../../Phase_03_Classical_Machine_Learning/Day_12_What_is_Machine_Learning/Day_12_What_is_Machine_Learning.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_02-Python_Data_Science-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-11_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -162,7 +167,7 @@ Look at the scatter plot: the dots form a clear upward diagonal line! That tells
 
 # 5. Chart 3: Histograms (Checking Data Distributions & Bell Curves)
 
-Remember on [Day 06](../Phase_01_Math_Foundations/Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md), we learned about the **Normal Distribution (Bell Curve)**.
+Remember on [Day 06](../../Phase_01_Math_Foundations/Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md), we learned about the **Normal Distribution (Bell Curve)**.
 
 A **Histogram** groups numbers into buckets (bins) and shows how frequently values occur:
 
@@ -255,6 +260,12 @@ plt.legend()
 ```
 
 You can immediately see that the red line cuts through the center of the points. The visual confirms that the model has learned the underlying relationship!
+
+---
+
+## 🎨 Visualizing AI: Loss Curves, Residual Fits & Transformer Attention
+
+![Essential AI Visualizations and Transformer Attention Heatmap](assets/matplotlib_charts_and_attention_heatmap.svg)
 
 ---
 
@@ -511,3 +522,12 @@ Tomorrow on **Day 12**, we officially enter **Phase 3: Classical Machine Learnin
 <p align="center">
   <b>🏆 CONGRATULATIONS! PHASE 2 (PYTHON DATA SCIENCE TOOLKIT) IS 100% COMPLETE! 🏆</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 10: Pandas](../Day_10_Pandas/Day_10_Pandas.md) | [All 50 Days Overview](../../README.md) | [Day 12: What is Machine Learning? →](../../Phase_03_Classical_Machine_Learning/Day_12_What_is_Machine_Learning/Day_12_What_is_Machine_Learning.md) |

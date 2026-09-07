@@ -1,4 +1,9 @@
-# Day 50: Fine-Tuning, LoRA & Running Models Locally
+﻿# Day 50: Fine-Tuning, LoRA & Running Models Locally
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 49: AI Agents & Function Calling](../Day_49_AI_Agents/Day_49_AI_Agents.md) | [All 50 Days Overview](../../README.md) | [🎓 Course Graduation & Next Horizons →](../../README.md) |
 
 Welcome to **Day 50 of our 50-Day Generative AI Masterclass**! 🎉
 
@@ -443,3 +448,12 @@ You have completed all **50 comprehensive masterclass days**.
 You understand not only how to call AI APIs, but the fundamental mathematics, tensor operations, neural architectures, distributed training dynamics, retrieval algorithms, and agentic loops that make modern generative systems possible.
 
 Go forth and build the future of artificial intelligence! 🚀
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 49: AI Agents & Function Calling](../Day_49_AI_Agents/Day_49_AI_Agents.md) | [All 50 Days Overview](../../README.md) | [🎓 Course Graduation & Next Horizons →](../../README.md) |

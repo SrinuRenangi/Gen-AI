@@ -1,5 +1,10 @@
-# 🏔️ Day 08: Gradients & Optimization
+﻿# 🏔️ Day 08: Gradients & Optimization
 ## The Algorithm That Trains ALL of Modern AI
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 07: Slopes & Derivatives](../Day_07_Slopes_and_Derivatives/Day_07_Slopes_and_Derivatives.md) | [All 50 Days Overview](../../README.md) | [Day 09: NumPy →](../../Phase_02_Python_Data_Science/Day_09_NumPy/Day_09_NumPy.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_01-Math_Foundations-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-08_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -492,3 +497,12 @@ Tomorrow on **Day 09**, we begin **Phase 2: Python Data Science Toolkit**:
 <p align="center">
   <b>🏆 CONGRATULATIONS! PHASE 1 (MATH FOUNDATIONS) IS 100% COMPLETE! 🏆</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 07: Slopes & Derivatives](../Day_07_Slopes_and_Derivatives/Day_07_Slopes_and_Derivatives.md) | [All 50 Days Overview](../../README.md) | [Day 09: NumPy →](../../Phase_02_Python_Data_Science/Day_09_NumPy/Day_09_NumPy.md) |

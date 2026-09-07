@@ -1,4 +1,9 @@
-# Day 25: Introduction to PyTorch — The Industry-Standard Framework
+﻿# Day 25: Introduction to PyTorch — The Industry-Standard Framework
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 24: Building a Complete Neural Network from Scratch](../Day_24_Building_Neural_Network_From_Scratch/Day_24_Building_Neural_Network_From_Scratch.md) | [All 50 Days Overview](../../README.md) | [Day 26: CNNs Part 1 →](../../Phase_05_Specialized_Neural_Networks/Day_26_CNNs_Part_1/Day_26_CNNs_Part_1.md) |
 
 > **"Yesterday you hand-built a Swiss watch from raw gears in NumPy. Today, you take the wheel of a Formula 1 supercar: PyTorch."**  
 > Welcome to Day 25 — the grand finale of **Phase 4: Deep Learning Foundations**! Having implemented every neuron, activation, loss, and backward gradient by hand, you now possess the rare superpower of knowing *exactly* what PyTorch does behind every line of code.
@@ -284,3 +289,12 @@ Tomorrow in **Day 26**, we enter **Specialized Neural Networks**:
 * **Convolutional Neural Networks (CNNs) Part 1:** How computers see images.
 * Kernels, Filters, Feature Maps, Stride, and Padding.
 * Why standard MLPs fail on images and how Convolutions preserve 2D spatial locality!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 24: Building a Complete Neural Network from Scratch](../Day_24_Building_Neural_Network_From_Scratch/Day_24_Building_Neural_Network_From_Scratch.md) | [All 50 Days Overview](../../README.md) | [Day 26: CNNs Part 1 →](../../Phase_05_Specialized_Neural_Networks/Day_26_CNNs_Part_1/Day_26_CNNs_Part_1.md) |

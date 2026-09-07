@@ -1,5 +1,10 @@
-# 📈 Day 07: Slopes & Derivatives
+﻿# 📈 Day 07: Slopes & Derivatives
 ## The Only Calculus You'll Ever Need for AI
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 06: Probability & Statistics](../Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md) | [All 50 Days Overview](../../README.md) | [Day 08: Gradients & Optimization →](../Day_08_Gradients_and_Optimization/Day_08_Gradients_and_Optimization.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_01-Math_Foundations-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-07_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -515,3 +520,12 @@ Tomorrow on **Day 08**, we reach the **grand finale of Phase 1**:
 <p align="center">
   <b>🌟 End of Day 07 — You just mastered Calculus for AI without memorizing a single formula! 🌟</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 06: Probability & Statistics](../Day_06_Probability_and_Statistics/Day_06_Probability_and_Statistics.md) | [All 50 Days Overview](../../README.md) | [Day 08: Gradients & Optimization →](../Day_08_Gradients_and_Optimization/Day_08_Gradients_and_Optimization.md) |

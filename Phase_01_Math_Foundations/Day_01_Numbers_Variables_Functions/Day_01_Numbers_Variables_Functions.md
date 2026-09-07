@@ -1,5 +1,10 @@
-# 🔢 Day 01: Numbers, Variables & Functions
+﻿# 🔢 Day 01: Numbers, Variables & Functions
 ## The Language Computers Speak
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| *🚀 Course Inception* | [All 50 Days Overview](../../README.md) | [Day 02: Vectors →](../Day_02_Vectors/Day_02_Vectors.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_01-Math_Foundations-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-01_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -704,3 +709,12 @@ Tomorrow, you'll learn:
 <p align="center">
   <b>🌟 End of Day 01 — You just learned the language that ALL AI speaks! 🌟</b>
 </p>
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| *🚀 Course Inception* | [All 50 Days Overview](../../README.md) | [Day 02: Vectors →](../Day_02_Vectors/Day_02_Vectors.md) |

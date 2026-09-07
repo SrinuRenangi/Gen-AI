@@ -1,4 +1,9 @@
-# Day 22: Backpropagation — How Neural Networks Actually Learn
+﻿# Day 22: Backpropagation — How Neural Networks Actually Learn
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 21: Loss Functions](../Day_21_Loss_Functions/Day_21_Loss_Functions.md) | [All 50 Days Overview](../../README.md) | [Day 23: Optimizers →](../Day_23_Optimizers/Day_23_Optimizers.md) |
 
 > **"Without backpropagation, training a modern 175-billion parameter AI model would take longer than the age of the universe. With backpropagation, it takes a few weeks on a GPU cluster."**  
 > Welcome to Day 22! Today we conquer the single most celebrated algorithm in artificial intelligence history: **Backpropagation (Backward Propagation of Errors)**.
@@ -262,6 +267,66 @@ print("✅ Mathematical Match! The backpropagation implementation is 100% bug-fr
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Solidify your understanding of the calculus chain rule, gradient caching, and VRAM dynamics!
+
+### 🏋️ Problem 1: Hand-Calculating a 2-Layer Gradient Chain
+A scalar neural network has:
+- Input: $x = 2.0$
+- Layer 1: $z_1 = w_1 x + b_1$, with $w_1 = 0.5$, $b_1 = 0.0$, Linear activation $a_1 = z_1$.
+- Layer 2: $\hat{y} = w_2 a_1 + b_2$, with $w_2 = 3.0$, $b_2 = 1.0$.
+- Ground truth target: $y = 10.0$.
+- Loss function: $\mathcal{L} = \frac{1}{2}(\hat{y} - y)^2$.
+
+**Your Tasks:**
+1. Execute the forward pass: compute $z_1, a_1, \hat{y}$, and $\mathcal{L}$.
+2. Compute $\frac{\partial \mathcal{L}}{\partial \hat{y}}$ (output error).
+3. Compute $\frac{\partial \mathcal{L}}{\partial w_2}$ and $\frac{\partial \mathcal{L}}{\partial b_2}$ using the chain rule.
+4. Backpropagate into Layer 1: compute $\frac{\partial \mathcal{L}}{\partial a_1}$ and $\frac{\partial \mathcal{L}}{\partial w_1}$.
+
+---
+
+### 🏋️ Problem 2: The GPU Activation Memory Puzzle
+A machine learning engineer notices that during **inference** (running predictions), a model easily fits on a single 16 GB GPU. But when trying to **train** the exact same model with the exact same batch size, the GPU immediately crashes with `CUDA Out of Memory (OOM)`.
+
+**Your Tasks:**
+1. What extra data must be retained during the training forward pass that is instantly discarded during inference?
+2. Why is this data mandatory for the backward pass?
+3. How does this explain why training requires substantially more VRAM?
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Forward Pass:**
+   - $z_1 = 0.5 \times 2.0 + 0 = \mathbf{1.0}$
+   - $a_1 = z_1 = \mathbf{1.0}$
+   - $\hat{y} = (3.0 \times 1.0) + 1.0 = 3.0 + 1.0 = \mathbf{4.0}$
+   - $\mathcal{L} = \frac{1}{2}(4.0 - 10.0)^2 = \frac{1}{2}(-6.0)^2 = \frac{36.0}{2} = \mathbf{18.0}$
+
+2. **Output Error Gradient:**
+   $$\frac{\partial \mathcal{L}}{\partial \hat{y}} = (\hat{y} - y) = 4.0 - 10.0 = \mathbf{-6.0}$$
+
+3. **Layer 2 Gradients:**
+   $$\frac{\partial \mathcal{L}}{\partial w_2} = \frac{\partial \mathcal{L}}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial w_2} = (-6.0) \times a_1 = (-6.0) \times 1.0 = \mathbf{-6.0}$$
+   $$\frac{\partial \mathcal{L}}{\partial b_2} = \frac{\partial \mathcal{L}}{\partial \hat{y}} \cdot 1 = \mathbf{-6.0}$$
+
+4. **Layer 1 Gradients:**
+   $$\frac{\partial \mathcal{L}}{\partial a_1} = \frac{\partial \mathcal{L}}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial a_1} = (-6.0) \times w_2 = (-6.0) \times 3.0 = \mathbf{-18.0}$$
+   $$\frac{\partial \mathcal{L}}{\partial w_1} = \frac{\partial \mathcal{L}}{\partial a_1} \cdot \frac{\partial a_1}{\partial z_1} \cdot \frac{\partial z_1}{\partial w_1} = (-18.0) \times 1.0 \times x = (-18.0) \times 2.0 = \mathbf{-36.0}$$
+   *(Notice how the error signal $-6.0$ was multiplied by $w_2=3.0$ and $x=2.0$ as it traversed backward through the graph!)*
+
+---
+
+### Solution 2:
+1. **Retained Data (Activation Caching):** During the forward pass of training, the intermediate output tensor ($a^{[l]}$) of **every single layer** must be saved in VRAM. During inference, each layer's activation can be overwritten as soon as the next layer completes.
+2. **Why Mandatory for Backprop:** The gradient formula is $\frac{\partial \mathcal{L}}{\partial W^{[l]}} = \delta^{[l]} \cdot (a^{[l-1]})^T$. You cannot compute the gradient with respect to a layer's weights without having the exact input activations that entered that layer during the forward pass!
+3. **VRAM Impact:** For deep transformers with sequence length 4096 and dozens of layers, these cached activation tensors often consume 3x to 5x more memory than the model weights themselves!
+</details>
+
+---
+
 ## 6. Summary Checklist for Day 22
 
 1. [x] **The Dual Highway:** Forward pass computes predictions and caches activations; Backward pass distributes error derivatives.
@@ -273,3 +338,12 @@ print("✅ Mathematical Match! The backpropagation implementation is 100% bug-fr
 ---
 
 *Tomorrow in **Day 23**, we look at how to move weights intelligently: **Optimizers — Smart Ways to Turn the Knobs** (SGD, Momentum, RMSprop, and Adam — the undisputed optimizer of all Generative AI)!*
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 21: Loss Functions](../Day_21_Loss_Functions/Day_21_Loss_Functions.md) | [All 50 Days Overview](../../README.md) | [Day 23: Optimizers →](../Day_23_Optimizers/Day_23_Optimizers.md) |

@@ -1,4 +1,9 @@
-# Day 33: Sequence-to-Sequence & The Birth of Attention
+﻿# Day 33: Sequence-to-Sequence & The Birth of Attention
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 32: Word Embeddings](../Day_32_Word_Embeddings/Day_32_Word_Embeddings.md) | [All 50 Days Overview](../../README.md) | [Day 34: Why Transformers Replaced RNNs →](../../Phase_07_The_Transformer_Revolution/Day_34_Why_Transformers_Replaced_RNNs/Day_34_Why_Transformers_Replaced_RNNs.md) |
 
 > "In 2014, machine translation hit a mathematical wall: forcing a 50-word Shakespearean sentence into a single 512-dimensional vector was like forcing an architect to compress the blueprints of a cathedral onto a postage stamp. Bahdanau's Attention mechanism shattered this bottleneck by giving the decoder a dynamic optical spotlight."
 
@@ -8,7 +13,7 @@
 
 - **Previous Lesson**: [Day 32: Word Embeddings — Word GPS Coordinates](../Day_32_Word_Embeddings/Day_32_Word_Embeddings.md)
 - **Current Milestone**: Day 33 of 50 (Phase 6: NLP & Text Processing Foundations — Final Chapter)
-- **Next Phase**: [Day 34: Why Transformers Replaced RNNs](../../Phase_07_Transformers/Day_34_Why_Transformers_Replaced_RNNs/Day_34_Why_Transformers_Replaced_RNNs.md) (Phase 7: The Transformer Revolution)
+- **Next Phase**: [Day 34: Why Transformers Replaced RNNs](../../Phase_07_The_Transformer_Revolution/Day_34_Why_Transformers_Replaced_RNNs/Day_34_Why_Transformers_Replaced_RNNs.md) (Phase 7: The Transformer Revolution)
 
 ---
 
@@ -477,4 +482,13 @@ Why does modern deep learning use "Soft Attention" (Softmax weighted average) in
 
 ## 🚀 Tomorrow's Mission: Entering Phase 7 — The Transformer Revolution!
 
-We have reached the monumental turning point of our 50-day journey. Tomorrow, we leave classical neural architectures behind and enter the modern Generative AI era. On [Day 34: Why Transformers Replaced RNNs](../../Phase_07_Transformers/Day_34_Why_Transformers_Replaced_RNNs/Day_34_Why_Transformers_Replaced_RNNs.md), we uncover the architectural genius of self-attention and GPU parallelism that gave birth to ChatGPT, Claude, and Gemini!
+We have reached the monumental turning point of our 50-day journey. Tomorrow, we leave classical neural architectures behind and enter the modern Generative AI era. On [Day 34: Why Transformers Replaced RNNs](../../Phase_07_The_Transformer_Revolution/Day_34_Why_Transformers_Replaced_RNNs/Day_34_Why_Transformers_Replaced_RNNs.md), we uncover the architectural genius of self-attention and GPU parallelism that gave birth to ChatGPT, Claude, and Gemini!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 32: Word Embeddings](../Day_32_Word_Embeddings/Day_32_Word_Embeddings.md) | [All 50 Days Overview](../../README.md) | [Day 34: Why Transformers Replaced RNNs →](../../Phase_07_The_Transformer_Revolution/Day_34_Why_Transformers_Replaced_RNNs/Day_34_Why_Transformers_Replaced_RNNs.md) |

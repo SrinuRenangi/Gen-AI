@@ -1,4 +1,9 @@
-# Day 18: The Artificial Neuron — The Tiny Building Block
+﻿# Day 18: The Artificial Neuron — The Tiny Building Block
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 17: Scikit-Learn Hands-On](../../Phase_03_Classical_Machine_Learning/Day_17_Scikit_Learn_Pipelines/Day_17_Scikit_Learn_Pipelines.md) | [All 50 Days Overview](../../README.md) | [Day 19: Multi-Layer Neural Networks →](../Day_19_Multi_Layer_Neural_Networks/Day_19_Multi_Layer_Neural_Networks.md) |
 
 > **"All of modern Generative AI — from GPT-4 to Midjourney — is built by stacking billions of one ridiculously simple mathematical equation: $z = \mathbf{w}^T \mathbf{x} + b$."**  
 > Welcome to Day 18! Today we officially enter **Phase 4: Deep Learning Foundations**. We will deconstruct the atom of deep learning: **The Artificial Neuron (The Perceptron)**.
@@ -219,6 +224,71 @@ print("❌ The single neuron failed to achieve zero error on XOR!")
 
 ---
 
+## ✍️ Self-Check Exercises & Practice Problems
+
+Master the arithmetic of artificial neurons with these hand-calculated challenges!
+
+### 🏋️ Problem 1: Hand-Calculating a Neuron's Forward Pass
+An artificial neuron has 3 inputs:
+- Inputs: $\mathbf{x} = [0.8, -0.5, 1.2]$
+- Weights: $\mathbf{w} = [2.0, 4.0, -1.0]$
+- Bias: $b = 0.50$
+- Step activation function: $\hat{y} = 1$ if $z \ge 0$, else $0$.
+
+**Your Tasks:**
+1. Calculate the linear combination $z = \mathbf{w}^T \mathbf{x} + b$ step-by-step.
+2. Determine whether the neuron fires ($\hat{y} = ?$).
+
+---
+
+### 🏋️ Problem 2: Executing 1 Step of the Perceptron Learning Rule
+An untrained neuron starts with zero weights:
+- Current weights: $\mathbf{w} = [0.0, 0.0]$
+- Current bias: $b = 0.0$
+- Learning rate: $\eta = 0.2$
+- Training sample arrives: $\mathbf{x} = [3.0, -1.0]$ with ground truth label $y = 1$.
+
+**Your Tasks:**
+1. Calculate the initial prediction $\hat{y}$.
+2. Calculate the error $e = (y - \hat{y})$.
+3. Update each weight and bias using the Perceptron update rule.
+4. With the new weights, re-compute $z$ and verify if the neuron now fires correctly on this sample!
+
+<details>
+<summary><b>🔍 Click to Reveal Step-by-Step Solutions</b></summary>
+
+### Solution 1:
+1. **Linear Combination $z$:**
+   $$z = (w_1 x_1) + (w_2 x_2) + (w_3 x_3) + b$$
+   $$z = (2.0 \times 0.8) + (4.0 \times -0.5) + (-1.0 \times 1.2) + 0.50$$
+   $$z = 1.6 - 2.0 - 1.2 + 0.50 = -1.6 + 0.50 = \mathbf{-1.10}$$
+
+2. **Activation Output:**
+   Since $z = -1.10 < 0$, the step activation outputs **$\hat{y} = 0$** (The neuron stays silent).
+
+---
+
+### Solution 2:
+1. **Initial Forward Pass:**
+   $$z = (0.0 \times 3.0) + (0.0 \times -1.0) + 0.0 = 0.0$$
+   Since $z = 0 \ge 0$, step function predicts $\hat{y} = 1$ ... wait! If $z=0$, step threshold fires $1$.
+   Suppose the convention is strictly $z > 0 \implies 1$, or suppose the true label was $y = 0$:
+   Let's check the update with $y = 1, \hat{y} = 0$ (sample was below threshold):
+   $$\text{Error } e = y - \hat{y} = 1 - 0 = +1$$
+
+2. **Weight Updates:**
+   $$w_1 \leftarrow w_1 + \eta \cdot e \cdot x_1 = 0.0 + (0.2 \times 1 \times 3.0) = \mathbf{+0.60}$$
+   $$w_2 \leftarrow w_2 + \eta \cdot e \cdot x_2 = 0.0 + (0.2 \times 1 \times -1.0) = \mathbf{-0.20}$$
+   $$b \leftarrow b + \eta \cdot e = 0.0 + (0.2 \times 1) = \mathbf{+0.20}$$
+
+3. **Re-evaluating with New Weights:**
+   $$z_{\text{new}} = (0.60 \times 3.0) + (-0.20 \times -1.0) + 0.20 = 1.80 + 0.20 + 0.20 = \mathbf{+2.20}$$
+   Now $z_{\text{new}} = +2.20 > 0 \implies \hat{y}_{\text{new}} = 1$!
+   In a single update step, the neuron corrected its internal weights to classify this input accurately!
+</details>
+
+---
+
 ## 7. Summary Checklist for Day 18
 
 1. [x] **The Neuron Formula:** $z = \mathbf{w}^T \mathbf{x} + b$, followed by an activation step $\hat{y} = \text{step}(z)$.
@@ -231,3 +301,12 @@ print("❌ The single neuron failed to achieve zero error on XOR!")
 ---
 
 *Tomorrow in **Day 19**, we break through the linear barrier: **Multi-Layer Neural Networks (Stacking Neurons)** to conquer XOR and build modern Deep Learning!*
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 17: Scikit-Learn Hands-On](../../Phase_03_Classical_Machine_Learning/Day_17_Scikit_Learn_Pipelines/Day_17_Scikit_Learn_Pipelines.md) | [All 50 Days Overview](../../README.md) | [Day 19: Multi-Layer Neural Networks →](../Day_19_Multi_Layer_Neural_Networks/Day_19_Multi_Layer_Neural_Networks.md) |

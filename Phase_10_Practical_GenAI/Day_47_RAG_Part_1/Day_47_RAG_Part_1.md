@@ -1,4 +1,9 @@
-# Day 47: RAG Part 1 — Embeddings, Vector Databases & Semantic Search
+﻿# Day 47: RAG Part 1 — Embeddings, Vector Databases & Semantic Search
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 46: Working with LLM APIs](../Day_46_LLM_APIs/Day_46_LLM_APIs.md) | [All 50 Days Overview](../../README.md) | [Day 48: RAG Part 2 →](../Day_48_RAG_Part_2/Day_48_RAG_Part_2.md) |
 
 Welcome to **Day 47 of our 50-Day Generative AI Masterclass**! In [Day 46](../Day_46_LLM_APIs/Day_46_LLM_APIs.md), you mastered the LLM API layer, streaming Server-Sent Events, and multi-provider failover.
 
@@ -364,3 +369,12 @@ Tomorrow in **Day 48: RAG Part 2 — Building a Complete RAG System**, we build 
 - **Cross-Encoder Re-Ranking**: Boosting precision with secondary re-rankers.
 - **Context Compression & Query Transformation (HyDE)**.
 - **The RAG Triad**: Evaluating Faithfulness, Answer Relevance, and Context Precision!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 46: Working with LLM APIs](../Day_46_LLM_APIs/Day_46_LLM_APIs.md) | [All 50 Days Overview](../../README.md) | [Day 48: RAG Part 2 →](../Day_48_RAG_Part_2/Day_48_RAG_Part_2.md) |

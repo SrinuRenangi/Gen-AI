@@ -1,4 +1,9 @@
-# Day 44: Text-to-Audio, Video & Multimodal Models
+﻿# Day 44: Text-to-Audio, Video & Multimodal Models
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 43: Text-to-Image](../Day_43_Text_to_Image_Diffusion/Day_43_Text_to_Image_Diffusion.md) | [All 50 Days Overview](../../README.md) | [Day 45: Prompt Engineering Masterclass →](../../Phase_10_Practical_GenAI/Day_45_Prompt_Engineering/Day_45_Prompt_Engineering.md) |
 
 Welcome to **Day 44 of our 50-Day Generative AI Masterclass**! Over [Day 42](../Day_42_What_is_GenAI/Day_42_What_is_GenAI.md) and [Day 43](../Day_43_Text_to_Image_Diffusion/Day_43_Text_to_Image_Diffusion.md), you learned how generative models explore high-dimensional data distributions and how diffusion models synthesize photorealistic 2D images.
 
@@ -422,3 +427,12 @@ Tomorrow, we inaugurate our final, capstone phase: **Phase 10: Practical GenAI E
 - Local **Fine-Tuning with LoRA, QLoRA, and Quantization**.
 
 See you in [Day 45](../../Phase_10_Practical_GenAI/Day_45_Prompt_Engineering/Day_45_Prompt_Engineering.md)!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 43: Text-to-Image](../Day_43_Text_to_Image_Diffusion/Day_43_Text_to_Image_Diffusion.md) | [All 50 Days Overview](../../README.md) | [Day 45: Prompt Engineering Masterclass →](../../Phase_10_Practical_GenAI/Day_45_Prompt_Engineering/Day_45_Prompt_Engineering.md) |

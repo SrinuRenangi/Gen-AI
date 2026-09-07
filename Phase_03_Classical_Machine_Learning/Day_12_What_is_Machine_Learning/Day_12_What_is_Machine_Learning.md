@@ -1,5 +1,10 @@
-# 🧠 Day 12: What is Machine Learning? — The Big Picture
+﻿# 🧠 Day 12: What is Machine Learning? — The Big Picture
 ## The Shift from Handcrafted Rules to Learned Knowledge
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 11: Matplotlib & Data Visualization](../../Phase_02_Python_Data_Science/Day_11_Matplotlib/Day_11_Matplotlib.md) | [All 50 Days Overview](../../README.md) | [Day 13: Linear Regression →](../Day_13_Linear_Regression/Day_13_Linear_Regression.md) |
 
 [![Phase](https://img.shields.io/badge/Phase_03-Classical_Machine_Learning-brightgreen.svg?style=for-the-badge)](../../README.md)
 [![Day](https://img.shields.io/badge/Day-12_of_50-blue.svg?style=for-the-badge)](../../README.md)
@@ -430,3 +435,12 @@ Tomorrow on **[Day 13: Linear Regression — Predicting Numbers](../Day_13_Linea
 - Measuring prediction error with **Residuals & Mean Squared Error (MSE)**.
 - Connecting back to Phase 1: How **Gradient Descent** tunes the slope $m$ and intercept $c$ automatically!
 - Hands-on implementation in both pure Python and Scikit-Learn.
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 11: Matplotlib & Data Visualization](../../Phase_02_Python_Data_Science/Day_11_Matplotlib/Day_11_Matplotlib.md) | [All 50 Days Overview](../../README.md) | [Day 13: Linear Regression →](../Day_13_Linear_Regression/Day_13_Linear_Regression.md) |

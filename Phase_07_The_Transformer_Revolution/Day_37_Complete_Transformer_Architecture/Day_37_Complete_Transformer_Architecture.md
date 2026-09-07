@@ -1,4 +1,9 @@
-# Day 37: The Complete Transformer Architecture — Putting It All Together
+﻿# Day 37: The Complete Transformer Architecture — Putting It All Together
+
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 36: Multi-Head Attention & The Full Transformer Block](../Day_36_Multi_Head_Attention/Day_36_Multi_Head_Attention.md) | [All 50 Days Overview](../../README.md) | [Day 38: What are LLMs? →](../../Phase_08_Large_Language_Models/Day_38_What_are_LLMs/Day_38_What_are_LLMs.md) |
 
 > "In 2017, the Transformer was born as a dual-tower machine translation engine. Today, its mathematical blueprint powers everything from ChatGPT to AlphaFold, Midjourney, and Tesla FSD. Here is how the complete architecture works from end to end."
 
@@ -397,3 +402,12 @@ Explain what would happen to an LLM during pre-training if you accidentally omit
 ## 🚀 Tomorrow's Mission: Entering Phase 8 — Large Language Models!
 
 We have mastered the mathematical architecture that changed human history. Now, we enter **Phase 8: Large Language Models (Days 38–41)**. Tomorrow on [Day 38: What are LLMs? — Supercharged Autocomplete](../../Phase_08_Large_Language_Models/Day_38_What_are_LLMs/Day_38_What_are_LLMs.md), we explore how scaling Transformer decoders to hundreds of billions of parameters produces the emerging reasoning, conversational intelligence, and creativity of ChatGPT and Claude!
+
+
+---
+
+## 🧭 Navigation & Next Steps
+
+| ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
+|:---|:---:|---:|
+| [← Day 36: Multi-Head Attention & The Full Transformer Block](../Day_36_Multi_Head_Attention/Day_36_Multi_Head_Attention.md) | [All 50 Days Overview](../../README.md) | [Day 38: What are LLMs? →](../../Phase_08_Large_Language_Models/Day_38_What_are_LLMs/Day_38_What_are_LLMs.md) |

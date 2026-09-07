@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    ANATOMY OF A FULL TRANSFORMER BLOCK (PRE-LN)
+  </text>
+  <text x="480" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Multi-Head Attention + Residual Skip Highways + LayerNorm + Position-Wise Feed-Forward Network
+  </text>
+
+  <!-- Left: The Complete Block Diagram -->
+  <g transform="translate(60, 80)" filter="url(#shadow)">
+    <rect width="440" height="450" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <rect x="0" y="0" width="440" height="28" rx="12" fill="#0f172a" />
+    <text x="220" y="19" font-family="sans-serif" font-size="11" font-weight="900" fill="#38bdf8" text-anchor="middle" letter-spacing="0.5">
+      PRE-LN TRANSFORMER BLOCK (MODERN LLM STANDARD: LLAMA, MISTRAL)
+    </text>
+
+    <!-- 1. Input x (Bottom) -->
+    <g transform="translate(135, 405)">
+      <rect width="170" height="30" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="85" y="20" font-family="monospace" font-size="11" font-weight="800" fill="#93c5fd" text-anchor="middle">
+        Input x (B, N, d_model)
+      </text>
+    </g>
+
+    <!-- Sublayer 1: Attention -->
+    <!-- Residual Highway 1 (Left Bypass) -->
+    <path d="M 135 420 L 45 420 L 45 220 L 195 220" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="4,4" marker-end="url(#arrow-blue)" />
+    <text x="35" y="325" font-family="sans-serif" font-size="9" font-weight="800" fill="#38bdf8" text-anchor="end" transform="rotate(-90 35 325)">
+      RESIDUAL SKIP HIGHWAY (+x)
+    </text>
+
+    <!-- LayerNorm 1 -->
+    <g transform="translate(135, 350)">
+      <line x1="85" y1="55" x2="85" y2="30" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+      <rect width="170" height="28" rx="6" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1.5" />
+      <text x="85" y="18" font-family="sans-serif" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">
+        LayerNorm (Pre-LN)
+      </text>
+    </g>
+
+    <!-- Multi-Head Attention Box -->
+    <g transform="translate(135, 280)">
+      <line x1="85" y1="70" x2="85" y2="40" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+      <rect width="170" height="38" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+      <text x="85" y="24" font-family="sans-serif" font-size="11" font-weight="900" fill="#a7f3d0" text-anchor="middle">
+        Multi-Head Attention
+      </text>
+    </g>
+
+    <!-- Add 1 (Residual addition) -->
+    <g transform="translate(200, 205)">
+      <line x1="20" y1="75" x2="20" y2="30" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)" />
+      <circle cx="20" cy="15" r="14" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <text x="20" y="21" font-family="sans-serif" font-size="18" font-weight="900" fill="#38bdf8" text-anchor="middle">&oplus;</text>
+    </g>
+
+    <!-- Sublayer 2: Feed-Forward Network -->
+    <!-- Residual Highway 2 (Right Bypass) -->
+    <path d="M 235 220 L 395 220 L 395 60 L 240 60" fill="none" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4,4" marker-end="url(#arrow-green)" />
+    <text x="405" y="140" font-family="sans-serif" font-size="9" font-weight="800" fill="#10b981" text-anchor="start" transform="rotate(90 405 140)">
+      RESIDUAL SKIP HIGHWAY (+x)
+    </text>
+
+    <!-- LayerNorm 2 -->
+    <g transform="translate(135, 150)">
+      <line x1="85" y1="55" x2="85" y2="30" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+      <rect width="170" height="28" rx="6" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1.5" />
+      <text x="85" y="18" font-family="sans-serif" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">
+        LayerNorm (Pre-LN)
+      </text>
+    </g>
+
+    <!-- MLP / FFN Box -->
+    <g transform="translate(135, 90)">
+      <line x1="85" y1="60" x2="85" y2="35" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+      <rect width="170" height="38" rx="6" fill="#581c87" stroke="#c084fc" stroke-width="2" />
+      <text x="85" y="20" font-family="sans-serif" font-size="10.5" font-weight="900" fill="#f5d0fe" text-anchor="middle">
+        Feed-Forward (FFN)
+      </text>
+      <text x="85" y="32" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">
+        d_model &rarr; 4&times;d &rarr; d_model
+      </text>
+    </g>
+
+    <!-- Add 2 (Residual addition) -->
+    <g transform="translate(200, 45)">
+      <line x1="20" y1="45" x2="20" y2="30" stroke="#c084fc" stroke-width="2" marker-end="url(#arrow-blue)" />
+      <circle cx="20" cy="15" r="14" fill="#0f172a" stroke="#10b981" stroke-width="2" />
+      <text x="20" y="21" font-family="sans-serif" font-size="18" font-weight="900" fill="#10b981" text-anchor="middle">&oplus;</text>
+    </g>
+  </g>
+
+  <!-- Right: The 3 Core Engineering Insights -->
+  <g transform="translate(530, 80)" filter="url(#shadow)">
+    <rect width="370" height="450" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <rect x="0" y="0" width="370" height="28" rx="12" fill="#0f172a" />
+    <text x="185" y="19" font-family="sans-serif" font-size="11" font-weight="900" fill="#a7f3d0" text-anchor="middle">
+      ARCHITECTURAL DESIGN HIGHLIGHTS
+    </text>
+
+    <!-- Card 1: The FFN as Factual Memory -->
+    <g transform="translate(20, 45)">
+      <rect width="330" height="95" rx="8" fill="#0f172a" stroke="#c084fc" stroke-width="1.5" />
+      <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#f5d0fe">
+        1. FFN as "Factual Storage" (Geva, 2021)
+      </text>
+      <text x="15" y="42" font-family="sans-serif" font-size="10" fill="#cbd5e1">
+        Attention routes information between tokens.
+      </text>
+      <text x="15" y="58" font-family="sans-serif" font-size="10" fill="#fbcfe8">
+        The Feed-Forward layers store world knowledge:
+      </text>
+      <text x="15" y="76" font-family="monospace" font-size="9.5" fill="#a7f3d0">
+        "Paris" &rarr; capital of &rarr; "France"
+      </text>
+    </g>
+
+    <!-- Card 2: LayerNorm vs BatchNorm -->
+    <g transform="translate(20, 155)">
+      <rect width="330" height="95" rx="8" fill="#0f172a" stroke="#60a5fa" stroke-width="1.5" />
+      <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="800" fill="#93c5fd">
+        2. LayerNorm (Token-Wise Normalization)
+      </text>
+      <text x="15" y="42" font-family="sans-serif" font-size="10" fill="#cbd5e1">
+        BatchNorm fails across variable sentence lengths.
+      </text>
+      <text x="15" y="58" font-family="sans-serif" font-size="10" fill="#cbd5e1">
+        LayerNorm computes mean &amp; std along feature dim
+      </text>
+      <text x="15" y="76" font-family="sans-serif" font-size="10" fill="#67e8f9" font-weight="700">
+        &mu; and &sigma; are computed per token independently!
+      </text>
+    </g>
+
+    <!-- Card 3: Pre-LN vs Post-LN -->
+    <g transform="translate(20, 265)">
+      <rect width="330" height="155" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="2" />
+      <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="900" fill="#a7f3d0">
+        3. Pre-LN: The Gradient Superhighway ⭐
+      </text>
+      <text x="15" y="42" font-family="sans-serif" font-size="10" fill="#cbd5e1">
+        • Original 2017: Post-LN [x = LN(x + Sublayer)]
+      </text>
+      <text x="15" y="58" font-family="sans-serif" font-size="10" fill="#fca5a5">
+        Failed to train deep models without lr warmup!
+      </text>
+      <text x="15" y="78" font-family="sans-serif" font-size="10" fill="#a7f3d0" font-weight="800">
+        • Modern LLMs (LLaMA/Mistral): Pre-LN
+      </text>
+      <text x="15" y="94" font-family="monospace" font-size="10" fill="#6ee7b7">
+        x = x + Sublayer(LN(x))
+      </text>
+      <text x="15" y="114" font-family="sans-serif" font-size="10" fill="#cbd5e1">
+        Preserves an uninterrupted identity highway (+x)
+      </text>
+      <text x="15" y="130" font-family="sans-serif" font-size="10" fill="#34d399" font-weight="800">
+        Allows training models with 100+ stacked layers!
+      </text>
+    </g>
+  </g>
+</svg>

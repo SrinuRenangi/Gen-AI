@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f43f5e" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE PARALLELISM REVOLUTION: RNN VS TRANSFORMER
+  </text>
+  <text x="480" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Why GPUs Starve on Sequential Recurrence but Thrive on Transformer Matrix Multiplications
+  </text>
+
+  <!-- Left: Sequential Recurrence (RNN/LSTM) -->
+  <g transform="translate(60, 90)" filter="url(#shadow)">
+    <rect width="410" height="420" rx="12" fill="#1e293b" stroke="#f43f5e" stroke-width="2" />
+    <rect x="0" y="0" width="410" height="34" rx="12" fill="#9f1239" />
+    <text x="205" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+      1. RECURRENT NEURAL NETWORK (RNN / LSTM)
+    </text>
+    <text x="205" y="52" font-family="sans-serif" font-size="11" font-weight="800" fill="#fda4af" text-anchor="middle">
+      Strictly Sequential Bottleneck: O(N) Time Steps
+    </text>
+
+    <!-- Sequential Loop Flow -->
+    <g transform="translate(30, 75)">
+      <!-- Step 1 -->
+      <rect width="70" height="45" rx="6" fill="#0f172a" stroke="#f43f5e" stroke-width="1.5" />
+      <text x="35" y="22" font-family="monospace" font-size="11" font-weight="800" fill="#fda4af" text-anchor="middle">Step 1</text>
+      <text x="35" y="37" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">x₁ &rarr; h₁</text>
+      <line x1="70" y1="22" x2="105" y2="22" stroke="#f43f5e" stroke-width="2.5" marker-end="url(#arrow-red)" />
+
+      <!-- Step 2 -->
+      <g transform="translate(115, 0)">
+        <rect width="70" height="45" rx="6" fill="#0f172a" stroke="#f43f5e" stroke-width="1.5" />
+        <text x="35" y="22" font-family="monospace" font-size="11" font-weight="800" fill="#fda4af" text-anchor="middle">Step 2</text>
+        <text x="35" y="37" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">x₂ &rarr; h₂</text>
+        <line x1="70" y1="22" x2="105" y2="22" stroke="#f43f5e" stroke-width="2.5" marker-end="url(#arrow-red)" />
+      </g>
+
+      <!-- Step 3 -->
+      <g transform="translate(230, 0)">
+        <rect width="70" height="45" rx="6" fill="#0f172a" stroke="#f43f5e" stroke-width="1.5" />
+        <text x="35" y="22" font-family="monospace" font-size="11" font-weight="800" fill="#fda4af" text-anchor="middle">Step 3</text>
+        <text x="35" y="37" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">x₃ &rarr; h₃</text>
+      </g>
+
+      <!-- Wait indicator -->
+      <line x1="172" y1="55" x2="172" y2="85" stroke="#f43f5e" stroke-width="2" stroke-dasharray="3,3" />
+      <text x="172" y="102" font-family="sans-serif" font-size="10" font-weight="800" fill="#fca5a5" text-anchor="middle">
+        Step t+1 MUST wait for Step t to finish!
+      </text>
+    </g>
+
+    <!-- GPU Utilization Meter (Bad) -->
+    <g transform="translate(25, 205)">
+      <rect width="360" height="85" rx="8" fill="#0f172a" stroke="#334155" />
+      <text x="15" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#f87171">GPU Hardware Reality:</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="10" fill="#cbd5e1">Thousands of CUDA cores sit IDLE.</text>
+      <!-- Progress bar -->
+      <rect x="15" y="55" width="330" height="16" rx="4" fill="#334155" />
+      <rect x="15" y="55" width="45" height="16" rx="4" fill="#ef4444" />
+      <text x="180" y="68" font-family="sans-serif" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">
+        12% GPU Core Utilization (Starving!)
+      </text>
+    </g>
+
+    <!-- Verdict -->
+    <g transform="translate(25, 305)">
+      <rect width="360" height="95" rx="8" fill="#450a0a" stroke="#f43f5e" />
+      <text x="15" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#fca5a5">The Fatal Wall:</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="10" fill="#fecdd3">• Training sequence of 10,000 tokens = 10,000 serial steps</text>
+      <text x="15" y="62" font-family="sans-serif" font-size="10" fill="#fecdd3">• Cannot scale to web-scale training data</text>
+      <text x="15" y="80" font-family="sans-serif" font-size="10" fill="#fecdd3">• Gradients still degrade over 500+ steps</text>
+    </g>
+  </g>
+
+  <!-- Right: Parallel Transformer -->
+  <g transform="translate(490, 90)" filter="url(#shadow)">
+    <rect width="410" height="420" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2" />
+    <rect x="0" y="0" width="410" height="34" rx="12" fill="#047857" />
+    <text x="205" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+      2. TRANSFORMER (VASWANI ET AL., 2017) ⭐
+    </text>
+    <text x="205" y="52" font-family="sans-serif" font-size="11" font-weight="800" fill="#a7f3d0" text-anchor="middle">
+      100% Fully Parallel Matrix Multiplications: O(1) Sequential Steps
+    </text>
+
+    <!-- Parallel Tensor Graphic -->
+    <g transform="translate(30, 75)">
+      <rect width="350" height="45" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+      <text x="175" y="24" font-family="monospace" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">
+        X &in; &reals;^(N &times; d) [All N tokens processed in parallel!]
+      </text>
+      <text x="175" y="38" font-family="sans-serif" font-size="9" fill="#a7f3d0" text-anchor="middle">
+        Token 1, Token 2, ..., Token N all multiplied at the exact same millisecond
+      </text>
+
+      <line x1="175" y1="52" x2="175" y2="82" stroke="#34d399" stroke-width="3" marker-end="url(#arrow-green)" />
+      <text x="175" y="98" font-family="sans-serif" font-size="10" font-weight="800" fill="#6ee7b7" text-anchor="middle">
+        Single Massive GEMM Tensor Operation
+      </text>
+    </g>
+
+    <!-- GPU Utilization Meter (Maxed Out) -->
+    <g transform="translate(25, 205)">
+      <rect width="360" height="85" rx="8" fill="#0f172a" stroke="#334155" />
+      <text x="15" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#34d399">GPU Hardware Reality:</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="10" fill="#cbd5e1">All Tensor Cores saturated at peak FLOPs.</text>
+      <!-- Progress bar -->
+      <rect x="15" y="55" width="330" height="16" rx="4" fill="#334155" />
+      <rect x="15" y="55" width="320" height="16" rx="4" fill="#10b981" />
+      <text x="180" y="68" font-family="sans-serif" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">
+        98% GPU Tensor Core Utilization!
+      </text>
+    </g>
+
+    <!-- Verdict -->
+    <g transform="translate(25, 305)">
+      <rect width="360" height="95" rx="8" fill="#064e3b" stroke="#10b981" />
+      <text x="15" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#a7f3d0">The Trillion-Dollar Breakthrough:</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="10" fill="#d1fae5">• Training time cut from MONTHS to HOURS</text>
+      <text x="15" y="62" font-family="sans-serif" font-size="10" fill="#d1fae5">• Scales effortlessly across clusters of 10,000+ GPUs</text>
+      <text x="15" y="80" font-family="sans-serif" font-size="10" fill="#d1fae5">• Enables training on the ENTIRE internet (LLMs born!)</text>
+    </g>
+  </g>
+</svg>

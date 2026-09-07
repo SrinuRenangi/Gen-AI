@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    SCALED DOT-PRODUCT ATTENTION ANATOMY
+  </text>
+  <text x="480" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    The Core Mathematical Engine of Transformers: Attention(Q, K, V) = softmax(QKᵀ / &radic;dₖ) V
+  </text>
+
+  <!-- Left: Flowchart / Block Diagram -->
+  <g transform="translate(60, 85)" filter="url(#shadow)">
+    <rect width="380" height="435" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+
+    <!-- Q, K, V Inputs -->
+    <g transform="translate(40, 20)">
+      <!-- Q box -->
+      <rect x="0" y="0" width="80" height="36" rx="6" fill="#1e3a8a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="40" y="18" font-family="monospace" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">Q</text>
+      <text x="40" y="30" font-family="sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle">Query (N&times;dₖ)</text>
+
+      <!-- K box -->
+      <rect x="110" y="0" width="80" height="36" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+      <text x="150" y="18" font-family="monospace" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">K</text>
+      <text x="150" y="30" font-family="sans-serif" font-size="9" fill="#a7f3d0" text-anchor="middle">Key (N&times;dₖ)</text>
+
+      <!-- V box -->
+      <rect x="220" y="0" width="80" height="36" rx="6" fill="#701a75" stroke="#f472b6" stroke-width="1.5" />
+      <text x="260" y="18" font-family="monospace" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">V</text>
+      <text x="260" y="30" font-family="sans-serif" font-size="9" fill="#fbcfe8" text-anchor="middle">Value (N&times;dᵥ)</text>
+    </g>
+
+    <!-- Step 1: MatMul (Q * K^T) -->
+    <g transform="translate(70, 75)">
+      <line x1="10" y1="-18" x2="60" y2="10" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+      <line x1="120" y1="-18" x2="80" y2="10" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-blue)" />
+
+      <rect x="30" y="10" width="180" height="36" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="120" y="28" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">MatMul (Q &times; Kᵀ)</text>
+      <text x="120" y="40" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Shape: (N &times; N)</text>
+    </g>
+
+    <!-- Step 2: Scale (div sqrt(d_k)) -->
+    <g transform="translate(70, 140)">
+      <line x1="120" y1="-18" x2="120" y2="5" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+      <rect x="30" y="5" width="180" height="34" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" />
+      <text x="120" y="23" font-family="sans-serif" font-size="11" font-weight="800" fill="#fbbf24" text-anchor="middle">Scale (&divide; &radic;dₖ)</text>
+      <text x="120" y="34" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Normalizes Variance to 1.0</text>
+    </g>
+
+    <!-- Step 3: Mask (Optional for Causal) -->
+    <g transform="translate(70, 200)">
+      <line x1="120" y1="-20" x2="120" y2="5" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+      <rect x="30" y="5" width="180" height="34" rx="6" fill="#0f172a" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3,3" />
+      <text x="120" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#cbd5e1" text-anchor="middle">Mask (Optional / Causal)</text>
+      <text x="120" y="34" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Set future scores to -&infin;</text>
+    </g>
+
+    <!-- Step 4: Softmax -->
+    <g transform="translate(70, 260)">
+      <line x1="120" y1="-20" x2="120" y2="5" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+      <rect x="30" y="5" width="180" height="36" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="2" />
+      <text x="120" y="24" font-family="sans-serif" font-size="12" font-weight="900" fill="#a7f3d0" text-anchor="middle">Softmax</text>
+      <text x="120" y="36" font-family="monospace" font-size="9" fill="#6ee7b7" text-anchor="middle">Attention Matrix A (N &times; N)</text>
+    </g>
+
+    <!-- Step 5: MatMul with V -->
+    <g transform="translate(70, 325)">
+      <!-- Arrow from Softmax -->
+      <line x1="120" y1="-20" x2="120" y2="5" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)" />
+      <!-- Long curve from V at top right -->
+      <path d="M 230 -265 C 260 -100, 240 5, 215 20" fill="none" stroke="#f472b6" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-blue)" />
+
+      <rect x="30" y="5" width="180" height="38" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="2" />
+      <text x="120" y="24" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">MatMul (A &times; V)</text>
+      <text x="120" y="37" font-family="monospace" font-size="9" fill="#34d399" text-anchor="middle">Weighted Sum of Values</text>
+    </g>
+
+    <!-- Final Output Box -->
+    <g transform="translate(70, 385)">
+      <line x1="120" y1="-18" x2="120" y2="5" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)" />
+      <rect x="15" y="5" width="210" height="36" rx="6" fill="#10b981" />
+      <text x="120" y="23" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">
+        OUTPUT TENSOR (N &times; dᵥ)
+      </text>
+      <text x="120" y="34" font-family="sans-serif" font-size="9" fill="#064e3b" text-anchor="middle">
+        Context-Enriched Token Representations
+      </text>
+    </g>
+  </g>
+
+  <!-- Right: The Analogy & Matrix Dimensions Guide -->
+  <g transform="translate(470, 85)" filter="url(#shadow)">
+    <rect width="430" height="435" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <rect x="0" y="0" width="430" height="32" rx="12" fill="#0f172a" />
+    <text x="215" y="21" font-family="sans-serif" font-size="12" font-weight="900" fill="#38bdf8" text-anchor="middle">
+      THE SEARCH ENGINE ANALOGY &amp; TENSOR SHAPES
+    </text>
+
+    <!-- Analogy Card 1: Query -->
+    <g transform="translate(20, 50)">
+      <rect width="390" height="65" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+      <text x="15" y="24" font-family="monospace" font-size="12" font-weight="900" fill="#38bdf8">Query (Q): What I am searching for</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">Every token issues a query asking: "What context do I need?"</text>
+      <text x="15" y="58" font-family="sans-serif" font-size="10" fill="#94a3b8">Example: "bank" asks &rarr; "Am I near rivers or finance?"</text>
+    </g>
+
+    <!-- Analogy Card 2: Key -->
+    <g transform="translate(20, 125)">
+      <rect width="390" height="65" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1" />
+      <text x="15" y="24" font-family="monospace" font-size="12" font-weight="900" fill="#10b981">Key (K): What identity I advertise</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">Every token advertises its attributes to all other tokens.</text>
+      <text x="15" y="58" font-family="sans-serif" font-size="10" fill="#94a3b8">Example: "river" advertises &rarr; "I am a flowing body of water!"</text>
+    </g>
+
+    <!-- Analogy Card 3: Value -->
+    <g transform="translate(20, 200)">
+      <rect width="390" height="65" rx="8" fill="#0f172a" stroke="#f472b6" stroke-width="1" />
+      <text x="15" y="24" font-family="monospace" font-size="12" font-weight="900" fill="#f472b6">Value (V): The actual content transferred</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">The raw semantic information that gets blended into the output.</text>
+      <text x="15" y="58" font-family="sans-serif" font-size="10" fill="#94a3b8">If Match(Q, K) is high, 90% of V is poured into Q's vector.</text>
+    </g>
+
+    <!-- Matrix Shape Breakdown Box -->
+    <g transform="translate(20, 280)">
+      <rect width="390" height="135" rx="8" fill="#020617" stroke="#1e293b" />
+      <text x="20" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#f8fafc">
+        EXACT TENSOR SHAPE CONTRACT:
+      </text>
+      <text x="20" y="48" font-family="monospace" font-size="11" fill="#93c5fd">
+        X:          (Batch, Seq_Len, d_model)
+      </text>
+      <text x="20" y="68" font-family="monospace" font-size="11" fill="#93c5fd">
+        Q, K:       (Batch, Seq_Len, d_k)
+      </text>
+      <text x="20" y="88" font-family="monospace" font-size="11" fill="#6ee7b7">
+        Q &times; Kᵀ:     (Batch, Seq_Len, Seq_Len) [Attention Map!]
+      </text>
+      <text x="20" y="108" font-family="monospace" font-size="11" fill="#fbcfe8">
+        (A &times; V):     (Batch, Seq_Len, d_v)
+      </text>
+    </g>
+  </g>
+</svg>

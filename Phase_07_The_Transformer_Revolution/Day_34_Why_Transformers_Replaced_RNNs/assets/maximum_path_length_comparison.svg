@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f43f5e" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    MAXIMUM PATH LENGTH: O(N) VS O(1) INFORMATION FLOW
+  </text>
+  <text x="480" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Why Self-Attention Connects Distant Words with Zero Signal Degradation (Vaswani Table 1)
+  </text>
+
+  <!-- Left Half: RNN O(N) Daisy Chain -->
+  <g transform="translate(60, 90)" filter="url(#shadow)">
+    <rect width="410" height="230" rx="12" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5" />
+    <rect x="0" y="0" width="410" height="30" rx="12" fill="#9f1239" />
+    <text x="205" y="20" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">
+      RNN: O(N) HOPS ACROSS RECURRENT TIME
+    </text>
+
+    <!-- Visual of hops -->
+    <g transform="translate(25, 60)">
+      <circle cx="20" cy="30" r="14" fill="#f43f5e" />
+      <text x="20" y="34" font-family="monospace" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">w₁</text>
+
+      <line x1="38" y1="30" x2="70" y2="30" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-red)" />
+      <circle cx="85" cy="30" r="14" fill="#1e293b" stroke="#f43f5e" />
+      <text x="85" y="34" font-family="monospace" font-size="10" fill="#fda4af" text-anchor="middle">w₂</text>
+
+      <line x1="103" y1="30" x2="135" y2="30" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-red)" />
+      <circle cx="150" cy="30" r="14" fill="#1e293b" stroke="#f43f5e" />
+      <text x="150" y="34" font-family="monospace" font-size="10" fill="#fda4af" text-anchor="middle">w₃</text>
+
+      <line x1="168" y1="30" x2="215" y2="30" stroke="#f43f5e" stroke-width="2" stroke-dasharray="3,3" />
+      <text x="240" y="34" font-family="monospace" font-size="11" fill="#94a3b8">... N hops ...</text>
+      <line x1="285" y1="30" x2="315" y2="30" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-red)" />
+
+      <circle cx="330" cy="30" r="14" fill="#f43f5e" />
+      <text x="330" y="34" font-family="monospace" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">w_N</text>
+    </g>
+
+    <!-- Details -->
+    <g transform="translate(20, 140)">
+      <rect width="370" height="70" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="15" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#f87171">Path Length: O(N)</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">To connect word 1 to word 1,000 requires 1,000 steps.</text>
+      <text x="15" y="60" font-family="sans-serif" font-size="10.5" fill="#fda4af">Information decays exponentially across each hop!</text>
+    </g>
+  </g>
+
+  <!-- Right Half: Transformer O(1) Direct Hop -->
+  <g transform="translate(490, 90)" filter="url(#shadow)">
+    <rect width="410" height="230" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+    <rect x="0" y="0" width="410" height="30" rx="12" fill="#047857" />
+    <text x="205" y="20" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">
+      TRANSFORMER: O(1) DIRECT 1-HOP CONNECTION ⭐
+    </text>
+
+    <!-- Visual of direct hop -->
+    <g transform="translate(25, 60)">
+      <circle cx="30" cy="40" r="14" fill="#10b981" />
+      <text x="30" y="44" font-family="monospace" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">w₁</text>
+
+      <circle cx="110" cy="65" r="10" fill="#0f172a" stroke="#10b981" />
+      <circle cx="190" cy="65" r="10" fill="#0f172a" stroke="#10b981" />
+      <circle cx="270" cy="65" r="10" fill="#0f172a" stroke="#10b981" />
+
+      <circle cx="340" cy="40" r="14" fill="#10b981" />
+      <text x="340" y="44" font-family="monospace" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">w_N</text>
+
+      <!-- Direct curve over the top! -->
+      <path d="M 32 25 C 100 -20, 270 -20, 335 25" fill="none" stroke="#34d399" stroke-width="3" marker-end="url(#arrow-green)" />
+      <text x="185" y="5" font-family="sans-serif" font-size="11" font-weight="900" fill="#34d399" text-anchor="middle">
+        DIRECT 1-HOP ATTENTION LINK!
+      </text>
+    </g>
+
+    <!-- Details -->
+    <g transform="translate(20, 140)">
+      <rect width="370" height="70" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="15" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#34d399">Path Length: O(1)</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">Word 1 attends directly to Word 10,000 in one step!</text>
+      <text x="15" y="60" font-family="sans-serif" font-size="10.5" fill="#a7f3d0">Zero signal decay, zero forgetting, zero vanishing gradient.</text>
+    </g>
+  </g>
+
+  <!-- Bottom: Vaswani Table 1 Architectural Comparison -->
+  <g transform="translate(60, 340)" filter="url(#shadow)">
+    <rect width="840" height="175" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <rect x="0" y="0" width="840" height="26" rx="10" fill="#0f172a" />
+    <text x="420" y="18" font-family="sans-serif" font-size="11" font-weight="900" fill="#38bdf8" text-anchor="middle" letter-spacing="0.5">
+      THE FAMOUS TABLE 1 FROM "ATTENTION IS ALL YOU NEED" (VASWANI ET AL., 2017)
+    </text>
+
+    <!-- Table content -->
+    <g transform="translate(20, 38)">
+      <!-- Header Row -->
+      <text x="10" y="16" font-family="sans-serif" font-size="11" font-weight="800" fill="#94a3b8">Layer Type</text>
+      <text x="210" y="16" font-family="sans-serif" font-size="11" font-weight="800" fill="#94a3b8">Complexity per Layer</text>
+      <text x="440" y="16" font-family="sans-serif" font-size="11" font-weight="800" fill="#94a3b8">Sequential Operations</text>
+      <text x="660" y="16" font-family="sans-serif" font-size="11" font-weight="800" fill="#94a3b8">Maximum Path Length</text>
+      <line x1="0" y1="24" x2="800" y2="24" stroke="#334155" stroke-width="1" />
+
+      <!-- Row 1: Self-Attention -->
+      <text x="10" y="46" font-family="sans-serif" font-size="11" font-weight="800" fill="#34d399">Self-Attention (Transformer)</text>
+      <text x="210" y="46" font-family="monospace" font-size="11" fill="#cbd5e1">O(N² &middot; d)</text>
+      <text x="440" y="46" font-family="monospace" font-size="11" font-weight="900" fill="#34d399">O(1) [PARALLEL!]</text>
+      <text x="660" y="46" font-family="monospace" font-size="11" font-weight="900" fill="#34d399">O(1) [DIRECT!]</text>
+
+      <!-- Row 2: Recurrent -->
+      <text x="10" y="74" font-family="sans-serif" font-size="11" font-weight="800" fill="#f43f5e">Recurrent (RNN / LSTM)</text>
+      <text x="210" y="74" font-family="monospace" font-size="11" fill="#cbd5e1">O(N &middot; d²)</text>
+      <text x="440" y="74" font-family="monospace" font-size="11" font-weight="900" fill="#f43f5e">O(N) [SERIAL!]</text>
+      <text x="660" y="74" font-family="monospace" font-size="11" font-weight="900" fill="#f43f5e">O(N) [DECAY!]</text>
+
+      <!-- Row 3: Convolutional -->
+      <text x="10" y="102" font-family="sans-serif" font-size="11" font-weight="800" fill="#38bdf8">Convolutional (1D CNN)</text>
+      <text x="210" y="102" font-family="monospace" font-size="11" fill="#cbd5e1">O(k &middot; N &middot; d²)</text>
+      <text x="440" y="102" font-family="monospace" font-size="11" fill="#cbd5e1">O(1)</text>
+      <text x="660" y="102" font-family="monospace" font-size="11" fill="#cbd5e1">O(log_k(N))</text>
+    </g>
+  </g>
+</svg>

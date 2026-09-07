@@ -87,10 +87,10 @@
 
 | Day | Topic | Status |
 | :---: | :--- | :---: |
-| Day 34 | Why Transformers Replaced RNNs — The Parallelism Breakthrough | 🔲 |
-| Day 35 | Self-Attention — The Spotlight Mechanism | 🔲 |
-| Day 36 | Multi-Head Attention & The Full Transformer Block | 🔲 |
-| Day 37 | The Complete Transformer Architecture — Putting It All Together | 🔲 |
+| [Day 34](Phase_07_The_Transformer_Revolution/Day_34_Why_Transformers_Replaced_RNNs/Day_34_Why_Transformers_Replaced_RNNs.md) | Why Transformers Replaced RNNs — The Parallelism Breakthrough | ✅ |
+| [Day 35](Phase_07_The_Transformer_Revolution/Day_35_Self_Attention/Day_35_Self_Attention.md) | Self-Attention — The Spotlight Mechanism | ✅ |
+| [Day 36](Phase_07_The_Transformer_Revolution/Day_36_Multi_Head_Attention/Day_36_Multi_Head_Attention.md) | Multi-Head Attention & The Full Transformer Block | ✅ |
+| [Day 37](Phase_07_The_Transformer_Revolution/Day_37_Complete_Transformer_Architecture/Day_37_Complete_Transformer_Architecture.md) | The Complete Transformer Architecture — Putting It All Together | ✅ |
 
 ### 🔴 Phase 8: Large Language Models (Days 38–41)
 

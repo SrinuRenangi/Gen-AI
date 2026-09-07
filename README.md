@@ -37,7 +37,7 @@
 
 | Day | Topic | Status |
 | :---: | :--- | :---: |
-| Day 09 | NumPy — The Engine Behind All AI Math | 🔲 |
+| [Day 09](Phase_02_Python_Data_Science/Day_09_NumPy/Day_09_NumPy.md) | NumPy — The Engine Behind All AI Math | ✅ |
 | Day 10 | Pandas — Working with Real-World Tabular Data | 🔲 |
 | Day 11 | Matplotlib & Data Visualization | 🔲 |
 

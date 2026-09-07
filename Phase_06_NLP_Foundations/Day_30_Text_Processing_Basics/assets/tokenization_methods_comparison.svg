@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    TOKENIZATION STRATEGY SHOWDOWN
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    From Classical Word-Splitting to Modern LLM Subword Tokenization (BPE)
+  </text>
+
+  <!-- Test Sentence Banner -->
+  <g transform="translate(60, 85)" filter="url(#shadow)">
+    <rect width="840" height="42" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" />
+    <text x="30" y="26" font-family="sans-serif" font-size="12" font-weight="800" fill="#94a3b8">TEST STRING:</text>
+    <text x="140" y="27" font-family="monospace" font-size="14" font-weight="800" fill="#38bdf8">
+      "Unbelievably, the cat's AI-engine works!"
+    </text>
+  </g>
+
+  <!-- 3 Columns Comparison -->
+  <g transform="translate(60, 145)" filter="url(#shadow)">
+
+    <!-- Column 1: Word-Level -->
+    <g transform="translate(0, 0)">
+      <rect width="265" height="360" rx="12" fill="#1e293b" stroke="#f43f5e" stroke-width="2" />
+      <rect x="0" y="0" width="265" height="34" rx="12" fill="#be123c" />
+      <text x="132" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">
+        1. WORD-LEVEL TOKENIZER
+      </text>
+
+      <!-- Token Pills -->
+      <g transform="translate(12, 48)">
+        <rect width="241" height="90" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="10" y="24" font-family="monospace" font-size="11" fill="#fda4af">["Unbelievably,",</text>
+        <text x="10" y="44" font-family="monospace" font-size="11" fill="#fda4af"> "the", "cat's",</text>
+        <text x="10" y="64" font-family="monospace" font-size="11" fill="#fda4af"> "AI-engine", "works!"]</text>
+      </g>
+
+      <!-- Metrics -->
+      <g transform="translate(15, 155)">
+        <text x="0" y="16" font-family="sans-serif" font-size="12" font-weight="800" fill="#f8fafc">Vocabulary Size:</text>
+        <text x="0" y="34" font-family="sans-serif" font-size="12" fill="#fda4af">Huge (500,000+ words)</text>
+
+        <text x="0" y="62" font-family="sans-serif" font-size="12" font-weight="800" fill="#f8fafc">Sequence Length:</text>
+        <text x="0" y="80" font-family="sans-serif" font-size="12" fill="#94a3b8">Short (5 tokens)</text>
+
+        <text x="0" y="108" font-family="sans-serif" font-size="12" font-weight="800" fill="#f43f5e">Fatal Flaws:</text>
+        <text x="0" y="126" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Out-Of-Vocabulary (OOV) trap</text>
+        <text x="0" y="144" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Typos become &lt;UNK&gt; (Unknown)</text>
+        <text x="0" y="162" font-family="sans-serif" font-size="11" fill="#cbd5e1">• "Unbelievably," contains punctuation</text>
+        <text x="0" y="180" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Punctuation glues to words</text>
+      </g>
+    </g>
+
+    <!-- Column 2: Character-Level -->
+    <g transform="translate(287, 0)">
+      <rect width="265" height="360" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2" />
+      <rect x="0" y="0" width="265" height="34" rx="12" fill="#b45309" />
+      <text x="132" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">
+        2. CHARACTER-LEVEL
+      </text>
+
+      <!-- Token Pills -->
+      <g transform="translate(12, 48)">
+        <rect width="241" height="90" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="10" y="24" font-family="monospace" font-size="11" fill="#fde68a">['U', 'n', 'b', 'e', 'l',</text>
+        <text x="10" y="44" font-family="monospace" font-size="11" fill="#fde68a"> 'i', 'e', 'v', 'a', 'b',</text>
+        <text x="10" y="64" font-family="monospace" font-size="11" fill="#fde68a"> 'l', 'y', ',', ' ', 't', ...]</text>
+      </g>
+
+      <!-- Metrics -->
+      <g transform="translate(15, 155)">
+        <text x="0" y="16" font-family="sans-serif" font-size="12" font-weight="800" fill="#f8fafc">Vocabulary Size:</text>
+        <text x="0" y="34" font-family="sans-serif" font-size="12" fill="#a7f3d0">Tiny (256 ASCII / Unicode)</text>
+
+        <text x="0" y="62" font-family="sans-serif" font-size="12" font-weight="800" fill="#f8fafc">Sequence Length:</text>
+        <text x="0" y="80" font-family="sans-serif" font-size="12" fill="#fda4af">Very Long (40+ tokens)</text>
+
+        <text x="0" y="108" font-family="sans-serif" font-size="12" font-weight="800" fill="#f59e0b">Fatal Flaws:</text>
+        <text x="0" y="126" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Zero semantic meaning per token</text>
+        <text x="0" y="144" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Attention cost explodes ($O(N^2)$)</text>
+        <text x="0" y="162" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Context window fills up 5x faster</text>
+        <text x="0" y="180" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Model must learn basic spelling</text>
+      </g>
+    </g>
+
+    <!-- Column 3: Subword (BPE / Modern LLMs) -->
+    <g transform="translate(575, 0)">
+      <rect width="265" height="360" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2.5" />
+      <rect x="0" y="0" width="265" height="34" rx="12" fill="#047857" />
+      <text x="132" y="22" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">
+        3. SUBWORD (BPE / LLMs) ⭐
+      </text>
+
+      <!-- Token Pills -->
+      <g transform="translate(12, 48)">
+        <rect width="241" height="90" rx="6" fill="#0f172a" stroke="#059669" stroke-width="1.5" />
+        <text x="10" y="22" font-family="monospace" font-size="11" fill="#6ee7b7">["Un", "believ", "ably",</text>
+        <text x="10" y="42" font-family="monospace" font-size="11" fill="#6ee7b7"> ",", " the", " cat",</text>
+        <text x="10" y="62" font-family="monospace" font-size="11" fill="#6ee7b7"> "'s", " AI", "-", "engine",</text>
+        <text x="10" y="80" font-family="monospace" font-size="11" fill="#6ee7b7"> " works", "!"]</text>
+      </g>
+
+      <!-- Metrics -->
+      <g transform="translate(15, 155)">
+        <text x="0" y="16" font-family="sans-serif" font-size="12" font-weight="800" fill="#f8fafc">Vocabulary Size:</text>
+        <text x="0" y="34" font-family="sans-serif" font-size="12" fill="#67e8f9">Optimal (32,000 to 100,000)</text>
+
+        <text x="0" y="62" font-family="sans-serif" font-size="12" font-weight="800" fill="#f8fafc">Sequence Length:</text>
+        <text x="0" y="80" font-family="sans-serif" font-size="12" fill="#34d399">Moderate &amp; Compact (11 tokens)</text>
+
+        <text x="0" y="108" font-family="sans-serif" font-size="12" font-weight="800" fill="#10b981">Why LLMs Love It:</text>
+        <text x="0" y="126" font-family="sans-serif" font-size="11" fill="#a7f3d0">✔ Common words = single token</text>
+        <text x="0" y="144" font-family="sans-serif" font-size="11" fill="#a7f3d0">✔ Rare words = familiar subwords</text>
+        <text x="0" y="162" font-family="sans-serif" font-size="11" fill="#a7f3d0">✔ ZERO Out-Of-Vocabulary (&lt;UNK&gt;)</text>
+        <text x="0" y="180" font-family="sans-serif" font-size="11" fill="#a7f3d0">✔ Used by GPT-4, LLaMA-3, Claude</text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -78,10 +78,10 @@
 
 | Day | Topic | Status |
 | :---: | :--- | :---: |
-| Day 30 | Text Processing Basics (Cleaning, Tokenization, Stopwords) | 🔲 |
-| Day 31 | Word Representations — From Text to Numbers | 🔲 |
-| Day 32 | Word Embeddings — Word GPS Coordinates | 🔲 |
-| Day 33 | Sequence-to-Sequence & The Birth of Attention | 🔲 |
+| [Day 30](Phase_06_NLP_Foundations/Day_30_Text_Processing_Basics/Day_30_Text_Processing_Basics.md) | Text Processing Basics (Cleaning, Tokenization, Stopwords) | ✅ |
+| [Day 31](Phase_06_NLP_Foundations/Day_31_Word_Representations/Day_31_Word_Representations.md) | Word Representations — From Text to Numbers | ✅ |
+| [Day 32](Phase_06_NLP_Foundations/Day_32_Word_Embeddings/Day_32_Word_Embeddings.md) | Word Embeddings — Word GPS Coordinates | ✅ |
+| [Day 33](Phase_06_NLP_Foundations/Day_33_Seq2Seq_and_Attention/Day_33_Seq2Seq_and_Attention.md) | Sequence-to-Sequence & The Birth of Attention | ✅ |
 
 ### 🔴 Phase 7: The Transformer Revolution (Days 34–37)
 

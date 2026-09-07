@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="curve-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE MECHANICS OF TF-IDF &amp; THE ORTHOGONALITY TRAP
+  </text>
+  <text x="480" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    How Inverse Document Frequency Damps Common Words, and Why Orthogonal Geometry Still Fails Semantics
+  </text>
+
+  <!-- Left Half: The TF-IDF Formula & Damping Curve -->
+  <g transform="translate(60, 90)" filter="url(#shadow)">
+    <rect width="410" height="415" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" />
+    <rect x="0" y="0" width="410" height="32" rx="12" fill="#1d4ed8" />
+    <text x="205" y="21" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+      1. TF-IDF MATHEMATICAL FORMULATION
+    </text>
+
+    <!-- Formula Box -->
+    <rect x="20" y="48" width="370" height="70" rx="8" fill="#0f172a" stroke="#334155" />
+    <text x="205" y="76" font-family="monospace" font-size="13" font-weight="800" fill="#38bdf8" text-anchor="middle">
+      TF-IDF(t, d, D) = TF(t, d) &times; IDF(t, D)
+    </text>
+    <text x="205" y="100" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">
+      IDF(t, D) = ln( (1 + N) / (1 + DF(t)) ) + 1
+    </text>
+
+    <!-- IDF Curve Chart -->
+    <g transform="translate(45, 145)">
+      <!-- Axes -->
+      <line x1="0" y1="180" x2="330" y2="180" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+      <line x1="0" y1="180" x2="0" y2="10" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+
+      <text x="320" y="200" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="end">Document Frequency (DF)</text>
+      <text x="10" y="15" font-family="sans-serif" font-size="10" fill="#94a3b8">IDF Score</text>
+
+      <!-- Damping Curve -->
+      <path d="M 15 35 Q 80 130 300 170" fill="none" stroke="url(#curve-grad)" stroke-width="3" />
+
+      <!-- Highlight Point A: Rare Word -->
+      <circle cx="25" cy="45" r="5" fill="#10b981" />
+      <text x="35" y="42" font-family="sans-serif" font-size="10" font-weight="800" fill="#34d399">"Quantum" (DF=1)</text>
+      <text x="35" y="55" font-family="sans-serif" font-size="9" fill="#94a3b8">High IDF (~4.6)</text>
+
+      <!-- Highlight Point B: Common Word -->
+      <circle cx="280" cy="167" r="5" fill="#f43f5e" />
+      <text x="230" y="150" font-family="sans-serif" font-size="10" font-weight="800" fill="#fda4af">"The" (DF=N)</text>
+      <text x="230" y="162" font-family="sans-serif" font-size="9" fill="#94a3b8">Low IDF (~1.0)</text>
+    </g>
+
+    <!-- Annotation footer -->
+    <rect x="20" y="355" width="370" height="42" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="205" y="373" font-family="sans-serif" font-size="10" fill="#93c5fd" text-anchor="middle">
+      Words appearing in EVERY document carry ZERO discriminative power.
+    </text>
+    <text x="205" y="388" font-family="sans-serif" font-size="10" fill="#6ee7b7" text-anchor="middle">
+      Rare technical words carry MAXIMUM query-matching weight!
+    </text>
+  </g>
+
+  <!-- Right Half: The Orthogonality Trap (Why Classical Fails Semantics) -->
+  <g transform="translate(490, 90)" filter="url(#shadow)">
+    <rect width="410" height="415" rx="12" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5" />
+    <rect x="0" y="0" width="410" height="32" rx="12" fill="#be123c" />
+    <text x="205" y="21" font-family="sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">
+      2. THE CURSE OF ORTHOGONALITY (90° BLINDNESS)
+    </text>
+
+    <!-- 3D Orthogonal Axes Graphic -->
+    <g transform="translate(180, 160)">
+      <!-- Axis X: "cat" -->
+      <line x1="0" y1="0" x2="160" y2="0" stroke="#f43f5e" stroke-width="3" marker-end="url(#arrow)" />
+      <text x="165" y="5" font-family="monospace" font-size="12" font-weight="800" fill="#fda4af">v("cat") = [1,0,0]</text>
+
+      <!-- Axis Y: "kitten" -->
+      <line x1="0" y1="0" x2="0" y2="-120" stroke="#f43f5e" stroke-width="3" marker-end="url(#arrow)" />
+      <text x="10" y="-115" font-family="monospace" font-size="12" font-weight="800" fill="#fda4af">v("kitten") = [0,1,0]</text>
+
+      <!-- Axis Z: "tractor" -->
+      <line x1="0" y1="0" x2="-80" y2="70" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)" />
+      <text x="-90" y="85" font-family="monospace" font-size="12" font-weight="800" fill="#cbd5e1">v("tractor") = [0,0,1]</text>
+
+      <!-- Right Angle Arc -->
+      <path d="M 25 0 L 25 -25 L 0 -25" fill="none" stroke="#e2e8f0" stroke-width="1.5" />
+      <text x="35" y="-12" font-family="sans-serif" font-size="11" font-weight="900" fill="#e2e8f0">&theta; = 90&deg;</text>
+    </g>
+
+    <!-- Explanation Box -->
+    <g transform="translate(20, 260)">
+      <rect width="370" height="135" rx="8" fill="#0f172a" stroke="#450a0a" />
+      <text x="185" y="24" font-family="sans-serif" font-size="11" font-weight="800" fill="#f87171" text-anchor="middle">
+        MATHEMATICAL BLINDNESS:
+      </text>
+      <text x="20" y="50" font-family="monospace" font-size="11" fill="#fecdd3">
+        cos(&theta;) = dot(v_cat, v_kitten) = 0.000
+      </text>
+      <text x="20" y="72" font-family="monospace" font-size="11" fill="#fecdd3">
+        cos(&theta;) = dot(v_cat, v_tractor) = 0.000
+      </text>
+      <text x="20" y="98" font-family="sans-serif" font-size="10.5" fill="#cbd5e1">
+        To One-Hot and BoW, a "cat" is just as unrelated to a
+      </text>
+      <text x="20" y="116" font-family="sans-serif" font-size="10.5" fill="#fca5a5">
+        "kitten" as it is to an industrial "tractor"!
+      </text>
+    </g>
+  </g>
+</svg>

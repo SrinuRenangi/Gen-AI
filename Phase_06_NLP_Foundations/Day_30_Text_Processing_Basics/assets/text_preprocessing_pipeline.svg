@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="pipe-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE NLP TEXT PREPROCESSING PIPELINE
+  </text>
+  <text x="480" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    Transforming Noisy, Unstructured Human Text into Clean, Machine-Digestible Tokens
+  </text>
+
+  <!-- Raw Input Box (Top) -->
+  <g transform="translate(60, 90)" filter="url(#shadow)">
+    <rect width="840" height="70" rx="10" fill="#1e293b" stroke="#f43f5e" stroke-width="2" />
+    <rect x="0" y="0" width="840" height="22" rx="10" fill="#f43f5e" />
+    <text x="420" y="15" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">
+      RAW UNSTRUCTURED INPUT (DIRTY HUMAN TEXT)
+    </text>
+    <text x="420" y="48" font-family="monospace" font-size="13" fill="#fda4af" text-anchor="middle">
+      "&lt;p&gt;Check out our 100% FREE AI course at https://genai.org! It's running AMAZINGLY!! 😊&lt;/p&gt;"
+    </text>
+  </g>
+
+  <!-- Down Arrow 1 -->
+  <line x1="500" y1="165" x2="500" y2="195" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow)" />
+
+  <!-- 3 Parallel / Cascading Stage Boxes -->
+  <g transform="translate(60, 205)" filter="url(#shadow)">
+    <!-- Stage 1: Noise Removal -->
+    <g transform="translate(0, 0)">
+      <rect width="260" height="150" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" />
+      <rect x="0" y="0" width="260" height="26" rx="10" fill="#1d4ed8" />
+      <text x="130" y="18" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        1. NOISE REMOVAL &amp; STRIPPING
+      </text>
+      <text x="15" y="48" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Strip HTML tags (&lt;p&gt;, &lt;/p&gt;)</text>
+      <text x="15" y="68" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Remove URLs &amp; email addresses</text>
+      <text x="15" y="88" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Handle emojis &amp; special symbols</text>
+      <rect x="10" y="104" width="240" height="34" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="130" y="125" font-family="monospace" font-size="10" fill="#93c5fd" text-anchor="middle">
+        "Check out our 100% FREE..."
+      </text>
+    </g>
+
+    <!-- Arrow 1 to 2 -->
+    <line x1="265" y1="75" x2="285" y2="75" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow)" />
+
+    <!-- Stage 2: Normalization -->
+    <g transform="translate(290, 0)">
+      <rect width="260" height="150" rx="10" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5" />
+      <rect x="0" y="0" width="260" height="26" rx="10" fill="#0e7490" />
+      <text x="130" y="18" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        2. NORMALIZATION
+      </text>
+      <text x="15" y="48" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Lowercasing ("AMAZINGLY" → "amazingly")</text>
+      <text x="15" y="68" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Accent stripping (café → cafe)</text>
+      <text x="15" y="88" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Expand contractions ("it's" → "it is")</text>
+      <rect x="10" y="104" width="240" height="34" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="130" y="125" font-family="monospace" font-size="10" fill="#67e8f9" text-anchor="middle">
+        "check out our free ai course it is..."
+      </text>
+    </g>
+
+    <!-- Arrow 2 to 3 -->
+    <line x1="555" y1="75" x2="575" y2="75" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow)" />
+
+    <!-- Stage 3: Tokenization -->
+    <g transform="translate(580, 0)">
+      <rect width="260" height="150" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+      <rect x="0" y="0" width="260" height="26" rx="10" fill="#047857" />
+      <text x="130" y="18" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">
+        3. TOKENIZATION &amp; LEMMA
+      </text>
+      <text x="15" y="48" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Segment into discrete tokens</text>
+      <text x="15" y="68" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Lemmatize ("running" → "run")</text>
+      <text x="15" y="88" font-family="sans-serif" font-size="11" fill="#cbd5e1">• Filter stopwords (optional / task-dependent)</text>
+      <rect x="10" y="104" width="240" height="34" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="130" y="125" font-family="monospace" font-size="10" fill="#6ee7b7" text-anchor="middle">
+        ["check", "free", "ai", "course", "run"]
+      </text>
+    </g>
+  </g>
+
+  <!-- Down Arrow 2 -->
+  <line x1="500" y1="365" x2="500" y2="395" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow)" />
+
+  <!-- Final Clean Tokens & Vocabulary Mapping (Bottom) -->
+  <g transform="translate(60, 405)" filter="url(#shadow)">
+    <rect width="840" height="105" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2" />
+    <rect x="0" y="0" width="840" height="24" rx="10" fill="url(#pipe-grad)" />
+    <text x="420" y="16" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">
+      CLEAN TOKEN STREAM → VOCABULARY INDEX MAPPING
+    </text>
+
+    <!-- Token pills -->
+    <g transform="translate(45, 38)">
+      <!-- Token 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="125" height="48" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+        <text x="62" y="20" font-family="monospace" font-size="12" font-weight="800" fill="#93c5fd" text-anchor="middle">"check"</text>
+        <text x="62" y="38" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">ID: 4,102</text>
+      </g>
+      <!-- Token 2 -->
+      <g transform="translate(150, 0)">
+        <rect width="125" height="48" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+        <text x="62" y="20" font-family="monospace" font-size="12" font-weight="800" fill="#93c5fd" text-anchor="middle">"free"</text>
+        <text x="62" y="38" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">ID: 1,844</text>
+      </g>
+      <!-- Token 3 -->
+      <g transform="translate(300, 0)">
+        <rect width="125" height="48" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+        <text x="62" y="20" font-family="monospace" font-size="12" font-weight="800" fill="#93c5fd" text-anchor="middle">"ai"</text>
+        <text x="62" y="38" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">ID: 89</text>
+      </g>
+      <!-- Token 4 -->
+      <g transform="translate(450, 0)">
+        <rect width="125" height="48" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+        <text x="62" y="20" font-family="monospace" font-size="12" font-weight="800" fill="#93c5fd" text-anchor="middle">"course"</text>
+        <text x="62" y="38" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">ID: 5,612</text>
+      </g>
+      <!-- Token 5 -->
+      <g transform="translate(600, 0)">
+        <rect width="125" height="48" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="2" />
+        <text x="62" y="20" font-family="monospace" font-size="12" font-weight="800" fill="#6ee7b7" text-anchor="middle">"run"</text>
+        <text x="62" y="38" font-family="sans-serif" font-size="11" fill="#34d399" text-anchor="middle">ID: 320 (Lemma)</text>
+      </g>
+    </g>
+  </g>
+</svg>

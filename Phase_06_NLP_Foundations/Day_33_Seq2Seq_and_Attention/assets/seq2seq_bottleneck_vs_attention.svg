@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f43f5e" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="480" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">
+    THE INFORMATION BOTTLENECK VS THE ATTENTION BREAKTHROUGH
+  </text>
+  <text x="480" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    From Classical Seq2Seq Fixed Context to Dynamic Attention Memory Lookups
+  </text>
+
+  <!-- TOP HALF: CLASSICAL SEQ2SEQ BOTTLENECK -->
+  <g transform="translate(60, 80)" filter="url(#shadow)">
+    <rect width="840" height="205" rx="12" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5" />
+    <rect x="0" y="0" width="840" height="26" rx="12" fill="#9f1239" />
+    <text x="420" y="18" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">
+      1. CLASSICAL SEQ2SEQ (SUTSKEVER ET AL., 2014): THE STATIC BOTTLENECK TRAP
+    </text>
+
+    <!-- Encoder RNN Steps -->
+    <g transform="translate(40, 50)">
+      <text x="75" y="15" font-family="sans-serif" font-size="11" font-weight="800" fill="#93c5fd">ENCODER (Reads Source)</text>
+      <!-- Step 1 -->
+      <rect x="0" y="30" width="60" height="35" rx="6" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+      <text x="30" y="52" font-family="monospace" font-size="11" fill="#93c5fd" text-anchor="middle">h₁</text>
+      <text x="30" y="80" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">"The"</text>
+      <line x1="60" y1="47" x2="80" y2="47" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+
+      <!-- Step 2 -->
+      <rect x="85" y="30" width="60" height="35" rx="6" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+      <text x="115" y="52" font-family="monospace" font-size="11" fill="#93c5fd" text-anchor="middle">h₂</text>
+      <text x="115" y="80" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">"black"</text>
+      <line x1="145" y1="47" x2="165" y2="47" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+
+      <!-- Step 3 -->
+      <rect x="170" y="30" width="60" height="35" rx="6" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+      <text x="200" y="52" font-family="monospace" font-size="11" fill="#93c5fd" text-anchor="middle">h₃</text>
+      <text x="200" y="80" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">"cat"</text>
+      <line x1="230" y1="47" x2="250" y2="47" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)" />
+
+      <!-- Step 4 -->
+      <rect x="255" y="30" width="60" height="35" rx="6" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" />
+      <text x="285" y="52" font-family="monospace" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">h₄</text>
+      <text x="285" y="80" font-family="sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">"slept"</text>
+    </g>
+
+    <!-- The Bottleneck Funnel -->
+    <g transform="translate(385, 60)">
+      <line x1="-30" y1="37" x2="5" y2="37" stroke="#f43f5e" stroke-width="3" marker-end="url(#arrow-red)" />
+      <rect x="10" y="10" width="60" height="55" rx="8" fill="#450a0a" stroke="#f43f5e" stroke-width="2.5" />
+      <text x="40" y="32" font-family="monospace" font-size="12" font-weight="900" fill="#fca5a5" text-anchor="middle">c = h₄</text>
+      <text x="40" y="50" font-family="sans-serif" font-size="9" fill="#fecdd3" text-anchor="middle">Fixed Vector</text>
+      <text x="40" y="78" font-family="sans-serif" font-size="9" font-weight="800" fill="#f87171" text-anchor="middle">BOTTLENECK</text>
+      <line x1="75" y1="37" x2="110" y2="37" stroke="#f43f5e" stroke-width="3" marker-end="url(#arrow-red)" />
+    </g>
+
+    <!-- Decoder RNN Steps -->
+    <g transform="translate(530, 50)">
+      <text x="80" y="15" font-family="sans-serif" font-size="11" font-weight="800" fill="#34d399">DECODER (Translates to French)</text>
+      <!-- Dec Step 1 -->
+      <rect x="0" y="30" width="60" height="35" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1.5" />
+      <text x="30" y="52" font-family="monospace" font-size="11" fill="#6ee7b7" text-anchor="middle">s₁</text>
+      <text x="30" y="80" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0" text-anchor="middle">"Le"</text>
+      <line x1="60" y1="47" x2="80" y2="47" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)" />
+
+      <!-- Dec Step 2 -->
+      <rect x="85" y="30" width="60" height="35" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1.5" />
+      <text x="115" y="52" font-family="monospace" font-size="11" fill="#6ee7b7" text-anchor="middle">s₂</text>
+      <text x="115" y="80" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0" text-anchor="middle">"chat"</text>
+      <line x1="145" y1="47" x2="165" y2="47" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)" />
+
+      <!-- Dec Step 3 -->
+      <rect x="170" y="30" width="60" height="35" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1.5" />
+      <text x="200" y="52" font-family="monospace" font-size="11" fill="#6ee7b7" text-anchor="middle">s₃</text>
+      <text x="200" y="80" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0" text-anchor="middle">"noir"</text>
+    </g>
+
+    <!-- Error caption -->
+    <text x="420" y="180" font-family="sans-serif" font-size="11" fill="#fda4af" text-anchor="middle">
+      Fatal Flaw: Forcing a 50-word sentence into a single 512-dim vector causes catastrophic memory loss on long texts!
+    </text>
+  </g>
+
+  <!-- BOTTOM HALF: ATTENTION BREAKTHROUGH -->
+  <g transform="translate(60, 305)" filter="url(#shadow)">
+    <rect width="840" height="235" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2" />
+    <rect x="0" y="0" width="840" height="26" rx="12" fill="#065f46" />
+    <text x="420" y="18" font-family="sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">
+      2. BAHDANAU ATTENTION (2014): DYNAMIC CONTEXT SPOTLIGHT AT EVERY STEP
+    </text>
+
+    <!-- Encoder States (All preserved!) -->
+    <g transform="translate(40, 45)">
+      <text x="80" y="15" font-family="sans-serif" font-size="11" font-weight="800" fill="#93c5fd">ALL ENCODER STATES KEPT IN MEMORY</text>
+      <rect x="0" y="25" width="55" height="30" rx="5" fill="#0f172a" stroke="#38bdf8" />
+      <text x="27" y="44" font-family="monospace" font-size="10" fill="#93c5fd" text-anchor="middle">h₁</text>
+
+      <rect x="70" y="25" width="55" height="30" rx="5" fill="#0f172a" stroke="#38bdf8" />
+      <text x="97" y="44" font-family="monospace" font-size="10" fill="#93c5fd" text-anchor="middle">h₂</text>
+
+      <rect x="140" y="25" width="55" height="30" rx="5" fill="#0f172a" stroke="#38bdf8" />
+      <text x="167" y="44" font-family="monospace" font-size="10" fill="#93c5fd" text-anchor="middle">h₃</text>
+
+      <rect x="210" y="25" width="55" height="30" rx="5" fill="#0f172a" stroke="#38bdf8" />
+      <text x="237" y="44" font-family="monospace" font-size="10" fill="#93c5fd" text-anchor="middle">h₄</text>
+    </g>
+
+    <!-- Attention Softmax Weights (Middle) -->
+    <g transform="translate(365, 40)">
+      <!-- Dynamic Attention Arrows from h to alpha -->
+      <path d="M -60 55 C -20 70, 0 70, 20 70" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,3" />
+      <path d="M 0 55 C 10 65, 15 68, 20 70" fill="none" stroke="#38bdf8" stroke-width="2.5" />
+      <path d="M 70 55 C 50 65, 30 68, 20 70" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,3" />
+      <path d="M 140 55 C 80 70, 50 70, 20 70" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+
+      <rect x="25" y="50" width="130" height="42" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+      <text x="90" y="68" font-family="sans-serif" font-size="10" font-weight="800" fill="#a7f3d0" text-anchor="middle">ATTENTION WEIGHTS</text>
+      <text x="90" y="83" font-family="monospace" font-size="10" fill="#6ee7b7" text-anchor="middle">&alpha;₁, &alpha;₂, &alpha;₃, &alpha;₄ (&Sigma; = 1.0)</text>
+
+      <line x1="155" y1="71" x2="190" y2="71" stroke="#34d399" stroke-width="3" marker-end="url(#arrow-green)" />
+    </g>
+
+    <!-- Dynamic Context Vector c_t -->
+    <g transform="translate(580, 50)">
+      <rect x="0" y="40" width="80" height="42" rx="6" fill="#1e3a8a" stroke="#38bdf8" stroke-width="2" />
+      <text x="40" y="58" font-family="monospace" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">c_t</text>
+      <text x="40" y="74" font-family="sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle">Dynamic Context</text>
+
+      <line x1="85" y1="61" x2="120" y2="61" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-blue)" />
+    </g>
+
+    <!-- Decoder with Direct Access -->
+    <g transform="translate(730, 75)">
+      <rect width="70" height="60" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="2" />
+      <text x="35" y="24" font-family="monospace" font-size="12" font-weight="800" fill="#6ee7b7" text-anchor="middle">s_t</text>
+      <text x="35" y="44" font-family="sans-serif" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">DECODER</text>
+    </g>
+
+    <!-- Breakthrough Summary Banner -->
+    <rect x="30" y="165" width="780" height="50" rx="8" fill="#0f172a" stroke="#334155" />
+    <text x="420" y="186" font-family="sans-serif" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">
+      The Game Changer: Decoder has a DIRECT HIGHWAY to ANY word in the source sentence!
+    </text>
+    <text x="420" y="202" font-family="sans-serif" font-size="10.5" fill="#94a3b8" text-anchor="middle">
+      No information is ever lost, regardless of whether the sentence is 5 words or 500 words long.
+    </text>
+  </g>
+</svg>

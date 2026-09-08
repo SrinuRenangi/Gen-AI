@@ -1,4 +1,4 @@
-﻿# 📈 Day 07: Slopes & Derivatives
+# 📈 Day 07: Slopes & Derivatives
 ## The Only Calculus You'll Ever Need for AI
 
 
@@ -396,7 +396,7 @@ By looking at the formula, you can tell the minimum error ($10$) occurs when $x 
 Let's write a small Python loop that starts at a random guess $x = 20.0$ and uses the slope to step downhill until it finds $x \approx 4.0$!
 
 **Formula for each step:**
-$$\text{new\_}x = \text{old\_}x - (\text{step\_size} \times \text{slope})$$
+$$x_{\text{new}} = x_{\text{old}} - (\text{step size} \times \text{slope})$$
 
 Use `step_size = 0.1` and run for 30 steps.
 

@@ -1,4 +1,4 @@
-﻿# 📊 Day 03: Matrices — Tables of Numbers
+# 📊 Day 03: Matrices — Tables of Numbers
 ## 2D Lists: How AI Stores Datasets, Images, and Weights
 
 
@@ -173,7 +173,9 @@ print(f"Matrix Shape:      {num_rows} x {num_cols}")  # 2 x 3
 
 Because a matrix is a list of lists, you access elements using two sets of square brackets:
 
-$$\text{matrix}[\text{row\_index}][\text{col\_index}]$$
+$$\text{matrix}[\text{row}][\text{column}]$$
+
+In Python code, this is written as `matrix[row_index][col_index]`.
 
 Remember that Python uses **0-based indexing**:
 - The first row is index `0`.
@@ -587,7 +589,7 @@ except ValueError as e:
 In grayscale image processing, pixel values range from `0` (black) to `255` (white).
 To create a photo **negative**, you invert every pixel:
 
-$$\text{new\_pixel} = 255 - \text{old\_pixel}$$
+$$\text{New Pixel} = 255 - \text{Old Pixel}$$
 
 Write a function `invert_image(image_matrix)` that takes a 2D matrix of pixel values and returns the negative image.
 

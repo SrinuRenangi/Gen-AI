@@ -1,4 +1,4 @@
-﻿# Day 48: RAG Part 2 — Advanced RAG, Re-Ranking & Evaluation
+# Day 48: RAG Part 2 — Advanced RAG, Re-Ranking & Evaluation
 
 
 | ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
@@ -414,10 +414,10 @@ A company uses BM25 and Vector Search. For a user query, document `"spec_v3"` is
 Using standard RRF with smoothing constant $k = 60$, calculate the exact numerical RRF score for `"spec_v3"`.
 
 **Solution**:
-$$\text{RRF}(\text{spec\_v3}) = \frac{1}{60 + r_{\text{bm25}}} + \frac{1}{60 + r_{\text{vector}}}$$
-$$\text{RRF}(\text{spec\_v3}) = \frac{1}{60 + 3} + \frac{1}{60 + 2} = \frac{1}{63} + \frac{1}{62}$$
+$$\text{RRF}(\text{spec-v3}) = \frac{1}{60 + r_{\text{bm25}}} + \frac{1}{60 + r_{\text{vector}}}$$
+$$\text{RRF}(\text{spec-v3}) = \frac{1}{60 + 3} + \frac{1}{60 + 2} = \frac{1}{63} + \frac{1}{62}$$
 $$\frac{1}{63} \approx 0.015873, \quad \frac{1}{62} \approx 0.016129$$
-$$\text{RRF}(\text{spec\_v3}) = 0.015873 + 0.016129 = \mathbf{0.032002}$$
+$$\text{RRF}(\text{spec-v3}) = 0.015873 + 0.016129 = \mathbf{0.032002}$$
 
 ---
 

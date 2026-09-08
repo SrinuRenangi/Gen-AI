@@ -1,4 +1,4 @@
-﻿# ⚡ Day 09: NumPy — The Engine Behind All AI Math
+# ⚡ Day 09: NumPy — The Engine Behind All AI Math
 ## Hardware-Accelerated Vector & Matrix Computing in Python
 
 
@@ -499,7 +499,7 @@ On [Day 05](../../Phase_01_Math_Foundations/Day_05_Dot_Product_and_Similarity/Da
 
 Rewrite Cosine Similarity in **two lines of NumPy** using `np.dot()` and `np.linalg.norm()`:
 
-$$\text{cos\_sim}(a, b) = \frac{a \cdot b}{\|a\| \|b\|}$$
+$$\text{Cosine Similarity}(a, b) = \frac{a \cdot b}{\|a\| \|b\|}$$
 
 ```python
 import numpy as np

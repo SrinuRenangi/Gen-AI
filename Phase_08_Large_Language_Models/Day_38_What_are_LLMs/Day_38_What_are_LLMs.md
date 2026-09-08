@@ -1,4 +1,4 @@
-﻿# Day 38: What are LLMs? — Supercharged Autocomplete
+# Day 38: What are LLMs? — Supercharged Autocomplete
 
 
 | ⬅️ Previous Day | 📚 Course Hub | ➡️ Next Day |
@@ -86,7 +86,7 @@ Because previous tokens never change, their **Keys ($K$)** and **Values ($V$)** 
 ### The VRAM Cost of KV Caching:
 While KV Caching makes generation fast, it introduces a massive GPU memory footprint:
 
-$$\text{KV Cache Size (Bytes)} = 2 \times 2 \times n_{\text{layers}} \times n_{\text{heads}} \times d_k \times \text{seq\_len} \times \text{batch\_size} \quad (\text{in FP16})$$
+$$\text{KV Cache Size (Bytes)} = 2 \times 2 \times n_{\text{layers}} \times n_{\text{heads}} \times d_k \times \text{seq length} \times \text{batch size} \quad (\text{in FP16})$$
 
 Where:
 - The first $2$ accounts for both Keys and Values.
@@ -393,7 +393,7 @@ If Top-$p = 0.80$, which tokens remain in the active candidate pool, and what ar
 
 ### Solutions:
 - **Exercise 1**:
-  $$\text{Bytes} = 2 \times 2 \times n_{\text{layers}} \times n_{\text{heads}} \times d_k \times \text{seq\_len}$$
+  $$\text{Bytes} = 2 \times 2 \times n_{\text{layers}} \times n_{\text{heads}} \times d_k \times \text{seq length}$$
   $$\text{Bytes} = 4 \times 32 \times 32 \times 128 \times 8,192 = 4 \times 1024 \times 128 \times 8,192 = 4,294,967,296 \text{ bytes}$$
   $$\text{Gigabytes} = \frac{4,294,967,296}{1024^3} = \mathbf{4.0 \text{ GB of GPU VRAM}}.$$
 - **Exercise 2**:

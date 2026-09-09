@@ -16,7 +16,7 @@ In this capstone lecture, you will master:
 2. **The Memory Wall**: Why full fine-tuning a 70B model requires a supercomputer cluster.
 3. **Low-Rank Adaptation (LoRA)**: The mathematical breakthrough that reduces trainable parameters by **$99.6\%$**.
 4. **QLoRA & 4-bit NormalFloat**: Fine-tuning massive models on a single consumer GPU.
-5. **Running Open-Source Models Locally**: Quantization formats (GGUF, AWQ, GPTQ) and local execution via Ollama and `llama.cpp`.
+5. **Running Open-Source Models Locally**: Quantization formats   (GGUF, AWQ, GPTQ) and local execution via Ollama and `llama.cpp`.
 
 ---
 

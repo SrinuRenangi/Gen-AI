@@ -25,7 +25,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | Day | Topic | Status |
 |-----|-------|--------|
 | 01 | [Introduction to Generative AI — The Complete Big Picture](Python/Phase_01_GenAI_Foundations/Day_01_Introduction_to_GenAI/Day_01_Introduction_to_GenAI.md) | ✅ |
-| 02 | Transformer Architecture — Self-Attention & Multi-Head Attention | 🔜 |
+| 02 | [LLM Parameters, Inference & Decoding Strategies](Python/Phase_01_GenAI_Foundations/Day_02_LLM_Parameters_and_Inference/Day_02_LLM_Parameters_and_Inference.md) | ✅ |
 | 03 | How LLMs Work — Pre-training, Tokenization & Embeddings | 🔜 |
 | 04 | Fine-Tuning & RLHF — Making LLMs Useful | 🔜 |
 | 05 | The GenAI Ecosystem — Models, APIs & Tools | 🔜 |

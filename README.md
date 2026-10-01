@@ -28,7 +28,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 02 | [LLM Parameters, Inference & Decoding Strategies](Python/Phase_01_GenAI_Foundations/Day_02_LLM_Parameters_and_Inference/Day_02_LLM_Parameters_and_Inference.md) | ✅ |
 | 03 | [Function Calling, LangChain, Chains, Agents & Memory](Python/Phase_01_GenAI_Foundations/Day_03_Function_Calling_LangChain/Day_03_Function_Calling_LangChain.md) | ✅ |
 | 04 | [AI Coding Question & Assessment Generator (Capstone Project)](Python/Phase_01_GenAI_Foundations/Day_04_Coding_Question_Generator/Day_04_Coding_Question_Generator.md) | ✅ |
-| 05 | The GenAI Ecosystem — Models, APIs & Tools | 🔜 |
+| 05 | [Deploying AI Models & GenAI Applications into AWS from Scratch](Python/Phase_01_GenAI_Foundations/Day_05_Deploying_AI_on_AWS/Day_05_Deploying_AI_on_AWS.md) | ✅ |
 
 ### Phase 02 — Python for AI (Days 6-10)
 | Day | Topic | Status |

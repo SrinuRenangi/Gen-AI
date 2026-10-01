@@ -27,7 +27,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 01 | [Introduction to Generative AI — The Complete Big Picture](Python/Phase_01_GenAI_Foundations/Day_01_Introduction_to_GenAI/Day_01_Introduction_to_GenAI.md) | ✅ |
 | 02 | [LLM Parameters, Inference & Decoding Strategies](Python/Phase_01_GenAI_Foundations/Day_02_LLM_Parameters_and_Inference/Day_02_LLM_Parameters_and_Inference.md) | ✅ |
 | 03 | [Function Calling, LangChain, Chains, Agents & Memory](Python/Phase_01_GenAI_Foundations/Day_03_Function_Calling_LangChain/Day_03_Function_Calling_LangChain.md) | ✅ |
-| 04 | Fine-Tuning & RLHF — Making LLMs Useful | 🔜 |
+| 04 | [AI Coding Question & Assessment Generator (Capstone Project)](Python/Phase_01_GenAI_Foundations/Day_04_Coding_Question_Generator/Day_04_Coding_Question_Generator.md) | ✅ |
 | 05 | The GenAI Ecosystem — Models, APIs & Tools | 🔜 |
 
 ### Phase 02 — Python for AI (Days 6-10)

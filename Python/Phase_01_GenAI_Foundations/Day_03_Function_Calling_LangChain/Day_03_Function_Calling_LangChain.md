@@ -77,6 +77,12 @@ WITH Function Calling:
 
 ![Function Calling Lifecycle](assets/01_function_calling_lifecycle.jpg)
 
+> ### 🎥 Visual Explainer & Animation
+> [![Function Calling and Tool Use](https://img.youtube.com/vi/0h0D8cTgh2U/hqdefault.jpg)](https://www.youtube.com/watch?v=0h0D8cTgh2U)
+>
+> 🎬 **[LangChain (Harrison Chase) — Function Calling and Tool Use in LLMs](https://www.youtube.com/watch?v=0h0D8cTgh2U)** (⏱️ 12 mins)  
+> 💡 *Visual Highlights:* Harrison Chase visually details the 4-step Function Calling lifecycle: schema declaration, parameter extraction, client-side execution, and feeding tool outputs back into the model context.
+
 ### Step 1: Define the Tools 🔧
 
 You provide the AI with a **structured description** of your functions using a JSON schema. This tells the AI:
@@ -440,6 +446,12 @@ simulate_function_calling("Calculate 15 times pi")
 ## 4. What is LangChain?
 
 ![LangChain Architecture](assets/02_langchain_architecture.jpg)
+
+> ### 🎥 Visual Explainer & Animation
+> [![What is LangChain?](https://img.youtube.com/vi/1bUy-1hGZpI/hqdefault.jpg)](https://www.youtube.com/watch?v=1bUy-1hGZpI)
+>
+> 🎬 **[IBM Technology — What is LangChain? | Architecture & Overview](https://www.youtube.com/watch?v=1bUy-1hGZpI)** (⏱️ 8 mins)  
+> 💡 *Visual Highlights:* Masterful lightboard animation breaking down the 6 LangChain components (Models, Prompts, Chains, Indexes, Memory, Agents) and showing why an orchestration framework is required for production apps.
 
 ### Definition
 
@@ -877,6 +889,12 @@ print("   • Can be serialized/loaded from files")
 
 ![Simple vs Sequential Chains](assets/03_chains_simple_sequential.jpg)
 
+> ### 🎥 Visual Explainer & Animation
+> [![LangChain Crash Course & LCEL](https://img.youtube.com/vi/lG7Uxts9SXs/hqdefault.jpg)](https://www.youtube.com/watch?v=lG7Uxts9SXs)
+>
+> 🎬 **[freeCodeCamp — LangChain in 1 Hour | Beginners Guide & LCEL](https://www.youtube.com/watch?v=lG7Uxts9SXs)** (⏱️ 60 mins)  
+> 💡 *Visual Highlights:* Hands-on visual tutorial constructing Simple Sequential Chains, LCEL pipe (`|`) operators, and linking prompt templates directly into model pipelines.
+
 ### What is a Chain?
 
 > Using an LLM in isolation is fine for simple applications, but complex applications require **chaining** LLMs — either with each other or with other components. A Chain is a pipeline that links multiple steps together.
@@ -993,6 +1011,12 @@ print("    • Data → Analyze → Report → Email")
 
 ![Agent Reasoning Loop](assets/04_agent_reasoning_loop.jpg)
 
+> ### 🎥 Visual Explainer & Animation
+> [![What are AI Agents?](https://img.youtube.com/vi/F8NKVhkZZWI/hqdefault.jpg)](https://www.youtube.com/watch?v=F8NKVhkZZWI)
+>
+> 🎬 **[IBM Technology — What are AI Agents? | How Autonomous Agents Work](https://www.youtube.com/watch?v=F8NKVhkZZWI)** (⏱️ 9 mins)  
+> 💡 *Visual Highlights:* Visual flowchart of the **ReAct loop**: how an AI Agent perceives user intent, reasons ("Thought"), decides on a tool ("Action"), and ingests results ("Observation").
+
 ### What is an AI Agent?
 
 > An **AI Agent** is a sophisticated software program powered by AI that can **autonomously** perform tasks to achieve specific goals. Unlike standard generative AI which waits for a prompt and produces a single response, an agent is designed to **plan, reason, and take action** in its environment.
@@ -1107,6 +1131,12 @@ print("     It decided WHICH tools to use and in what ORDER.")
 ## 12. Memory — Making LLMs Remember
 
 ![Memory Types](assets/05_memory_types_comparison.jpg)
+
+> ### 🎥 Visual Explainer & Animation
+> [![AI Agents & Tool Use](https://img.youtube.com/vi/sal78ACtGTc/hqdefault.jpg)](https://www.youtube.com/watch?v=sal78ACtGTc)
+>
+> 🎬 **[Computerphile — AI Agents & Tool Use (ReAct Framework & Memory)](https://www.youtube.com/watch?v=sal78ACtGTc)** (⏱️ 14 mins)  
+> 💡 *Visual Highlights:* Fascinating demonstration showing how LLMs use scratchpad memory to iterate toward complex solutions using external calculators, APIs, and search engines.
 
 ### The Stateless Problem
 
@@ -1682,16 +1712,30 @@ To visually internalize how LLMs execute Function Calling, how LangChain coordin
 ### 🎬 Deep-Dive Video Breakdown
 
 #### 1. [IBM Technology — What is LangChain?](https://www.youtube.com/watch?v=1bUy-1hGZpI)
+[![What is LangChain?](https://img.youtube.com/vi/1bUy-1hGZpI/hqdefault.jpg)](https://www.youtube.com/watch?v=1bUy-1hGZpI)
 > ⏱️ **Duration:** ~8 mins | 🎯 **Core Concept:** LLM Orchestration, Memory, Multi-Step Chains, Vector Retrievers  
 > 💡 **Key Visual Takeaway:** Watch how Martin Keen sketches out a real-world customer service bot: demonstrating why a standalone LLM fails (no memory, no company database), and how LangChain acts as the connective tissue bridging prompts, embeddings, and external tools.
 
 #### 2. [IBM Technology — What are AI Agents?](https://www.youtube.com/watch?v=F8NKVhkZZWI)
+[![What are AI Agents?](https://img.youtube.com/vi/F8NKVhkZZWI/hqdefault.jpg)](https://www.youtube.com/watch?v=F8NKVhkZZWI)
 > ⏱️ **Duration:** ~9 mins | 🎯 **Core Concept:** ReAct Pattern, Autonomous Planning, Tool Selection  
 > 💡 **Key Visual Takeaway:** The visual step-by-step flowchart contrasting a deterministic hardcoded sequence (Chain) with an autonomous decision-making loop (Agent) where the LLM can dynamically course-correct if a tool returns an error.
 
 #### 3. [Harrison Chase — Function Calling and Tool Use](https://www.youtube.com/watch?v=0h0D8cTgh2U)
+[![Function Calling and Tool Use](https://img.youtube.com/vi/0h0D8cTgh2U/hqdefault.jpg)](https://www.youtube.com/watch?v=0h0D8cTgh2U)
 > ⏱️ **Duration:** ~12 mins | 🎯 **Core Concept:** JSON Schema Binding, Parameter Extraction, Safety Layer  
 > 💡 **Key Visual Takeaway:** Clear side-by-side visualization showing how Python docstrings and Pydantic types automatically convert into OpenAI/Anthropic tool schemas.
+
+#### 4. [freeCodeCamp — LangChain in 1 Hour | Beginners Guide & LCEL](https://www.youtube.com/watch?v=lG7Uxts9SXs)
+[![LangChain Crash Course & LCEL](https://img.youtube.com/vi/lG7Uxts9SXs/hqdefault.jpg)](https://www.youtube.com/watch?v=lG7Uxts9SXs)
+> ⏱️ **Duration:** ~60 mins | 🎯 **Core Concept:** LCEL Pipe Operators, Prompt Templates, Memory  
+> 💡 **Key Visual Takeaway:** Hands-on visual tutorial constructing Simple Sequential Chains, LCEL pipe (`|`) syntax, and conversation memory step-by-step in Python.
+
+#### 5. [Computerphile — AI Agents & Tool Use (ReAct Framework)](https://www.youtube.com/watch?v=sal78ACtGTc)
+[![AI Agents & Tool Use](https://img.youtube.com/vi/sal78ACtGTc/hqdefault.jpg)](https://www.youtube.com/watch?v=sal78ACtGTc)
+> ⏱️ **Duration:** ~14 mins | 🎯 **Core Concept:** ReAct Framework, Scratchpad Memory, Tool Calling  
+> 💡 **Key Visual Takeaway:** Demonstrates how LLMs use scratchpad memory to iterate toward complex solutions using external calculators, search tools, and APIs.
+
 
 ---
 

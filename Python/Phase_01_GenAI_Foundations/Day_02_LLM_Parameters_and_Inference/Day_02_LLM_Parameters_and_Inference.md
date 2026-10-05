@@ -46,6 +46,12 @@ Before understanding individual parameters, you **must** understand the pipeline
 
 ![LLM Inference Pipeline](assets/03_llm_inference_pipeline.jpg)
 
+> ### 🎥 Visual Explainer & Animation
+> [![Andrej Karpathy - Intro to Large Language Models](https://img.youtube.com/vi/zjkBMFhNj_g/hqdefault.jpg)](https://www.youtube.com/watch?v=zjkBMFhNj_g)
+>
+> 🎬 **[Andrej Karpathy — [1hr Talk] Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g)** (⏱️ 60 mins)  
+> 💡 *Visual Highlights:* The definitive masterclass on how LLM inference works under the hood. Visualizes pretraining as lossy compression, next-token prediction, token generation loops, and sampling.
+
 ### The 10-Step Inference Pipeline
 
 ```
@@ -85,6 +91,12 @@ Step 10: RESPONSE        → Output text (then REPEAT from Step 4 for the next t
 LLMs don't process words — they process **tokens**. Understanding tokens is essential because almost every parameter relates to them.
 
 ![How Tokenization Works](assets/04_tokenization_explained.jpg)
+
+> ### 🎥 Visual Explainer & Animation
+> [![StatQuest - Word Embeddings and Word2Vec](https://img.youtube.com/vi/viZrOnJclYQ/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclYQ)
+>
+> 🎬 **[StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclYQ)** (⏱️ 16 mins)  
+> 💡 *Visual Highlights:* Animated walkthrough showing how tokens map to high-dimensional coordinate vectors where geometric distances capture semantic relationships.
 
 ### What is a Token?
 
@@ -152,6 +164,12 @@ for text, tokens in examples.items():
 
 ## 3. The Softmax Function — Turning Scores into Probabilities
 
+> ### 🎥 Visual Explainer & Animation
+> [![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4U/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4U)
+>
+> 🎬 **[3Blue1Brown — Transformers, the tech behind LLMs | Unembedding & Softmax](https://www.youtube.com/watch?v=wjZofJX0v4U)** (⏱️ 27 mins)  
+> 💡 *Visual Highlights:* Stunning 3D vector animations showing how word embeddings move through high-dimensional space and get projected onto vocabulary logits via the unembedding matrix before softmax.
+
 Before diving into temperature, you need to understand **softmax** — the function that converts raw model scores (logits) into probabilities.
 
 ### What Are Logits?
@@ -195,6 +213,12 @@ print(f"  Sum: {sum(probabilities):.4f}  ← Sums to 1! ✅")
 ## 4. Temperature — Controlling Creativity
 
 ![Temperature Scale](assets/01_temperature_scale.jpg)
+
+> ### 🎥 Visual Explainer & Animation
+> [![Inside ChatGPT: What is Temperature?](https://img.youtube.com/vi/Yf1mE4k6W9c/hqdefault.jpg)](https://www.youtube.com/watch?v=Yf1mE4k6W9c)
+>
+> 🎬 **[Computerphile — Inside ChatGPT: What is Temperature?](https://www.youtube.com/watch?v=Yf1mE4k6W9c)** (⏱️ 12 mins)  
+> 💡 *Visual Highlights:* Graphic curves illustrating how changing $T$ divides the logits, flattening the Softmax curve into creative exploration ($T \to 1.5$) or sharpening into deterministic greedy selection ($T \to 0$).
 
 ### What It Does
 
@@ -453,6 +477,12 @@ print("   same number in both cases, which is suboptimal.")
 ## 7. Top-K vs Top-P — When to Use Which?
 
 ![Top-K vs Top-P Sampling](assets/02_top_p_top_k_sampling.jpg)
+
+> ### 🎥 Visual Explainer & Animation
+> [![Transformer Neural Networks, Clearly Explained!](https://img.youtube.com/vi/zxGgdI_198/hqdefault.jpg)](https://www.youtube.com/watch?v=zxGgdI_198)
+>
+> 🎬 **[StatQuest — Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxGgdI_198)** (⏱️ 30 mins)  
+> 💡 *Visual Highlights:* Step-by-step visual animation demonstrating how Softmax converts dot-product similarity scores into dynamic probabilities and how sampling cuts off low-probability tails.
 
 ### Head-to-Head Comparison
 
@@ -1807,16 +1837,29 @@ To visually internalize how LLM inference, token sampling, temperature, and Tran
 ### 🎬 Deep-Dive Video Breakdown
 
 #### 1. [Andrej Karpathy — [1hr Talk] Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g)
+[![Intro to Large Language Models](https://img.youtube.com/vi/zjkBMFhNj_g/hqdefault.jpg)](https://www.youtube.com/watch?v=zjkBMFhNj_g)
 > ⏱️ **Duration:** ~60 mins | 🎯 **Core Concept:** LLM Pretraining, Tokenization, Fine-Tuning, System Prompts  
 > 💡 **Key Visual Takeaway:** Karpathy explains how an LLM is essentially "two files" (the weights file and the run.c inference code). Watch how he explains next-token probabilities and why temperature controls the "spread" of random sampling.
 
 #### 2. [3Blue1Brown — Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4U)
+[![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4U/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4U)
 > ⏱️ **Duration:** ~27 mins | 🎯 **Core Concept:** Embedding Space, Logits, Softmax, Probability Vectors  
 > 💡 **Key Visual Takeaway:** Watch the animation at the end showing the final unembedding step: the model projects an internal vector onto the entire 50,000-word vocabulary, producing a logit score for every single token!
 
 #### 3. [StatQuest — Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxGgdI_198)
+[![Transformer Neural Networks, Clearly Explained!](https://img.youtube.com/vi/zxGgdI_198/hqdefault.jpg)](https://www.youtube.com/watch?v=zxGgdI_198)
 > ⏱️ **Duration:** ~30 mins | 🎯 **Core Concept:** Softmax, Scaled Dot-Product Attention, Residual Connections  
 > 💡 **Key Visual Takeaway:** Josh Starmer breaks down the dot-product similarity between tokens with clean graphics, showing how the softmax function normalizes raw similarity scores into valid probabilities summing to 1.0.
+
+#### 4. [StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclYQ)
+[![Word Embeddings and Word2Vec](https://img.youtube.com/vi/viZrOnJclYQ/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclYQ)
+> ⏱️ **Duration:** ~16 mins | 🎯 **Core Concept:** Continuous Bag of Words (CBOW), Skip-Gram, High-Dimensional Vector Spaces  
+> 💡 **Key Visual Takeaway:** See how words with similar contexts naturally cluster together in vector space, establishing the geometrical foundation for LLM token representations.
+
+#### 5. [Computerphile — Inside ChatGPT: What is Temperature?](https://www.youtube.com/watch?v=Yf1mE4k6W9c)
+[![Inside ChatGPT: What is Temperature?](https://img.youtube.com/vi/Yf1mE4k6W9c/hqdefault.jpg)](https://www.youtube.com/watch?v=Yf1mE4k6W9c)
+> ⏱️ **Duration:** ~12 mins | 🎯 **Core Concept:** Softmax Scaling, Probability Flattening, Deterministic Greed vs Creative Exploration  
+> 💡 **Key Visual Takeaway:** Visualizes the Softmax equation with temperature scaling: $P(w_i) = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}$, illustrating why $T \to 0$ collapses to argmax and $T > 1$ flattens into entropy.
 
 ---
 

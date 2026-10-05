@@ -92,6 +92,12 @@ Input Layer → Hidden Layer(s) → Output Layer
 - Credit card fraud detection
 - Customer churn prediction
 
+> ### 🎥 Visual Explainer & Animation
+> [![But what is a neural network?](https://img.youtube.com/vi/aircAruvnKk/hqdefault.jpg)](https://www.youtube.com/watch?v=aircAruvnKk)
+>
+> 🎬 **[3Blue1Brown — But what is a neural network? | Chapter 1, Deep learning](https://www.youtube.com/watch?v=aircAruvnKk)** (⏱️ 19 mins)  
+> 💡 *Visual Highlights:* The gold standard of neural network animation. Watch how handwritten digit pixels light up layers of neurons, weights, and biases to form high-level pattern recognition.
+
 ```python
 # Simple ANN conceptual example
 # Each neuron does: output = activation(weight * input + bias)
@@ -263,6 +269,12 @@ Both improve over time → Generator creates increasingly realistic data
 Since sequential data is critical for language (and therefore for GenAI), let's deep-dive into the three models that handle sequences.
 
 ![RNN vs LSTM vs GRU Comparison](assets/03_rnn_lstm_gru_comparison.jpg)
+
+> ### 🎥 Visual Explainer & Animation
+> [![StatQuest - Recurrent Neural Networks (RNNs) Clearly Explained](https://img.youtube.com/vi/AsNTP8Kwu80/hqdefault.jpg)](https://www.youtube.com/watch?v=AsNTP8Kwu80)
+>
+> 🎬 **[StatQuest — Recurrent Neural Networks (RNNs), Clearly Explained!](https://www.youtube.com/watch?v=AsNTP8Kwu80)** (⏱️ 17 mins)  
+> 💡 *Visual Highlights:* Step-by-step cartoon animations walking through word sequence processing, feedback loops, and why standard RNNs suffer from vanishing gradients.
 
 ### 3.1 RNN — Recurrent Neural Network (The Basics)
 
@@ -577,6 +589,12 @@ In 2017, the Google Brain team published one of the most influential papers in A
 
 ![Evolution: Seq2Seq → Attention → Transformer](assets/05_encoder_decoder_attention.jpg)
 
+> ### 🎥 Visual Explainer & Animation
+> [![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4U/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4U)
+>
+> 🎬 **[3Blue1Brown — Transformers, the tech behind LLMs | Chapter 5, Deep learning](https://www.youtube.com/watch?v=wjZofJX0v4U)** (⏱️ 27 mins)  
+> 💡 *Visual Highlights:* The definitive 3D animated walkthrough of how Attention and Transformers process words in parallel, compute context-rich vectors, and generate text.
+
 ### What is Attention?
 
 **Simple Analogy:** Imagine you're translating a long English paragraph to Hindi. Without attention, you'd read the entire paragraph, try to memorize everything, then translate from memory. With attention, you can **look back at specific parts** of the original text while translating each word.
@@ -661,6 +679,12 @@ The "Attention Is All You Need" paper didn't just add attention to RNNs — it *
 This is one of the most fundamental distinctions in all of machine learning.
 
 ![Discriminative vs Generative Models](assets/06_discriminative_vs_generative.jpg)
+
+> ### 🎥 Visual Explainer & Animation
+> [![IBM Technology - Generative AI vs Traditional AI](https://img.youtube.com/vi/0k_b_m70-98/hqdefault.jpg)](https://www.youtube.com/watch?v=0k_b_m70-98)
+>
+> 🎬 **[IBM Technology — Generative AI vs. Traditional AI: What's the Difference?](https://www.youtube.com/watch?v=0k_b_m70-98)** (⏱️ 6 mins)  
+> 💡 *Visual Highlights:* Clear lightboard diagrams illustrating the geometric difference between decision boundaries ($P(Y|X)$) and generating from probability distributions ($P(X)$).
 
 ### Discriminative Models — "The Judge"
 
@@ -1270,16 +1294,30 @@ To visually solidify the foundational concepts of Artificial Intelligence, Deep 
 ### 🎬 Deep-Dive Video Breakdown
 
 #### 1. [3Blue1Brown — But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk)
+[![But what is a neural network?](https://img.youtube.com/vi/aircAruvnKk/hqdefault.jpg)](https://www.youtube.com/watch?v=aircAruvnKk)
 > ⏱️ **Duration:** ~19 mins | 🎯 **Core Concept:** Neurons as Numbers, Layer-by-Layer Activation, Linear Combinations  
 > 💡 **Key Visual Takeaway:** Watch how the activation of a neuron lights up sub-components (edges, loops) in handwritten digits. It visually transforms the abstract formula $a^{(1)} = \sigma(Wa^{(0)} + b)$ into concrete intuitive geometry.
 
 #### 2. [3Blue1Brown — Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w)
+[![Gradient descent, how neural networks learn](https://img.youtube.com/vi/IHZwWFHWa-w/hqdefault.jpg)](https://www.youtube.com/watch?v=IHZwWFHWa-w)
 > ⏱️ **Duration:** ~21 mins | 🎯 **Core Concept:** Cost Functions, Minima, Negative Gradient Vector, Learning Rate  
 > 💡 **Key Visual Takeaway:** The ball rolling down a complex multidimensional terrain animation clearly demystifies why the negative gradient gives the direction of steepest descent.
 
-#### 3. [IBM Technology — Generative AI vs. Traditional AI](https://www.youtube.com/watch?v=0k_b_m70-98)
+#### 3. [StatQuest — Neural Networks Part 1: Inside the Black Box](https://www.youtube.com/watch?v=CqOfi41LfDw)
+[![Neural Networks Part 1: Inside the Black Box](https://img.youtube.com/vi/CqOfi41LfDw/hqdefault.jpg)](https://www.youtube.com/watch?v=CqOfi41LfDw)
+> ⏱️ **Duration:** ~18 mins | 🎯 **Core Concept:** Linear Combinations, Activation Functions, Visual Fitting  
+> 💡 **Key Visual Takeaway:** Step-by-step visual curves showing how adding simple mathematical curves together allows neural networks to fit complex classification frontiers.
+
+#### 4. [IBM Technology — Generative AI vs. Traditional AI](https://www.youtube.com/watch?v=0k_b_m70-98)
+[![Generative AI vs Traditional AI](https://img.youtube.com/vi/0k_b_m70-98/hqdefault.jpg)](https://www.youtube.com/watch?v=0k_b_m70-98)
 > ⏱️ **Duration:** ~6 mins | 🎯 **Core Concept:** Discriminative Classification vs. Generative Synthesis  
 > 💡 **Key Visual Takeaway:** Martin Keen visually diagrams how traditional machine learning draws decision boundaries (e.g. Cat vs Dog), whereas Generative AI models learn the underlying probability distribution $P(X)$ to synthesize entirely new samples.
+
+#### 5. [3Blue1Brown — Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4U)
+[![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4U/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4U)
+> ⏱️ **Duration:** ~27 mins | 🎯 **Core Concept:** Self-Attention, High-Dimensional Word Embeddings, Parallel Processing  
+> 💡 **Key Visual Takeaway:** Incredible 3D geometric visualization showing how word vectors update their semantic orientation in real time as they pay attention to surrounding tokens.
+
 
 ---
 

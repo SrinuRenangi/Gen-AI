@@ -31,14 +31,14 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 04 | [AI Coding Question & Assessment Generator (Capstone Project)](Python/Phase_01_GenAI_Foundations/Day_04_Coding_Question_Generator/Day_04_Coding_Question_Generator.md) | ✅ |
 | 05 | [Deploying AI Models & GenAI Applications into AWS from Scratch](Python/Phase_01_GenAI_Foundations/Day_05_Deploying_AI_on_AWS/Day_05_Deploying_AI_on_AWS.md) | ✅ |
 
-### Phase 02 — Python for AI (Days 6-10)
+### Phase 02 — Vector Databases & Retrieval-Augmented Generation (Days 6-10)
 | Day | Topic | Status |
 |-----|-------|--------|
-| 06 | Python Essentials for AI/ML | 🔜 |
-| 07 | NumPy — The Foundation of Scientific Computing | 🔜 |
-| 08 | Pandas — Data Manipulation Mastery | 🔜 |
-| 09 | Matplotlib & Seaborn — Data Visualization | 🔜 |
-| 10 | Python OOP & Design Patterns for AI | 🔜 |
+| 06 | [Vector Databases, High-Dimensional Embeddings & Pinecone from Scratch](Python/Phase_02_Vector_Databases_and_RAG/Day_06_Vector_Databases_and_Embeddings/Day_06_Vector_Databases_and_Embeddings.md) | ✅ |
+| 07 | RAG Architecture, Chunking Strategies & Embedding Rerankers | 🔜 |
+| 08 | Advanced Vector Search — Hybrid Search, Sparse (BM25) & Dense Fusion | 🔜 |
+| 09 | Graph Vector Databases & Knowledge Graphs for LLMs | 🔜 |
+| 10 | Enterprise RAG Pipeline Capstone Project | 🔜 |
 
 ### Phase 03 — Math for AI (Days 11-15)
 | Day | Topic | Status |

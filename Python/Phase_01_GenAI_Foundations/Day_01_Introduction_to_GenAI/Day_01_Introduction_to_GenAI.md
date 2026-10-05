@@ -23,7 +23,8 @@
 11. [The Complete Timeline — How We Got Here](#11-the-complete-timeline--how-we-got-here)
 12. [Code Examples](#12-code-examples)
 13. [Key Takeaways](#13-key-takeaways)
-14. [Practice Questions](#14-practice-questions)
+14. [Curated Video Walkthroughs & Visual Animations](#14-curated-video-walkthroughs--visual-animations)
+15. [Practice Questions](#15-practice-questions)
 
 ---
 
@@ -1254,7 +1255,35 @@ print("   And Transformers solved this even better with ATTENTION mechanism.")
 
 ---
 
-## 14. Practice Questions
+## 14. Curated Video Walkthroughs & Visual Animations
+
+To visually solidify the foundational concepts of Artificial Intelligence, Deep Learning architectures, and the Transformer paradigm, watch these world-renowned animated explanations:
+
+| # | Topic / Concept | Recommended Video | Channel / Creator | Why Watch? (Visual & Animation Highlights) |
+|---|-----------------|-------------------|-------------------|--------------------------------------------|
+| 1 | **What is a Neural Network?** | [But what is a neural network? \| Chapter 1, Deep learning](https://www.youtube.com/watch?v=aircAruvnKk) | **3Blue1Brown (Grant Sanderson)** | The gold standard of mathematical animation. Uses the MNIST digit recognition task to illustrate layers, activations, weights, biases, and matrix transformations. |
+| 2 | **How Neural Networks Learn** | [Gradient descent, how neural networks learn \| Chapter 2, Deep learning](https://www.youtube.com/watch?v=IHZwWFHWa-w) | **3Blue1Brown (Grant Sanderson)** | Brilliant 3D visualizations of high-dimensional cost functions, loss landscapes, and how gradient descent finds optimal weights. |
+| 3 | **Neural Networks Inside Out** | [Neural Networks Part 1: Inside the Black Box](https://www.youtube.com/watch?v=CqOfi41LfDw) | **StatQuest (Josh Starmer)** | Extremely accessible, step-by-step visual walkthrough showing how simple linear functions combine with activation functions to fit complex boundaries. |
+| 4 | **Generative AI vs Traditional AI** | [Generative AI vs. Traditional AI: What's the Difference?](https://www.youtube.com/watch?v=0k_b_m70-98) | **IBM Technology (Martin Keen)** | Crystal-clear lightboard explanation contrasting discriminative classification models with generative probability distribution models. |
+| 5 | **Transformers & Attention Breakthrough** | [Transformers, the tech behind LLMs \| Chapter 5, Deep learning](https://www.youtube.com/watch?v=wjZofJX0v4U) | **3Blue1Brown (Grant Sanderson)** | Mind-bending 3D geometric animation showing how word embeddings move through vector space and how attention replaces recurrent loops. |
+
+### 🎬 Deep-Dive Video Breakdown
+
+#### 1. [3Blue1Brown — But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk)
+> ⏱️ **Duration:** ~19 mins | 🎯 **Core Concept:** Neurons as Numbers, Layer-by-Layer Activation, Linear Combinations  
+> 💡 **Key Visual Takeaway:** Watch how the activation of a neuron lights up sub-components (edges, loops) in handwritten digits. It visually transforms the abstract formula $a^{(1)} = \sigma(Wa^{(0)} + b)$ into concrete intuitive geometry.
+
+#### 2. [3Blue1Brown — Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w)
+> ⏱️ **Duration:** ~21 mins | 🎯 **Core Concept:** Cost Functions, Minima, Negative Gradient Vector, Learning Rate  
+> 💡 **Key Visual Takeaway:** The ball rolling down a complex multidimensional terrain animation clearly demystifies why the negative gradient gives the direction of steepest descent.
+
+#### 3. [IBM Technology — Generative AI vs. Traditional AI](https://www.youtube.com/watch?v=0k_b_m70-98)
+> ⏱️ **Duration:** ~6 mins | 🎯 **Core Concept:** Discriminative Classification vs. Generative Synthesis  
+> 💡 **Key Visual Takeaway:** Martin Keen visually diagrams how traditional machine learning draws decision boundaries (e.g. Cat vs Dog), whereas Generative AI models learn the underlying probability distribution $P(X)$ to synthesize entirely new samples.
+
+---
+
+## 15. Practice Questions
 
 ### Conceptual Questions
 

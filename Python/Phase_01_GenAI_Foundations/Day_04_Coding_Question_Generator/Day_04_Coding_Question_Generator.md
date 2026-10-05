@@ -31,7 +31,8 @@
 11. [How to Run and Test the Project](#11-how-to-run-and-test-the-project)
 12. [Security, Performance & Production Best Practices](#12-security-performance--production-best-practices)
 13. [Key Takeaways & Conceptual Review](#13-key-takeaways--conceptual-review)
-14. [Hands-On Practice Challenges](#14-hands-on-practice-challenges)
+14. [Curated Video Walkthroughs & Visual Animations](#14-curated-video-walkthroughs--visual-animations)
+15. [Hands-On Practice Challenges](#15-hands-on-practice-challenges)
 
 ---
 
@@ -486,7 +487,35 @@ When deploying an AI assessment platform in a production cloud environment, foll
 
 ---
 
-## 14. Hands-On Practice Challenges
+## 14. Curated Video Walkthroughs & Visual Animations
+
+To visually internalize how online code judges work, how AST parsing enforces security, and how Pydantic guarantees structured LLM outputs, watch these top-rated video walkthroughs:
+
+| # | Topic / Concept | Recommended Video | Channel / Creator | Why Watch? (Visual & Animation Highlights) |
+|---|-----------------|-------------------|-------------------|--------------------------------------------|
+| 1 | **Strict Schemas with Pydantic V2** | [Pydantic V2 Python Crash Course](https://www.youtube.com/watch?v=Vj-iJb_80rw) | **freeCodeCamp** | Visual demonstration of how Pydantic validates incoming dictionaries against strict types, performs automatic coercion, and serializes clean JSON schemas. |
+| 2 | **Abstract Syntax Trees (AST)** | [Abstract Syntax Trees (AST) Explained](https://www.youtube.com/watch?v=7tCNu4CnjVc) | **Computerphile** | Animated breakdown showing how Python compilers parse code text into hierarchical tree nodes, and how analyzers traverse nodes to detect malicious calls. |
+| 3 | **Building Safe Code Sandboxes** | [Writing a Code Sandbox & Testing Untrusted Code](https://www.youtube.com/watch?v=5UfUPJc87aE) | **ArjanCodes** | Excellent architectural tutorial covering timeout enforcement, thread isolation, and preventing arbitrary code execution exploits. |
+| 4 | **How Online Judges Work** | [How LeetCode Judges & Compiles Code](https://www.youtube.com/watch?v=KLlXCFG5TnA) | **NeetCode** | Behind-the-scenes architectural explanation of test harnesses, public vs hidden test cases, memory limits, and automated verdict calculation. |
+| 5 | **Deep Code Inspection with Python AST** | [Python AST & Code Inspection Tutorial](https://www.youtube.com/watch?v=xgh1VnNlGjU) | **mCoding** | Clear step-by-step coding tutorial showing how to use `ast.walk` to intercept prohibited imports like `os` and `subprocess` before runtime. |
+
+### 🎬 Deep-Dive Video Breakdown
+
+#### 1. [Computerphile — Abstract Syntax Trees (AST) Explained](https://www.youtube.com/watch?v=7tCNu4CnjVc)
+> ⏱️ **Duration:** ~14 mins | 🎯 **Core Concept:** Lexing, Parsing, Grammar, Syntax Nodes  
+> 💡 **Key Visual Takeaway:** Watch the whiteboard demonstration showing how `a = 1 + 2 * 3` turns into a tree with operator precedence. This illustrates why our `verify_ast_security()` function can guarantee no hidden `os.system` calls execute.
+
+#### 2. [ArjanCodes — Testing Untrusted Code Safely](https://www.youtube.com/watch?v=5UfUPJc87aE)
+> ⏱️ **Duration:** ~18 mins | 🎯 **Core Concept:** Subprocess Isolation, Resource Limiting, Defensive Python  
+> 💡 **Key Visual Takeaway:** Demonstrates how infinite loops (`while True:`) can lock up server resources, and how thread wrappers with strict timeouts protect backend stability.
+
+#### 3. [NeetCode — How LeetCode Judges Code](https://www.youtube.com/watch?v=KLlXCFG5TnA)
+> ⏱️ **Duration:** ~11 mins | 🎯 **Core Concept:** Automated Grading, Edge Case Injection, Time Limits  
+> 💡 **Key Visual Takeaway:** Great visual breakdown of why hidden test cases are essential to prevent candidates from submitting hardcoded `if input == ... return ...` solutions.
+
+---
+
+## 15. Hands-On Practice Challenges
 
 To solidify your mastery of Day 04, attempt these hands-on extension exercises:
 

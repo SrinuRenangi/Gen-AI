@@ -14,6 +14,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 
 - 📖 **Detailed theory** with real-world analogies
 - 🖼️ **AI-generated concept diagrams** for visual learning
+- 🎥 **Curated video walkthroughs & 3D animations** from top creators (3Blue1Brown, StatQuest, Andrej Karpathy, IBM)
 - 💻 **Runnable Python code examples** with inline explanations
 - ✍️ **Practice questions** with solutions
 

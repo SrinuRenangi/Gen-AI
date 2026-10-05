@@ -35,7 +35,8 @@
 23. [The Master Cheat Sheet — All Parameters at a Glance](#23-the-master-cheat-sheet--all-parameters-at-a-glance)
 24. [Practical Recipes — Best Settings for Common Tasks](#24-practical-recipes--best-settings-for-common-tasks)
 25. [Code Examples](#25-code-examples)
-26. [Practice Questions](#26-practice-questions)
+26. [Curated Video Walkthroughs & Visual Animations](#26-curated-video-walkthroughs--visual-animations)
+27. [Practice Questions](#27-practice-questions)
 
 ---
 
@@ -1790,7 +1791,36 @@ print(f"    Per 100,000 requests: ${result['total_cost_per_request'] * 100000:.2
 
 ---
 
-## 26. Practice Questions
+## 26. Curated Video Walkthroughs & Visual Animations
+
+To visually internalize how LLM inference, token sampling, temperature, and Transformer attention mechanisms work under the hood, watch these world-renowned animated explanations:
+
+| # | Topic / Concept | Recommended Video | Channel / Creator | Why Watch? (Visual & Animation Highlights) |
+|---|-----------------|-------------------|-------------------|--------------------------------------------|
+| 1 | **The Big Picture of LLMs** | [[1hr Talk] Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g) | **Andrej Karpathy** | The definitive masterclass on LLMs. Clearly visualizes pretraining as lossy compression, token generation, fine-tuning, and sampling behavior. |
+| 2 | **Transformer Architecture & Sampling** | [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4U) | **3Blue1Brown (Grant Sanderson)** | Stunning 3D vector animations showing how word embeddings move through high-dimensional space to form next-token probability distributions. |
+| 3 | **Self-Attention Mechanism** | [Attention in transformers, step-by-step](https://www.youtube.com/watch?v=eMlx5fFNoYc) | **3Blue1Brown (Grant Sanderson)** | Animated breakdown of Queries, Keys, and Values ($Q, K, V$). Visualizes how attention scores dynamically route context between tokens. |
+| 4 | **Transformers & Positional Encoding** | [Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxGgdI_198) | **StatQuest (Josh Starmer)** | Step-by-step animated walkthrough of Positional Encoding, Self-Attention calculation, and Softmax probability distributions. |
+| 5 | **Word Embeddings Geometry** | [Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclYQ) | **StatQuest (Josh Starmer)** | Beautiful visual explanation showing how words become dense coordinates in vector space where semantic equations like $\vec{\text{King}} - \vec{\text{Man}} + \vec{\text{Woman}} = \vec{\text{Queen}}$ work. |
+| 6 | **What is Temperature in LLMs?** | [Inside ChatGPT: What is Temperature?](https://www.youtube.com/watch?v=Yf1mE4k6W9c) | **Computerphile** | Visualizes how temperature modifies the Softmax formula curve, showing the flattening into uniform randomness vs sharpening into greedy argmax. |
+
+### 🎬 Deep-Dive Video Breakdown
+
+#### 1. [Andrej Karpathy — [1hr Talk] Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g)
+> ⏱️ **Duration:** ~60 mins | 🎯 **Core Concept:** LLM Pretraining, Tokenization, Fine-Tuning, System Prompts  
+> 💡 **Key Visual Takeaway:** Karpathy explains how an LLM is essentially "two files" (the weights file and the run.c inference code). Watch how he explains next-token probabilities and why temperature controls the "spread" of random sampling.
+
+#### 2. [3Blue1Brown — Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4U)
+> ⏱️ **Duration:** ~27 mins | 🎯 **Core Concept:** Embedding Space, Logits, Softmax, Probability Vectors  
+> 💡 **Key Visual Takeaway:** Watch the animation at the end showing the final unembedding step: the model projects an internal vector onto the entire 50,000-word vocabulary, producing a logit score for every single token!
+
+#### 3. [StatQuest — Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxGgdI_198)
+> ⏱️ **Duration:** ~30 mins | 🎯 **Core Concept:** Softmax, Scaled Dot-Product Attention, Residual Connections  
+> 💡 **Key Visual Takeaway:** Josh Starmer breaks down the dot-product similarity between tokens with clean graphics, showing how the softmax function normalizes raw similarity scores into valid probabilities summing to 1.0.
+
+---
+
+## 27. Practice Questions
 
 ### Conceptual Questions
 

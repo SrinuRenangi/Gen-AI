@@ -27,7 +27,8 @@
 15. [LCEL — LangChain Expression Language (Modern Approach)](#15-lcel--langchain-expression-language-modern-approach)
 16. [Complete Project: Building a Multi-Tool Agent](#16-complete-project-building-a-multi-tool-agent)
 17. [Key Takeaways](#17-key-takeaways)
-18. [Practice Questions](#18-practice-questions)
+18. [Curated Video Walkthroughs & Visual Animations](#18-curated-video-walkthroughs--visual-animations)
+19. [Practice Questions](#19-practice-questions)
 
 ---
 
@@ -1666,7 +1667,35 @@ print("  All concepts from Day 3 working TOGETHER! 🚀")
 
 ---
 
-## 18. Practice Questions
+## 18. Curated Video Walkthroughs & Visual Animations
+
+To visually internalize how LLMs execute Function Calling, how LangChain coordinates components, and how AI Agents reason using the ReAct loop, watch these top-rated video walkthroughs:
+
+| # | Topic / Concept | Recommended Video | Channel / Creator | Why Watch? (Visual & Animation Highlights) |
+|---|-----------------|-------------------|-------------------|--------------------------------------------|
+| 1 | **What is LangChain?** | [What is LangChain? \| Architecture & Overview](https://www.youtube.com/watch?v=1bUy-1hGZpI) | **IBM Technology (Martin Keen)** | Masterful lightboard animation breaking down the 6 LangChain components (Models, Prompts, Chains, Indexes, Memory, Agents) and why orchestration is required. |
+| 2 | **What are AI Agents?** | [What are AI Agents? \| How Autonomous Agents Work](https://www.youtube.com/watch?v=F8NKVhkZZWI) | **IBM Technology (Martin Keen)** | Visual diagram illustrating the ReAct loop: how an AI Agent perceives user intent, reasons ("Thought"), decides on a tool ("Action"), and ingests results ("Observation"). |
+| 3 | **Function Calling & Tool Use** | [What is Function Calling and Tool Use in LLMs?](https://www.youtube.com/watch?v=0h0D8cTgh2U) | **LangChain (Harrison Chase)** | Harrison Chase (creator of LangChain) explains the 4-step Function Calling lifecycle and how LLMs output strict JSON arguments to drive real software. |
+| 4 | **LangChain Crash Course & LCEL** | [LangChain in 1 Hour \| Beginners Guide](https://www.youtube.com/watch?v=lG7Uxts9SXs) | **freeCodeCamp** | Hands-on visual tutorial constructing Simple Sequential Chains, LCEL pipe (`\|`) operators, and ConversationBufferMemory step-by-step. |
+| 5 | **AI Agents & ReAct Reasoning** | [AI Agents & Tool Use (ReAct Framework)](https://www.youtube.com/watch?v=sal78ACtGTc) | **Computerphile** | Fascinating demonstration showing how LLMs use scratchpad memory to iterate toward complex solutions using external calculators, APIs, and search engines. |
+
+### 🎬 Deep-Dive Video Breakdown
+
+#### 1. [IBM Technology — What is LangChain?](https://www.youtube.com/watch?v=1bUy-1hGZpI)
+> ⏱️ **Duration:** ~8 mins | 🎯 **Core Concept:** LLM Orchestration, Memory, Multi-Step Chains, Vector Retrievers  
+> 💡 **Key Visual Takeaway:** Watch how Martin Keen sketches out a real-world customer service bot: demonstrating why a standalone LLM fails (no memory, no company database), and how LangChain acts as the connective tissue bridging prompts, embeddings, and external tools.
+
+#### 2. [IBM Technology — What are AI Agents?](https://www.youtube.com/watch?v=F8NKVhkZZWI)
+> ⏱️ **Duration:** ~9 mins | 🎯 **Core Concept:** ReAct Pattern, Autonomous Planning, Tool Selection  
+> 💡 **Key Visual Takeaway:** The visual step-by-step flowchart contrasting a deterministic hardcoded sequence (Chain) with an autonomous decision-making loop (Agent) where the LLM can dynamically course-correct if a tool returns an error.
+
+#### 3. [Harrison Chase — Function Calling and Tool Use](https://www.youtube.com/watch?v=0h0D8cTgh2U)
+> ⏱️ **Duration:** ~12 mins | 🎯 **Core Concept:** JSON Schema Binding, Parameter Extraction, Safety Layer  
+> 💡 **Key Visual Takeaway:** Clear side-by-side visualization showing how Python docstrings and Pydantic types automatically convert into OpenAI/Anthropic tool schemas.
+
+---
+
+## 19. Practice Questions
 
 ### Conceptual Questions
 

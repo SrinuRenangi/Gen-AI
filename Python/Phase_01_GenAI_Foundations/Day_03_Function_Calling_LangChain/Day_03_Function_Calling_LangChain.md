@@ -78,10 +78,10 @@ WITH Function Calling:
 ![Function Calling Lifecycle](assets/01_function_calling_lifecycle.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Function Calling and Tool Use](https://img.youtube.com/vi/0h0D8cTgh2U/hqdefault.jpg)](https://www.youtube.com/watch?v=0h0D8cTgh2U)
+> [![AI + your code: Function Calling](https://img.youtube.com/vi/NbAGbXr4DME/hqdefault.jpg)](https://www.youtube.com/watch?v=NbAGbXr4DME)
 >
-> 🎬 **[LangChain (Harrison Chase) — Function Calling and Tool Use in LLMs](https://www.youtube.com/watch?v=0h0D8cTgh2U)** (⏱️ 12 mins)  
-> 💡 *Visual Highlights:* Harrison Chase visually details the 4-step Function Calling lifecycle: schema declaration, parameter extraction, client-side execution, and feeding tool outputs back into the model context.
+> 🎬 **[Google Cloud Tech — AI + your code: Function Calling](https://www.youtube.com/watch?v=NbAGbXr4DME)** (⏱️ 11 mins)  
+> 💡 *Visual Highlights:* Clear visual walk-through detailing the 4-step Function Calling lifecycle: tool schema declaration, parameter extraction, client-side execution, and feeding tool outputs back into the model context.
 
 ### Step 1: Define the Tools 🔧
 
@@ -1705,9 +1705,9 @@ To visually internalize how LLMs execute Function Calling, how LangChain coordin
 |---|-----------------|-------------------|-------------------|--------------------------------------------|
 | 1 | **What is LangChain?** | [What is LangChain? \| Architecture & Overview](https://www.youtube.com/watch?v=1bUy-1hGZpI) | **IBM Technology (Martin Keen)** | Masterful lightboard animation breaking down the 6 LangChain components (Models, Prompts, Chains, Indexes, Memory, Agents) and why orchestration is required. |
 | 2 | **What are AI Agents?** | [What are AI Agents? \| How Autonomous Agents Work](https://www.youtube.com/watch?v=F8NKVhkZZWI) | **IBM Technology (Martin Keen)** | Visual diagram illustrating the ReAct loop: how an AI Agent perceives user intent, reasons ("Thought"), decides on a tool ("Action"), and ingests results ("Observation"). |
-| 3 | **Function Calling & Tool Use** | [What is Function Calling and Tool Use in LLMs?](https://www.youtube.com/watch?v=0h0D8cTgh2U) | **LangChain (Harrison Chase)** | Harrison Chase (creator of LangChain) explains the 4-step Function Calling lifecycle and how LLMs output strict JSON arguments to drive real software. |
+| 3 | **Function Calling & Tool Use** | [AI + your code: Function Calling](https://www.youtube.com/watch?v=NbAGbXr4DME) | **Google Cloud Tech** | Clear visual walk-through detailing the 4-step Function Calling lifecycle: tool schema declaration, parameter extraction, and execution. |
 | 4 | **LangChain Crash Course & LCEL** | [LangChain in 1 Hour \| Beginners Guide](https://www.youtube.com/watch?v=lG7Uxts9SXs) | **freeCodeCamp** | Hands-on visual tutorial constructing Simple Sequential Chains, LCEL pipe (`\|`) operators, and ConversationBufferMemory step-by-step. |
-| 5 | **AI Agents & ReAct Reasoning** | [AI Agents & Tool Use (ReAct Framework)](https://www.youtube.com/watch?v=sal78ACtGTc) | **Computerphile** | Fascinating demonstration showing how LLMs use scratchpad memory to iterate toward complex solutions using external calculators, APIs, and search engines. |
+| 5 | **Agentic Workflows Future** | [What's next for AI agentic workflows](https://www.youtube.com/watch?v=sal78ACtGTc) | **Sequoia Capital ft. Andrew Ng** | Andrew Ng visually explains why iterative agentic workflows (reflection, tool use, planning, multi-agent collaboration) outperform zero-shot LLM prompts. |
 
 ### 🎬 Deep-Dive Video Breakdown
 
@@ -1721,20 +1721,20 @@ To visually internalize how LLMs execute Function Calling, how LangChain coordin
 > ⏱️ **Duration:** ~9 mins | 🎯 **Core Concept:** ReAct Pattern, Autonomous Planning, Tool Selection  
 > 💡 **Key Visual Takeaway:** The visual step-by-step flowchart contrasting a deterministic hardcoded sequence (Chain) with an autonomous decision-making loop (Agent) where the LLM can dynamically course-correct if a tool returns an error.
 
-#### 3. [Harrison Chase — Function Calling and Tool Use](https://www.youtube.com/watch?v=0h0D8cTgh2U)
-[![Function Calling and Tool Use](https://img.youtube.com/vi/0h0D8cTgh2U/hqdefault.jpg)](https://www.youtube.com/watch?v=0h0D8cTgh2U)
-> ⏱️ **Duration:** ~12 mins | 🎯 **Core Concept:** JSON Schema Binding, Parameter Extraction, Safety Layer  
-> 💡 **Key Visual Takeaway:** Clear side-by-side visualization showing how Python docstrings and Pydantic types automatically convert into OpenAI/Anthropic tool schemas.
+#### 3. [Google Cloud Tech — AI + your code: Function Calling](https://www.youtube.com/watch?v=NbAGbXr4DME)
+[![AI + your code: Function Calling](https://img.youtube.com/vi/NbAGbXr4DME/hqdefault.jpg)](https://www.youtube.com/watch?v=NbAGbXr4DME)
+> ⏱️ **Duration:** ~11 mins | 🎯 **Core Concept:** JSON Schema Binding, Parameter Extraction, Tool Execution  
+> 💡 **Key Visual Takeaway:** Clear architectural visualization showing how tool declarations are bound to the model, how the model generates structured arguments, and how your code executes the function and returns results.
 
 #### 4. [freeCodeCamp — LangChain in 1 Hour | Beginners Guide & LCEL](https://www.youtube.com/watch?v=lG7Uxts9SXs)
 [![LangChain Crash Course & LCEL](https://img.youtube.com/vi/lG7Uxts9SXs/hqdefault.jpg)](https://www.youtube.com/watch?v=lG7Uxts9SXs)
 > ⏱️ **Duration:** ~60 mins | 🎯 **Core Concept:** LCEL Pipe Operators, Prompt Templates, Memory  
 > 💡 **Key Visual Takeaway:** Hands-on visual tutorial constructing Simple Sequential Chains, LCEL pipe (`|`) syntax, and conversation memory step-by-step in Python.
 
-#### 5. [Computerphile — AI Agents & Tool Use (ReAct Framework)](https://www.youtube.com/watch?v=sal78ACtGTc)
-[![AI Agents & Tool Use](https://img.youtube.com/vi/sal78ACtGTc/hqdefault.jpg)](https://www.youtube.com/watch?v=sal78ACtGTc)
-> ⏱️ **Duration:** ~14 mins | 🎯 **Core Concept:** ReAct Framework, Scratchpad Memory, Tool Calling  
-> 💡 **Key Visual Takeaway:** Demonstrates how LLMs use scratchpad memory to iterate toward complex solutions using external calculators, search tools, and APIs.
+#### 5. [Sequoia Capital ft. Andrew Ng — What's next for AI agentic workflows](https://www.youtube.com/watch?v=sal78ACtGTc)
+[![What's next for AI agentic workflows](https://img.youtube.com/vi/sal78ACtGTc/hqdefault.jpg)](https://www.youtube.com/watch?v=sal78ACtGTc)
+> ⏱️ **Duration:** ~26 mins | 🎯 **Core Concept:** Agentic Design Patterns, Reflection, Tool Use, Planning  
+> 💡 **Key Visual Takeaway:** Andrew Ng presents compelling benchmarks showing how iterative reasoning loops with tool access dramatically outperform raw single-prompt LLM generations.
 
 
 ---

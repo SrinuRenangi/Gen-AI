@@ -93,9 +93,9 @@ LLMs don't process words — they process **tokens**. Understanding tokens is es
 ![How Tokenization Works](assets/04_tokenization_explained.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![StatQuest - Word Embeddings and Word2Vec](https://img.youtube.com/vi/viZrOnJclYQ/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclYQ)
+> [![StatQuest - Word Embeddings and Word2Vec](https://img.youtube.com/vi/viZrOnJclY0/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclY0)
 >
-> 🎬 **[StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclYQ)** (⏱️ 16 mins)  
+> 🎬 **[StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclY0)** (⏱️ 16 mins)  
 > 💡 *Visual Highlights:* Animated walkthrough showing how tokens map to high-dimensional coordinate vectors where geometric distances capture semantic relationships.
 
 ### What is a Token?
@@ -165,9 +165,9 @@ for text, tokens in examples.items():
 ## 3. The Softmax Function — Turning Scores into Probabilities
 
 > ### 🎥 Visual Explainer & Animation
-> [![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4U/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4U)
+> [![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4M/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4M)
 >
-> 🎬 **[3Blue1Brown — Transformers, the tech behind LLMs | Unembedding & Softmax](https://www.youtube.com/watch?v=wjZofJX0v4U)** (⏱️ 27 mins)  
+> 🎬 **[3Blue1Brown — Transformers, the tech behind LLMs | Unembedding & Softmax](https://www.youtube.com/watch?v=wjZofJX0v4M)** (⏱️ 27 mins)  
 > 💡 *Visual Highlights:* Stunning 3D vector animations showing how word embeddings move through high-dimensional space and get projected onto vocabulary logits via the unembedding matrix before softmax.
 
 Before diving into temperature, you need to understand **softmax** — the function that converts raw model scores (logits) into probabilities.
@@ -215,10 +215,10 @@ print(f"  Sum: {sum(probabilities):.4f}  ← Sums to 1! ✅")
 ![Temperature Scale](assets/01_temperature_scale.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Inside ChatGPT: What is Temperature?](https://img.youtube.com/vi/Yf1mE4k6W9c/hqdefault.jpg)](https://www.youtube.com/watch?v=Yf1mE4k6W9c)
+> [![Temperature and Top P Explained in Plain English](https://img.youtube.com/vi/vI35anoe_fY/hqdefault.jpg)](https://www.youtube.com/watch?v=vI35anoe_fY)
 >
-> 🎬 **[Computerphile — Inside ChatGPT: What is Temperature?](https://www.youtube.com/watch?v=Yf1mE4k6W9c)** (⏱️ 12 mins)  
-> 💡 *Visual Highlights:* Graphic curves illustrating how changing $T$ divides the logits, flattening the Softmax curve into creative exploration ($T \to 1.5$) or sharpening into deterministic greedy selection ($T \to 0$).
+> 🎬 **[Annielytics — Temperature and Top P Explained in Plain English](https://www.youtube.com/watch?v=vI35anoe_fY)** (⏱️ 6 mins)  
+> 💡 *Visual Highlights:* Graphic visual sketch illustrating how changing $T$ divides the logits, flattening the Softmax curve into creative exploration ($T \to 1.5$) or sharpening into deterministic greedy selection ($T \to 0$), combined with Top-P thresholding.
 
 ### What It Does
 
@@ -479,9 +479,9 @@ print("   same number in both cases, which is suboptimal.")
 ![Top-K vs Top-P Sampling](assets/02_top_p_top_k_sampling.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Transformer Neural Networks, Clearly Explained!](https://img.youtube.com/vi/zxGgdI_198/hqdefault.jpg)](https://www.youtube.com/watch?v=zxGgdI_198)
+> [![Transformer Neural Networks, Clearly Explained!](https://img.youtube.com/vi/zxQyTK8quyY/hqdefault.jpg)](https://www.youtube.com/watch?v=zxQyTK8quyY)
 >
-> 🎬 **[StatQuest — Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxGgdI_198)** (⏱️ 30 mins)  
+> 🎬 **[StatQuest — Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxQyTK8quyY)** (⏱️ 15 mins)  
 > 💡 *Visual Highlights:* Step-by-step visual animation demonstrating how Softmax converts dot-product similarity scores into dynamic probabilities and how sampling cuts off low-probability tails.
 
 ### Head-to-Head Comparison
@@ -1828,11 +1828,11 @@ To visually internalize how LLM inference, token sampling, temperature, and Tran
 | # | Topic / Concept | Recommended Video | Channel / Creator | Why Watch? (Visual & Animation Highlights) |
 |---|-----------------|-------------------|-------------------|--------------------------------------------|
 | 1 | **The Big Picture of LLMs** | [[1hr Talk] Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g) | **Andrej Karpathy** | The definitive masterclass on LLMs. Clearly visualizes pretraining as lossy compression, token generation, fine-tuning, and sampling behavior. |
-| 2 | **Transformer Architecture & Sampling** | [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4U) | **3Blue1Brown (Grant Sanderson)** | Stunning 3D vector animations showing how word embeddings move through high-dimensional space to form next-token probability distributions. |
+| 2 | **Transformer Architecture & Sampling** | [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) | **3Blue1Brown (Grant Sanderson)** | Stunning 3D vector animations showing how word embeddings move through high-dimensional space to form next-token probability distributions. |
 | 3 | **Self-Attention Mechanism** | [Attention in transformers, step-by-step](https://www.youtube.com/watch?v=eMlx5fFNoYc) | **3Blue1Brown (Grant Sanderson)** | Animated breakdown of Queries, Keys, and Values ($Q, K, V$). Visualizes how attention scores dynamically route context between tokens. |
-| 4 | **Transformers & Positional Encoding** | [Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxGgdI_198) | **StatQuest (Josh Starmer)** | Step-by-step animated walkthrough of Positional Encoding, Self-Attention calculation, and Softmax probability distributions. |
-| 5 | **Word Embeddings Geometry** | [Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclYQ) | **StatQuest (Josh Starmer)** | Beautiful visual explanation showing how words become dense coordinates in vector space where semantic equations like $\vec{\text{King}} - \vec{\text{Man}} + \vec{\text{Woman}} = \vec{\text{Queen}}$ work. |
-| 6 | **What is Temperature in LLMs?** | [Inside ChatGPT: What is Temperature?](https://www.youtube.com/watch?v=Yf1mE4k6W9c) | **Computerphile** | Visualizes how temperature modifies the Softmax formula curve, showing the flattening into uniform randomness vs sharpening into greedy argmax. |
+| 4 | **Transformers & Positional Encoding** | [Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxQyTK8quyY) | **StatQuest (Josh Starmer)** | Step-by-step animated walkthrough of Positional Encoding, Self-Attention calculation, and Softmax probability distributions. |
+| 5 | **Word Embeddings Geometry** | [Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclY0) | **StatQuest (Josh Starmer)** | Beautiful visual explanation showing how words become dense coordinates in vector space where semantic equations like $\vec{\text{King}} - \vec{\text{Man}} + \vec{\text{Woman}} = \vec{\text{Queen}}$ work. |
+| 6 | **What is Temperature & Top P in LLMs?** | [Temperature and Top P Explained in Plain English](https://www.youtube.com/watch?v=vI35anoe_fY) | **Annielytics** | Visualizes how temperature modifies the Softmax formula curve, showing the flattening into uniform randomness vs sharpening into greedy argmax, combined with Top-P cutoffs. |
 
 ### 🎬 Deep-Dive Video Breakdown
 
@@ -1841,25 +1841,25 @@ To visually internalize how LLM inference, token sampling, temperature, and Tran
 > ⏱️ **Duration:** ~60 mins | 🎯 **Core Concept:** LLM Pretraining, Tokenization, Fine-Tuning, System Prompts  
 > 💡 **Key Visual Takeaway:** Karpathy explains how an LLM is essentially "two files" (the weights file and the run.c inference code). Watch how he explains next-token probabilities and why temperature controls the "spread" of random sampling.
 
-#### 2. [3Blue1Brown — Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4U)
-[![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4U/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4U)
+#### 2. [3Blue1Brown — Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M)
+[![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4M/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4M)
 > ⏱️ **Duration:** ~27 mins | 🎯 **Core Concept:** Embedding Space, Logits, Softmax, Probability Vectors  
 > 💡 **Key Visual Takeaway:** Watch the animation at the end showing the final unembedding step: the model projects an internal vector onto the entire 50,000-word vocabulary, producing a logit score for every single token!
 
-#### 3. [StatQuest — Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxGgdI_198)
-[![Transformer Neural Networks, Clearly Explained!](https://img.youtube.com/vi/zxGgdI_198/hqdefault.jpg)](https://www.youtube.com/watch?v=zxGgdI_198)
-> ⏱️ **Duration:** ~30 mins | 🎯 **Core Concept:** Softmax, Scaled Dot-Product Attention, Residual Connections  
+#### 3. [StatQuest — Transformer Neural Networks, Clearly Explained!](https://www.youtube.com/watch?v=zxQyTK8quyY)
+[![Transformer Neural Networks, Clearly Explained!](https://img.youtube.com/vi/zxQyTK8quyY/hqdefault.jpg)](https://www.youtube.com/watch?v=zxQyTK8quyY)
+> ⏱️ **Duration:** ~15 mins | 🎯 **Core Concept:** Softmax, Scaled Dot-Product Attention, Residual Connections  
 > 💡 **Key Visual Takeaway:** Josh Starmer breaks down the dot-product similarity between tokens with clean graphics, showing how the softmax function normalizes raw similarity scores into valid probabilities summing to 1.0.
 
-#### 4. [StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclYQ)
-[![Word Embeddings and Word2Vec](https://img.youtube.com/vi/viZrOnJclYQ/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclYQ)
+#### 4. [StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclY0)
+[![Word Embeddings and Word2Vec](https://img.youtube.com/vi/viZrOnJclY0/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclY0)
 > ⏱️ **Duration:** ~16 mins | 🎯 **Core Concept:** Continuous Bag of Words (CBOW), Skip-Gram, High-Dimensional Vector Spaces  
 > 💡 **Key Visual Takeaway:** See how words with similar contexts naturally cluster together in vector space, establishing the geometrical foundation for LLM token representations.
 
-#### 5. [Computerphile — Inside ChatGPT: What is Temperature?](https://www.youtube.com/watch?v=Yf1mE4k6W9c)
-[![Inside ChatGPT: What is Temperature?](https://img.youtube.com/vi/Yf1mE4k6W9c/hqdefault.jpg)](https://www.youtube.com/watch?v=Yf1mE4k6W9c)
-> ⏱️ **Duration:** ~12 mins | 🎯 **Core Concept:** Softmax Scaling, Probability Flattening, Deterministic Greed vs Creative Exploration  
-> 💡 **Key Visual Takeaway:** Visualizes the Softmax equation with temperature scaling: $P(w_i) = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}$, illustrating why $T \to 0$ collapses to argmax and $T > 1$ flattens into entropy.
+#### 5. [Annielytics — Temperature and Top P Explained in Plain English](https://www.youtube.com/watch?v=vI35anoe_fY)
+[![Temperature and Top P Explained in Plain English](https://img.youtube.com/vi/vI35anoe_fY/hqdefault.jpg)](https://www.youtube.com/watch?v=vI35anoe_fY)
+> ⏱️ **Duration:** ~6 mins | 🎯 **Core Concept:** Softmax Scaling, Probability Flattening, Deterministic Greed vs Creative Exploration  
+> 💡 **Key Visual Takeaway:** Visualizes the Softmax equation with temperature scaling: $P(w_i) = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}$, illustrating why $T \to 0$ collapses to greedy selection and higher $T$ flattens into entropy, coupled with dynamic Top-P thresholds.
 
 ---
 

@@ -414,9 +414,9 @@ Trained a shallow neural network on massive text corpora using two architectures
 - **Skip-Gram with Negative Sampling (SGNS):** Predicts the surrounding context words given a center word.
 
 > ### 🎥 Visual Explainer & Animation
-> [![Word Embeddings and Word2Vec, Clearly Explained!](https://img.youtube.com/vi/viZrOnJclYQ/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclYQ)
+> [![Word Embeddings and Word2Vec, Clearly Explained!](https://img.youtube.com/vi/viZrOnJclY0/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclY0)
 >
-> 🎬 **[StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclYQ)** (⏱️ 16 mins)  
+> 🎬 **[StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclY0)** (⏱️ 16 mins)  
 > 💡 *Visual Highlights:* Cartoon visual breakdown showing how neural weights adjust during training to position semantically linked words into tight geometric clusters.
 
 #### 2. GloVe (Global Vectors, Stanford, 2014)
@@ -729,10 +729,10 @@ We will now implement an end-to-end, production-grade Vector Database applicatio
 ![Pinecone RAG Pipeline](assets/03_pinecone_rag_pipeline.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Pinecone Vector Database Tutorial](https://img.youtube.com/vi/ypEm1e0pX9k/hqdefault.jpg)](https://www.youtube.com/watch?v=ypEm1e0pX9k)
+> [![Vector Search & RAG Tutorial — freeCodeCamp](https://img.youtube.com/vi/JEBDfGqrAUA/hqdefault.jpg)](https://www.youtube.com/watch?v=JEBDfGqrAUA)
 >
-> 🎬 **[James Briggs (Pinecone) — Vector Search & Vector Databases Explained](https://www.youtube.com/watch?v=ypEm1e0pX9k)** (⏱️ 15 mins)  
-> 💡 *Visual Highlights:* The Staff Developer Advocate at Pinecone visually walks through vector similarity math, serverless index creation, upserting metadata payloads, and querying top-k nearest neighbors.
+> 🎬 **[freeCodeCamp.org — Vector Search & RAG Tutorial: Combine Your Data with LLMs](https://www.youtube.com/watch?v=JEBDfGqrAUA)** (⏱️ 60 mins)  
+> 💡 *Visual Highlights:* Comprehensive animated and hands-on course walking step-by-step through vector embeddings, similarity search, indexing, and building end-to-end RAG pipelines with vector databases.
 
 ---
 
@@ -880,9 +880,10 @@ To solidify your mastery of Vector Databases, High-Dimensional Spaces, and Embed
 |---|-----------------|-------------------|-------------------|--------------------------------------------|
 | 1 | **What is a Vector Database?** | [Vector databases are so hot right now. WTF are they?](https://www.youtube.com/watch?v=klTvEwg3oJ4) | **Fireship** | Fast-paced visual overview explaining how vector embeddings bridge the semantic gap and serve as the memory layer for LLMs. |
 | 2 | **Cosine Similarity Math** | [Cosine Similarity, Clearly Explained!!](https://www.youtube.com/watch?v=e9U0QAFbfLI) | **StatQuest (Josh Starmer)** | Accessible animated explanation of vector angles, dot products, and why cosine similarity ignores magnitude to excel at text comparison. |
-| 3 | **Word2Vec & Dense Vectors** | [Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclYQ) | **StatQuest (Josh Starmer)** | Visualizes the neural network training loop that projects words into continuous geometric clusters. |
+| 3 | **Word2Vec & Dense Vectors** | [Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclY0) | **StatQuest (Josh Starmer)** | Visualizes the neural network training loop that projects words into continuous geometric clusters. |
 | 4 | **OpenAI vs Open-Source Embeddings** | [$0 Embeddings (OpenAI vs. free & open source)](https://www.youtube.com/watch?v=QdDoFfkVkcw) | **Fireship** | Clear breakdown of MTEB benchmarks, SentenceTransformers, and running embeddings locally versus cloud APIs. |
-| 5 | **Pinecone Hands-On Deep Dive** | [Vector Search & Vector Databases Explained](https://www.youtube.com/watch?v=ypEm1e0pX9k) | **James Briggs (Pinecone)** | In-depth architectural tutorial walking through HNSW indexing, serverless vector store provisioning, and metadata filtering. |
+| 5 | **Vector Search & RAG Hands-On** | [Vector Search & RAG Tutorial: Combine Your Data with LLMs](https://www.youtube.com/watch?v=JEBDfGqrAUA) | **freeCodeCamp.org** | Comprehensive 1-hour visual course covering vector indexing, approximate nearest neighbors, similarity scoring, and production RAG. |
+| 6 | **ChromaDB Tutorial for Beginners** | [ChromaDB Tutorial for Beginners - Create, Store, and Query Vectors](https://www.youtube.com/watch?v=_Ci1tLMafQs) | **Tutorials by Mukesh Kala** | Practical hands-on tutorial configuring local collections, querying embeddings, and persisting vector storage with Python. |
 
 ### 🎬 Deep-Dive Video Breakdown
 
@@ -896,8 +897,8 @@ To solidify your mastery of Vector Databases, High-Dimensional Spaces, and Embed
 > ⏱️ **Duration:** ~8 mins | 🎯 **Core Concept:** Dot Product, Vector Angles, L2 Normalization  
 > 💡 **Key Visual Takeaway:** Josh Starmer clearly diagrams why document length differences break Euclidean distance and how dividing by magnitude isolates the angular similarity.
 
-#### 3. [StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclYQ)
-[![Word Embeddings and Word2Vec, Clearly Explained!](https://img.youtube.com/vi/viZrOnJclYQ/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclYQ)
+#### 3. [StatQuest — Word Embeddings and Word2Vec, Clearly Explained!](https://www.youtube.com/watch?v=viZrOnJclY0)
+[![Word Embeddings and Word2Vec, Clearly Explained!](https://img.youtube.com/vi/viZrOnJclY0/hqdefault.jpg)](https://www.youtube.com/watch?v=viZrOnJclY0)
 > ⏱️ **Duration:** ~16 mins | 🎯 **Core Concept:** Continuous Bag of Words (CBOW), Skip-Gram, Latent Space  
 > 💡 **Key Visual Takeaway:** Visualizes the transition from naive One-Hot Encodings to dense, continuous coordinates where arithmetic equations like $\vec{\text{King}} - \vec{\text{Man}} + \vec{\text{Woman}} = \vec{\text{Queen}}$ emerge.
 
@@ -906,12 +907,12 @@ To solidify your mastery of Vector Databases, High-Dimensional Spaces, and Embed
 > ⏱️ **Duration:** ~5 mins | 🎯 **Core Concept:** MTEB Leaderboard, SBERT, Local vs API Embeddings  
 > 💡 **Key Visual Takeaway:** Demonstrates how to run high-quality embeddings locally in Python or directly in the browser with zero cloud API costs.
 
-#### 5. [James Briggs — Vector Search & Vector Databases Explained](https://www.youtube.com/watch?v=ypEm1e0pX9k)
-[![Vector Search & Vector Databases Explained](https://img.youtube.com/vi/ypEm1e0pX9k/hqdefault.jpg)](https://www.youtube.com/watch?v=ypEm1e0pX9k)
-> ⏱️ **Duration:** ~15 mins | 🎯 **Core Concept:** HNSW Graphs, Pinecone Serverless, Upsert Pipeline  
-> 💡 **Key Visual Takeaway:** The visual step-by-step walkthrough of building a Pinecone index, upserting vectors with JSON metadata, and querying with metadata filters.
+#### 5. [freeCodeCamp.org — Vector Search & RAG Tutorial: Combine Your Data with LLMs](https://www.youtube.com/watch?v=JEBDfGqrAUA)
+[![Vector Search & RAG Tutorial](https://img.youtube.com/vi/JEBDfGqrAUA/hqdefault.jpg)](https://www.youtube.com/watch?v=JEBDfGqrAUA)
+> ⏱️ **Duration:** ~60 mins | 🎯 **Core Concept:** Vector Indexing, Approximate Nearest Neighbors (ANN), Production RAG  
+> 💡 **Key Visual Takeaway:** The visual step-by-step walkthrough of turning text into vector coordinates, creating indexes, upserting documents with metadata payloads, and querying top-k results.
 
-#### 6. [RabbitHoleSyndrome — ChromaDB Tutorial for Beginners (Python)](https://www.youtube.com/watch?v=_Ci1tLMafQs)
+#### 6. [Tutorials by Mukesh Kala — ChromaDB Tutorial for Beginners (Python)](https://www.youtube.com/watch?v=_Ci1tLMafQs)
 [![ChromaDB Tutorial for Beginners](https://img.youtube.com/vi/_Ci1tLMafQs/hqdefault.jpg)](https://www.youtube.com/watch?v=_Ci1tLMafQs)
 > ⏱️ **Duration:** ~14 mins | 🎯 **Core Concept:** Embedded Vector DB, Persistent Collections, Local RAG  
 > 💡 **Key Visual Takeaway:** Clear, beginner-friendly walkthrough demonstrating how to store vectors in local SQLite files with ChromaDB and query them without cloud fees.

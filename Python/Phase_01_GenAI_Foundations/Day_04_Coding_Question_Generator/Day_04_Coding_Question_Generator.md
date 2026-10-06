@@ -169,9 +169,9 @@ LLMs are probabilistic token predictors. To build robust software upon them, we 
 ![Structured Output vs Unstructured](assets/04_structured_output_schema.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Pydantic V2 Python Crash Course](https://img.youtube.com/vi/Vj-iJb_80rw/hqdefault.jpg)](https://www.youtube.com/watch?v=Vj-iJb_80rw)
+> [![Python Pydantic Tutorial: Complete Course](https://img.youtube.com/vi/M81pfi64eeM/hqdefault.jpg)](https://www.youtube.com/watch?v=M81pfi64eeM)
 >
-> 🎬 **[freeCodeCamp — Pydantic V2 Python Crash Course](https://www.youtube.com/watch?v=Vj-iJb_80rw)** (⏱️ 35 mins)  
+> 🎬 **[Corey Schafer — Python Pydantic Tutorial: Complete Data Validation Course](https://www.youtube.com/watch?v=M81pfi64eeM)** (⏱️ 45 mins)  
 > 💡 *Visual Highlights:* Step-by-step visual demonstration of defining Pydantic models, automatic type coercion, schema validation, and enforcing deterministic JSON structures from LLM responses.
 
 ### The Pydantic Data Model Hierarchy
@@ -252,10 +252,10 @@ Running unvetted code submitted by users poses severe security and stability ris
 ![Code Evaluator Architecture](assets/03_code_evaluator_architecture.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Writing a Code Sandbox & Testing Untrusted Code](https://img.youtube.com/vi/5UfUPJc87aE/hqdefault.jpg)](https://www.youtube.com/watch?v=5UfUPJc87aE)
+> [![How to Write Great Unit Tests in Python](https://img.youtube.com/vi/EIV_ixKGPmc/hqdefault.jpg)](https://www.youtube.com/watch?v=EIV_ixKGPmc)
 >
-> 🎬 **[ArjanCodes — Testing Untrusted Code Safely (Code Sandbox Architecture)](https://www.youtube.com/watch?v=5UfUPJc87aE)** (⏱️ 18 mins)  
-> 💡 *Visual Highlights:* Essential architectural patterns for building secure code evaluation sandboxes in Python: preventing system exploitation, thread timeouts, and handling arbitrary code safely.
+> 🎬 **[ArjanCodes — How to Write Great Unit Tests in Python](https://www.youtube.com/watch?v=EIV_ixKGPmc)** (⏱️ 17 mins)  
+> 💡 *Visual Highlights:* Essential architectural patterns for building robust test suites and code evaluation harnesses in Python: test fixtures, isolation, and handling arbitrary edge cases safely.
 
 ### The Three Threat Vectors & Solutions
 
@@ -315,10 +315,10 @@ Passing all test cases is only half the battle in technical interviews. Senior i
 ### Heuristic AST Complexity Analysis vs LLM Review
 
 > ### 🎥 Visual Explainer & Animation
-> [![Python AST & Code Inspection Tutorial](https://img.youtube.com/vi/xgh1VnNlGjU/hqdefault.jpg)](https://www.youtube.com/watch?v=xgh1VnNlGjU)
+> [![Python AST Parsing and Custom Linting](https://img.youtube.com/vi/OjPT15y2EpE/hqdefault.jpg)](https://www.youtube.com/watch?v=OjPT15y2EpE)
 >
-> 🎬 **[mCoding — Python AST & Code Inspection Tutorial](https://www.youtube.com/watch?v=xgh1VnNlGjU)** (⏱️ 12 mins)  
-> 💡 *Visual Highlights:* Hands-on code tutorial demonstrating how `ast.walk` traverses Python syntax trees to inspect variable scopes, measure nesting complexity, and block malicious imports.
+> 🎬 **[mCoding — Python AST Parsing and Custom Linting](https://www.youtube.com/watch?v=OjPT15y2EpE)** (⏱️ 15 mins)  
+> 💡 *Visual Highlights:* Hands-on code tutorial demonstrating how `ast.walk` and `ast.NodeVisitor` traverse Python syntax trees to inspect variable scopes, measure nesting complexity, and block malicious imports.
 
 Our project employs a **dual-layer review architecture**:
 1. **Deterministic AST Analyzer (Offline):**
@@ -523,11 +523,11 @@ To visually internalize how online code judges work, how AST parsing enforces se
 
 | # | Topic / Concept | Recommended Video | Channel / Creator | Why Watch? (Visual & Animation Highlights) |
 |---|-----------------|-------------------|-------------------|--------------------------------------------|
-| 1 | **Strict Schemas with Pydantic V2** | [Pydantic V2 Python Crash Course](https://www.youtube.com/watch?v=Vj-iJb_80rw) | **freeCodeCamp** | Visual demonstration of how Pydantic validates incoming dictionaries against strict types, performs automatic coercion, and serializes clean JSON schemas. |
+| 1 | **Strict Schemas with Pydantic** | [Python Pydantic Tutorial: Complete Data Validation Course](https://www.youtube.com/watch?v=M81pfi64eeM) | **Corey Schafer** | Comprehensive visual course showing how Pydantic validates schemas, type enforcement, data coercion, and JSON serialization. |
 | 2 | **Abstract Syntax Trees (AST)** | [Abstract Syntax Trees (AST) Explained](https://www.youtube.com/watch?v=7tCNu4CnjVc) | **Computerphile** | Animated breakdown showing how Python compilers parse code text into hierarchical tree nodes, and how analyzers traverse nodes to detect malicious calls. |
-| 3 | **Building Safe Code Sandboxes** | [Writing a Code Sandbox & Testing Untrusted Code](https://www.youtube.com/watch?v=5UfUPJc87aE) | **ArjanCodes** | Excellent architectural tutorial covering timeout enforcement, thread isolation, and preventing arbitrary code execution exploits. |
+| 3 | **Testing & Evaluation Harnesses** | [How to Write Great Unit Tests in Python](https://www.youtube.com/watch?v=EIV_ixKGPmc) | **ArjanCodes** | Excellent architectural tutorial covering test harnesses, isolation patterns, and defensive Python evaluation. |
 | 4 | **How Online Judges Work** | [How LeetCode Judges & Compiles Code](https://www.youtube.com/watch?v=KLlXCFG5TnA) | **NeetCode** | Behind-the-scenes architectural explanation of test harnesses, public vs hidden test cases, memory limits, and automated verdict calculation. |
-| 5 | **Deep Code Inspection with Python AST** | [Python AST & Code Inspection Tutorial](https://www.youtube.com/watch?v=xgh1VnNlGjU) | **mCoding** | Clear step-by-step coding tutorial showing how to use `ast.walk` to intercept prohibited imports like `os` and `subprocess` before runtime. |
+| 5 | **Deep Code Inspection with Python AST** | [Python AST Parsing and Custom Linting](https://www.youtube.com/watch?v=OjPT15y2EpE) | **mCoding** | Clear step-by-step coding tutorial showing how to traverse AST nodes, inspect code structure, and intercept prohibited syntax. |
 
 ### 🎬 Deep-Dive Video Breakdown
 
@@ -536,24 +536,24 @@ To visually internalize how online code judges work, how AST parsing enforces se
 > ⏱️ **Duration:** ~14 mins | 🎯 **Core Concept:** Lexing, Parsing, Grammar, Syntax Nodes  
 > 💡 **Key Visual Takeaway:** Watch the whiteboard demonstration showing how `a = 1 + 2 * 3` turns into a tree with operator precedence. This illustrates why our `verify_ast_security()` function can guarantee no hidden `os.system` calls execute.
 
-#### 2. [ArjanCodes — Testing Untrusted Code Safely](https://www.youtube.com/watch?v=5UfUPJc87aE)
-[![Testing Untrusted Code Safely](https://img.youtube.com/vi/5UfUPJc87aE/hqdefault.jpg)](https://www.youtube.com/watch?v=5UfUPJc87aE)
-> ⏱️ **Duration:** ~18 mins | 🎯 **Core Concept:** Subprocess Isolation, Resource Limiting, Defensive Python  
-> 💡 **Key Visual Takeaway:** Demonstrates how infinite loops (`while True:`) can lock up server resources, and how thread wrappers with strict timeouts protect backend stability.
+#### 2. [ArjanCodes — How to Write Great Unit Tests in Python](https://www.youtube.com/watch?v=EIV_ixKGPmc)
+[![How to Write Great Unit Tests in Python](https://img.youtube.com/vi/EIV_ixKGPmc/hqdefault.jpg)](https://www.youtube.com/watch?v=EIV_ixKGPmc)
+> ⏱️ **Duration:** ~17 mins | 🎯 **Core Concept:** Test Suites, Assertion Patterns, Test Harnesses, Defensive Python  
+> 💡 **Key Visual Takeaway:** Demonstrates how to design structured test fixtures and assert conditions cleanly, essential for writing programmatic grading test suites.
 
 #### 3. [NeetCode — How LeetCode Judges Code](https://www.youtube.com/watch?v=KLlXCFG5TnA)
 [![How LeetCode Judges Code](https://img.youtube.com/vi/KLlXCFG5TnA/hqdefault.jpg)](https://www.youtube.com/watch?v=KLlXCFG5TnA)
 > ⏱️ **Duration:** ~11 mins | 🎯 **Core Concept:** Automated Grading, Edge Case Injection, Time Limits  
 > 💡 **Key Visual Takeaway:** Great visual breakdown of why hidden test cases are essential to prevent candidates from submitting hardcoded `if input == ... return ...` solutions.
 
-#### 4. [freeCodeCamp — Pydantic V2 Python Crash Course](https://www.youtube.com/watch?v=Vj-iJb_80rw)
-[![Pydantic V2 Python Crash Course](https://img.youtube.com/vi/Vj-iJb_80rw/hqdefault.jpg)](https://www.youtube.com/watch?v=Vj-iJb_80rw)
-> ⏱️ **Duration:** ~35 mins | 🎯 **Core Concept:** Data Validation, Type Hints, JSON Schema Serialization  
+#### 4. [Corey Schafer — Python Pydantic Tutorial: Complete Data Validation Course](https://www.youtube.com/watch?v=M81pfi64eeM)
+[![Python Pydantic Tutorial](https://img.youtube.com/vi/M81pfi64eeM/hqdefault.jpg)](https://www.youtube.com/watch?v=M81pfi64eeM)
+> ⏱️ **Duration:** ~33 mins | 🎯 **Core Concept:** Data Validation, Type Hints, Schema Enforcement, JSON Serialization  
 > 💡 **Key Visual Takeaway:** Visual walkthrough of how Pydantic guarantees that messy JSON outputs from LLMs are converted into strict, typed Python objects.
 
-#### 5. [mCoding — Python AST & Code Inspection Tutorial](https://www.youtube.com/watch?v=xgh1VnNlGjU)
-[![Python AST & Code Inspection](https://img.youtube.com/vi/xgh1VnNlGjU/hqdefault.jpg)](https://www.youtube.com/watch?v=xgh1VnNlGjU)
-> ⏱️ **Duration:** ~12 mins | 🎯 **Core Concept:** AST Node Traversal, Static Analysis, Code Security  
+#### 5. [mCoding — Python AST Parsing and Custom Linting](https://www.youtube.com/watch?v=OjPT15y2EpE)
+[![Python AST Parsing and Custom Linting](https://img.youtube.com/vi/OjPT15y2EpE/hqdefault.jpg)](https://www.youtube.com/watch?v=OjPT15y2EpE)
+> ⏱️ **Duration:** ~15 mins | 🎯 **Core Concept:** AST Node Traversal, Static Analysis, Code Security, Linters  
 > 💡 **Key Visual Takeaway:** Clear coding examples illustrating how `ast.NodeVisitor` walks syntax nodes, perfect for understanding static safety audits and loop-depth detection.
 
 ---

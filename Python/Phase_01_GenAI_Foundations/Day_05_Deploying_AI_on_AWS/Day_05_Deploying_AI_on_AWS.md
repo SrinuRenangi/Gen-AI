@@ -94,10 +94,10 @@ Amazon Bedrock is a fully managed serverless service that provides high-performi
 ![Amazon Bedrock Architecture](assets/02_bedrock_rag_architecture.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Deep Dive on Amazon Bedrock](https://img.youtube.com/vi/ab1mbj_35d8/hqdefault.jpg)](https://www.youtube.com/watch?v=ab1mbj_35d8)
+> [![What is Amazon Bedrock? Tutorial](https://img.youtube.com/vi/loOIG0-cL3Q/hqdefault.jpg)](https://www.youtube.com/watch?v=loOIG0-cL3Q)
 >
-> 🎬 **[AWS Events (Official AWS) — Deep Dive on Amazon Bedrock | Foundation Models for Enterprise](https://www.youtube.com/watch?v=ab1mbj_35d8)** (⏱️ 42 mins)  
-> 💡 *Visual Highlights:* Comprehensive architectural session breaking down serverless model invocation, PrivateLink VPC networking, and Bedrock Knowledge Bases.
+> 🎬 **[Cameron McKenzie — What is Amazon Bedrock? Generative AI on AWS for Beginners](https://www.youtube.com/watch?v=loOIG0-cL3Q)** (⏱️ 14 mins)  
+> 💡 *Visual Highlights:* Comprehensive architectural walkthrough breaking down serverless foundation model access, IAM policies, and how Amazon Bedrock serves GenAI models.
 
 ### Why Enterprise Engineering Teams Choose Bedrock
 1. **Zero Infrastructure Management:** No GPUs to provision, no CUDA drivers, no server patching.
@@ -137,10 +137,10 @@ Before making API calls to Amazon Bedrock, you must enable model access in the A
 ### 3.2 Invoking Models via Python Boto3 (Converse API)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Amazon Bedrock Complete Hands-On Tutorial](https://img.youtube.com/vi/4S2mPcxQ8Cg/hqdefault.jpg)](https://www.youtube.com/watch?v=4S2mPcxQ8Cg)
+> [![AWS Lambda + Bedrock Tutorial](https://img.youtube.com/vi/vQ9BUc-UmXY/hqdefault.jpg)](https://www.youtube.com/watch?v=vQ9BUc-UmXY)
 >
-> 🎬 **[Be A Better Dev — Amazon Bedrock Complete Hands-On Tutorial](https://www.youtube.com/watch?v=4S2mPcxQ8Cg)** (⏱️ 22 mins)  
-> 💡 *Visual Highlights:* Step-by-step walkthrough writing Boto3 code, setting up IAM policies, querying Claude 3.5 Sonnet, and streaming responses back to clients.
+> 🎬 **[Be A Better Dev — AWS Lambda + Bedrock Tutorial: Building Serverless GenAI](https://www.youtube.com/watch?v=vQ9BUc-UmXY)** (⏱️ 20 mins)  
+> 💡 *Visual Highlights:* Step-by-step walkthrough writing Boto3 code, setting up IAM execution roles, querying Claude, and connecting Bedrock to serverless endpoints.
 
 The modern AWS SDK (`boto3>=1.34.0`) provides the **Bedrock Converse API**, which standardizes message structure across all providers:
 
@@ -226,10 +226,10 @@ When you train your own proprietary models, fine-tune an open-source model (e.g.
 ![Amazon SageMaker Deployment Lifecycle](assets/03_sagemaker_endpoint_lifecycle.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Amazon SageMaker Real-Time Endpoint Deployment Tutorial](https://img.youtube.com/vi/O_4TqP_uE1s/hqdefault.jpg)](https://www.youtube.com/watch?v=O_4TqP_uE1s)
+> [![Deploy SageMaker Endpoints Tutorial](https://img.youtube.com/vi/rIAQ5BppDpk/hqdefault.jpg)](https://www.youtube.com/watch?v=rIAQ5BppDpk)
 >
-> 🎬 **[AWS Official — Amazon SageMaker Real-Time Endpoint Deployment Tutorial](https://www.youtube.com/watch?v=O_4TqP_uE1s)** (⏱️ 15 mins)  
-> 💡 *Visual Highlights:* Step-by-step console and Python SDK walkthrough illustrating how `model.tar.gz` pairs with Deep Learning Containers to serve live HTTPS inferences.
+> 🎬 **[Ram Vegiraju — Deploy SageMaker Endpoints Using Infrastructure as Code](https://www.youtube.com/watch?v=rIAQ5BppDpk)** (⏱️ 15 mins)  
+> 💡 *Visual Highlights:* Step-by-step console and SDK walkthrough illustrating how model weights in S3 are deployed to real-time HTTPS inference endpoints with CloudFormation and Python.
 
 ### 4.1 Model Packaging & S3 Storage
 
@@ -395,10 +395,10 @@ For corporate VPCs requiring internal networking, AWS WAF firewall protection, a
 ## 6. Pathway 4: Serverless Event-Driven AI (AWS Lambda + API Gateway)
 
 > ### 🎥 Visual Explainer & Animation
-> [![AWS Lambda + Docker Container Deployment Guide](https://img.youtube.com/vi/iL8g-6TfZ14/hqdefault.jpg)](https://www.youtube.com/watch?v=iL8g-6TfZ14)
+> [![Learn Docker & Deploy to AWS](https://img.youtube.com/vi/1_AlV-FFxM8/hqdefault.jpg)](https://www.youtube.com/watch?v=1_AlV-FFxM8)
 >
-> 🎬 **[Be A Better Dev — AWS Lambda + Docker Container Deployment Guide](https://www.youtube.com/watch?v=iL8g-6TfZ14)** (⏱️ 18 mins)  
-> 💡 *Visual Highlights:* Clear visual guide packaging Python AI applications into 10GB Lambda container images and binding them to Amazon API Gateway.
+> 🎬 **[Be A Better Dev — Learn Docker & Deploy to AWS - Beginner Tutorial](https://www.youtube.com/watch?v=1_AlV-FFxM8)** (⏱️ 18 mins)  
+> 💡 *Visual Highlights:* Clear visual guide packaging Python applications into container images, pushing to ECR, and deploying serverless compute workloads on AWS.
 
 Can you run AI on **AWS Lambda**?
 - **Classic Lambda:** Limited to 250MB uncompressed zip file (cannot fit PyTorch or large models).
@@ -565,42 +565,42 @@ In your workspace, navigate to [`Day_05_Deploying_AI_on_AWS/hands_on_project/`](
 
 ## 12. Curated Video Walkthroughs & Visual Animations
 
-To visually internalize how Amazon Bedrock orchestrates foundation models, how SageMaker hosts real-time endpoints, and how Docker microservices deploy to AWS ECS and Lambda, watch these top-rated video walkthroughs:
+To visually internalize how Amazon Bedrock orchestrates foundation models, how SageMaker hosts real-time endpoints, and how Docker microservices deploy to AWS ECS and serverless compute, watch these top-rated video walkthroughs:
 
 | # | Topic / Concept | Recommended Video | Channel / Creator | Why Watch? (Visual & Animation Highlights) |
 |---|-----------------|-------------------|-------------------|--------------------------------------------|
-| 1 | **Amazon Bedrock Deep Dive** | [Deep Dive on Amazon Bedrock \| Foundation Models for Enterprise](https://www.youtube.com/watch?v=ab1mbj_35d8) | **AWS Events (Official AWS)** | Comprehensive architectural session breaking down serverless model invocation, PrivateLink VPC networking, and Bedrock Knowledge Bases. |
-| 2 | **Amazon Bedrock Python Tutorial** | [Amazon Bedrock Complete Hands-On Tutorial](https://www.youtube.com/watch?v=4S2mPcxQ8Cg) | **Be A Better Dev** | Step-by-step walkthrough writing Boto3 code, setting up IAM policies, querying Claude 3.5 Sonnet, and streaming responses back to clients. |
-| 3 | **Docker to AWS ECS & ECR** | [Docker Containers and AWS ECS Deployment Explained](https://www.youtube.com/watch?v=zs3tyVgiBQQ) | **TechWorld with Nana** | Visual animation of Docker images, pushing to Amazon ECR, configuring Task Definitions, and running serverless containers on AWS Fargate. |
-| 4 | **Amazon SageMaker Endpoints** | [Amazon SageMaker Real-Time Endpoint Deployment Tutorial](https://www.youtube.com/watch?v=O_4TqP_uE1s) | **AWS Official** | Step-by-step console and Python SDK walkthrough illustrating how `model.tar.gz` pairs with Deep Learning Containers to serve live HTTPS inferences. |
-| 5 | **AWS Lambda with Containers** | [AWS Lambda + Docker Container Deployment Guide](https://www.youtube.com/watch?v=iL8g-6TfZ14) | **Be A Better Dev** | Clear visual guide packaging Python AI applications into 10GB Lambda container images and binding them to Amazon API Gateway. |
+| 1 | **What is Amazon Bedrock?** | [What is Amazon Bedrock? Generative AI on AWS for Beginners](https://www.youtube.com/watch?v=loOIG0-cL3Q) | **Cameron McKenzie** | Architectural walkthrough breaking down serverless foundation model access, IAM policies, and how Amazon Bedrock serves GenAI models. |
+| 2 | **Serverless Bedrock with Python** | [AWS Lambda + Bedrock Tutorial: Building Serverless GenAI](https://www.youtube.com/watch?v=vQ9BUc-UmXY) | **Be A Better Dev** | Step-by-step walkthrough writing Boto3 code, setting up IAM execution roles, querying Claude, and connecting Bedrock to serverless endpoints. |
+| 3 | **Docker to AWS ECS & ECR** | [How to Deploy a Docker App to AWS using Elastic Container Service (ECS)](https://www.youtube.com/watch?v=zs3tyVgiBQQ) | **Be A Better Dev** | Comprehensive walkthrough packaging a Docker app, pushing to Amazon ECR, configuring Task Definitions, and running serverless containers on AWS Fargate. |
+| 4 | **Amazon SageMaker Endpoints** | [Deploy SageMaker Endpoints Using Infrastructure as Code](https://www.youtube.com/watch?v=rIAQ5BppDpk) | **Ram Vegiraju** | Step-by-step console and SDK walkthrough illustrating how model weights in S3 are deployed to real-time HTTPS inference endpoints with CloudFormation and Python. |
+| 5 | **Learn Docker & Deploy to AWS** | [Learn Docker & Deploy to AWS - Beginner Tutorial](https://www.youtube.com/watch?v=1_AlV-FFxM8) | **Be A Better Dev** | Clear visual guide packaging Python applications into container images, pushing to ECR, and deploying serverless compute workloads on AWS. |
 
 ### 🎬 Deep-Dive Video Breakdown
 
-#### 1. [AWS Events — Deep Dive on Amazon Bedrock](https://www.youtube.com/watch?v=ab1mbj_35d8)
-[![Deep Dive on Amazon Bedrock](https://img.youtube.com/vi/ab1mbj_35d8/hqdefault.jpg)](https://www.youtube.com/watch?v=ab1mbj_35d8)
-> ⏱️ **Duration:** ~45 mins | 🎯 **Core Concept:** Enterprise GenAI, Data Isolation, Knowledge Bases, Guardrails  
-> 💡 **Key Visual Takeaway:** Watch the enterprise networking slides showing how Bedrock keeps customer data isolated within AWS PrivateLink, ensuring prompts never traverse the public web or train external models.
+#### 1. [Cameron McKenzie — What is Amazon Bedrock? Generative AI on AWS for Beginners](https://www.youtube.com/watch?v=loOIG0-cL3Q)
+[![What is Amazon Bedrock? Tutorial](https://img.youtube.com/vi/loOIG0-cL3Q/hqdefault.jpg)](https://www.youtube.com/watch?v=loOIG0-cL3Q)
+> ⏱️ **Duration:** ~14 mins | 🎯 **Core Concept:** Enterprise GenAI, Data Isolation, Foundation Models, Bedrock Console  
+> 💡 **Key Visual Takeaway:** Watch the architecture explanation showing how Bedrock keeps customer data isolated within AWS PrivateLink, ensuring prompts never traverse the public web or train external models.
 
-#### 2. [Be A Better Dev — Amazon Bedrock Complete Hands-On](https://www.youtube.com/watch?v=4S2mPcxQ8Cg)
-[![Amazon Bedrock Complete Hands-On](https://img.youtube.com/vi/4S2mPcxQ8Cg/hqdefault.jpg)](https://www.youtube.com/watch?v=4S2mPcxQ8Cg)
-> ⏱️ **Duration:** ~24 mins | 🎯 **Core Concept:** Boto3 Client Setup, IAM Permissions, Model Invocation  
-> 💡 **Key Visual Takeaway:** Clear, no-nonsense screen capture demonstrating how to enable Model Access in the AWS Management Console and execute Python test invocations with Claude and Titan.
+#### 2. [Be A Better Dev — AWS Lambda + Bedrock Tutorial: Building Serverless GenAI](https://www.youtube.com/watch?v=vQ9BUc-UmXY)
+[![AWS Lambda + Bedrock Tutorial](https://img.youtube.com/vi/vQ9BUc-UmXY/hqdefault.jpg)](https://www.youtube.com/watch?v=vQ9BUc-UmXY)
+> ⏱️ **Duration:** ~20 mins | 🎯 **Core Concept:** Boto3 Client Setup, IAM Permissions, Model Invocation  
+> 💡 **Key Visual Takeaway:** Clear, no-nonsense screen capture demonstrating how to enable Model Access in the AWS Management Console and execute Python test invocations with Claude.
 
-#### 3. [TechWorld with Nana — AWS ECS & Fargate Architecture](https://www.youtube.com/watch?v=zs3tyVgiBQQ)
-[![AWS ECS & Fargate Architecture](https://img.youtube.com/vi/zs3tyVgiBQQ/hqdefault.jpg)](https://www.youtube.com/watch?v=zs3tyVgiBQQ)
-> ⏱️ **Duration:** ~32 mins | 🎯 **Core Concept:** ECR, ECS Clusters, Task Definitions, Fargate Autoscaling  
-> 💡 **Key Visual Takeaway:** Beautiful illustrated architecture diagrams showing how incoming internet requests hit an Application Load Balancer (ALB) and get routed across private ECS Fargate tasks across multiple Availability Zones.
+#### 3. [Be A Better Dev — How to Deploy a Docker App to AWS ECS](https://www.youtube.com/watch?v=zs3tyVgiBQQ)
+[![Deploy Docker App to AWS ECS](https://img.youtube.com/vi/zs3tyVgiBQQ/hqdefault.jpg)](https://www.youtube.com/watch?v=zs3tyVgiBQQ)
+> ⏱️ **Duration:** ~25 mins | 🎯 **Core Concept:** ECR, ECS Clusters, Task Definitions, Fargate Autoscaling  
+> 💡 **Key Visual Takeaway:** Architecture walkthrough showing how container images in Amazon ECR are pulled into ECS Task Definitions and served behind an Application Load Balancer.
 
-#### 4. [AWS Official — Amazon SageMaker Real-Time Endpoint Deployment Tutorial](https://www.youtube.com/watch?v=O_4TqP_uE1s)
-[![Amazon SageMaker Real-Time Endpoints](https://img.youtube.com/vi/O_4TqP_uE1s/hqdefault.jpg)](https://www.youtube.com/watch?v=O_4TqP_uE1s)
+#### 4. [Ram Vegiraju — Deploy SageMaker Endpoints Using Infrastructure as Code](https://www.youtube.com/watch?v=rIAQ5BppDpk)
+[![Deploy SageMaker Endpoints](https://img.youtube.com/vi/rIAQ5BppDpk/hqdefault.jpg)](https://www.youtube.com/watch?v=rIAQ5BppDpk)
 > ⏱️ **Duration:** ~15 mins | 🎯 **Core Concept:** SageMaker Endpoints, `model.tar.gz`, Deep Learning Containers  
-> 💡 **Key Visual Takeaway:** Step-by-step console and Python SDK walkthrough illustrating how model weights in S3 are deployed to real-time HTTPS inference endpoints.
+> 💡 **Key Visual Takeaway:** Step-by-step console and SDK walkthrough illustrating how model weights in S3 are deployed to real-time HTTPS inference endpoints with CloudFormation and Python.
 
-#### 5. [Be A Better Dev — AWS Lambda + Docker Container Deployment Guide](https://www.youtube.com/watch?v=iL8g-6TfZ14)
-[![AWS Lambda + Docker Container Deployment](https://img.youtube.com/vi/iL8g-6TfZ14/hqdefault.jpg)](https://www.youtube.com/watch?v=iL8g-6TfZ14)
-> ⏱️ **Duration:** ~18 mins | 🎯 **Core Concept:** Serverless Containers, Mangum Adapter, API Gateway Binding  
-> 💡 **Key Visual Takeaway:** Practical visual demonstration building a Python Docker container, pushing to ECR, and deploying to AWS Lambda with up to 10GB container image support.
+#### 5. [Be A Better Dev — Learn Docker & Deploy to AWS - Beginner Tutorial](https://www.youtube.com/watch?v=1_AlV-FFxM8)
+[![Learn Docker & Deploy to AWS](https://img.youtube.com/vi/1_AlV-FFxM8/hqdefault.jpg)](https://www.youtube.com/watch?v=1_AlV-FFxM8)
+> ⏱️ **Duration:** ~18 mins | 🎯 **Core Concept:** Containerization, Dockerfile, ECR Push, Serverless Compute  
+> 💡 **Key Visual Takeaway:** Practical visual demonstration building a Python Docker container, pushing to ECR, and deploying serverless compute workloads on AWS.
 
 ---
 

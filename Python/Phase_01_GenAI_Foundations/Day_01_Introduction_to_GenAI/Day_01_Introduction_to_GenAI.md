@@ -590,9 +590,9 @@ In 2017, the Google Brain team published one of the most influential papers in A
 ![Evolution: Seq2Seq → Attention → Transformer](assets/05_encoder_decoder_attention.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4U/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4U)
+> [![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4M/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4M)
 >
-> 🎬 **[3Blue1Brown — Transformers, the tech behind LLMs | Chapter 5, Deep learning](https://www.youtube.com/watch?v=wjZofJX0v4U)** (⏱️ 27 mins)  
+> 🎬 **[3Blue1Brown — Transformers, the tech behind LLMs | Chapter 5, Deep learning](https://www.youtube.com/watch?v=wjZofJX0v4M)** (⏱️ 27 mins)  
 > 💡 *Visual Highlights:* The definitive 3D animated walkthrough of how Attention and Transformers process words in parallel, compute context-rich vectors, and generate text.
 
 ### What is Attention?
@@ -681,10 +681,10 @@ This is one of the most fundamental distinctions in all of machine learning.
 ![Discriminative vs Generative Models](assets/06_discriminative_vs_generative.jpg)
 
 > ### 🎥 Visual Explainer & Animation
-> [![IBM Technology - Generative AI vs Traditional AI](https://img.youtube.com/vi/0k_b_m70-98/hqdefault.jpg)](https://www.youtube.com/watch?v=0k_b_m70-98)
+> [![Predictive vs Generative AI: How They Work and When to Use Each](https://img.youtube.com/vi/phOhGqpXss4/hqdefault.jpg)](https://www.youtube.com/watch?v=phOhGqpXss4)
 >
-> 🎬 **[IBM Technology — Generative AI vs. Traditional AI: What's the Difference?](https://www.youtube.com/watch?v=0k_b_m70-98)** (⏱️ 6 mins)  
-> 💡 *Visual Highlights:* Clear lightboard diagrams illustrating the geometric difference between decision boundaries ($P(Y|X)$) and generating from probability distributions ($P(X)$).
+> 🎬 **[IBM Technology — Predictive vs Generative AI: How They Work and When to Use Each](https://www.youtube.com/watch?v=phOhGqpXss4)** (⏱️ 6 mins)  
+> 💡 *Visual Highlights:* Clear lightboard diagrams illustrating the difference between predictive classification models ($P(Y|X)$) and generating from probability distributions ($P(X)$).
 
 ### Discriminative Models — "The Judge"
 
@@ -1288,8 +1288,8 @@ To visually solidify the foundational concepts of Artificial Intelligence, Deep 
 | 1 | **What is a Neural Network?** | [But what is a neural network? \| Chapter 1, Deep learning](https://www.youtube.com/watch?v=aircAruvnKk) | **3Blue1Brown (Grant Sanderson)** | The gold standard of mathematical animation. Uses the MNIST digit recognition task to illustrate layers, activations, weights, biases, and matrix transformations. |
 | 2 | **How Neural Networks Learn** | [Gradient descent, how neural networks learn \| Chapter 2, Deep learning](https://www.youtube.com/watch?v=IHZwWFHWa-w) | **3Blue1Brown (Grant Sanderson)** | Brilliant 3D visualizations of high-dimensional cost functions, loss landscapes, and how gradient descent finds optimal weights. |
 | 3 | **Neural Networks Inside Out** | [Neural Networks Part 1: Inside the Black Box](https://www.youtube.com/watch?v=CqOfi41LfDw) | **StatQuest (Josh Starmer)** | Extremely accessible, step-by-step visual walkthrough showing how simple linear functions combine with activation functions to fit complex boundaries. |
-| 4 | **Generative AI vs Traditional AI** | [Generative AI vs. Traditional AI: What's the Difference?](https://www.youtube.com/watch?v=0k_b_m70-98) | **IBM Technology (Martin Keen)** | Crystal-clear lightboard explanation contrasting discriminative classification models with generative probability distribution models. |
-| 5 | **Transformers & Attention Breakthrough** | [Transformers, the tech behind LLMs \| Chapter 5, Deep learning](https://www.youtube.com/watch?v=wjZofJX0v4U) | **3Blue1Brown (Grant Sanderson)** | Mind-bending 3D geometric animation showing how word embeddings move through vector space and how attention replaces recurrent loops. |
+| 4 | **Generative AI vs Traditional AI** | [Predictive vs Generative AI: How They Work and When to Use Each](https://www.youtube.com/watch?v=phOhGqpXss4) | **IBM Technology (Martin Keen)** | Crystal-clear lightboard explanation contrasting discriminative classification models with generative probability distribution models. |
+| 5 | **Transformers & Attention Breakthrough** | [Transformers, the tech behind LLMs \| Chapter 5, Deep learning](https://www.youtube.com/watch?v=wjZofJX0v4M) | **3Blue1Brown (Grant Sanderson)** | Mind-bending 3D geometric animation showing how word embeddings move through vector space and how attention replaces recurrent loops. |
 
 ### 🎬 Deep-Dive Video Breakdown
 
@@ -1308,13 +1308,13 @@ To visually solidify the foundational concepts of Artificial Intelligence, Deep 
 > ⏱️ **Duration:** ~18 mins | 🎯 **Core Concept:** Linear Combinations, Activation Functions, Visual Fitting  
 > 💡 **Key Visual Takeaway:** Step-by-step visual curves showing how adding simple mathematical curves together allows neural networks to fit complex classification frontiers.
 
-#### 4. [IBM Technology — Generative AI vs. Traditional AI](https://www.youtube.com/watch?v=0k_b_m70-98)
-[![Generative AI vs Traditional AI](https://img.youtube.com/vi/0k_b_m70-98/hqdefault.jpg)](https://www.youtube.com/watch?v=0k_b_m70-98)
+#### 4. [IBM Technology — Predictive vs Generative AI](https://www.youtube.com/watch?v=phOhGqpXss4)
+[![Predictive vs Generative AI: How They Work and When to Use Each](https://img.youtube.com/vi/phOhGqpXss4/hqdefault.jpg)](https://www.youtube.com/watch?v=phOhGqpXss4)
 > ⏱️ **Duration:** ~6 mins | 🎯 **Core Concept:** Discriminative Classification vs. Generative Synthesis  
 > 💡 **Key Visual Takeaway:** Martin Keen visually diagrams how traditional machine learning draws decision boundaries (e.g. Cat vs Dog), whereas Generative AI models learn the underlying probability distribution $P(X)$ to synthesize entirely new samples.
 
-#### 5. [3Blue1Brown — Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4U)
-[![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4U/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4U)
+#### 5. [3Blue1Brown — Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M)
+[![Transformers, the tech behind LLMs](https://img.youtube.com/vi/wjZofJX0v4M/hqdefault.jpg)](https://www.youtube.com/watch?v=wjZofJX0v4M)
 > ⏱️ **Duration:** ~27 mins | 🎯 **Core Concept:** Self-Attention, High-Dimensional Word Embeddings, Parallel Processing  
 > 💡 **Key Visual Takeaway:** Incredible 3D geometric visualization showing how word vectors update their semantic orientation in real time as they pay attention to surrounding tokens.
 

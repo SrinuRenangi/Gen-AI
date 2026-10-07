@@ -59,6 +59,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 01 | [Autonomous Agents: Designing ReAct (Reasoning + Acting) Agents Capable of Using External Tools](5.%20Agents,%20Tooling%20&%20Open-Source%20Models/Autonomous%20Agents%20-%20Designing%20ReAct%20%28Reasoning%20+%20Acting%29%20agents%20capable%20of%20using%20external%20tools.md) | ✅ |
 | 02 | [External Integration: Connecting Models to Live Data via Search APIs (Google Search, SerpAPI, Tavily & DuckDuckGo)](5.%20Agents,%20Tooling%20&%20Open-Source%20Models/External%20Integration%20-%20Connecting%20models%20to%20live%20data%20via%20search%20APIs%20%28e.g.,%20Google%20Search,%20SerpAPI%29.md) | ✅ |
 | 03 | [Open Source Ecosystem: Utilizing Meta Llama 2 & Accessing Diverse Models via the Hugging Face Hub](5.%20Agents,%20Tooling%20&%20Open-Source%20Models/Open%20Source%20Ecosystem%20-%20Utilizing%20Meta%20Llama%202%20and%20accessing%20diverse%20models%20via%20the%20Hugging%20Face%20hub.md) | ✅ |
+| 04 | [Multimodal Capabilities: Handling Text & Image Inputs with Google Gemini Pro & Vision Models](5.%20Agents,%20Tooling%20&%20Open-Source%20Models/Multimodal%20Capabilities%20-%20Handling%20text%20and%20image%20inputs%20%28e.g.,%20Google%20Gemini%20Pro%29.md) | ✅ |
 
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
@@ -213,6 +214,7 @@ Gen-AI/
 │   ├── Autonomous Agents - ... .md
 │   ├── External Integration - ... .md
 │   ├── Open Source Ecosystem - ... .md
+│   ├── Multimodal Capabilities - ... .md
 │   ├── assets/
 │   └── code/
 ├── Python/

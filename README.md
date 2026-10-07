@@ -45,6 +45,11 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 02 | [Sequential Chaining: Connecting Multiple LLM Calls Using SimpleSequentialChain, SequentialChain, and Modern LCEL](3.%20The%20LangChain%20Framework%20&%20Chaining/Sequential%20Chaining%20-%20Connecting%20multiple%20LLM%20calls%20using%20SimpleSequentialChain%20and%20SequentialChain%20to%20pass%20outputs%20as%20inputs%20between%20stages.md) | ✅ |
 | 03 | [Memory Management: Integrating ConversationBufferMemory to Maintain Context Across Multi-Turn User Interactions](3.%20The%20LangChain%20Framework%20&%20Chaining/Memory%20Management%20-%20Integrating%20ConversationBufferMemory%20to%20maintain%20context%20across%20multi-turn%20user%20interactions.md) | ✅ |
 
+### 📚 4. Advanced Data Retrieval & Vector Databases
+| Module | Topic | Status |
+|--------|-------|--------|
+| 01 | [Embeddings: Converting Text into Dense Vector Representations for Semantic Understanding](4.%20Advanced%20Data%20Retrieval%20&%20Vector%20Databases/Embeddings%20-%20Converting%20text%20into%20dense%20vector%20representations%20for%20semantic%20understanding.md) | ✅ |
+
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
 |-----|-------|--------|
@@ -183,6 +188,12 @@ Gen-AI/
 │   └── code/
 ├── 3. The LangChain Framework & Chaining/
 │   ├── Framework Architecture - ... .md
+│   ├── Sequential Chaining - ... .md
+│   ├── Memory Management - ... .md
+│   ├── assets/
+│   └── code/
+├── 4. Advanced Data Retrieval & Vector Databases/
+│   ├── Embeddings - ... .md
 │   ├── assets/
 │   └── code/
 ├── Python/

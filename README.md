@@ -38,6 +38,11 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 03 | [Prompt Templates: Designing Structured Templates for Consistent and Repeatable Model Behavior](2.%20API%20Interaction%20&%20Prompt%20Engineering/Prompt%20Templates%20-%20Designing%20structured%20templates%20for%20consistent%20and%20repeatable%20model%20behavior.md) | ✅ |
 | 04 | [Parameters: Tuning Hyperparameters Like Temperature & Max Tokens to Control Output Creativity and Length](2.%20API%20Interaction%20&%20Prompt%20Engineering/Parameters%20-%20Tuning%20hyperparameters%20like%20temperature%20and%20max%20tokens%20to%20control%20output%20creativity%20and%20length.md) | ✅ |
 
+### 📚 3. The LangChain Framework & Chaining
+| Module | Topic | Status |
+|--------|-------|--------|
+| 01 | [Framework Architecture: Utilizing Wrappers, Chains, and Agents for Modular Application Development](3.%20The%20LangChain%20Framework%20&%20Chaining/Framework%20Architecture%20-%20Utilizing%20wrappers,%20chains,%20and%20agents%20for%20modular%20application%20development.md) | ✅ |
+
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
 |-----|-------|--------|
@@ -160,13 +165,26 @@ pip install -r requirements.txt
 
 ```
 Gen-AI/
+├── 1. Theoretical Foundations & NLP Evolution/
+│   ├── Generative AI Concepts - ... .md
+│   ├── NLP Progression - ... .md
+│   ├── Transformer Deep-Dive - ... .md
+│   ├── Training Paradigms - ... .md
+│   ├── assets/
+│   └── code/
+├── 2. API Interaction & Prompt Engineering/
+│   ├── OpenAI API Integration - ... .md
+│   ├── Prompt Strategies - ... .md
+│   ├── Prompt Templates - ... .md
+│   ├── Parameters - ... .md
+│   ├── assets/
+│   └── code/
+├── 3. The LangChain Framework & Chaining/
+│   ├── Framework Architecture - ... .md
+│   ├── assets/
+│   └── code/
 ├── Python/
 │   ├── Phase_01_GenAI_Foundations/
-│   │   ├── Day_01_Introduction_to_GenAI/
-│   │   │   ├── Day_01_Introduction_to_GenAI.md    ← Theory notes
-│   │   │   └── assets/                            ← Diagrams & images
-│   │   └── ...
-│   ├── Phase_02_Python_for_AI/
 │   └── ... (10 phases total)
 ├── requirements.txt
 ├── .gitignore

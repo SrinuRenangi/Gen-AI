@@ -26,6 +26,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | Module | Topic | Status |
 |--------|-------|--------|
 | 01 | [Generative AI Concepts: Distinguishing Generative versus Discriminative Models](1.%20Theoretical%20Foundations%20&%20NLP%20Evolution/Generative%20AI%20Concepts%20-%20Distinguishing%20generative%20versus%20discriminative%20models.md) | ✅ |
+| 02 | [NLP Progression: Understanding the Leap from RNNs and LSTMs to Modern Architectures](1.%20Theoretical%20Foundations%20&%20NLP%20Evolution/NLP%20Progression%20-%20Understanding%20the%20leap%20from%20RNNs%20and%20LSTMs%20to%20modern%20architectures.md) | ✅ |
 
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |

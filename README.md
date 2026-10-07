@@ -53,6 +53,11 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 03 | [Storage Implementation: Building and Managing Vector Indices with Cloud-Based Pinecone and Local-Based ChromaDB](4.%20Advanced%20Data%20Retrieval%20&%20Vector%20Databases/Storage%20Implementation%20-%20Building%20and%20managing%20vector%20indices%20with%20cloud-based%20Pinecone%20and%20local-based%20ChromaDB.md) | ✅ |
 | 04 | [Data Pipelines: Using Document Loaders for Unstructured Data (CSV, JSON, Markdown, PDFs) and Applying Effective Chunking Strategies to Preserve Context](4.%20Advanced%20Data%20Retrieval%20&%20Vector%20Databases/Data%20Pipelines%20-%20Using%20Document%20Loaders%20for%20unstructured%20data%20%28CSV,%20JSON,%20Markdown,%20PDFs%29%20and%20applying%20effective%20chunking%20strategies%20to%20preserve%20context%20during%20retrieval.md) | ✅ |
 
+### 📚 5. Agents, Tooling & Open-Source Models
+| Module | Topic | Status |
+|--------|-------|--------|
+| 01 | [Autonomous Agents: Designing ReAct (Reasoning + Acting) Agents Capable of Using External Tools](5.%20Agents,%20Tooling%20&%20Open-Source%20Models/Autonomous%20Agents%20-%20Designing%20ReAct%20%28Reasoning%20+%20Acting%29%20agents%20capable%20of%20using%20external%20tools.md) | ✅ |
+
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
 |-----|-------|--------|
@@ -200,6 +205,10 @@ Gen-AI/
 │   ├── Vector Search - ... .md
 │   ├── Storage Implementation - ... .md
 │   ├── Data Pipelines - ... .md
+│   ├── assets/
+│   └── code/
+├── 5. Agents, Tooling & Open-Source Models/
+│   ├── Autonomous Agents - ... .md
 │   ├── assets/
 │   └── code/
 ├── Python/

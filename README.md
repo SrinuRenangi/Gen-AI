@@ -51,6 +51,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 01 | [Embeddings: Converting Text into Dense Vector Representations for Semantic Understanding](4.%20Advanced%20Data%20Retrieval%20&%20Vector%20Databases/Embeddings%20-%20Converting%20text%20into%20dense%20vector%20representations%20for%20semantic%20understanding.md) | ✅ |
 | 02 | [Vector Search: Exploring High-Dimensional Data, Distance Metrics, and Cosine Similarity](4.%20Advanced%20Data%20Retrieval%20&%20Vector%20Databases/Vector%20Search%20-%20Exploring%20high-dimensional%20data,%20distance%20metrics,%20and%20cosine%20similarity.md) | ✅ |
 | 03 | [Storage Implementation: Building and Managing Vector Indices with Cloud-Based Pinecone and Local-Based ChromaDB](4.%20Advanced%20Data%20Retrieval%20&%20Vector%20Databases/Storage%20Implementation%20-%20Building%20and%20managing%20vector%20indices%20with%20cloud-based%20Pinecone%20and%20local-based%20ChromaDB.md) | ✅ |
+| 04 | [Data Pipelines: Using Document Loaders for Unstructured Data (CSV, JSON, Markdown, PDFs) and Applying Effective Chunking Strategies to Preserve Context](4.%20Advanced%20Data%20Retrieval%20&%20Vector%20Databases/Data%20Pipelines%20-%20Using%20Document%20Loaders%20for%20unstructured%20data%20%28CSV,%20JSON,%20Markdown,%20PDFs%29%20and%20applying%20effective%20chunking%20strategies%20to%20preserve%20context%20during%20retrieval.md) | ✅ |
 
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
@@ -198,6 +199,7 @@ Gen-AI/
 │   ├── Embeddings - ... .md
 │   ├── Vector Search - ... .md
 │   ├── Storage Implementation - ... .md
+│   ├── Data Pipelines - ... .md
 │   ├── assets/
 │   └── code/
 ├── Python/

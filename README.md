@@ -35,6 +35,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 |--------|-------|--------|
 | 01 | [OpenAI API Integration: Setting Up Environments, Managing API Keys, and Handling Request-Response Cycles](2.%20API%20Interaction%20&%20Prompt%20Engineering/OpenAI%20API%20Integration%20-%20Setting%20up%20environments,%20managing%20API%20keys,%20and%20handling%20request-response%20cycles.md) | ✅ |
 | 02 | [Prompt Strategies: Implementing Zero-Shot and Few-Shot Prompting Techniques](2.%20API%20Interaction%20&%20Prompt%20Engineering/Prompt%20Strategies%20-%20Implementing%20Zero-shot%20and%20Few-shot%20prompting%20techniques.md) | ✅ |
+| 03 | [Prompt Templates: Designing Structured Templates for Consistent and Repeatable Model Behavior](2.%20API%20Interaction%20&%20Prompt%20Engineering/Prompt%20Templates%20-%20Designing%20structured%20templates%20for%20consistent%20and%20repeatable%20model%20behavior.md) | ✅ |
 
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |

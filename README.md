@@ -22,6 +22,11 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 
 ## 🗺️ Course Roadmap
 
+### 📚 1. Theoretical Foundations & NLP Evolution
+| Module | Topic | Status |
+|--------|-------|--------|
+| 01 | [Generative AI Concepts: Distinguishing Generative versus Discriminative Models](1.%20Theoretical%20Foundations%20&%20NLP%20Evolution/Generative%20AI%20Concepts%20-%20Distinguishing%20generative%20versus%20discriminative%20models.md) | ✅ |
+
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
 |-----|-------|--------|

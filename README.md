@@ -57,6 +57,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | Module | Topic | Status |
 |--------|-------|--------|
 | 01 | [Autonomous Agents: Designing ReAct (Reasoning + Acting) Agents Capable of Using External Tools](5.%20Agents,%20Tooling%20&%20Open-Source%20Models/Autonomous%20Agents%20-%20Designing%20ReAct%20%28Reasoning%20+%20Acting%29%20agents%20capable%20of%20using%20external%20tools.md) | ✅ |
+| 02 | [External Integration: Connecting Models to Live Data via Search APIs (Google Search, SerpAPI, Tavily & DuckDuckGo)](5.%20Agents,%20Tooling%20&%20Open-Source%20Models/External%20Integration%20-%20Connecting%20models%20to%20live%20data%20via%20search%20APIs%20%28e.g.,%20Google%20Search,%20SerpAPI%29.md) | ✅ |
 
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
@@ -209,6 +210,7 @@ Gen-AI/
 │   └── code/
 ├── 5. Agents, Tooling & Open-Source Models/
 │   ├── Autonomous Agents - ... .md
+│   ├── External Integration - ... .md
 │   ├── assets/
 │   └── code/
 ├── Python/

@@ -28,6 +28,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 01 | [Generative AI Concepts: Distinguishing Generative versus Discriminative Models](1.%20Theoretical%20Foundations%20&%20NLP%20Evolution/Generative%20AI%20Concepts%20-%20Distinguishing%20generative%20versus%20discriminative%20models.md) | ✅ |
 | 02 | [NLP Progression: Understanding the Leap from RNNs and LSTMs to Modern Architectures](1.%20Theoretical%20Foundations%20&%20NLP%20Evolution/NLP%20Progression%20-%20Understanding%20the%20leap%20from%20RNNs%20and%20LSTMs%20to%20modern%20architectures.md) | ✅ |
 | 03 | [Transformer Deep-Dive: Mastering the Mechanics of "Attention Is All You Need"](1.%20Theoretical%20Foundations%20&%20NLP%20Evolution/Transformer%20Deep-Dive%20-%20Mastering%20the%20mechanics%20of%20the%20Attention%20is%20All%20You%20Need%20paper.md) | ✅ |
+| 04 | [Training Paradigms: The Lifecycle of an LLM (Pre-Training, SFT, RLHF & DPO)](1.%20Theoretical%20Foundations%20&%20NLP%20Evolution/Training%20Paradigms%20-%20The%20lifecycle%20of%20an%20LLM%20covering%20pre-training,%20supervised%20fine-tuning,%20and%20RLHF.md) | ✅ |
 
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |

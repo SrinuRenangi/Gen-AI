@@ -30,6 +30,11 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 03 | [Transformer Deep-Dive: Mastering the Mechanics of "Attention Is All You Need"](1.%20Theoretical%20Foundations%20&%20NLP%20Evolution/Transformer%20Deep-Dive%20-%20Mastering%20the%20mechanics%20of%20the%20Attention%20is%20All%20You%20Need%20paper.md) | ✅ |
 | 04 | [Training Paradigms: The Lifecycle of an LLM (Pre-Training, SFT, RLHF & DPO)](1.%20Theoretical%20Foundations%20&%20NLP%20Evolution/Training%20Paradigms%20-%20The%20lifecycle%20of%20an%20LLM%20covering%20pre-training,%20supervised%20fine-tuning,%20and%20RLHF.md) | ✅ |
 
+### 📚 2. API Interaction & Prompt Engineering
+| Module | Topic | Status |
+|--------|-------|--------|
+| 01 | [OpenAI API Integration: Setting Up Environments, Managing API Keys, and Handling Request-Response Cycles](2.%20API%20Interaction%20&%20Prompt%20Engineering/OpenAI%20API%20Integration%20-%20Setting%20up%20environments,%20managing%20API%20keys,%20and%20handling%20request-response%20cycles.md) | ✅ |
+
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
 |-----|-------|--------|

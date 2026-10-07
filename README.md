@@ -49,6 +49,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | Module | Topic | Status |
 |--------|-------|--------|
 | 01 | [Embeddings: Converting Text into Dense Vector Representations for Semantic Understanding](4.%20Advanced%20Data%20Retrieval%20&%20Vector%20Databases/Embeddings%20-%20Converting%20text%20into%20dense%20vector%20representations%20for%20semantic%20understanding.md) | ✅ |
+| 02 | [Vector Search: Exploring High-Dimensional Data, Distance Metrics, and Cosine Similarity](4.%20Advanced%20Data%20Retrieval%20&%20Vector%20Databases/Vector%20Search%20-%20Exploring%20high-dimensional%20data,%20distance%20metrics,%20and%20cosine%20similarity.md) | ✅ |
 
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
@@ -194,6 +195,7 @@ Gen-AI/
 │   └── code/
 ├── 4. Advanced Data Retrieval & Vector Databases/
 │   ├── Embeddings - ... .md
+│   ├── Vector Search - ... .md
 │   ├── assets/
 │   └── code/
 ├── Python/

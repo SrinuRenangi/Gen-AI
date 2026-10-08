@@ -366,6 +366,29 @@ All changes made to the course structure, files, and content are recorded here w
   - Master cheat sheet and 10 in-depth self-assessment questions with collapsible architectural explanations.
   - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *3Blue1Brown*, *freeCodeCamp*, *StatQuest*, *Andrej Karpathy*).
 
+---
+
+## 📅 [2026-10-08] - Step 8: Module 05 Overhaul (Agents, Tooling & Open-Source Models)
+
+### 📄 File 01: `5. Agents, Tooling & Open-Source Models/Autonomous Agents - Designing ReAct (Reasoning + Acting) agents capable of using external tools.md`
+- **Status**: Completed & Verified.
+- **Content**:
+  - Restructured into standardized 6-part template with zero data loss.
+  - Added real-world intuitions (Attentive Driver with GPS vs Cruise Control in Traffic, Master Detective with a Tool Bag, Rigid Factory Conveyor vs Autonomous Mars Rover, Executive Assistant and Corporate Rolodex).
+  - Explicit Java & Spring Boot comparisons (Spring AI `@Tool` annotations and `FunctionCallback` registration vs LangChain `@tool`, Jackson POJO schemas vs Pydantic V2 schemas, Resilience4j Circuit Breaker / `@TimeLimiter` / `@Retry` vs agent execution guardrails, Spring Integration / Camel routing vs dynamic ReAct state machines).
+  - Theoretical foundations of the ReAct framework (Yao et al., 2022) and the formal execution trajectory tuple $c_t = (q, r_1, a_1, o_1, \dots, r_{t-1}, a_{t-1}, o_{t-1})$.
+  - Deconstruction of the ReAct prompt architecture, lexical tokens (`Thought:`, `Action:`, `Action Input:`, `Observation:`, `Final Answer:`), and critical importance of the `stop=["\nObservation:"]` sequence to eliminate hallucinated tool outputs.
+  - Type-safe tool engineering with Pydantic V2 schemas, JSON Schema generation, `@tool` decorator vs `BaseTool` subclass, and semantic prompt engineering of tool descriptions.
+  - Agent Executor state machine, output regex parsing, and modern native function calling protocols (OpenAI, Anthropic, Gemini).
+  - Production guardrails: `max_iterations`, wall-clock `max_execution_time`, tool exception interception & traceback reflection loop, and early stopping strategies (`force_stop` vs `generate_summary`).
+  - Architectural comparison matrix across agent patterns (Classical Text ReAct, Native Tool Calling, Plan-and-Solve, Multi-Agent Swarms).
+  - Enterprise case studies: Multi-hop research analyst agent and autonomous SQL database diagnostic & repair agent.
+  - Embedded verified asset diagrams: `assets/01_agent_reasoning_loop.jpg` and `assets/02_function_calling_lifecycle.jpg`.
+  - Complete standalone lab reference and 4 hands-on coding exercises with complete solutions (Pure-Python ReAct text engine from scratch, Type-safe tool definition with Pydantic V2 and validation checks, Self-healing agent with exception interception, Production AgentExecutor with timeouts and fallback summary).
+  - Master cheat sheet and 10 in-depth self-assessment questions with collapsible architectural explanations.
+  - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *freeCodeCamp*, *Andrej Karpathy*).
+
+
 
 
 

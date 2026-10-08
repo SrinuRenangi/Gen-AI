@@ -61,6 +61,11 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 03 | [Open Source Ecosystem: Utilizing Meta Llama 2 & Accessing Diverse Models via the Hugging Face Hub](5.%20Agents,%20Tooling%20&%20Open-Source%20Models/Open%20Source%20Ecosystem%20-%20Utilizing%20Meta%20Llama%202%20and%20accessing%20diverse%20models%20via%20the%20Hugging%20Face%20hub.md) | ✅ |
 | 04 | [Multimodal Capabilities: Handling Text & Image Inputs with Google Gemini Pro & Vision Models](5.%20Agents,%20Tooling%20&%20Open-Source%20Models/Multimodal%20Capabilities%20-%20Handling%20text%20and%20image%20inputs%20%28e.g.,%20Google%20Gemini%20Pro%29.md) | ✅ |
 
+### 📚 6. End-to-End Development & MLOps
+| Module | Topic | Status |
+|--------|-------|--------|
+| 01 | [Application Architecture: Building Complex Systems (The Clinical Medical Chatbot) from Concept to Implementation](6.%20End-to-End%20Development%20&%20MLOps/Application%20Architecture%20-%20Building%20complex%20systems,%20such%20as%20the%20Medical%20Chatbot,%20from%20concept%20to%20implementation.md) | ✅ |
+
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
 |-----|-------|--------|
@@ -215,6 +220,10 @@ Gen-AI/
 │   ├── External Integration - ... .md
 │   ├── Open Source Ecosystem - ... .md
 │   ├── Multimodal Capabilities - ... .md
+│   ├── assets/
+│   └── code/
+├── 6. End-to-End Development & MLOps/
+│   ├── Application Architecture - ... .md
 │   ├── assets/
 │   └── code/
 ├── Python/

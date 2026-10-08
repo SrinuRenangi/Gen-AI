@@ -388,6 +388,31 @@ All changes made to the course structure, files, and content are recorded here w
   - Master cheat sheet and 10 in-depth self-assessment questions with collapsible architectural explanations.
   - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *freeCodeCamp*, *Andrej Karpathy*).
 
+### 📄 File 02: `5. Agents, Tooling & Open-Source Models/External Integration - Connecting models to live data via search APIs (e.g., Google Search, SerpAPI).md`
+- **Status**: Completed & Verified.
+- **Content**:
+  - Restructured into standardized 6-part template with zero data loss.
+  - Added real-world intuitions (2020 Encyclopedia vs Live Bloomberg Terminal, Research Librarian with Fast Scanner and Highlighter, Culinary Sieve and Chef).
+  - Explicit Java & Spring Boot comparisons (Spring 6.1+ `RestClient` / `WebClient` vs Python `httpx`/`requests`, Spring AI `@Tool` and `FunctionCallback` with Jackson JSON Schema vs Python `@tool` and Pydantic, Resilience4j `@RateLimiter` / `@CircuitBreaker` / `@Retry` vs Python `tenacity`, Spring Data Redis `@Cacheable` with declarative TTL vs Python `redis-py` / in-memory dict cache).
+  - Theoretical foundations and mathematical formulations:
+    1. Information freshness and exponential temporal decay: $V(t) = V_0 \cdot e^{-\lambda (t - t_0)}$ and parametric quality degradation $Q_{\text{param}}(t)$.
+    2. Query reformulation optimization with semantic drift penalty: $q^* = \arg\max_{q} [\text{Score}_{\text{lexical}}(q, \mathcal{C}) - \beta \cdot \mathcal{D}_{\text{KL}}(P(w \mid q) \parallel P(w \mid q_{\text{user}}))]$.
+    3. Content de-duplication via $k$-shingle Jaccard Similarity $J(A, B) = \frac{|A \cap B|}{|A \cup B|}$.
+    4. Verifiable Grounding Precision metric: $P_{\text{ground}} = \frac{\sum_{c \in \mathcal{C}_{\text{claims}}} \mathbb{I}(\exists s \in \mathcal{S}_{\text{retrieved}} \text{ s.t. } \text{Entails}(s, c) = 1)}{|\mathcal{C}_{\text{claims}}|}$.
+  - Search engine evaluation across Google Custom Search JSON API, SerpAPI, Tavily Search, and DuckDuckGo (`duckduckgo-search`).
+  - SERP payload decomposition (Knowledge Graph, Featured Answer Boxes, Organic snippets) and token budget allocation.
+  - Production resilience: Multi-tier SHA-256 caching gateway (In-memory L1 + Redis L2), HTTP 429 backoff with full jitter, anti-bot/CAPTCHA shielding, and multi-provider fallback cascades (Tavily $\to$ SerpAPI $\to$ DuckDuckGo).
+  - Negative constraint prompting ("Refuse to speculate if missing from SERP") and in-line citation verification (`[1]`, `[2]`).
+  - Enterprise case studies: Live corporate financial intelligence / earnings monitoring, and automated cyber threat / CVE triage.
+  - Embedded verified asset diagram: `assets/03_search_api_integration.jpg`.
+  - Complete standalone lab reference and 4 hands-on coding exercises with complete runnable solutions:
+    1. Pure-Python DuckDuckGo search with HTML entity and tag cleansing.
+    2. Resilient multi-provider search gateway with Pydantic validation and failover.
+    3. Multi-tier in-memory TTL caching gateway with normalized query hashing and cost telemetry.
+    4. Grounded citation and hallucination verifier engine with citation index bounds checking.
+  - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
+  - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *freeCodeCamp*, *Andrej Karpathy*).
+
 
 
 

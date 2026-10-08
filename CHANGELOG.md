@@ -413,6 +413,31 @@ All changes made to the course structure, files, and content are recorded here w
   - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
   - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *freeCodeCamp*, *Andrej Karpathy*).
 
+### 📄 File 03: `5. Agents, Tooling & Open-Source Models/Multimodal Capabilities - Handling text and image inputs (e.g., Google Gemini Pro).md`
+- **Status**: Completed & Verified.
+- **Content**:
+  - Restructured into standardized 6-part template with zero data loss.
+  - Added real-world intuitions (Two-Person Telephone Relay vs Sighted Scholar, Roman Mosaic Tile Artist for Vision Transformer Patches, Transparent Architectural Grid for Coordinates).
+  - Explicit Java & Spring Boot comparisons (Java `BufferedImage` / `byte[]` / Base64 vs Python `PIL.Image`, Spring AI fluent `ChatClient` with `org.springframework.ai.model.Media` and `MimeTypeUtils` vs Google GenAI SDK, Reactive WebFlux `DataBuffer` streaming vs in-memory image buffers, Jackson Records with `@JsonProperty` vs Pydantic V2 vision extraction).
+  - Deep mathematical foundations & formulations:
+    1. Patch extraction geometry: converting 2D images $\mathbf{I} \in \mathbb{R}^{H \times W \times C}$ to $N = \frac{H \cdot W}{P^2}$ flattened patch vectors $\mathbf{x}_i \in \mathbb{R}^{P^2 C}$.
+    2. Linear projection matrix $\mathbf{W}_{\text{patch}} \in \mathbb{R}^{(P^2 C) \times D_{\text{vision}}}$ and 2D row/column positional embeddings $\mathbf{e}_{\text{pos}}^{(r, c)}$.
+    3. Multimodal alignment projectors: Linear, 2-layer MLP (`GELU`), and Q-Former cross-attention querying.
+    4. Early-fusion joint self-attention mechanism over concatenated visual and textual token streams.
+    5. Spatial grounding coordinate normalization $[ymin, xmin, ymax, xmax] \in [0, 1000]^4$, absolute pixel conversions, and Intersection over Union (IoU) derivation.
+    6. Multimodal token economics and tiling formulas (Gemini $384 \times 384$ tiles at 258 tokens/tile vs GPT-4o high-detail tiling $(N_{\text{tiles}} \times 170) + 85$).
+  - Comprehensive comparison matrix across vision models (Gemini 1.5 Pro, Flash, GPT-4o, Claude 3.5 Sonnet, LLaVA-NeXT).
+  - Production engineering: visual hallucinations (fine-print, repetitive counting, camouflage), aspect ratio preservation and letterboxing, WebP 85% bandwidth compression, Google Cloud Context Caching, and visual prompt injection defense guardrails.
+  - Enterprise case studies: Automated motor insurance claim appraisal and architectural CAD blueprint code compliance.
+  - Embedded verified asset diagram: `assets/05_multimodal_vision_architecture.jpg`.
+  - Complete standalone lab reference and 4 hands-on coding exercises with complete runnable solutions:
+    1. Pure-Python vision patch extraction and token cost engine.
+    2. Spatial grounding and bounding box transformation engine with IoU calculation.
+    3. Type-safe document AI extraction with Pydantic V2 and arithmetic reconciliation.
+    4. Multi-image visual state comparator and QA defect inspector.
+  - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
+  - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *freeCodeCamp*, *Andrej Karpathy*).
+
 
 
 

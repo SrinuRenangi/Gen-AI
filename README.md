@@ -66,6 +66,7 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 |--------|-------|--------|
 | 01 | [Application Architecture: Building Complex Systems (The Clinical Medical Chatbot) from Concept to Implementation](6.%20End-to-End%20Development%20&%20MLOps/Application%20Architecture%20-%20Building%20complex%20systems,%20such%20as%20the%20Medical%20Chatbot,%20from%20concept%20to%20implementation.md) | ✅ |
 | 02 | [Development Workflow: Managing Dependencies, Version Control with Git & GitHub, and Building Front-End Interfaces with Streamlit](6.%20End-to-End%20Development%20&%20MLOps/Development%20Workflow%20-%20Managing%20dependencies,%20version%20control%20with%20Git%20and%20GitHub,%20and%20building%20front-end%20interfaces%20with%20Streamlit.md) | ✅ |
+| 03 | [Deployment: Strategies for Testing, Deploying, and Operationalizing Generative AI Applications for Production Use](6.%20End-to-End%20Development%20&%20MLOps/Deployment%20-%20Strategies%20for%20testing,%20deploying,%20and%20operationalizing%20Generative%20AI%20applications%20for%20production%20use.md) | ✅ |
 
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
@@ -226,6 +227,7 @@ Gen-AI/
 ├── 6. End-to-End Development & MLOps/
 │   ├── Application Architecture - ... .md
 │   ├── Development Workflow - ... .md
+│   ├── Deployment - ... .md
 │   ├── assets/
 │   └── code/
 ├── Python/

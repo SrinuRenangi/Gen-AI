@@ -68,6 +68,14 @@ This course takes you from **zero knowledge** to **hero-level understanding** of
 | 02 | [Development Workflow: Managing Dependencies, Version Control with Git & GitHub, and Building Front-End Interfaces with Streamlit](6.%20End-to-End%20Development%20&%20MLOps/Development%20Workflow%20-%20Managing%20dependencies,%20version%20control%20with%20Git%20and%20GitHub,%20and%20building%20front-end%20interfaces%20with%20Streamlit.md) | ✅ |
 | 03 | [Deployment: Strategies for Testing, Deploying, and Operationalizing Generative AI Applications for Production Use](6.%20End-to-End%20Development%20&%20MLOps/Deployment%20-%20Strategies%20for%20testing,%20deploying,%20and%20operationalizing%20Generative%20AI%20applications%20for%20production%20use.md) | ✅ |
 
+### 📚 7. Fine-Tuning & Model Customization
+| Module | Topic | Status |
+|--------|-------|--------|
+| 01 | [Foundations of Fine-Tuning: Understanding Supervised Fine-Tuning, Memory Limits, and the SFT vs RAG vs Prompting Decision Matrix](7.%20Fine-Tuning%20&%20Model%20Customization/01.%20Foundations%20of%20Fine-Tuning%20-%20Understanding%20Supervised%20Fine-Tuning,%20Memory%20Limits,%20and%20the%20SFT%20vs%20RAG%20vs%20Prompting%20Decision%20Matrix.md) | ✅ |
+| 02 | [Model Loading & PEFT Mechanics: Mastering Hugging Face Transformers, BitsAndBytes 4-Bit Quantization, LoRA, and QLoRA](7.%20Fine-Tuning%20&%20Model%20Customization/02.%20Model%20Loading%20and%20PEFT%20Mechanics%20-%20Mastering%20Hugging%20Face%20Transformers,%20BitsAndBytes%204-Bit%20Quantization,%20LoRA,%20and%20QLoRA.md) | ✅ |
+| 03 | [End-to-End Training Execution: Preparing Instruction Datasets, Configuring SFTTrainer, and Running the Training Loop](7.%20Fine-Tuning%20&%20Model%20Customization/03.%20End-to-End%20Training%20Execution%20-%20Preparing%20Instruction%20Datasets,%20Configuring%20SFTTrainer,%20and%20Running%20the%20Training%20Loop.md) | ✅ |
+| 04 | [Post-Training Lifecycle: Merging Adapters, Exporting Models, and Before-vs-After Performance Evaluation](7.%20Fine-Tuning%20&%20Model%20Customization/04.%20Post-Training%20Lifecycle%20-%20Merging%20Adapters,%20Exporting%20Models,%20and%20Before-vs-After%20Performance%20Evaluation.md) | ✅ |
+
 ### Phase 01 — GenAI Foundations (Days 1-5)
 | Day | Topic | Status |
 |-----|-------|--------|
@@ -228,6 +236,13 @@ Gen-AI/
 │   ├── Application Architecture - ... .md
 │   ├── Development Workflow - ... .md
 │   ├── Deployment - ... .md
+│   ├── assets/
+│   └── code/
+├── 7. Fine-Tuning & Model Customization/
+│   ├── 01. Foundations of Fine-Tuning - ... .md
+│   ├── 02. Model Loading and PEFT Mechanics - ... .md
+│   ├── 03. End-to-End Training Execution - ... .md
+│   ├── 04. Post-Training Lifecycle - ... .md
 │   ├── assets/
 │   └── code/
 ├── Python/

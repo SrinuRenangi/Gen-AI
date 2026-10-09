@@ -577,6 +577,30 @@ All changes made to the course structure, files, and content are recorded here w
   - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
   - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*Andrej Karpathy*, *StatQuest*, *DeepLearning.AI*, *IBM Technology*, *ByteByteGo*).
 
+### 📄 File 02: `7. Fine-Tuning & Model Customization/02. Model Loading and PEFT Mechanics - Mastering Hugging Face Transformers, BitsAndBytes 4-Bit Quantization, LoRA, and QLoRA.md`
+- **Status**: Completed & Verified.
+- **Content**:
+  - Restructured into standardized 6-part template with zero data loss.
+  - Added real-world intuitions (The Post-It Note on a Textbook, The Pocket-Sized Paperback, The Transparent Tracing Paper Blueprint, The Equal-Area Bell Curve Distribution).
+  - Explicit Java & Spring Boot comparisons (Maven Central vs Hugging Face Hub, CGLIB / ByteBuddy Dynamic Proxies vs LoRA low-rank adapter interceptors, Java primitive unboxing vs precision quantization FP32/FP16/INT8/NF4, BitsAndBytes Paged Optimizers vs JVM off-heap paging / swap space, `@ConfigurationProperties` vs `BitsAndBytesConfig` / `LoraConfig`).
+  - Deep mathematical foundations & formulations:
+    1. LoRA Low-Rank Decomposition: $W = W_0 + \frac{\alpha}{r} (B \cdot A)$ with mathematical proof of $99.22\%$ parameter compression ratio.
+    2. Mathematical proof of LoRA Initialization Invariance ($B=0 \implies \Delta W\vert_{t=0} = 0 \implies h\vert_{t=0} = x W_0$).
+    3. NormalFloat4 (NF4) Information-Theoretic Quantile Derivation: equal probability mass $P(q_i \le X \le q_{i+1}) = 1/16 = 0.0625$ minimizing Gaussian MSE distortion.
+    4. Double Quantization (DQ) Mathematical Overhead Reduction: cutting quantization constant overhead from $0.5$ bits/param to $0.127$ bits/param, saving $\approx 373\text{ MB}$ VRAM on an 8B model.
+    5. Target Module Matrix Geometry & Parameter Scaling Laws: comparison of attention-only ($0.08\%$) vs `all-linear` ($0.52\%$).
+  - Deconstruction of the Hugging Face Repository Anatomy (`config.json`, `generation_config.json`, `model.safetensors`, `tokenizer.json`).
+  - Production engineering: RMSNorm / LayerNorm FP32 precision trap prevention (`prepare_model_for_kbit_training`), tokenizer right-padding requirement during SFT, and GPU architecture support matrix (Turing, Ampere, Ada Lovelace, Hopper).
+  - Preserved embedded verified asset diagram: `assets/02_model_loading_quantization_lora.jpg`.
+  - Complete companion lab reference [`code/model_loading_peft_lab.py`](file:///c:/Users/sriva/OneDrive/Desktop/GEN%20AI%20COURSE/7.%20Fine-Tuning%20&%20Model%20Customization/code/model_loading_peft_lab.py) and 4 hands-on coding exercises with complete runnable solutions:
+    1. Hugging Face Repository Inspector & Parameter Calculator.
+    2. Pure-Python NormalFloat4 (NF4) Quantization Engine with Gaussian Quantiles.
+    3. LoRA Low-Rank Decomposition & Forward Pass Layer from Scratch.
+    4. Enterprise PEFT & BitsAndBytes Configuration Validation Gate.
+  - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
+  - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*Yannic Kilcher*, *Umar Jamil*, *StatQuest*, *ByteByteGo*).
+
+
 
 
 

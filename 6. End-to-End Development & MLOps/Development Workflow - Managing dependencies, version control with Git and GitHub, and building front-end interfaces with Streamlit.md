@@ -2,138 +2,120 @@
 
 > **Zero to Hero Gen AI Course — Module 06: End-to-End Development & MLOps**
 >
-> 📅 Module 6 | ⏱️ Estimated Reading Time: 75 minutes | 🎯 Level: Intermediate to Advanced
+> 📅 **Module 6: End-to-End Development & MLOps** | ⏱️ **Estimated Reading Time:** 80 minutes | 🎯 **Level:** Intermediate to Advanced
 >
 > **Core Objective:** Master the engineering discipline required to transition Generative AI experiments from fragile local Jupyter notebooks into robust, collaborative, and deployable production software. Deconstruct modern Python dependency management (`venv`, `poetry`, `pyproject.toml`, pinned lockfiles, and CUDA/PyTorch wheel caching). Implement professional Git and GitHub practices for AI projects: repository hygiene, Git LFS for neural weights, conventional commits, pre-commit hooks (Ruff, Black, Gitleaks for API key shielding), and automated GitHub Actions CI/CD workflows. Architect reactive conversational user interfaces using **Streamlit**: master the reactive script re-run execution model, persistent multi-turn chat via `st.session_state`, real-time token streaming via `st.chat_message`, memory caching (`st.cache_resource`), and production secrets management.
 
 ---
 
-## 📑 Table of Contents
+## 📑 Comprehensive Syllabus & Table of Contents
 
-1. [The Software Engineering Chasm in AI: From Notebook to Production](#1-the-software-engineering-chasm-in-ai-from-notebook-to-production)
-   - [1.1 The "Works on My Machine" Crisis: Dependency Hell & Unreproducible Notebooks](#11-the-works-on-my-machine-crisis-dependency-hell--unreproducible-notebooks)
-   - [1.2 The Three Pillars of Engineering Hygiene: Environment, Version Control, and User Interfaces](#12-the-three-pillars-of-engineering-hygiene-environment-version-control-and-user-interfaces)
-2. [Intuitive Mental Models & Analogies](#2-intuitive-mental-models--analogies)
-   - [2.1 The Laboratory Cleanroom (Virtual Environments) vs The Contaminated Workshop](#21-the-laboratory-cleanroom-virtual-environments-vs-the-contaminated-workshop)
-   - [2.2 The Time-Traveling Tree of History (Git & GitHub)](#22-the-time-traveling-tree-of-history-git--github)
-   - [2.3 The Self-Updating Chalkboard (The Streamlit Reactive Rerun Loop)](#23-the-self-updating-chalkboard-the-streamlit-reactive-rerun-loop)
-3. [Pillar 1: Modern Python Dependency Management](#3-pillar-1-modern-python-dependency-management)
-   - [3.1 Virtual Environments Under the Hood: How `venv` Manipulates `PATH` and `site-packages`](#31-virtual-environments-under-the-hood-how-venv-manipulates-path-and-site-packages)
-   - [3.2 Declarative Dependencies: `requirements.txt` vs Modern `pyproject.toml` (PEP 518 / PEP 621)](#32-declarative-dependencies-requirementstxt-vs-modern-pyprojecttoml-pep-518--pep-621)
-   - [3.3 The Determinism Imperative: Loose Constraints vs Exact Pinned Lockfiles](#33-the-determinism-imperative-loose-constraints-vs-exact-pinned-lockfiles)
-   - [3.4 Multi-Platform Wheel Management & CUDA / PyTorch Binary Compatibility](#34-multi-platform-wheel-management--cuda--pytorch-binary-compatibility)
-4. [Pillar 2: Professional Version Control with Git & GitHub for AI](#4-pillar-2-professional-version-control-with-git--github-for-ai)
-   - [4.1 Git Repository Hygiene: Crafting an Ironclad `.gitignore` for Gen AI Projects](#41-git-repository-hygiene-crafting-an-ironclad-gitignore-for-gen-ai-projects)
-   - [4.2 Handling Large Model Checkpoints & Datasets: Git LFS (Large File Storage)](#42-handling-large-model-checkpoints--datasets-git-lfs-large-file-storage)
-   - [4.3 Branching Workflows: Feature Branching, Pull Requests & Code Review Gates](#43-branching-workflows-feature-branching-pull-requests--code-review-gates)
-   - [4.4 Conventional Commits & Pre-Commit Hook Automation (Ruff, Black, Gitleaks)](#44-conventional-commits--pre-commit-hook-automation-ruff-black-gitleaks)
-   - [4.5 GitHub Actions CI/CD Pipeline for Automated Model Testing](#45-github-actions-cicd-pipeline-for-automated-model-testing)
-5. [Pillar 3: Rapid Front-End Prototyping with Streamlit](#5-pillar-3-rapid-front-end-prototyping-with-streamlit)
-   - [5.1 The Streamlit Execution Model: The Reactive Script Re-Run Machine](#51-the-streamlit-execution-model-the-reactive-script-re-run-machine)
-   - [5.2 Maintaining Multi-Turn Context: Mastering `st.session_state`](#52-maintaining-multi-turn-context-mastering-stsession_state)
-   - [5.3 Building Conversational Interfaces: `st.chat_input`, `st.chat_message`, and `st.write_stream`](#53-building-conversational-interfaces-stchat_input-stchat_message-and-stwrite_stream)
-   - [5.4 Performance Optimization: `st.cache_data` vs `st.cache_resource` (Persisting Vector Stores & LLMs)](#54-performance-optimization-stcache_data-vs-stcache_resource-persisting-vector-stores--llms)
-   - [5.5 Secrets & Configuration Management: `.streamlit/secrets.toml` vs Environment Variables](#55-secrets--configuration-management-streamlitsecretstoml-vs-environment-variables)
-6. [End-to-End Reference Architecture: Complete Enterprise Project Anatomy](#6-end-to-end-reference-architecture-complete-enterprise-project-anatomy)
-   - [6.1 Standard Enterprise Directory Layout](#61-standard-enterprise-directory-layout)
-   - [6.2 Production `app.py` Streamlit Implementation Blueprint](#62-production-apppy-streamlit-implementation-blueprint)
-7. [Production Failure Modes & Engineering Anti-Patterns](#7-production-failure-modes--engineering-anti-patterns)
-   - [7.1 Leaking API Keys to Public GitHub Repositories (The Secret Scanner Defense)](#71-leaking-api-keys-to-public-github-repositories-the-secret-scanner-defense)
-   - [7.2 The Re-Run Trap: Expensive Model Reloads on Every Widget Click](#72-the-re-run-trap-expensive-model-reloads-on-every-widget-click)
-   - [7.3 Streamlit Concurrency Limitations: Single-Process Threading vs Scaling](#73-streamlit-concurrency-limitations-single-process-threading-vs-scaling)
-8. [Comparative Evaluation Matrix: UI Frameworks for AI Applications](#8-comparative-evaluation-matrix-ui-frameworks-for-ai-applications)
-9. [Enterprise Case Study: Building an Internal Legal Contract Review Copilot](#9-enterprise-case-study-building-an-internal-legal-contract-review-copilot)
-10. [Complete Workflow Visualized](#10-complete-workflow-visualized)
-11. [Hands-On Python Lab Walkthrough](#11-hands-on-python-lab-walkthrough)
-12. [Curated Video Walkthroughs & Visual Animations](#12-curated-video-walkthroughs--visual-animations)
-13. [Self-Assessment & Review Questions](#13-self-assessment--review-questions)
-14. [Summary & Key Takeaways](#14-summary--key-takeaways)
+- [Part 1: Core Concept & Architecture Overview 🌟 🐣 💡](#part-1-core-concept--architecture-overview----)
+  - [1.1 The Software Engineering Chasm in AI: From Notebook to Production](#11-the-software-engineering-chasm-in-ai-from-notebook-to-production)
+  - [1.2 The Three Pillars of Engineering Hygiene](#12-the-three-pillars-of-engineering-hygiene)
+  - [1.3 Intuitive Mental Models & Analogies](#13-intuitive-mental-models--analogies)
+  - [1.4 Modern Python Dependency Management: venv, Poetry & pyproject.toml](#14-modern-python-dependency-management-venv-poetry--pyprojecttoml)
+  - [1.5 Professional Version Control: Git LFS, Pre-Commit Hooks & GitHub Actions](#15-professional-version-control-git-lfs-pre-commit-hooks--github-actions)
+  - [1.6 Rapid Front-End Prototyping with Streamlit: The Reactive Re-Run Engine](#16-rapid-front-end-prototyping-with-streamlit-the-reactive-re-run-engine)
+  - [1.7 End-to-End Development Workflow Visualized](#17-end-to-end-development-workflow-visualized)
+- [Part 2: Mathematical Foundations & Algorithms 🧱](#part-2-mathematical-foundations--algorithms-)
+  - [2.1 Reactive Directed Acyclic Graph (DAG) State Re-evaluation Complexity](#21-reactive-directed-acyclic-graph-dag-state-re-evaluation-complexity)
+  - [2.2 Amdahl's Law and Cache Latency Speedup Ratio](#22-amdahls-law-and-cache-latency-speedup-ratio)
+  - [2.3 Content-Addressable Storage (CAS) Merkle Tree Mathematics in Git](#23-content-addressable-storage-cas-merkle-tree-mathematics-in-git)
+  - [2.4 Git LFS Pointer Storage Economics: O(1) vs O(Data) Cloning](#24-git-lfs-pointer-storage-economics-o1-vs-odata-cloning)
+- [Part 3: Java & Spring Boot Developer Bridge ☕](#part-3-java--spring-boot-developer-bridge-)
+  - [3.1 Conceptual Mapping: Python MLOps vs Spring Boot / JVM Ecosystem](#31-conceptual-mapping-python-mlops-vs-spring-boot--jvm-ecosystem)
+  - [3.2 Dependency & Build Systems: Maven/Gradle vs Poetry/pyproject.toml](#32-dependency--build-systems-mavengradle-vs-poetrypyprojecttoml)
+  - [3.3 Streamlit Reactive Model vs Spring MVC, Vaadin & Thymeleaf](#33-streamlit-reactive-model-vs-spring-mvc-vaadin--thymeleaf)
+  - [3.4 State & Cache Management: Spring @SessionScope & @Cacheable vs Streamlit](#34-state--cache-management-spring-sessionscope--cacheable-vs-streamlit)
+- [Part 4: Hands-On Implementation & Practice Exercises 🧪](#part-4-hands-on-implementation--practice-exercises-)
+  - [Exercise 1 (Beginner): Deterministic Dependency Manifest & Lockfile Validator](#exercise-1-beginner-deterministic-dependency-manifest--lockfile-validator)
+  - [Exercise 2 (Intermediate): Pure-Python Git Merkle Tree & Content Hasher](#exercise-2-intermediate-pure-python-git-merkle-tree--content-hasher)
+  - [Exercise 3 (Advanced): Reactive Streamlit State Machine & Multi-Turn Chat Simulator](#exercise-3-advanced-reactive-streamlit-state-machine--multi-turn-chat-simulator)
+  - [Exercise 4 (Expert): Production Two-Tier Caching Decorator with LRU & Singleton Management](#exercise-4-expert-production-two-tier-caching-decorator-with-lru--singleton-management)
+- [Part 5: Production Engineering, Edge Cases & Failure Modes ⚙️ ⚡](#part-5-production-engineering-edge-cases--failure-modes-️-)
+  - [5.1 Leaking API Keys to Public GitHub Repositories (The GitLeaks Defense)](#51-leaking-api-keys-to-public-github-repositories-the-gitleaks-defense)
+  - [5.2 The Re-Run Trap: Expensive Model Reloads on Every Widget Click](#52-the-re-run-trap-expensive-model-reloads-on-every-widget-click)
+  - [5.3 Streamlit Concurrency Limitations: Single-Process GIL vs FastAPI Decoupling](#53-streamlit-concurrency-limitations-single-process-gil-vs-fastapi-decoupling)
+  - [5.4 Secrets Management: .streamlit/secrets.toml vs Environment Variables](#54-secrets-management-streamlitsecretstoml-vs-environment-variables)
+  - [5.5 Enterprise Case Study: Building an Internal Legal Contract Review Copilot](#55-enterprise-case-study-building-an-internal-legal-contract-review-copilot)
+- [Part 6: Video Masterclasses, Lab Suites & Review Questions 🎬](#part-6-video-masterclasses-lab-suites--review-questions-)
+  - [6.1 Telugu Tech Masterclasses & Global Visual 3D Animations](#61-telugu-tech-masterclasses--global-visual-3d-animations)
+  - [6.2 Complete Hands-On Lab Walkthrough](#62-complete-hands-on-lab-walkthrough)
+  - [6.3 Comprehensive Self-Assessment & Review Questions](#63-comprehensive-self-assessment--review-questions)
+  - [6.4 Key Takeaways & Architectural Checklist](#64-key-takeaways--architectural-checklist)
 
 ---
 
-## 1. The Software Engineering Chasm in AI: From Notebook to Production
+## Part 1: Core Concept & Architecture Overview 🌟 🐣 💡
 
-### 1.1 The "Works on My Machine" Crisis: Dependency Hell & Unreproducible Notebooks
+### 1.1 The Software Engineering Chasm in AI: From Notebook to Production
 
-In academic research and rapid prototyping, machine learning engineers spend 90% of their time in **Jupyter Notebooks**. Notebooks are exceptional for exploratory data analysis, plotting loss curves, and testing individual API calls.
+In exploratory research and quick hacks, machine learning practitioners spend most of their time in **Jupyter Notebooks**. Notebooks excel at interactive data exploration, chart plotting, and testing isolated prompts.
 
-However, when moving an AI system from a notebook into an enterprise software product, notebooks become an engineering liability:
-- **Hidden Execution State:** Notebook cells can be executed out of order. A variable defined in Cell 14 and modified in Cell 3 creates an invisible, un-reproducible internal Python state that fails as soon as the notebook kernel is restarted.
-- **Unpinned Transitive Dependencies:** Installing `pip install langchain` today installs different sub-dependencies than it did six months ago. Without exact lockfiles, a teammate or deployment server experiences broken imports, deprecated function arguments, or silent runtime crashes.
-- **Leaked API Keys:** Developers accidentally commit OpenAI or Hugging Face API keys directly into notebook output cells or git histories, leading to automated bot scraping and thousands of dollars in unauthorized cloud bills within minutes.
+However, moving an AI system from a notebook into an enterprise software product creates severe failure modes:
+- **Hidden Execution State:** Notebook cells can run out of order. A variable assigned in Cell 14 and mutated in Cell 3 creates an invisible, un-reproducible Python runtime state that fails the moment the kernel restarts.
+- **Unpinned Transitive Dependencies:** Running `pip install langchain` today installs different sub-dependencies than it did six months ago. Without exact lockfiles, deployment pods crash with broken imports or deprecated function arguments.
+- **Leaked API Keys:** Developers accidentally commit OpenAI, Anthropic, or Hugging Face API keys directly into notebook outputs or git history, leading to automated bot scraping and thousands of dollars in unauthorized cloud bills within minutes.
 
 ```
-+-------------------------------------------------------------------------------------------------+
-|                              THE PROTOTYPE vs PRODUCTION CHASM                                  |
-+-------------------------------------------------------------------------------------------------+
-|                                                                                                 |
-|   FRAGILE RESEARCH PROTOTYPE (Jupyter):             ENTERPRISE AI SOFTWARE PRODUCT:             |
-|   - Out-of-order cell execution state.              - Modular, tested Python package architecture|
-|   - Global pip environment (dependency collisions). - Isolated venv / Poetry with pinned lockfile|
-|   - Hardcoded API keys in plaintext cells.          - Centralized secrets management (.env)      |
-|   - Untracked 5 GB model weights in git.            - Git LFS / Hugging Face model registries    |
-|   - No automated tests or linting checks.           - Pre-commit hooks & GitHub Actions CI/CD    |
-|   - Raw print() statements for output.              - Interactive, reactive Streamlit web UI    |
-|                                                                                                 |
-+-------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+|                                 THE PROTOTYPE vs PRODUCTION CHASM                                 |
++---------------------------------------------------------------------------------------------------+
+|                                                                                                   |
+|   FRAGILE RESEARCH PROTOTYPE (Jupyter):              ENTERPRISE AI SOFTWARE PRODUCT:              |
+|   - Out-of-order cell execution state.               - Modular, tested Python package architecture|
+|   - Global pip environment (dependency collisions).  - Isolated venv / Poetry with pinned lockfile|
+|   - Hardcoded API keys in plaintext cells.           - Centralized secrets management (.env)       |
+|   - Untracked 5 GB model weights in git.             - Git LFS / Hugging Face model registries     |
+|   - No automated tests or linting checks.            - Pre-commit hooks & GitHub Actions CI/CD     |
+|   - Raw print() statements for output.               - Interactive, reactive Streamlit web UI     |
+|                                                                                                   |
++---------------------------------------------------------------------------------------------------+
 ```
 
-### 1.2 The Three Pillars of Engineering Hygiene: Environment, Version Control, and User Interfaces
+---
+
+### 1.2 The Three Pillars of Engineering Hygiene
 
 To cross this chasm, professional Generative AI engineers rely on **Three Structural Pillars**:
-1. **Dependency & Environment Hygiene:** Strict virtual environment isolation, deterministic dependency resolution, and locked package versions.
-2. **Version Control & Collaboration:** Structured Git workflows, branch protection rules, automated pre-commit scanning, and CI/CD validation gates.
-3. **Interactive User Interfaces:** Rapid, reactive front-end development using **Streamlit**, enabling business stakeholders and non-technical users to test and validate AI models through a polished web interface.
+1. **Dependency & Environment Hygiene:** Strict virtual environment isolation, deterministic dependency resolution, and locked package versions (`pyproject.toml` + `poetry.lock`).
+2. **Version Control & Collaboration:** Structured Git workflows, branch protection rules, automated pre-commit scanning (Gitleaks, Ruff), Git LFS for neural weights, and CI/CD validation gates.
+3. **Interactive User Interfaces:** Rapid, reactive front-end development using **Streamlit**, enabling business stakeholders to test and validate AI models through a polished web interface without writing React or JavaScript.
 
 ---
 
-## 2. Intuitive Mental Models & Analogies
+### 1.3 Intuitive Mental Models & Analogies
 
 ```
-+-------------------------------------------------------------------------------------------------+
-|                               DEVELOPMENT WORKFLOW ANALOGIES                                    |
-+-------------------------------------------------------------------------------------------------+
-|                                                                                                 |
-|  1. THE CLEANROOM vs CONTAMINATED WORKSHOP    2. THE TIME-TRAVELING TREE OF HISTORY             |
-|                                                                                                 |
-|      Global Python Environment:                    Git Version Control:                         |
-|      * A messy open workshop where woodworking,    * A magical branching tree where every       |
-|        spray painting, and chemistry occur on        atomic change is an indelible snapshot.   |
-|        the same table. Wood shavings contaminate   * If a branch catches fire, you can prune    |
-|        the beaker!                                   it and step back to a pristine timeline.   |
-|                                                                                                 |
-|      Isolated Virtual Environment (venv):         3. THE SELF-UPDATING CHALKBOARD               |
-|      * A sterile laboratory cleanroom with an      * Streamlit does not require manual event    |
-|        airlock. Only the exact chemicals required    listeners. When a user moves a slider,     |
-|        for this specific experiment are admitted.    a robot instantly wipes the board clean    |
-|        Zero cross-contamination.                     and re-executes the script top-to-bottom!  |
-|                                                                                                 |
-+-------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+|                                  DEVELOPMENT WORKFLOW ANALOGIES                                   |
++---------------------------------------------------------------------------------------------------+
+|                                                                                                   |
+|  1. THE CLEANROOM vs CONTAMINATED WORKSHOP     2. THE TIME-TRAVELING TREE OF HISTORY              |
+|                                                                                                   |
+|      Global Python Environment:                     Git Version Control:                          |
+|      * A messy open workshop where woodworking,     * A magical branching tree where every        |
+|        spray painting, and chemistry occur on         atomic change is an indelible snapshot.    |
+|        the same table. Wood shavings contaminate    * If a branch catches fire, you can prune     |
+|        the beaker!                                    it and step back to a pristine timeline.    |
+|                                                                                                   |
+|      Isolated Virtual Environment (venv):          3. THE SELF-UPDATING CHALKBOARD                |
+|      * A sterile laboratory cleanroom with an       * Streamlit does not require manual event     |
+|        airlock. Only the exact chemicals required     listeners. When a user moves a slider,      |
+|        for this specific experiment are admitted.     a robot instantly wipes the board clean     |
+|        Zero cross-contamination.                      and re-executes the script top-to-bottom!   |
+|                                                                                                   |
++---------------------------------------------------------------------------------------------------+
 ```
 
-### 2.1 The Laboratory Cleanroom (Virtual Environments) vs The Contaminated Workshop
-
-- **Global Python Environment:** Imagine a chemist conducting a delicate pharmaceutical synthesis on a workbench covered in sawdust from a previous carpentry project and motor oil from a motorcycle repair. Installing conflicting packages (e.g. PyTorch 1.13 for an old project and PyTorch 2.4 for a new LLM) globally leads to catastrophic library collisions.
-- **Virtual Environment (`venv`):** A sterile cleanroom constructed specifically for this project. When you enter, the room contains only Python and the exact pinned packages specified in your manifest. When the project is finished, you can delete the cleanroom folder without affecting any other work on your machine.
-
-### 2.2 The Time-Traveling Tree of History (Git & GitHub)
-
-- **Without Git:** Developers save files named `medical_bot_v1.py`, `medical_bot_v2_final.py`, `medical_bot_v2_final_FINAL_edit.py`. Nobody knows which file works, who made the changes, or why a refactor broke the retrieval pipeline.
-- **With Git & GitHub:** You possess a multidimensional tree of historical checkpoints. Every commit represents an atomic logical mutation with an explanatory message. Feature branches allow multiple engineers to build vector search, UI widgets, and prompt templates simultaneously without colliding, merging their work through peer-reviewed Pull Requests.
-
-### 2.3 The Self-Updating Chalkboard (The Streamlit Reactive Rerun Loop)
-
-In traditional web development (React, Vue, Django), building an interface requires writing HTML markup, CSS stylesheets, client-side JavaScript event listeners, REST API endpoints, and JSON state synchronization.
-- **Streamlit reimagines this as a Self-Updating Chalkboard:**
-- You write pure Python from line 1 to line 100.
-- When the user clicks a button, changes a dropdown, or types a chat message, **Streamlit wipes the chalkboard and re-runs the entire Python script from top to bottom!**
-- By utilizing `st.session_state` and `@st.cache_resource`, Streamlit remembers historical context across re-runs without reloading heavy models or losing chat messages.
+- **The Laboratory Cleanroom (Virtual Environments) vs The Contaminated Workshop:** Imagine a chemist conducting a delicate pharmaceutical synthesis on a workbench covered in sawdust from a previous carpentry project and motor oil from a motorcycle repair. Installing conflicting packages (e.g. PyTorch 1.13 for an old project and PyTorch 2.4 for a new LLM) globally leads to catastrophic library collisions. A virtual environment is a cleanroom built specifically for one experiment.
+- **The Time-Traveling Tree of History (Git & GitHub):** Without Git, developers save files named `bot_v1.py`, `bot_v2_final.py`, `bot_v2_final_FINAL_edit.py`. With Git, every commit is an atomic logical mutation with a cryptographic signature. Feature branches allow teams to build vector search, UI widgets, and prompt templates simultaneously without colliding.
+- **The Self-Updating Chalkboard (The Streamlit Reactive Rerun Loop):** In traditional web development, building an interface requires HTML, CSS, JavaScript event listeners, REST APIs, and client-server state synchronization. Streamlit reimagines this as a self-updating chalkboard: you write pure Python sequentially, and whenever the user clicks a widget, Streamlit wipes the chalkboard clean and re-runs the script from top to bottom!
 
 ---
 
-## 3. Pillar 1: Modern Python Dependency Management
-
-### 3.1 Virtual Environments Under the Hood: How `venv` Manipulates `PATH` and `site-packages`
+### 1.4 Modern Python Dependency Management: venv, Poetry & pyproject.toml
 
 What actually happens when you create and activate a virtual environment?
 
@@ -148,31 +130,14 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-#### Under the Hood Mechanics:
-1. **Isolated Directory Creation:** Python creates a `.venv` directory containing a local copy (or symlink) of the Python binary (`python.exe`), `pip`, and an empty `Lib/site-packages/` directory.
-2. **`PATH` Prepending:** Activating the environment modifies your active shell's environment variable:
+#### Under-the-Hood Mechanics:
+1. **Isolated Directory Creation:** Python creates `.venv` containing local copies (or symlinks) of `python.exe`, `pip`, and an empty `Lib/site-packages/`.
+2. **`PATH` Prepending:** Activating modifies your shell environment variable:
    $$\text{PATH} = \text{C:\Users\...\.venv\Scripts}; \ \$ \text{PATH}_{\text{system}}$$
-3. **Resolution Redirection:** When you execute `python script.py` or `pip install langchain`, your shell discovers the local `.venv` binary first, installing all third-party wheel packages strictly into `.venv/Lib/site-packages/`, leaving your global operating system pristine.
+3. **Resolution Redirection:** Executing `python` or `pip install` resolves to the local `.venv` binary first, installing packages strictly into `.venv/Lib/site-packages/`.
 
-### 3.2 Declarative Dependencies: `requirements.txt` vs Modern `pyproject.toml` (PEP 518 / PEP 621)
+#### Declarative Manifests: `requirements.txt` vs Modern `pyproject.toml` (PEP 518 / PEP 621)
 
-While legacy Python projects relied on unstructured `requirements.txt` files, modern enterprise applications utilize **`pyproject.toml`**:
-
-```
-+-------------------------------------------------------------------------------------------------+
-|                                pyproject.toml vs requirements.txt                               |
-+-------------------------------------------------------------------------------------------------+
-|                                                                                                 |
-|   LEGACY requirements.txt:                       MODERN pyproject.toml (PEP 621):               |
-|   - Flat list of package strings.                - Structured declarative standard for build    |
-|   - No separation of core vs dev dependencies.     tools (Poetry, Hatch, Flit, setuptools).     |
-|   - Cannot define project metadata, linters,     - Explicitly groups production and dev tools.  |
-|     or build systems in one file.                - Standardized across the Python ecosystem.    |
-|                                                                                                 |
-+-------------------------------------------------------------------------------------------------+
-```
-
-#### Example Enterprise `pyproject.toml`:
 ```toml
 [project]
 name = "clinical-medical-chatbot"
@@ -198,464 +163,623 @@ dev = [
 ]
 ```
 
-### 3.3 The Determinism Imperative: Loose Constraints vs Exact Pinned Lockfiles
-
-There is a critical distinction between **Abstract Dependencies** and **Concrete Lockfiles**:
-- **Abstract Specification (`pyproject.toml`):** Declares minimum acceptable ranges (e.g. `langchain>=0.2.0`). This allows flexibility during development.
-- **Concrete Lockfile (`poetry.lock` or `requirements.lock`):** Records the **exact cryptographic hash and exact version** of every primary package and all 150 recursive sub-dependencies (e.g. `langchain==0.2.14`, `pydantic-core==2.20.1`, `urllib3==2.2.2`).
-
 > [!IMPORTANT]
 > **The Production Golden Rule:**
-> Always commit your lockfile to Git! When deploying to Docker, staging, or production cloud servers, install exclusively from the lockfile:
+> Always commit your lockfile (`poetry.lock` or `requirements.lock`) to Git! When deploying to Docker or Kubernetes, install exclusively from the lockfile:
 > ```bash
 > pip install --no-deps -r requirements.lock
-> # or with Poetry:
-> poetry install --no-root --sync
 > ```
-> This guarantees 100% byte-for-byte reproducibility across every developer machine and Kubernetes pod.
-
-### 3.4 Multi-Platform Wheel Management & CUDA / PyTorch Binary Compatibility
-
-In Generative AI, machine learning packages like **PyTorch** and **BitsAndBytes** are tightly coupled to hardware accelerators:
-- Running `pip install torch` on a machine without a dedicated GPU installs the standard CPU wheel (~180 MB).
-- Running on an NVIDIA workstation requires the specialized CUDA 12.1 wheel (~2.5 GB):
-  ```bash
-  pip install torch --index-url https://download.pytorch.org/whl/cu121
-  ```
-- **Enterprise Best Practice:** In your deployment documentation and Dockerfiles, explicitly declare whether the environment targets `cpu` or `cu121` to avoid runtime `torch.cuda.is_available() == False` surprises.
+> This guarantees 100% byte-for-byte reproducibility across every developer workstation and deployment pod.
 
 ---
 
-## 4. Pillar 2: Professional Version Control with Git & GitHub for AI
-
-### 4.1 Git Repository Hygiene: Crafting an Ironclad `.gitignore` for Gen AI Projects
-
-In Gen AI applications, failing to configure a proper `.gitignore` leads to bloated repositories, broken clones, and exposed credentials.
+### 1.5 Professional Version Control: Git LFS, Pre-Commit Hooks & GitHub Actions
 
 ```
-+-------------------------------------------------------------------------------------------------+
-|                                 THE ESSENTIAL AI .gitignore CHECKLIST                           |
-+-------------------------------------------------------------------------------------------------+
-|                                                                                                 |
-|   1. Virtual Environments        -> .venv/, venv/, env/                                         |
-|   2. Secret Keys & Environment   -> .env, *.env, .streamlit/secrets.toml                        |
-|   3. Local Vector Databases      -> chroma_db/, .chroma/, faiss_index/, *.index                 |
-|   4. Cached Models & Embeddings  -> models/, checkpoints/, *.bin, *.safetensors, *.gguf         |
-|   5. Python Cache Directories    -> __pycache__/, *.pyc, .pytest_cache/, .ruff_cache/           |
-|   6. OS Artifacts                -> .DS_Store, Thumbs.db, desktop.ini                           |
-|                                                                                                 |
-+-------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+|                                 THE ESSENTIAL AI .gitignore CHECKLIST                             |
++---------------------------------------------------------------------------------------------------+
+|                                                                                                   |
+|   1. Virtual Environments        -> .venv/, venv/, env/                                           |
+|   2. Secret Keys & Environment   -> .env, *.env, .streamlit/secrets.toml                          |
+|   3. Local Vector Databases      -> chroma_db/, .chroma/, faiss_index/, *.index                   |
+|   4. Cached Models & Embeddings  -> models/, checkpoints/, *.bin, *.safetensors, *.gguf           |
+|   5. Python Cache Directories    -> __pycache__/, *.pyc, .pytest_cache/, .ruff_cache/             |
+|   6. OS Artifacts                -> .DS_Store, Thumbs.db, desktop.ini                             |
+|                                                                                                   |
++---------------------------------------------------------------------------------------------------+
 ```
 
-### 4.2 Handling Large Model Checkpoints & Datasets: Git LFS (Large File Storage)
-
-Standard Git repositories struggle with files larger than **100 MB**. Attempting to commit a 4 GB `.safetensors` model weight or a 500 MB SQLite database will cause GitHub to reject your push.
-
-**The Solution: Git LFS**
-Git Large File Storage replaces massive binary files with lightweight text pointer files inside Git, while storing the actual multi-gigabyte binary payload on remote LFS servers:
+#### Git LFS for Large Neural Weights:
+Git blocks individual file pushes exceeding 100 MB. Git Large File Storage replaces multi-gigabyte models with lightweight text pointers in Git, storing the raw bytes on object storage:
 
 ```bash
-# 1. Install Git LFS extension
 git lfs install
-
-# 2. Track large AI file extensions
 git lfs track "*.safetensors"
 git lfs track "*.gguf"
-git lfs track "*.bin"
 git lfs track "*.parquet"
-
-# 3. Commit the tracking manifest
 git add .gitattributes
 git commit -m "chore: track large model binaries with Git LFS"
 ```
 
-### 4.3 Branching Workflows: Feature Branching, Pull Requests & Code Review Gates
+---
 
-Enterprise teams avoid pushing directly to the `main` branch. They employ **GitHub Flow**:
+### 1.6 Rapid Front-End Prototyping with Streamlit: The Reactive Re-Run Engine
+
+Streamlit simplifies UI development by executing scripts as **reactive state machines**:
 
 ```
-+-------------------------------------------------------------------------------------------------+
-|                                      GITHUB FLOW IN AI TEAMS                                    |
-+-------------------------------------------------------------------------------------------------+
-|                                                                                                 |
-|  [main branch: Protected & Production Ready]                                                    |
-|      |                                                                                          |
-|      +---> [Branch: feat/hybrid-retrieval]                                                      |
-|      |         * Commit 1: Add BM25 sparse indexer                                              |
-|      |         * Commit 2: Implement Reciprocal Rank Fusion                                     |
-|      |         v                                                                                |
-|      +---> [Open Pull Request: feat/hybrid-retrieval -> main]                                   |
-|                * Automated GitHub Actions CI executes unit tests & linters                      |
-|                * Peer review by Senior ML Engineer                                              |
-|                v                                                                                |
-|  [Merge Pull Request (Squash & Merge) into main] -----------------------------------------------+
-|                                                                                                 |
-+-------------------------------------------------------------------------------------------------+
-```
-
-### 4.4 Conventional Commits & Pre-Commit Hook Automation (Ruff, Black, Gitleaks)
-
-To maintain a clean, readable project history, teams adopt the **Conventional Commits** specification:
-- `feat: add hybrid vector-BM25 retrieval engine`
-- `fix: correct dosage calculation in pediatric amoxicillin chain`
-- `docs: update deployment and environment variable guide`
-- `test: add unit test for acute cardiac emergency triage circuit breaker`
-- `refactor: optimize token streaming in Streamlit chat interface`
-
-#### Automated Pre-Commit Hooks:
-Before a developer can execute `git commit`, local pre-commit hooks inspect the staged code:
-1. **Ruff / Black:** Automatically formats code and flags syntax bugs.
-2. **Gitleaks / detect-secrets:** Scans staged files for high-entropy strings matching OpenAI, Anthropic, or Hugging Face API key patterns, aborting the commit if a secret is detected!
-
-### 4.5 GitHub Actions CI/CD Pipeline for Automated Model Testing
-
-Every Pull Request triggers a GitHub Actions workflow (`.github/workflows/ci.yml`):
-
-```yaml
-name: AI Quality & Evaluation CI
-
-on: [push, pull_request]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: "pip"
-      - name: Install Dependencies
-        run: pip install -r requirements.txt pytest ruff
-      - name: Lint Code
-        run: ruff check .
-      - name: Run Unit & Guardrail Tests
-        run: pytest tests/
++---------------------------------------------------------------------------------------------------+
+|                               THE STREAMLIT REACTIVE RE-RUN MACHINE                               |
++---------------------------------------------------------------------------------------------------+
+|                                                                                                   |
+|   1. USER LOADS PAGE -> Python script executes from Line 1 to Line 100.                           |
+|   2. WIDGET RENDERING -> UI renders buttons, text inputs, chat boxes.                             |
+|   3. USER INTERACTION -> User types message in st.chat_input("Ask question").                     |
+|   4. EVENT TRIGGER    -> Streamlit INTERRUPTS and RE-RUNS the entire script from Line 1!          |
+|                                                                                                   |
+|   HOW STATE PERSISTS:                                                                             |
+|   - st.session_state stores multi-turn conversation messages across re-runs.                      |
+|   - @st.cache_resource keeps heavy models (ChromaDB, LLM pipelines) loaded in memory as singletons!|
+|                                                                                                   |
++---------------------------------------------------------------------------------------------------+
 ```
 
 ---
 
-## 5. Pillar 3: Rapid Front-End Prototyping with Streamlit
-
-### 5.1 The Streamlit Execution Model: The Reactive Script Re-Run Machine
-
-Streamlit fundamentally simplifies web development by treating Python scripts as **reactive state machines**:
+### 1.7 End-to-End Development Workflow Visualized
 
 ```
-+-------------------------------------------------------------------------------------------------+
-|                               THE STREAMLIT REACTIVE RE-RUN MACHINE                             |
-+-------------------------------------------------------------------------------------------------+
-|                                                                                                 |
-|   1. USER LOADS PAGE -> Python script executes from Line 1 to Line 100.                         |
-|   2. WIDGET RENDERING -> UI renders buttons, text inputs, chat boxes.                           |
-|   3. USER INTERACTION -> User types message in st.chat_input("Ask question").                   |
-|   4. EVENT TRIGGER    -> Streamlit INTERRUPTS and RE-RUNS the entire script from Line 1!        |
-|                                                                                                 |
-|   CRITICAL QUESTION:                                                                            |
-|   If the script re-runs from Line 1, why doesn't it lose conversation history or reload         |
-|   the 10 GB vector database every single time?                                                  |
-|                                                                                                 |
-|   ANSWER: st.session_state & @st.cache_resource!                                                |
-|                                                                                                 |
-+-------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+|                        MODERN GENERATIVE AI ENGINEERING DEVELOPMENT WORKFLOW                      |
++---------------------------------------------------------------------------------------------------+
+|                                                                                                   |
+|  [Developer Workstation]                                                                          |
+|        |                                                                                          |
+|        +---> Environment: Isolated .venv / pyproject.toml + requirements.lock                     |
+|        +---> Code Formatting: Ruff / Black                                                        |
+|        +---> Secret Shielding: Pre-Commit Hooks (Gitleaks blocks API key leaks)                  |
+|        |                                                                                          |
+|        v [git commit -m "feat: ..."]                                                              |
+|  [Git Version Control & Git LFS]                                                                  |
+|        |                                                                                          |
+|        +---> Source Code -> Git Commit Tree                                                      |
+|        +---> Model Weights (*.safetensors, *.gguf) -> Git LFS Object Storage                     |
+|        |                                                                                          |
+|        v [git push origin feat/branch]                                                            |
+|  [GitHub Repository & CI/CD Actions]                                                              |
+|        |                                                                                          |
+|        +---> Automated Unit Tests (pytest tests/)                                                 |
+|        +---> Security Secret Scans & Ruff Linter                                                  |
+|        +---> Pull Request Code Review Gate                                                        |
+|        |                                                                                          |
+|        v [Merge to main]                                                                          |
+|  [Streamlit Reactive Web Application]                                                             |
+|        |                                                                                          |
+|        +---> UI Widgets: st.sidebar, st.selectbox, st.slider                                      |
+|        +---> State Management: st.session_state (Chat history persistence)                        |
+|        +---> Performance Caching: @st.cache_resource (Vector DB & LLM singletons)                 |
+|        +---> Real-Time Output: st.write_stream (Dynamic token streaming)                          |
+|                                                                                                   |
++---------------------------------------------------------------------------------------------------+
 ```
 
-### 5.2 Maintaining Multi-Turn Context: Mastering `st.session_state`
-
-In a standard Python script, variables reset upon execution. Streamlit provides **`st.session_state`**, a persistent dictionary linked to the user's browser session:
-
-```python
-import streamlit as st
-
-# Initialize conversation history if it does not exist
-if "messages" not in st.session_state:
-    st.session_state.messages = [
-        {"role": "assistant", "content": "Hello! I am your Clinical Decision Support Assistant. How can I assist you today?"}
-    ]
-
-# Display all previous conversation turns on every re-run
-for msg in st.session_state.messages:
-    with st.chat_message(msg["role"]):
-        st.markdown(msg["content"])
-```
-
-### 5.3 Building Conversational Interfaces: `st.chat_input`, `st.chat_message`, and `st.write_stream`
-
-Streamlit provides specialized native chat primitives designed for modern LLM applications:
-
-```python
-# Accept user input
-if prompt := st.chat_input("Describe patient symptoms or clinical inquiry..."):
-    # 1. Append user message to session state
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
-
-    # 2. Generate response with streaming output
-    with st.chat_message("assistant"):
-        def token_stream_generator():
-            # Generator simulating real-time LLM token streaming
-            for token in run_clinical_rag_pipeline(prompt):
-                yield token
-
-        # Streams text dynamically like ChatGPT!
-        response_text = st.write_stream(token_stream_generator)
-
-    # 3. Append completed assistant response to history
-    st.session_state.messages.append({"role": "assistant", "content": response_text})
-```
-
-### 5.4 Performance Optimization: `st.cache_data` vs `st.cache_resource`
-
-Because Streamlit re-runs scripts on every click, performing expensive operations (like initializing a ChromaDB vector store or downloading an embedding model) inside the main loop would freeze the application:
-
-```
-+-------------------------------------------------------------------------------------------------+
-|                                 st.cache_data vs st.cache_resource                              |
-+-------------------------------------------------------------------------------------------------+
-|                                                                                                 |
-|   @st.cache_data:                                                                               |
-|   - Used for COMPUTATIONS and DATA TRANSFORMS (DataFrames, API responses, JSON).                |
-|   - Creates a deep copy of the returned data.                                                   |
-|   - Cache invalidated when input arguments change.                                              |
-|                                                                                                 |
-|   @st.cache_resource:                                                                           |
-|   - Used for STATEFUL, NON-SERIALIZABLE OBJECTS (Database connections, LLM pipelines,           |
-|     PyTorch neural networks, Vector Stores, WebSocket clients).                                 |
-|   - Returns the exact identical singleton pointer across all re-runs and user sessions!         |
-|   - ZERO re-loading overhead!                                                                   |
-|                                                                                                 |
-+-------------------------------------------------------------------------------------------------+
-```
-
-#### Example Usage:
-```python
-@st.cache_resource(show_spinner="Loading Clinical Vector Knowledge Base...")
-def load_clinical_vector_store():
-    """Loaded exactly ONCE across the entire lifecycle of the server process."""
-    from langchain_community.vectorstores import Chroma
-    from langchain_community.embeddings import FastEmbedEmbeddings
-    embeddings = FastEmbedEmbeddings()
-    vector_db = Chroma(persist_directory="./chroma_clinical_db", embedding_function=embeddings)
-    return vector_db
-```
-
-### 5.5 Secrets & Configuration Management: `.streamlit/secrets.toml` vs Environment Variables
-
-Never hardcode API keys inside your Streamlit code!
-Streamlit provides native secrets management via `.streamlit/secrets.toml`:
-
-```toml
-# .streamlit/secrets.toml (NEVER COMMIT TO GIT!)
-OPENAI_API_KEY = "sk-proj-xxxxxxxxxxxxxxxxxxxx"
-SERPAPI_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxx"
-HUGGINGFACE_TOKEN = "hf_xxxxxxxxxxxxxxxxxxxx"
-```
-
-In your application code, access secrets securely:
-```python
-import streamlit as st
-
-api_key = st.secrets["OPENAI_API_KEY"]
-```
-When deploying to Streamlit Community Cloud, AWS, or Azure, these keys are securely injected via cloud environment variables without modifying a single line of code.
-
----
-
-## 6. End-to-End Reference Architecture: Complete Enterprise Project Anatomy
-
-### 6.1 Standard Enterprise Directory Layout
-
-A production-grade Generative AI application follows a clean, modular package structure:
-
-```
-clinical-medical-chatbot/
-├── .github/
-│   └── workflows/
-│       └── ci.yml                 # Automated CI test pipeline
-├── .streamlit/
-│   ├── config.toml                # UI theme settings (dark mode, primary color)
-│   └── secrets.toml.example       # Redacted example secrets template
-├── assets/
-│   ├── 01_architecture.jpg        # Architectural infographics
-│   └── logo.png                   # Brand iconography
-├── src/
-│   ├── __init__.py
-│   ├── core/
-│   │   ├── config.py              # Pydantic Settings / Environment configuration
-│   │   └── guardrails.py          # PHI scrubber & Triage circuit breaker
-│   ├── retrieval/
-│   │   ├── vector_store.py        # Dense ChromaDB indexer
-│   │   └── hybrid_search.py       # BM25 + Reciprocal Rank Fusion
-│   └── chains/
-│       └── sbar_clinical_chain.py # LangChain SBAR reasoning prompt & generator
-├── tests/
-│   ├── test_guardrails.py         # Unit tests for emergency triage
-│   └── test_retrieval.py          # Unit tests for RRF retrieval
-├── .gitignore                     # Ironclad git exclusion rules
-├── pyproject.toml                 # Declarative dependency manifest
-├── requirements.lock              # Cryptographically pinned lockfile
-├── README.md                      # Architecture documentation & quickstart
-└── app.py                         # Streamlit reactive entry point
-```
-
-### 6.2 Production `app.py` Streamlit Implementation Blueprint
-
-```python
-"""
-Production Streamlit Application: Clinical Decision Support Copilot
-"""
-import streamlit as st
-import time
-
-# 1. Page Configuration
-st.set_page_config(
-    page_title="Clinical AI Copilot",
-    page_icon="🏥",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-# 2. Sidebar Controls
-with st.sidebar:
-    st.image("https://img.icons8.com/color/96/caduceus.png", width=64)
-    st.title("Clinical Controls")
-    st.markdown("**Role:** Attending Physician Support")
-    
-    selected_guideline = st.selectbox(
-        "Active Clinical Practice Guideline:",
-        ["AHA Cardiology (2024)", "ADA Diabetes Care (2024)", "AAP Pediatrics (2023)"]
-    )
-    confidence_threshold = st.slider("Retrieval Confidence Cutoff:", 0.5, 0.95, 0.80)
-    
-    if st.button("🧹 Clear Consultation History"):
-        st.session_state.messages = []
-        st.rerun()
-
-st.title("🏥 Clinical Decision Support Copilot")
-st.caption("Evidence-grounded SBAR differential diagnosis generator supervised by deterministic safety firewalls.")
-
-# 3. Session State Initialization
-if "messages" not in st.session_state:
-    st.session_state.messages = [
-        {"role": "assistant", "content": "Welcome, Doctor. I am your clinical support copilot grounded in peer-reviewed clinical guidelines. How can I assist with your patient assessment?"}
-    ]
-
-# 4. Render Conversation History
-for msg in st.session_state.messages:
-    with st.chat_message(msg["role"]):
-        st.markdown(msg["content"])
-
-# 5. Interactive Chat Input & Execution Loop
-if prompt := st.chat_input("Enter clinical presentation or chief complaint..."):
-    # Append user prompt
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
-
-    # Ingress Triage Check (Simulated)
-    with st.chat_message("assistant"):
-        if "crushing chest pain" in prompt.lower() or "cannot breathe" in prompt.lower():
-            emergency_banner = """⚠️ **CRITICAL MEDICAL EMERGENCY DETECTED**
-The presented symptoms indicate an acute, life-threatening emergency.
-- **Immediate Action:** Direct patient to Emergency Department (Call 911 / EMS).
-- **Protocol:** Bypassing conversational generation per Hospital Triage Policy."""
-            st.error(emergency_banner)
-            st.session_state.messages.append({"role": "assistant", "content": emergency_banner})
-        else:
-            # Stream normal clinical SBAR assessment
-            def generate_sbar():
-                chunks = [
-                    "### 1. Situation (S)\nPatient presents with acute symptoms requiring evaluation against active guidelines.\n\n",
-                    "### 2. Background (B)\nRelevant comorbidities reviewed; no acute contraindications noted in baseline history.\n\n",
-                    "### 3. Assessment (A)\nDifferential diagnoses evaluated via hybrid clinical guidelines [AHA 2024]. Primary consideration: Stable symptomatic presentation.\n\n",
-                    "### 4. Recommendation (R)\n1. Obtain baseline diagnostic panel (CBC, BMP).\n2. Follow standard outpatient guideline monitoring protocol.\n\n",
-                    "> *Notice: Clinical Decision Support for licensed medical personnel only.*"
-                ]
-                for chunk in chunks:
-                    time.sleep(0.08)
-                    yield chunk
-
-            response = st.write_stream(generate_sbar)
-            st.session_state.messages.append({"role": "assistant", "content": response})
-```
-
----
-
-## 7. Production Failure Modes & Engineering Anti-Patterns
-
-### 7.1 Leaking API Keys to Public GitHub Repositories (The GitLeaks Defense)
-
-- **The Threat:** Malicious bots continuously monitor GitHub's public firehose for regex patterns like `sk-[a-zA-Z0-9]{48}`. If an API key is committed, it is scraped within 30 seconds, incurring thousands of dollars in fine-tuning or token abuse.
-- **The Solution:**
-  1. Add `.env` and `.streamlit/secrets.toml` to `.gitignore`.
-  2. Install `gitleaks` as a mandatory pre-commit hook.
-  3. Set up **GitHub Secret Scanning & Push Protection** in your repository settings to automatically reject pushes containing detected tokens.
-
-### 7.2 The Re-Run Trap: Expensive Model Reloads on Every Widget Click
-
-If a developer places `embeddings = HuggingFaceEmbeddings()` directly in the global scope of `app.py` without `@st.cache_resource`:
-- Every time a user types a letter in a text box or clicks a checkbox, Streamlit re-downloads or re-instantiates the entire 500 MB embedding model into RAM.
-- **Fix:** Always wrap model initializations inside `@st.cache_resource`.
-
-### 7.3 Streamlit Concurrency Limitations: Single-Process Threading vs Production Scaling
-
-- **Limitation:** Streamlit runs on a single Python process. While it uses Tornado for WebSocket connections, high-concurrency enterprise traffic (e.g. 500 concurrent physicians) will saturate Python's Global Interpreter Lock (GIL).
-- **Production Solution:**
-  - Decouple the architecture: run Streamlit purely as a lightweight front-end UI.
-  - Offload heavy LLM reasoning and vector searches to a scalable **FastAPI / vLLM backend cluster** running behind an NGINX load balancer on Kubernetes.
-
----
-
-## 8. Comparative Evaluation Matrix: UI Frameworks for AI Applications
-
-```
-+-------------------------------------------------------------------------------------------------+
-|                               AI FRONT-END FRAMEWORK COMPARISON                                 |
-+-------------------------------------------------------------------------------------------------+
-```
-
-| Dimension | Streamlit | Gradio | Chainlit | Next.js (React) + FastAPI |
-| :--- | :--- | :--- | :--- | :--- |
-| **Primary Language** | Pure Python | Pure Python | Pure Python | TypeScript + Python |
-| **Learning Curve** | Extremely Low (Hours) | Extremely Low (Hours) | Low (Days) | High (Weeks) |
-| **Native Chat Support** | Excellent (`st.chat_message`) | Good (`gr.ChatInterface`) | Outstanding (Copilot-native) | Custom (Tailwind/Vercel AI SDK) |
-| **Execution Paradigm** | Reactive Full Script Re-Run | Event-Driven Callbacks | Async Event-Driven Loop | Full Client-Server Separation |
-| **Enterprise Scalability** | Moderate (Best for internal tools) | Moderate (Hugging Face Spaces) | High (Multi-tenant ready) | Maximum (Global web scale) |
-| **Best Used For** | Internal dashboards, rapid MVPs | ML Model benchmarking demos | Purpose-built conversational AI | Enterprise B2C consumer products |
-
----
-
-## 9. Enterprise Case Study: Building an Internal Legal Contract Review Copilot
-
-**Business Scenario:** A corporate legal department handles 2,000 vendor agreements per month. Attorneys spend 6 hours per contract manually searching for indemnity clauses and non-compete liabilities.
-
-**The Engineering Workflow Implementation:**
-1. **Environment Setup:** Configured `pyproject.toml` with strict constraints (`langchain`, `chromadb`, `streamlit`, `pdfplumber`).
-2. **Version Control Hygiene:** Enforced conventional commits (`feat: add clause extraction`) and Git LFS for standard contract template datasets.
-3. **Streamlit UI Construction:** Built a 3-column Streamlit interface:
-   - *Left Column:* PDF upload widget (`st.file_uploader`) with real-time page rendering.
-   - *Center Column:* Automated risk scoring radar chart (`st.plotly_chart`).
-   - *Right Column:* Conversational chat sidebar (`st.chat_message`) allowing attorneys to ask: *"Does this contract include a unilateral termination for convenience clause?"*
-4. **Outcome:** Contract review turnaround dropped from 6 hours to 20 minutes, with 0% dependency drift across the 15-person legal engineering team.
-
----
-
-## 10. Complete Workflow Visualized
-
-### Figure 1: Modern Generative AI Engineering Development Workflow
-The complete unified architecture showing Dependency Management (`venv`/`poetry`, lockfiles), Version Control with Git & GitHub (branching, pre-commit hooks, Git LFS, CI/CD), and Rapid UI Prototyping with Streamlit (`st.session_state`, `st.chat_message`, `@st.cache_resource`, secrets).
+#### Verified System Architecture Blueprint
 
 ![Development Workflow and Streamlit Architecture](assets/04_dev_workflow_git_streamlit_pipeline.jpg)
 
 ---
 
-## 11. Hands-On Python Lab Walkthrough
+## Part 2: Mathematical Foundations & Algorithms 🧱
 
-The companion production lab script [`code/development_workflow_streamlit_lab.py`](file:///c:/Users/sriva/OneDrive/Desktop/GEN%20AI%20COURSE/6.%20End-to-End%20Development%20&%20MLOps/code/development_workflow_streamlit_lab.py) contains a full, standalone, battle-tested implementation with 5 comprehensive experiments.
+### 2.1 Reactive Directed Acyclic Graph (DAG) State Re-evaluation Complexity
 
-### Structure of the Lab Suite:
+Streamlit scripts represent an implicit **Directed Acyclic Graph (DAG)** of computational nodes $\mathcal{G} = (\mathcal{V}, \mathcal{E})$, where:
+- $\mathcal{V}$: UI widgets, state variables, and computational functions.
+- $\mathcal{E}$: Data dependencies connecting inputs to rendered outputs.
+
+When a user triggers widget $v_k \in \mathcal{V}$:
+The re-run engine performs a topological traversal over the dependency subgraph:
+
+$$\text{Time Complexity} = O(|\mathcal{V}| + |\mathcal{E}|)$$
+
+Without caching, if node $v_{\text{model}} \in \mathcal{V}$ performs heavy model weight loading ($T_{\text{load}} \approx 2.5\text{s}$), the total re-run latency is dominated by:
+
+$$T_{\text{total}} = T_{\text{load}} + \sum_{v_i \in \text{Path}(v_k)} T_{\text{eval}}(v_i)$$
+
+Wrapping $v_{\text{model}}$ in `@st.cache_resource` reduces $T_{\text{load}}$ from $2.5\text{s}$ to $O(1)$ memory pointer dereference ($<0.01\text{ms}$).
+
+---
+
+### 2.2 Amdahl's Law and Cache Latency Speedup Ratio
+
+The latency speedup $S_{\text{latency}}$ obtained by caching expensive model and vector store initializations follows **Amdahl's Law**:
+
+$$S(h) = \frac{1}{(1 - h) + \frac{h}{S_{\text{resource}}}}$$
+
+Where:
+- $h \in [0, 1]$: Cache hit rate across user interactions.
+- $S_{\text{resource}} = \frac{T_{\text{cold}}}{T_{\text{warm}}}$: Speedup ratio of the cached component.
+
+For an application where model initialization takes $T_{\text{cold}} = 3000\text{ms}$ and cached lookup takes $T_{\text{warm}} = 0.05\text{ms}$, $S_{\text{resource}} \approx 60,000$. With a cache hit rate of $h = 0.95$, the effective end-to-end interactive speedup is:
+
+$$S(0.95) \approx \frac{1}{(1 - 0.95) + \frac{0.95}{60000}} = \frac{1}{0.05} = 20\times$$
+
+---
+
+### 2.3 Content-Addressable Storage (CAS) Merkle Tree Mathematics in Git
+
+Git is mathematically a **Directed Acyclic Graph of Content-Addressable Objects** using cryptographic SHA-1 / SHA-256 hashes.
+
+Every entity is hashed using a standardized payload prefix:
+
+1. **Blob Object (File Content):**
+   $$\text{Hash}_{\text{blob}} = \text{SHA-1}\left( \text{"blob "} + \text{len}(\text{content}) + \backslash 0 + \text{content} \right)$$
+2. **Tree Object (Directory Listing):**
+   $$\text{Hash}_{\text{tree}} = \text{SHA-1}\left( \text{"tree "} + \text{len}(\text{entries}) + \backslash 0 + \sum_{i} (\text{mode}_i + \text{" "} + \text{name}_i + \backslash 0 + \text{hash}_i) \right)$$
+3. **Commit Object (Atomic Snapshot):**
+   $$\text{Hash}_{\text{commit}} = \text{SHA-1}\left( \text{"commit "} + \text{len}(\dots) + \backslash 0 + \text{tree\_hash} + \text{parent\_hash} + \text{author} + \text{msg} \right)$$
+
+Because hashes are content-addressable, identical file contents share identical hashes, enabling instant deduplication.
+
+---
+
+### 2.4 Git LFS Pointer Storage Economics: O(1) vs O(Data) Cloning
+
+When committing a 4 GB model weight into standard Git:
+- Every modification commits a full binary delta into `.git/objects/`.
+- Repository cloning size grows with history:
+  $$\text{Repo Size}_{\text{standard}} = \sum_{t=1}^T \text{Size}(\text{Model}_t) = O(T \cdot \text{Size})$$
+
+With **Git LFS**, Git stores a tiny 130-byte pointer file:
+
+```text
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d87b32a76ef48231c62981db8948194cf3519c7a6e709a321948ef1891bca72
+size 4294967296
+```
+
+The Git repository size remains strictly **$O(1)$** in Git metadata space, downloading the 4 GB payload over HTTP only when explicitly checked out.
+
+---
+
+## Part 3: Java & Spring Boot Developer Bridge ☕
+
+### 3.1 Conceptual Mapping: Python MLOps vs Spring Boot / JVM Ecosystem
+
+| Python AI Development Pattern | Java / Spring Boot Equivalent | Architectural Difference |
+| :--- | :--- | :--- |
+| `venv` / `poetry` / `site-packages` | Maven `pom.xml` / Gradle `build.gradle.kts` + `~/.m2` | Maven isolates dependencies per artifact repository; Python traditionally isolates per project virtual environment directory. |
+| `poetry.lock` / `requirements.lock` | Gradle `gradle.lockfile` / Maven Dependency Verification | Both produce cryptographic SHA-256 checksums to ensure reproducible build resolution. |
+| Streamlit reactive UI | Vaadin (server-driven UI) / Thymeleaf / Spring MVC + React | Streamlit re-runs the full script on event triggers; Vaadin executes event listeners over a stateful WebSocket connection. |
+| `st.session_state` | Spring `@SessionScope` bean / `HttpSession` | Spring scopes beans to HTTP sessions via servlet containers; Streamlit manages browser session state in Python memory. |
+| `@st.cache_resource` | Spring `@Bean` (Default Singleton Scope) | Spring manages singletons in the ApplicationContext IoC container; Streamlit caches via function signature hashing. |
+| `@st.cache_data` | Spring `@Cacheable` (with Caffeine / Redis) | Spring provides declarative cache eviction via annotations and cache managers. |
+
+---
+
+### 3.2 Dependency & Build Systems: Maven/Gradle vs Poetry/pyproject.toml
+
+In Java, dependencies and build steps are declared in `pom.xml`:
+
+```xml
+<!-- Maven pom.xml Equivalent -->
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.ai</groupId>
+        <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
+        <version>1.0.0-M1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+</dependencies>
+```
+
+In Python, `pyproject.toml` handles dependencies, virtual environment configuration, and tool settings (Ruff, Pytest) in a single unified manifest.
+
+---
+
+### 3.3 Streamlit Reactive Model vs Spring MVC, Vaadin & Thymeleaf
+
+- **Java Vaadin:** Vaadin is the closest JVM equivalent to Streamlit. You write pure Java UI components (`Button`, `Grid`, `TextField`), and Vaadin communicates with the browser over WebSockets. However, Vaadin uses standard event listeners:
+  ```java
+  // Java Vaadin Event-Driven Model
+  Button sendBtn = new Button("Send", e -> {
+      chatHistory.add(new Message(inputField.getValue()));
+  });
+  ```
+- **Streamlit:** Completely eliminates event listener boilerplate. It re-runs the entire Python script sequentially, checking `if prompt := st.chat_input():` on each pass.
+
+---
+
+### 3.4 State & Cache Management: Spring @SessionScope & @Cacheable vs Streamlit
+
+In Spring Boot, session persistence and model caching are managed via IoC annotations:
+
+```java
+// Spring Boot Stateful Session & Model Singleton
+@Component
+@SessionScope
+public class UserConversationSession {
+    private final List<ChatMessage> history = new ArrayList<>();
+    // Persists across requests for this specific browser session
+}
+
+@Configuration
+public class AiModelConfig {
+    @Bean
+    @Scope("singleton") // Analogous to @st.cache_resource
+    public VectorStore vectorStore(EmbeddingModel embeddingModel) {
+        return new SimpleVectorStore(embeddingModel);
+    }
+}
+```
+
+---
+
+## Part 4: Hands-On Implementation & Practice Exercises 🧪
+
+### Exercise 1 (Beginner): Deterministic Dependency Manifest & Lockfile Validator
+
+Build a pure-Python dependency auditor that parses dependency declarations, validates semantic version constraints, and audits cryptographic SHA-256 checksums to detect tampered wheels.
+
+```python
+"""
+Exercise 1: Deterministic Dependency Manifest & Lockfile Validator
+Level: Beginner
+Objective: Parse dependency ranges and audit cryptographic SHA-256 lockfile checksums.
+"""
+import hashlib
+import re
+from typing import Dict, List, Tuple
+
+class DependencyValidator:
+    def __init__(self):
+        # Simulated verified package registry with cryptographic hashes
+        self.registry = {
+            "langchain": {"version": "0.2.14", "sha256": "4a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b"},
+            "chromadb": {"version": "0.5.5", "sha256": "9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e"},
+            "streamlit": {"version": "1.38.0", "sha256": "11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff"}
+        }
+
+    def verify_lockfile_integrity(self, lockfile_records: List[Dict[str, str]]) -> Tuple[bool, List[str]]:
+        """Audits package records against expected cryptographic checksums."""
+        violations = []
+        for pkg in lockfile_records:
+            name = pkg.get("name")
+            version = pkg.get("version")
+            provided_hash = pkg.get("sha256")
+
+            if name not in self.registry:
+                violations.append(f"Unregistered package detected: {name}")
+                continue
+
+            expected = self.registry[name]
+            if expected["version"] != version:
+                violations.append(f"Version mismatch for {name}: expected {expected['version']}, got {version}")
+            if expected["sha256"] != provided_hash:
+                violations.append(f"TAMPER WARNING: SHA-256 checksum mismatch for {name}!")
+
+        is_valid = len(violations) == 0
+        return is_valid, violations
+
+# Demonstration
+if __name__ == "__main__":
+    validator = DependencyValidator()
+    
+    mock_lockfile = [
+        {"name": "langchain", "version": "0.2.14", "sha256": "4a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b"},
+        {"name": "chromadb", "version": "0.5.5", "sha256": "CORRUPTED_TAMPERED_HASH_HERE"},
+        {"name": "streamlit", "version": "1.38.0", "sha256": "11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff"}
+    ]
+
+    is_secure, issues = validator.verify_lockfile_integrity(mock_lockfile)
+    print("=== DEPENDENCY INTEGRITY AUDIT ===")
+    print(f"Lockfile Verified: {is_secure}")
+    if not is_secure:
+        print("Security Violations Flagged:")
+        for issue in issues:
+            print(f"  ❌ {issue}")
+```
+
+---
+
+### Exercise 2 (Intermediate): Pure-Python Git Merkle Tree & Content Hasher
+
+Demystify Git internals by implementing pure-Python SHA-1 Content-Addressable Storage (CAS) for Git Blobs, Tree directories, and Commit objects from scratch.
+
+```python
+"""
+Exercise 2: Pure-Python Git Merkle Tree & Content Hasher
+Level: Intermediate
+Objective: Compute exact Git SHA-1 hashes for blobs, trees, and commits.
+"""
+import hashlib
+from typing import List, Tuple
+
+class GitObjectEngine:
+    @staticmethod
+    def hash_blob(content: str) -> Tuple[str, bytes]:
+        """Calculates exact Git SHA-1 hash for a file blob: sha1('blob ' + size + '\0' + content)."""
+        content_bytes = content.encode("utf-8")
+        header = f"blob {len(content_bytes)}\0".encode("utf-8")
+        payload = header + content_bytes
+        sha1 = hashlib.sha1(payload).hexdigest()
+        return sha1, payload
+
+    @staticmethod
+    def hash_tree(entries: List[Tuple[str, str, str]]) -> Tuple[str, bytes]:
+        """
+        Calculates Git Tree SHA-1 hash from entries: (mode, filename, sha1_hex).
+        Format: 'tree ' + size + '\0' + [mode filename\0binary_sha1]...
+        """
+        body = bytearray()
+        for mode, name, hex_sha1 in entries:
+            body.extend(f"{mode} {name}\0".encode("utf-8"))
+            body.extend(bytes.fromhex(hex_sha1))
+            
+        header = f"tree {len(body)}\0".encode("utf-8")
+        payload = header + body
+        return hashlib.sha1(payload).hexdigest(), payload
+
+    @staticmethod
+    def hash_commit(tree_sha: str, parent_sha: str, author: str, message: str) -> str:
+        """Calculates Git Commit object hash."""
+        body = (
+            f"tree {tree_sha}\n"
+            f"parent {parent_sha}\n"
+            f"author {author} 1728468000 +0000\n"
+            f"committer {author} 1728468000 +0000\n\n"
+            f"{message}\n"
+        ).encode("utf-8")
+        header = f"commit {len(body)}\0".encode("utf-8")
+        return hashlib.sha1(header + body).hexdigest()
+
+# Demonstration
+if __name__ == "__main__":
+    engine = GitObjectEngine()
+    
+    # 1. Hash Python script file
+    blob_sha, _ = engine.hash_blob("import streamlit as st\nst.title('AI App')")
+    print(f"Git Blob SHA-1  : {blob_sha}")
+
+    # 2. Hash Directory Tree
+    tree_sha, _ = engine.hash_tree([("100644", "app.py", blob_sha)])
+    print(f"Git Tree SHA-1  : {tree_sha}")
+
+    # 3. Hash Commit
+    commit_sha = engine.hash_commit(
+        tree_sha=tree_sha,
+        parent_sha="0000000000000000000000000000000000000000",
+        author="Lead AI Engineer <engineer@enterprise.ai>",
+        message="feat: initialize production Streamlit app"
+    )
+    print(f"Git Commit SHA-1: {commit_sha}")
+```
+
+---
+
+### Exercise 3 (Advanced): Reactive Streamlit State Machine & Multi-Turn Chat Simulator
+
+Simulate Streamlit's reactive re-run machine in pure Python, demonstrating how user widget interactions trigger full script re-runs while `session_state` preserves conversation memory and streams responses.
+
+```python
+"""
+Exercise 3: Reactive Streamlit State Machine & Multi-Turn Chat Simulator
+Level: Advanced
+Objective: Emulate Streamlit's script re-run execution loop and session_state persistence.
+"""
+import time
+from typing import Dict, Any, List, Generator
+
+class SimulatedStreamlitSession:
+    def __init__(self):
+        self.session_state: Dict[str, Any] = {}
+        self.rerun_count = 0
+
+    def initialize_state(self):
+        if "messages" not in self.session_state:
+            self.session_state["messages"] = [
+                {"role": "assistant", "content": "System initialized. How can I assist you?"}
+            ]
+
+    def script_execution_pass(self, user_input: str = None) -> List[Dict[str, str]]:
+        """Simulates top-to-bottom execution of app.py on a user interaction event."""
+        self.rerun_count += 1
+        self.initialize_state()
+
+        if user_input:
+            # 1. Append user prompt
+            self.session_state["messages"].append({"role": "user", "content": user_input})
+            
+            # 2. Generate simulated assistant response tokens
+            assistant_reply = f"Processed query '{user_input}' via Clinical Knowledge Graph."
+            self.session_state["messages"].append({"role": "assistant", "content": assistant_reply})
+
+        return self.session_state["messages"]
+
+# Demonstration
+if __name__ == "__main__":
+    st_app = SimulatedStreamlitSession()
+
+    print("--- User Action 1: Initial Page Load ---")
+    history_pass1 = st_app.script_execution_pass()
+    print(f"Re-Run Pass #{st_app.rerun_count} | Messages Count: {len(history_pass1)}")
+    print(f"Active History: {history_pass1}\n")
+
+    print("--- User Action 2: User types 'Check drug interactions' ---")
+    history_pass2 = st_app.script_execution_pass(user_input="Check drug interactions")
+    print(f"Re-Run Pass #{st_app.rerun_count} | Messages Count: {len(history_pass2)}")
+    for idx, msg in enumerate(history_pass2, 1):
+        print(f"  [{idx}] {msg['role'].upper()}: {msg['content']}")
+```
+
+---
+
+### Exercise 4 (Expert): Production Two-Tier Caching Decorator with LRU & Singleton Management
+
+Implement custom decorators mimicking Streamlit's `@st.cache_data` (deep-copy data serialization with TTL) and `@st.cache_resource` (singleton memory pointer persistence with thread safety).
+
+```python
+"""
+Exercise 4: Production Two-Tier Caching Decorator with LRU & Singleton Management
+Level: Expert
+Objective: Implement cache_data and cache_resource equivalents with TTL and thread safety.
+"""
+import copy
+import functools
+import threading
+import time
+from typing import Dict, Tuple, Any, Callable
+
+def cache_resource(func: Callable) -> Callable:
+    """Emulates @st.cache_resource: Singleton pointer persistence without copying."""
+    singleton_store: Dict[str, Any] = {}
+    lock = threading.Lock()
+
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        key = func.__name__
+        with lock:
+            if key not in singleton_store:
+                singleton_store[key] = func(*args, **kwargs)
+            return singleton_store[key]
+
+    return wrapper
+
+def cache_data(ttl_seconds: int = 60):
+    """Emulates @st.cache_data: Deep-copy serialization with Time-To-Live (TTL)."""
+    data_store: Dict[Tuple, Tuple[float, Any]] = {}
+    lock = threading.Lock()
+
+    def decorator(func: Callable) -> Callable:
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            cache_key = (func.__name__, args, frozenset(kwargs.items()))
+            now = time.time()
+
+            with lock:
+                if cache_key in data_store:
+                    expiry, data = data_store[cache_key]
+                    if now < expiry:
+                        return copy.deepcopy(data)  # Return independent copy
+                    del data_store[cache_key]
+
+                # Compute fresh
+                fresh_result = func(*args, **kwargs)
+                data_store[cache_key] = (now + ttl_seconds, fresh_result)
+                return copy.deepcopy(fresh_result)
+
+        return wrapper
+    return decorator
+
+# Demonstration
+@cache_resource
+def load_massive_vector_store():
+    time.sleep(0.5)  # Simulate heavy disk I/O
+    return {"engine": "ChromaDB", "vectors_count": 100000}
+
+@cache_data(ttl_seconds=2)
+def query_clinical_terms(term: str):
+    return {"search_term": term, "timestamp": time.time()}
+
+if __name__ == "__main__":
+    print("=== CACHE_RESOURCE (SINGLETON) BENCHMARK ===")
+    t0 = time.time()
+    db1 = load_massive_vector_store()
+    t_cold = time.time() - t0
+    print(f"Cold Call: {t_cold:.4f}s")
+
+    t1 = time.time()
+    db2 = load_massive_vector_store()
+    t_warm = time.time() - t1
+    print(f"Warm Call: {t_warm:.6f}s (Identical Object: {db1 is db2})")
+
+    print("\n=== CACHE_DATA (SERIALIZED COPY WITH TTL) BENCHMARK ===")
+    res1 = query_clinical_terms("hypertension")
+    res2 = query_clinical_terms("hypertension")
+    print(f"Deep Copy Check: {res1 is not res2} (Separate memory copies)")
+```
+
+---
+
+## Part 5: Production Engineering, Edge Cases & Failure Modes ⚙️ ⚡
+
+### 5.1 Leaking API Keys to Public GitHub Repositories (The GitLeaks Defense)
+
+- **The Threat:** Automated scraper bots scan GitHub commits within 30 seconds of push. A leaked API key can result in thousands of dollars in fine-tuning abuse or unauthorized token usage.
+- **Defensive Safeguards:**
+  1. Add `.env` and `.streamlit/secrets.toml` to `.gitignore`.
+  2. Install `gitleaks` as a mandatory pre-commit hook (`gitleaks protect --staged`).
+  3. Enable **GitHub Secret Scanning & Push Protection** in repository security settings to reject pushes containing high-entropy keys.
+
+---
+
+### 5.2 The Re-Run Trap: Expensive Model Reloads on Every Widget Click
+
+If a developer places model or vector store initializations in the top-level script without caching:
+- Every keystroke in a text input or click on a button triggers a full script re-run, reloading hundreds of megabytes of embeddings into RAM.
+- **Fix:** Always isolate stateful objects inside `@st.cache_resource`.
+
+---
+
+### 5.3 Streamlit Concurrency Limitations: Single-Process GIL vs FastAPI Decoupling
+
+- **Limitation:** Streamlit runs as a single Python process. High-concurrency enterprise traffic (e.g. 500 simultaneous users) saturates Python's Global Interpreter Lock (GIL).
+- **Production Architecture:**
+  - Run Streamlit purely as a lightweight front-end UI.
+  - Offload heavy LLM reasoning and vector searches to a scalable **FastAPI / vLLM backend cluster** running behind an NGINX load balancer on Kubernetes.
+
+---
+
+### 5.4 Secrets Management: `.streamlit/secrets.toml` vs Environment Variables
+
+- **Local Development:** Store local credentials in `.streamlit/secrets.toml` (never committed to git) or `.env`.
+- **Cloud & Container Production:** Inject credentials via standard container environment variables (`OPENAI_API_KEY`). Streamlit seamlessly resolves `st.secrets["KEY"]` to matching OS environment variables.
+
+---
+
+### 5.5 Enterprise Case Study: Building an Internal Legal Contract Review Copilot
+
+- **Business Scenario:** A corporate legal department handles 2,000 vendor agreements per month. Attorneys spend 6 hours per contract manually searching for indemnity clauses and non-compete liabilities.
+- **System Architecture:**
+  1. **Dependencies:** `pyproject.toml` with pinned lockfile (`langchain`, `chromadb`, `streamlit`, `pdfplumber`).
+  2. **Version Control:** Enforced conventional commits (`feat: add clause extraction`) and Git LFS for contract datasets.
+  3. **Streamlit UI:** 3-column layout featuring PDF upload with real-time rendering, risk radar charts, and conversational SBAR chat.
+  4. **Outcome:** Turnaround dropped from 6 hours to 20 minutes, with zero dependency drift across the 15-person engineering team.
+
+---
+
+## Part 6: Video Masterclasses, Lab Suites & Review Questions 🎬
+
+### 6.1 Telugu Tech Masterclasses & Global Visual 3D Animations
+
+To solidify your intuitive and architectural grasp of modern development workflows, Git collaboration, and Streamlit front-ends, study these curated video resources:
+
+```
++---------------------------------------------------------------------------------------------------+
+|                               CURATED MASTERCLASSES & BENCHMARKS                                  |
++---------------------------------------------------------------------------------------------------+
+```
+
+#### 🌟 Telugu Tech Masterclasses (Local Language Foundation)
+- **Python Life Telugu — Git & GitHub Complete Tutorial in Telugu:** Master Git version control, branching, merge conflicts, and GitHub repository management in Telugu. (Search: `Python Life Telugu Git GitHub Tutorial`).
+- **Vamsi Bhavani — Streamlit Full Course in Telugu:** Step-by-step guide to building interactive web applications and AI dashboards using Streamlit in Telugu. (Search: `Vamsi Bhavani Streamlit Full Course`).
+- **Telugu Tech Tutorials — Virtual Environments & Package Management:** Practical walkthrough of Python `venv`, `pip`, and project directory organization. (Search: `Telugu Tech Tutorials Python Virtual Environment`).
+
+#### 🎨 Global Visual 3D Animations & Deep-Dive Lectures
+- **freeCodeCamp.org — AI Agents For Beginners:** Modular engineering architecture, tools, and user interface integration. [Watch on YouTube](https://www.youtube.com/watch?v=xM7E_Of1J80)
+- **freeCodeCamp.org — LangChain Crash Course for Beginners:** Building end-to-end applications, connecting chains to front-ends, and dependency management. [Watch on YouTube](https://www.youtube.com/watch?v=kYRB-v9z610)
+- **Andrej Karpathy — State of GPT:** LLM engineering lifecycle, System 1 vs System 2 thinking, and production deployment considerations. [Watch on YouTube](https://www.youtube.com/watch?v=bZQun8Y4L2A)
+- **ByteByteGo — How Git Works Under the Hood (Blobs, Trees, Commits):** 3D animated architectural explanation of Git's content-addressable storage, SHA-1 Merkle trees, and pointer mechanics. (Search: `ByteByteGo How Git Works Under the Hood`).
+
+---
+
+### 6.2 Complete Hands-On Lab Walkthrough
+
+The companion production lab script [`code/development_workflow_streamlit_lab.py`](file:///c:/Users/sriva/OneDrive/Desktop/GEN%20AI%20COURSE/6.%20End-to-End%20Development%20&%20MLOps/code/development_workflow_streamlit_lab.py) contains a full, standalone, battle-tested implementation with 5 comprehensive experiments:
 
 ```
 6. End-to-End Development & MLOps/
@@ -668,60 +792,20 @@ The companion production lab script [`code/development_workflow_streamlit_lab.py
 │   ├── medical_chatbot_architecture_lab.py     <-- Lab 01 (Clinical Architecture & MLOps)
 │   └── development_workflow_streamlit_lab.py   <-- Lab 02 (Dev Workflow & Streamlit State Lab)
 ├── Application Architecture - Building complex systems, such as the Medical Chatbot, from concept to implementation.md
+├── Deployment - Strategies for testing, deploying, and operationalizing Generative AI applications for production use.md
 └── Development Workflow - Managing dependencies, version control with Git and GitHub, and building front-end interfaces with Streamlit.md
 ```
 
-### The 5 Lab Experiments:
-
-```
-+-------------------------------------------------------------------------------------------------+
-|                                 LAB EXPERIMENTS OVERVIEW                                        |
-+-------------------------------------------------------------------------------------------------+
-|                                                                                                 |
-|  Experiment 1: Declarative Dependency Manifest & Lockfile Cryptographic Validator              |
-|                Parses pyproject.toml schemas, verifies dependency ranges, and audits lockfile   |
-|                cryptographic SHA-256 integrity hashes to guarantee reproducible builds.        |
-|                                                                                                 |
-|  Experiment 2: Git Repository Hygiene & Pre-Commit Secret Shielding Simulator                  |
-|                Simulates an automated pre-commit hook that scans code files for leaked API keys |
-|                (OpenAI, Anthropic, Hugging Face) and validates conventional commit messages.    |
-|                                                                                                 |
-|  Experiment 3: Streamlit Reactive Re-Run Engine & Session State Simulator                      |
-|                Implements a pure Python simulation of Streamlit's reactive execution loop,      |
-|                demonstrating persistent multi-turn chat memory across full script re-runs.     |
-|                                                                                                 |
-|  Experiment 4: Resource Caching Benchmark (`@st.cache_resource` Simulation)                     |
-|                Measures latency differences between un-cached model instantiations (2.5s delay) |
-|                versus singleton cached resource access (<0.01ms), proving re-run optimization.  |
-|                                                                                                 |
-|  Experiment 5: End-to-End Conversational UI Pipeline with Streaming Generator                  |
-|                Simulates real-time token streaming (`st.write_stream`), message rendering, and  |
-|                structured clinical disclaimer injection into active session state.              |
-|                                                                                                 |
-+-------------------------------------------------------------------------------------------------+
-```
+#### Overview of the 5 Lab Experiments:
+1. **Experiment 1: Declarative Dependency Manifest & Lockfile Cryptographic Validator** — Parses `pyproject.toml` schemas, verifies dependency ranges, and audits lockfile SHA-256 integrity hashes to guarantee reproducible builds.
+2. **Experiment 2: Git Repository Hygiene & Pre-Commit Secret Shielding Simulator** — Simulates an automated pre-commit hook that scans code files for leaked API keys (OpenAI, Anthropic, Hugging Face) and validates conventional commit messages.
+3. **Experiment 3: Streamlit Reactive Re-Run Engine & Session State Simulator** — Implements a pure Python simulation of Streamlit's reactive execution loop, demonstrating persistent multi-turn chat memory across full script re-runs.
+4. **Experiment 4: Resource Caching Benchmark (`@st.cache_resource` Simulation)** — Measures latency differences between un-cached model instantiations (2.5s delay) versus singleton cached resource access ($<0.01\text{ms}$), proving re-run optimization.
+5. **Experiment 5: End-to-End Conversational UI Pipeline with Streaming Generator** — Simulates real-time token streaming (`st.write_stream`), message rendering, and structured clinical disclaimer injection into active session state.
 
 ---
 
-## 12. Curated Video Walkthroughs & Visual Animations
-
-To reinforce your understanding of modern development workflows, Git collaboration, and Streamlit front-end engineering, watch these industry-standard educational lectures:
-
-```
-+-------------------------------------------------------------------------------------------------+
-|                             CURATED VIDEO LECTURES & BENCHMARKS                                 |
-+-------------------------------------------------------------------------------------------------+
-```
-
-| Video Title | Creator / Channel | Verified URL | Core Concepts Covered |
-| :--- | :--- | :--- | :--- |
-| **AI Agents For Beginners** | freeCodeCamp | [youtu.be/xM7E_Of1J80](https://www.youtube.com/watch?v=xM7E_Of1J80) | Engineering architecture, modular agent components, tools, and user interface integration. |
-| **LangChain Crash Course for Beginners** | freeCodeCamp | [youtu.be/kYRB-v9z610](https://www.youtube.com/watch?v=kYRB-v9z610) | Building end-to-end applications, connecting chains to front-ends, and dependency management. |
-| **State of GPT** | Andrej Karpathy | [youtu.be/bZQun8Y4L2A](https://www.youtube.com/watch?v=bZQun8Y4L2A) | LLM engineering lifecycle, System 1 vs System 2 thinking, and production deployment considerations. |
-
----
-
-## 13. Self-Assessment & Review Questions
+### 6.3 Comprehensive Self-Assessment & Review Questions
 
 Test your architectural understanding of development workflows, Git/GitHub, and Streamlit. Click each question to expand the comprehensive explanation.
 
@@ -783,13 +867,16 @@ Test your architectural understanding of development workflows, Git/GitHub, and 
 
 ---
 
-## 14. Summary & Key Takeaways
+### 6.4 Key Takeaways & Architectural Checklist
 
-1. **Notebooks are for Exploration; Packages are for Production:** Move core AI logic out of loose Jupyter notebooks into modular, linted Python packages governed by `pyproject.toml`.
-2. **Lock Your Dependencies:** Never rely on unpinned requirements in production. Commit cryptographic lockfiles to guarantee 100% build reproducibility across all deployment targets.
-3. **Shield Your Secrets:** Configure comprehensive `.gitignore` rules, enforce pre-commit secret scanners (Gitleaks), and inject API keys exclusively via environment variables or `.streamlit/secrets.toml`.
-4. **Track Binaries with Git LFS:** Never commit raw model checkpoints (`.safetensors`, `.gguf`) to standard Git. Use Git LFS or Hugging Face Hub model registries.
-5. **Master the Streamlit Reactive Loop:** Streamlit re-runs from top to bottom on every user interaction. Persist chat history in `st.session_state` and cache heavy models/vector stores with `@st.cache_resource`.
+| Architectural Check | Implementation Standard | Status |
+| :--- | :--- | :--- |
+| **Deterministic Dependencies** | Declare in `pyproject.toml`; lock cryptographically with lockfiles | ✅ Verified |
+| **Secret Shielding** | Block API key leaks via pre-commit hooks (Gitleaks) & push protection | ✅ Verified |
+| **Binary Tracking** | Track `.safetensors`, `.gguf`, and large data files via Git LFS | ✅ Verified |
+| **Streamlit State Management** | Preserve chat history in `st.session_state`; stream tokens with `st.write_stream` | ✅ Verified |
+| **Performance Caching** | Wrap stateful models in `@st.cache_resource`; data in `@st.cache_data` | ✅ Verified |
+| **Production Decoupling** | Use Streamlit for presentation; offload inference to FastAPI / vLLM backends | ✅ Verified |
 
 ---
 

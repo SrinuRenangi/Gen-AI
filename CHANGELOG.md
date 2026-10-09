@@ -687,6 +687,48 @@ All changes made to the course structure, files, and content are recorded here w
   - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*Computerphile*, *NeetCode*, *Corey Schafer*, *mCoding*, *ArjanCodes*).
   - Review Q&A covering AST execution security, hidden test case design, Pydantic type safety, and thread timeout enforcement.
 
+### 📄 Project 02: `08_Capstone_Projects/02_Clinical_Medical_Chatbot_Project.md`
+- **Status**: Completed & Verified.
+- **Content**:
+  - Restructured into standardized 6-part syllabus structure with zero data loss.
+  - Added real-world intuitions: The Emergency Room Triage Command Center, The Privacy & Records Clerk, The Chief Medical Librarian, The Attending Physician, and The Legal Counsel.
+  - Explicit Java & Spring Boot developer bridges:
+    - Ingress PHI Redaction vs Spring Security `OncePerRequestFilter` / HIPAA Interceptor.
+    - Deterministic Emergency Triage Circuit Breaker vs Resilience4j `CircuitBreaker` & Spring `HandlerInterceptor`.
+    - Pydantic `SBARClinicalPayload` vs Java 21 `record` + Jakarta Bean Validation (`@Valid`, `@NotNull`).
+    - HL7 FHIR (Fast Healthcare Interoperability Resources) JSON vs HAPI FHIR (`FhirContext`, `Patient`, `Observation`).
+    - Hybrid Knowledge Retrieval (BM25 + RRF) vs Spring AI `VectorStore` + Elasticsearch / Lucene BM25 integration.
+    - Streamlit clinical UI vs Spring Boot + Vaadin / React with Carbon Health Design System.
+  - Deep mathematical foundations & system architectures:
+    - Okapi BM25 Lexical Keyword scoring formula with saturation and document length normalization ($k_1=1.5, b=0.75$).
+    - Reciprocal Rank Fusion (RRF) formula: $\text{RRF}(d) = \sum_{m \in M} \frac{1}{k + r_m(d)}$ with mathematical proof for Cormack's smoothing parameter $k=60$.
+    - HIPAA Safe Harbor 18 De-Identification Vectors (45 CFR § 164.514(b)(2)).
+    - SBAR (Situation, Background, Assessment, Recommendation) hospital clinical documentation framework.
+    - RAGAS Clinical Hallucination & Faithfulness scoring formulations.
+  - Production MLOps & Security Hardening:
+    - HIPAA compliance, Business Associate Agreements (BAA) with cloud providers (AWS Bedrock, Azure OpenAI), and Zero-Data Retention (ZDR) mandates.
+    - Multi-stage Docker containerization running under non-root users with health check endpoints.
+    - Guardrail telemetry monitoring for red-flag trigger frequencies and RAGAS faithfulness drift.
+  - Preserved and linked visual assets:
+    - `assets/05_medical_chatbot_architecture.jpg`
+    - `assets/06_clinical_rag_pipeline.jpg`
+  - Created complete 8-file companion runnable codebase in [`08_Capstone_Projects/code/medical_chatbot/`](file:///c:/Users/sriva/OneDrive/Desktop/GEN%20AI%20COURSE/08_Capstone_Projects/code/medical_chatbot/):
+    - `models.py` (Pydantic schemas with statutory disclaimer validation)
+    - `triage_guard.py` (HIPAA PHI scrubber + acute emergency circuit breaker)
+    - `hybrid_retriever.py` (Okapi BM25 + dense semantic RRF retriever)
+    - `clinical_engine.py` (Clinical reasoning engine supporting OpenAI, Gemini, and offline mock)
+    - `app.py` (Interactive Streamlit clinical decision support dashboard)
+    - `demo.py` (Automated 5-experiment verification suite)
+    - `requirements.txt` & `README.md`
+  - 4 Progressive Hands-On Practice Exercises with complete, runnable Python solutions:
+    1. HL7 FHIR Patient Resource Ingestion & Parser (`parse_fhir_bundle`).
+    2. Deterministic Drug-Drug Interaction (DDI) Safety Interceptor (`check_drug_interactions`).
+    3. Continuous Clinical Faithfulness & Hallucination Auditing Engine (`evaluate_clinical_faithfulness`).
+    4. Encrypted HIPAA Audit Log with Tamper-Evident SHA-256 Hashing (`HIPAAAuditChain`).
+  - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *StatQuest*, *freeCodeCamp.org*, *DeepLearning.AI*).
+  - Review Q&A covering deterministic triage vs LLMs, RRF smoothing parameter $k=60$, HIPAA minimum necessary standards, and premature diagnostic closure mitigation.
+
+
 
 
 

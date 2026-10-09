@@ -495,6 +495,34 @@ All changes made to the course structure, files, and content are recorded here w
   - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
   - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *freeCodeCamp*, *Andrej Karpathy*).
 
+### 📄 File 02: `6. End-to-End Development & MLOps/Application Architecture - Building complex systems, such as the Medical Chatbot, from concept to implementation.md`
+- **Status**: Completed & Verified.
+- **Content**:
+  - Restructured into standardized 6-part template with zero data loss.
+  - Added real-world intuitions (Hospital Triage Nurse, Sterile Isolation Airlock, Intensive Care Board of Specialists, Legal Electronic Health Record Notary).
+  - Explicit Java & Spring Boot comparisons (Spring Security OAuth2/JWT/RBAC vs Python auth middleware, Spring Cloud Gateway / Servlet WebFilter inbound PHI scrubbing and triage circuit breaker vs Python FastAPI middleware, Spring WebFlux `Flux<ServerSentEvent<String>>` vs FastAPI async WebSockets streaming, Spring Session Data Redis with `@SessionScope` vs Redis session manager, Spring AI `ChatClient` with custom advisors vs LangChain RAG & SBAR structured output).
+  - Deep mathematical foundations & formulations:
+    1. Reciprocal Rank Fusion (RRF) algorithm: $RRF(d \in D) = \sum_{m \in M} \frac{1}{k + r_m(d)}$ with smoothing constant $k=60$.
+    2. Cross-Encoder Full Self-Attention Softmax Scoring: $s(q, d) = \sigma(\mathbf{W} \cdot \mathbf{h}_{\text{[CLS]}} + b)$.
+    3. RAGAS Evaluation Framework metrics: Faithfulness $F = \frac{|V|}{|C|}$, Answer Relevance $AR = \frac{1}{n} \sum \cos(\vec{E}_{g_i}, \vec{E}_o)$, Context Recall $CR = \frac{|S_{\text{GT}} \cap R_{\text{context}}|}{|S_{\text{GT}}|}$.
+    4. Emergency Triage Sensitivity & Latency Trade-Off Model: Total Triage Latency $T_{\text{total}} = T_{\text{regex}} + T_{\text{embed}} + T_{\text{ann}} + \mathbb{I}(\text{ambiguous}) \cdot T_{\text{LLM}}$.
+  - The 6-Layer Enterprise Clinical AI System Taxonomy:
+    1. Layer 1: Ingestion & Knowledge Base (PubMed Central, DSM-5, Clinical Practice Guidelines, domain-aware chunking).
+    2. Layer 2: Hybrid Retrieval (Dense PubMedBERT embeddings + MeSH BM25 lexical search + Cross-Encoder reranker).
+    3. Layer 3: Bidirectional Safety Firewall (Inbound Presidio PHI anonymization, acute emergency triage circuit breaker, outbound dosage verification).
+    4. Layer 4: Reasoning & Synthesis Engine (Clinical SBAR prompt contract: Situation, Background, Assessment, Recommendation, structured Pydantic schemas, pertinent negatives).
+    5. Layer 5: Delivery & API Gateway (FastAPI async, WebSockets real-time token streaming, Redis multi-turn consultation memory).
+    6. Layer 6: MLOps, Observability & Continuous Auditing (Multi-stage non-root Docker, Prometheus metrics, LangSmith distributed tracing, RAGAS automated evaluations, 500-case synthetic clinical regression testing).
+  - Preserved embedded verified asset diagrams: `assets/01_medical_chatbot_architecture.jpg`, `assets/02_clinical_rag_pipeline.jpg`, `assets/03_docker_mlops_deployment.jpg`.
+  - Complete companion lab reference [`code/medical_chatbot_architecture_lab.py`](file:///c:/Users/sriva/OneDrive/Desktop/GEN%20AI%20COURSE/6.%20End-to-End%20Development%20&%20MLOps/code/medical_chatbot_architecture_lab.py) and 4 hands-on coding exercises with complete runnable solutions:
+    1. Inbound PHI Anonymizer & Regex Sanitizer Engine with synthetic token reverser.
+    2. Acute Medical Emergency Triage Circuit Breaker with high-recall keyword and semantic matching.
+    3. Hybrid Clinical Retrieval Engine with Reciprocal Rank Fusion (RRF) and Cross-Encoder reranking.
+    4. End-to-End SBAR Clinical Reasoning & RAGAS Faithfulness Auditor.
+  - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
+  - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *freeCodeCamp*, *Andrej Karpathy*).
+
+
 
 
 

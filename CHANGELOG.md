@@ -548,6 +548,36 @@ All changes made to the course structure, files, and content are recorded here w
   - Master 15-point enterprise production readiness checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
   - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*ByteByteGo*, *freeCodeCamp*, *Andrej Karpathy*, *Docker*, *OpenTelemetry*).
 
+---
+
+## 📅 [2026-10-09] - Step 10: Module 07 Overhaul (Fine-Tuning & Model Customization)
+
+### 📄 File 01: `7. Fine-Tuning & Model Customization/01. Foundations of Fine-Tuning - Understanding Supervised Fine-Tuning, Memory Limits, and the SFT vs RAG vs Prompting Decision Matrix.md`
+- **Status**: Completed & Verified.
+- **Content**:
+  - Restructured into standardized 6-part template with zero data loss.
+  - Added real-world intuitions (The Super-Intelligent Intern with Zero Social Skills, Open-Book Exam vs Trade School vs Brief Email Directive, Moving Van Cargo Weight Limit for AdamW states, Exam Answer Sheet Highlighter for loss masking).
+  - Explicit Java & Spring Boot comparisons (Java Object / raw JDK class vs Spring `@Service` bean with validated contracts, method arguments / DTOs vs prompt context, Spring Data JPA / Hibernate dynamic querying vs RAG, AspectJ bytecode weaving / class patching vs weight fine-tuning, Hibernate `@Transient` / Jackson `@JsonIgnore` vs PyTorch `ignore_index=-100`, JVM heap tuning vs GPU VRAM AdamW partitioning).
+  - Deep mathematical foundations & formulations:
+    1. Causal Language Modeling (CLM) pre-training negative log-likelihood objective: $\mathcal{L}_{\text{pretrain}}(\theta) = -\sum_{t=1}^T \log P(x_t \mid x_{<t}; \theta)$.
+    2. Supervised Fine-Tuning Masked Cross-Entropy Loss (Target-Only Loss Masking): $\mathcal{L}_{\text{SFT}}(\theta) = -\frac{1}{|\mathcal{T}_{\text{response}}|} \sum_{t=p+1}^{p+m} \log P(x_t \mid x_{<t}; \theta)$ with label $\tilde{y}_t = -100$ ignoring prompt tokens.
+    3. Rigorous GPU VRAM Memory Accounting Formulation (The AdamW Memory Tax): $M_{\text{total}} = 2N + 2N + 8N + M_{\text{act}} = 12N + M_{\text{act}}$ (explaining why a 7B model requires $> 104\text{ GB}$ for Full SFT vs $\approx 4.7\text{ GB}$ for QLoRA 4-bit).
+    4. Direct Preference Optimization (DPO) closed-form objective derivation without reinforcement learning reward models.
+    5. The SFT vs RAG vs Prompting Quantitative Decision Function: $\mathcal{D}(\nu, \sigma, \tau)$.
+  - Deconstruction of the 3 Stages of the LLM Lifecycle (Pre-Training, SFT, Preference Alignment RLHF/DPO).
+  - Fine-Tuning flavors: Full Parameter Fine-Tuning (FFT) vs Parameter-Efficient Fine-Tuning (PEFT/LoRA) vs Quantized LoRA (QLoRA).
+  - SFT dataset schema standards: Alpaca single-turn format, ShareGPT multi-turn dialogue, and tokenized ChatML (`<|im_start|>`, `<|im_end|>`).
+  - Production engineering: Catastrophic forgetting and replay buffer mitigations, LIMA quality hypothesis (1,000 pristine pairs $> 50,000$ noisy pairs), ChatML template mismatch prevention, and precision formats (BF16 vs FP16 vs NF4).
+  - Preserved embedded verified asset diagram: `assets/01_finetuning_foundations_lifecycle.jpg`.
+  - Complete companion lab reference [`code/finetuning_foundations_lab.py`](file:///c:/Users/sriva/OneDrive/Desktop/GEN%20AI%20COURSE/7.%20Fine-Tuning%20&%20Model%20Customization/code/finetuning_foundations_lab.py) and 4 hands-on coding exercises with complete runnable solutions:
+    1. Base Model Autocomplete vs Instruct Model Dialogue Simulator.
+    2. Algorithmic Architecture Decision Engine (Prompting vs RAG vs SFT).
+    3. SFT Multi-Schema Dataset Validator & ChatML Compiler with Loss Masking.
+    4. Exact GPU VRAM Hardware Budget Calculator & Optimizer (Weights, Gradients, AdamW States, Activations).
+  - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
+  - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*Andrej Karpathy*, *StatQuest*, *DeepLearning.AI*, *IBM Technology*, *ByteByteGo*).
+
+
 
 
 

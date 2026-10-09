@@ -624,6 +624,31 @@ All changes made to the course structure, files, and content are recorded here w
   - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
   - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*Matthew Berman*, *StatQuest*, *Hugging Face*, *Weights & Biases*, *ByteByteGo*).
 
+### 📄 File 04: `7. Fine-Tuning & Model Customization/04. Post-Training Lifecycle - Merging Adapters, Exporting Models, and Before-vs-After Performance Evaluation.md`
+- **Status**: Completed & Verified (Module 07 is now 100% Complete! 4/4 Files ✅).
+- **Content**:
+  - Restructured into standardized 6-part template with zero data loss.
+  - Added real-world intuitions (The Lens & Spectacles, Clip-on Sunglasses vs Permanent LASIK Surgery, Paperback Export & Portable Travel Flask, Blind Taste Test & Final Exam).
+  - Explicit Java & Spring Boot comparisons (AspectJ Compile-Time Bytecode Weaving vs `merge_and_unload()` weight fusion, Maven Central vs Hugging Face Hub, GraalVM Native Image AOT binary vs GGUF standalone binary in Ollama, Embedded Tomcat / Spring Boot Daemon vs Ollama local server, JUnit 5 Contract Testing vs Perplexity / Schema gates, Spring Cloud Contract vs LLM-as-a-Judge).
+  - Deep mathematical foundations & formulations:
+    1. Mathematical formulation of LoRA weight fusion: $\mathbf{W}_{\text{merged}} = \mathbf{W}_0 + \frac{\alpha}{r} (\mathbf{B} \cdot \mathbf{A})$ with proof of exact forward pass equivalence ($\epsilon < 10^{-10}$) and $O(1)$ GEMM acceleration.
+    2. Precision Invariance Theorem: proof of why weight merging must be executed in FP16/BF16, and why attempting to merge directly into 4-bit NF4 quantized bins causes catastrophic quantization distortion.
+    3. Perplexity ($\mathcal{P}$) mathematical derivation and geometric mean interpretation: $\mathcal{P}(W) = \exp(\mathcal{L})$, showing how a drop from $14.15 \to 3.78$ collapses effective vocabulary branching uncertainty by $73.3\%$.
+    4. LLM-as-a-Judge Pairwise Win-Rate ($\mathcal{WR}$) and Cohen's Kappa ($\kappa$) inter-rater reliability formulation against human expert ground truth.
+    5. GGUF k-Quantization binary sizing laws ($Q4\_K\_M, Q5\_K\_M, Q8\_0$).
+  - Multi-tenant adapter serving architecture in vLLM / S-LoRA (sharing 1 base model across 100 LoRA adapters).
+  - Security hardening: Why `.safetensors` replaces vulnerable pickle checkpoints (eliminating RCE attacks and enabling zero-copy `mmap`).
+  - Production engineering: LLM-as-a-Judge position and verbosity bias mitigations.
+  - Preserved embedded verified asset diagram: `assets/04_post_training_merge_eval.jpg`.
+  - Complete companion lab reference [`code/post_training_eval_lab.py`](file:///c:/Users/sriva/OneDrive/Desktop/GEN%20AI%20COURSE/7.%20Fine-Tuning%20&%20Model%20Customization/code/post_training_eval_lab.py) and 4 hands-on coding exercises with complete runnable solutions:
+    1. Lightweight LoRA Adapter Exporter & Manifest Serializer.
+    2. Pure-Python Adapter Weight Fusion Engine (`merge_and_unload` simulator).
+    3. GGUF Exporter Manifest & Ollama Modelfile Generator.
+    4. Before-vs-After Quantitative Evaluation Suite (Perplexity, Schema Compliance & LLM-as-a-Judge).
+  - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
+  - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*Prompt Engineering*, *Tech With Tim*, *DeepLearning.AI*, *ByteByteGo*).
+
+
 
 
 

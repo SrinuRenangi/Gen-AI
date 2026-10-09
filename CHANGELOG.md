@@ -600,6 +600,31 @@ All changes made to the course structure, files, and content are recorded here w
   - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
   - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*Yannic Kilcher*, *Umar Jamil*, *StatQuest*, *ByteByteGo*).
 
+### 📄 File 03: `7. Fine-Tuning & Model Customization/03. End-to-End Training Execution - Preparing Instruction Datasets, Configuring SFTTrainer, and Running the Training Loop.md`
+- **Status**: Completed & Verified.
+- **Content**:
+  - Restructured into standardized 6-part template with zero data loss.
+  - Added real-world intuitions (The Master Chef's Recipe Binder, Sequence Packing Bento Box, Tasting Spoon Penalty Score, Kitchen Movement Warmup & Cosine Decay).
+  - Explicit Java & Spring Boot comparisons (Spring Batch ETL Job vs `SFTTrainer` execution, `ItemReader`/`ItemProcessor`/`ItemWriter` vs Hugging Face dataset pipeline, chunk processing with `commit-interval="16"` vs micro-batching $M \times K = 16$, Spring Batch `StepExecutionListener` vs Hugging Face `TrainerCallback`, Spring Boot Actuator / Micrometer Prometheus vs Weights & Biases telemetry).
+  - Deep mathematical foundations & formulations:
+    1. Mathematical proof of equivalence between micro-batching with gradient accumulation and full-batch optimization ($\nabla_\theta \mathcal{L}(B) = \sum \frac{1}{K} \nabla \mathcal{L}_{\text{micro}}$ with delta $< 10^{-10}$).
+    2. Cosine Annealing with Linear Warmup Schedule Formula: piecewise derivation for $\eta_t$ during warmup and half-cosine decay.
+    3. Sequence Packing Efficiency & First-Fit Decreasing (FFD) Bin Packing formulation proving $75\%$ padding compute elimination and $3.5\times-4.0\times$ throughput speedup.
+    4. Gradient Checkpointing Memory-Compute Trade-Off: $O(L \cdot A) \to O(\sqrt{L} \cdot A)$ activation memory reduction ($50\%-65\%$ VRAM saved for $\approx 20\%$ compute overhead).
+  - Deconstruction of the 3 Phases of SFT Training Execution (Data Prep, SFTTrainer Loop, Loss Diagnostics).
+  - Production `TrainingArguments` blueprint: micro-batching, `gradient_accumulation_steps=8`, `paged_adamw_8bit`, `gradient_checkpointing=True`, `max_grad_norm=1.0`.
+  - Loss trajectory diagnostics: Healthy convergence vs Overfitting vs Loss explosion (`NaN` / spikes).
+  - Multi-GPU orchestration matrix: DDP vs FSDP vs DeepSpeed ZeRO-3.
+  - Preserved embedded verified asset diagram: `assets/03_sft_training_execution.jpg`.
+  - Complete companion lab reference [`code/sft_training_execution_lab.py`](file:///c:/Users/sriva/OneDrive/Desktop/GEN%20AI%20COURSE/7.%20Fine-Tuning%20&%20Model%20Customization/code/sft_training_execution_lab.py) and 4 hands-on coding exercises with complete runnable solutions:
+    1. Chat Template Engine & Tokenizer Integration (Training vs Inference formatting).
+    2. Sequence Packing Simulator (Eliminating Padding Waste via FFD).
+    3. Micro-Batching & Gradient Accumulation Numerical Equivalence Engine.
+    4. Learning Rate Scheduler & Training Loss Anomaly Detector.
+  - Master architectural checklist and 5 in-depth self-assessment questions with collapsible architectural explanations.
+  - Integrated **Telugu Video References** (*Python Life Telugu*, *Vamsi Bhavani*, *Telugu Tech Tutorials*) and **3D Visual Animations** (*Matthew Berman*, *StatQuest*, *Hugging Face*, *Weights & Biases*, *ByteByteGo*).
+
+
 
 
 
